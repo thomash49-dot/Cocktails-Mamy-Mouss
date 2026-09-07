@@ -1,0 +1,3211 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <meta name="theme-color" content="#111827">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="apple-mobile-web-app-title" content="Cocktails">
+
+  <title>Cocktails Mamy Mouss</title>
+
+  <style>
+
+    :root{
+
+      --bg:#f3f4f6;
+
+      --card:#ffffff;
+
+      --text:#111827;
+
+      --muted:#6b7280;
+
+      --border:#e5e7eb;
+
+      --dark:#111827;
+
+      --green:#15803d;
+
+      --red:#b91c1c;
+
+      --blue:#1d4ed8;
+
+      --orange:#b45309;
+
+      --red-bg:#fee2e2;
+
+      --shadow:0 8px 25px rgba(0,0,0,.08);
+
+    }
+
+    *{
+
+      box-sizing:border-box;
+
+    }
+
+    html{
+
+      -webkit-text-size-adjust:100%;
+
+    }
+
+    body{
+
+      margin:0;
+
+      background:var(--bg);
+
+      color:var(--text);
+
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+
+      padding-bottom:calc(30px + env(safe-area-inset-bottom));
+
+    }
+
+    button,
+
+    input,
+
+    select,
+
+    textarea{
+
+      font:inherit;
+
+    }
+
+    button{
+
+      cursor:pointer;
+
+    }
+
+    .hidden{
+
+      display:none !important;
+
+    }
+
+    header{
+
+      position:sticky;
+
+      top:0;
+
+      z-index:50;
+
+      background:#111827;
+
+      color:white;
+
+      padding:calc(15px + env(safe-area-inset-top)) 16px 15px;
+
+      box-shadow:0 5px 18px rgba(0,0,0,.2);
+
+    }
+
+    .header-inner{
+
+      max-width:1100px;
+
+      margin:auto;
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:space-between;
+
+      gap:12px;
+
+    }
+
+    .brand h1{
+
+      margin:0;
+
+      font-size:22px;
+
+    }
+
+    .brand small{
+
+      opacity:.7;
+
+    }
+
+    main{
+
+      max-width:1100px;
+
+      margin:auto;
+
+      padding:16px;
+
+    }
+
+    .toolbar{
+
+      display:flex;
+
+      gap:8px;
+
+      flex-wrap:wrap;
+
+      margin-bottom:12px;
+
+    }
+
+    .search{
+
+      flex:1;
+
+      min-width:210px;
+
+    }
+
+    input,
+
+    select,
+
+    textarea{
+
+      width:100%;
+
+      border:1px solid #d1d5db;
+
+      border-radius:13px;
+
+      padding:12px 13px;
+
+      background:white;
+
+      color:#111827;
+
+      outline:none;
+
+    }
+
+    input:focus,
+
+    select:focus,
+
+    textarea:focus{
+
+      border-color:#111827;
+
+      box-shadow:0 0 0 3px rgba(17,24,39,.08);
+
+    }
+
+    textarea{
+
+      min-height:100px;
+
+      resize:vertical;
+
+    }
+
+    .btn{
+
+      border:none;
+
+      border-radius:13px;
+
+      min-height:44px;
+
+      padding:10px 14px;
+
+      background:#111827;
+
+      color:white;
+
+      font-weight:800;
+
+    }
+
+    .btn.green{
+
+      background:var(--green);
+
+    }
+
+    .btn.red{
+
+      background:var(--red);
+
+    }
+
+    .btn.blue{
+
+      background:var(--blue);
+
+    }
+
+    .btn.orange{
+
+      background:var(--orange);
+
+    }
+
+    .btn.light{
+
+      background:#e5e7eb;
+
+      color:#111827;
+
+    }
+
+    .btn.full{
+
+      width:100%;
+
+    }
+
+    .btn.small{
+
+      min-height:36px;
+
+      padding:7px 10px;
+
+      font-size:12px;
+
+    }
+
+    .chips{
+
+      display:flex;
+
+      gap:7px;
+
+      overflow-x:auto;
+
+      padding-bottom:7px;
+
+      margin-bottom:14px;
+
+    }
+
+    .chip{
+
+      border:1px solid var(--border);
+
+      background:white;
+
+      color:#374151;
+
+      border-radius:999px;
+
+      padding:8px 12px;
+
+      font-size:12px;
+
+      font-weight:800;
+
+      white-space:nowrap;
+
+    }
+
+    .chip.active{
+
+      background:#111827;
+
+      color:white;
+
+      border-color:#111827;
+
+    }
+
+    .recipes{
+
+      display:grid;
+
+      grid-template-columns:1fr;
+
+      gap:13px;
+
+    }
+
+    .recipe-card{
+
+      background:white;
+
+      border:1px solid var(--border);
+
+      border-radius:20px;
+
+      overflow:hidden;
+
+      box-shadow:var(--shadow);
+
+    }
+
+    .recipe-image{
+
+      width:100%;
+
+      height:210px;
+
+      object-fit:cover;
+
+      display:block;
+
+      background:#e5e7eb;
+
+    }
+
+    .recipe-image-placeholder{
+
+      width:100%;
+
+      height:210px;
+
+      display:flex;
+
+      justify-content:center;
+
+      align-items:center;
+
+      background:linear-gradient(145deg,#e5e7eb,#f9fafb);
+
+      font-size:65px;
+
+    }
+
+    .recipe-body{
+
+      padding:15px;
+
+    }
+
+    .recipe-name{
+
+      font-size:20px;
+
+      font-weight:900;
+
+    }
+
+    .recipe-category{
+
+      display:inline-block;
+
+      margin-top:5px;
+
+      padding:5px 9px;
+
+      border-radius:999px;
+
+      background:#f3f4f6;
+
+      font-size:11px;
+
+      font-weight:800;
+
+      color:#4b5563;
+
+    }
+
+    .recipe-glass{
+
+      color:var(--muted);
+
+      font-size:12px;
+
+      margin-top:7px;
+
+    }
+
+    .recipe-actions{
+
+      display:grid;
+
+      grid-template-columns:1fr 1fr;
+
+      gap:7px;
+
+      margin-top:13px;
+
+    }
+
+    .section-label{
+
+      margin-top:15px;
+
+      margin-bottom:5px;
+
+      font-size:12px;
+
+      font-weight:900;
+
+      text-transform:uppercase;
+
+      color:#6b7280;
+
+    }
+
+    .ingredients{
+
+      margin:0;
+
+      padding-left:20px;
+
+    }
+
+    .ingredients li{
+
+      margin-bottom:5px;
+
+    }
+
+    .preparation{
+
+      white-space:pre-wrap;
+
+      line-height:1.45;
+
+    }
+
+    .empty{
+
+      grid-column:1/-1;
+
+      padding:50px 20px;
+
+      text-align:center;
+
+      color:#6b7280;
+
+    }
+
+    .empty-icon{
+
+      font-size:55px;
+
+      margin-bottom:8px;
+
+    }
+
+    .modal{
+
+      position:fixed;
+
+      inset:0;
+
+      z-index:120;
+
+      display:flex;
+
+      justify-content:center;
+
+      align-items:flex-end;
+
+      background:rgba(0,0,0,.55);
+
+    }
+
+    .modal-box{
+
+      width:100%;
+
+      max-width:650px;
+
+      max-height:92vh;
+
+      overflow:auto;
+
+      background:white;
+
+      border-radius:24px 24px 0 0;
+
+      padding:18px 17px calc(22px + env(safe-area-inset-bottom));
+
+    }
+
+    .modal-header{
+
+      display:flex;
+
+      justify-content:space-between;
+
+      align-items:center;
+
+      gap:10px;
+
+      margin-bottom:15px;
+
+    }
+
+    .modal-header h2{
+
+      margin:0;
+
+      font-size:20px;
+
+    }
+
+    .close{
+
+      width:40px;
+
+      height:40px;
+
+      border:none;
+
+      border-radius:50%;
+
+      background:#f3f4f6;
+
+      font-size:22px;
+
+    }
+
+    .field{
+
+      margin-bottom:12px;
+
+    }
+
+    label{
+
+      display:block;
+
+      margin-bottom:6px;
+
+      font-size:13px;
+
+      font-weight:800;
+
+    }
+
+    .photo-preview{
+
+      width:100%;
+
+      height:220px;
+
+      object-fit:cover;
+
+      border-radius:16px;
+
+      background:#f3f4f6;
+
+      margin-top:8px;
+
+    }
+
+    .ingredient-row{
+
+      display:grid;
+
+      grid-template-columns:1fr 100px 45px;
+
+      gap:7px;
+
+      align-items:center;
+
+      margin-bottom:8px;
+
+    }
+
+    .remove-ingredient{
+
+      width:45px;
+
+      height:45px;
+
+      border:none;
+
+      border-radius:11px;
+
+      background:var(--red-bg);
+
+      color:var(--red);
+
+      font-weight:900;
+
+    }
+
+    .backup-box{
+
+      padding:14px;
+
+      border:1px solid var(--border);
+
+      border-radius:16px;
+
+      background:#f9fafb;
+
+      margin-top:12px;
+
+    }
+
+    .backup-box h3{
+
+      margin:0 0 7px;
+
+    }
+
+    .muted{
+
+      color:var(--muted);
+
+    }
+
+    .small{
+
+      font-size:12px;
+
+    }
+
+    .toast{
+
+      position:fixed;
+
+      z-index:300;
+
+      left:50%;
+
+      bottom:calc(25px + env(safe-area-inset-bottom));
+
+      transform:translateX(-50%);
+
+      max-width:90%;
+
+      padding:11px 16px;
+
+      border-radius:999px;
+
+      background:#111827;
+
+      color:white;
+
+      text-align:center;
+
+      box-shadow:0 10px 30px rgba(0,0,0,.3);
+
+    }
+
+    @media(min-width:650px){
+
+      .recipes{
+
+        grid-template-columns:repeat(2,1fr);
+
+      }
+
+      .modal{
+
+        align-items:center;
+
+        padding:20px;
+
+      }
+
+      .modal-box{
+
+        border-radius:24px;
+
+      }
+
+    }
+
+    @media(min-width:950px){
+
+      .recipes{
+
+        grid-template-columns:repeat(3,1fr);
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<header>
+
+  <div class="header-inner">
+
+    <div class="brand">
+
+      <h1>🍸 Cocktails</h1>
+
+      <small>Mamy Mouss</small>
+
+    </div>
+
+    <button
+
+      class="btn green"
+
+      onclick="openRecipeModal()">
+
+      + Cocktail
+
+    </button>
+
+  </div>
+
+</header>
+
+<main>
+
+  <div class="toolbar">
+
+    <input
+
+      id="searchInput"
+
+      class="search"
+
+      type="search"
+
+      placeholder="🔎 Rechercher un cocktail..."
+
+      oninput="renderRecipes()">
+
+    <button
+
+      class="btn light"
+
+      onclick="openBackupModal()">
+
+      ⚙️ Sauvegarde
+
+    </button>
+
+  </div>
+
+  <div
+
+    id="categoryChips"
+
+    class="chips">
+
+  </div>
+
+  <div
+
+    id="recipesList"
+
+    class="recipes">
+
+  </div>
+
+</main>
+
+<!-- MODALE RECETTE -->
+
+<div
+
+  id="recipeModal"
+
+  class="modal hidden">
+
+  <div class="modal-box">
+
+    <div class="modal-header">
+
+      <h2 id="recipeModalTitle">
+
+        Nouveau cocktail
+
+      </h2>
+
+      <button
+
+        class="close"
+
+        onclick="closeModal('recipeModal')">
+
+        ×
+
+      </button>
+
+    </div>
+
+    <input
+
+      id="recipeId"
+
+      type="hidden">
+
+    <div class="field">
+
+      <label>Nom du cocktail</label>
+
+      <input
+
+        id="recipeName"
+
+        placeholder="Ex. Mojito">
+
+    </div>
+
+    <div class="field">
+
+      <label>Catégorie</label>
+
+      <select id="recipeCategory">
+
+        <option value="Classiques">Classiques</option>
+
+        <option value="Signature">Signature</option>
+
+        <option value="Sans alcool">Sans alcool</option>
+
+        <option value="Shots">Shots</option>
+
+        <option value="Autres">Autres</option>
+
+      </select>
+
+    </div>
+
+    <div class="field">
+
+      <label>Type de verre</label>
+
+      <input
+
+        id="recipeGlass"
+
+        placeholder="Ex. Highball, coupe, tumbler...">
+
+    </div>
+
+    <div class="field">
+
+      <label>
+
+        Photo du cocktail / verre
+
+      </label>
+
+      <input
+
+        id="recipePhoto"
+
+        type="file"
+
+        accept="image/*"
+
+        onchange="previewPhoto(event)">
+
+      <img
+
+        id="photoPreview"
+
+        class="photo-preview hidden"
+
+        alt="Photo du cocktail">
+
+      <button
+
+        id="removePhotoButton"
+
+        class="btn light small hidden"
+
+        style="margin-top:7px;"
+
+        type="button"
+
+        onclick="removePhoto()">
+
+        Retirer la photo
+
+      </button>
+
+    </div>
+
+    <div class="field">
+
+      <label>Ingrédients</label>
+
+      <div id="ingredientsEditor"></div>
+
+      <button
+
+        class="btn light full"
+
+        type="button"
+
+        onclick="addIngredientRow()">
+
+        + Ajouter un ingrédient
+
+      </button>
+
+    </div>
+
+    <div class="field">
+
+      <label>Préparation</label>
+
+      <textarea
+
+        id="recipePreparation"
+
+        placeholder="Ex. Remplir le verre de glace, ajouter les ingrédients, mélanger..."></textarea>
+
+    </div>
+
+    <div class="field">
+
+      <label>Garniture / décoration</label>
+
+      <input
+
+        id="recipeGarnish"
+
+        placeholder="Ex. rondelle de citron vert, menthe...">
+
+    </div>
+
+    <div class="field">
+
+      <label>Notes</label>
+
+      <textarea
+
+        id="recipeNotes"
+
+        placeholder="Optionnel"
+
+        style="min-height:70px;"></textarea>
+
+    </div>
+
+    <button
+
+      class="btn green full"
+
+      onclick="saveRecipe()">
+
+      💾 Enregistrer
+
+    </button>
+
+    <button
+
+      id="deleteRecipeButton"
+
+      class="btn red full hidden"
+
+      style="margin-top:8px;"
+
+      onclick="deleteCurrentRecipe()">
+
+      🗑️ Supprimer la recette
+
+    </button>
+
+  </div>
+
+</div>
+
+<!-- MODALE DETAIL -->
+
+<div
+
+  id="detailModal"
+
+  class="modal hidden">
+
+  <div class="modal-box">
+
+    <div class="modal-header">
+
+      <h2 id="detailTitle">
+
+        Cocktail
+
+      </h2>
+
+      <button
+
+        class="close"
+
+        onclick="closeModal('detailModal')">
+
+        ×
+
+      </button>
+
+    </div>
+
+    <div id="detailContent"></div>
+
+  </div>
+
+</div>
+
+<!-- MODALE SAUVEGARDE -->
+
+<div
+
+  id="backupModal"
+
+  class="modal hidden">
+
+  <div class="modal-box">
+
+    <div class="modal-header">
+
+      <h2>⚙️ Sauvegarde</h2>
+
+      <button
+
+        class="close"
+
+        onclick="closeModal('backupModal')">
+
+        ×
+
+      </button>
+
+    </div>
+
+    <div class="backup-box">
+
+      <h3>Exporter</h3>
+
+      <div class="small muted">
+
+        Crée un fichier contenant toutes les recettes et leurs photos.
+
+      </div>
+
+      <button
+
+        class="btn blue full"
+
+        style="margin-top:10px;"
+
+        onclick="exportBackup()">
+
+        📤 Exporter les recettes
+
+      </button>
+
+    </div>
+
+    <div class="backup-box">
+
+      <h3>Importer</h3>
+
+      <div class="small muted">
+
+        Permet de restaurer une sauvegarde précédente.
+
+      </div>
+
+      <input
+
+        id="importFile"
+
+        type="file"
+
+        accept=".json,application/json"
+
+        style="margin-top:10px;">
+
+      <button
+
+        class="btn orange full"
+
+        style="margin-top:8px;"
+
+        onclick="importBackup()">
+
+        📥 Importer la sauvegarde
+
+      </button>
+
+    </div>
+
+    <div class="backup-box">
+
+      <h3>Important</h3>
+
+      <div class="small muted">
+
+        Les recettes sont enregistrées directement sur cette tablette.
+
+        Fais une sauvegarde de temps en temps pour éviter de perdre
+
+        les recettes si les données du navigateur sont supprimées.
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<div
+
+  id="toast"
+
+  class="toast hidden">
+
+</div>
+
+<script>
+
+const DB_NAME = "mamy_mouss_cocktails";
+
+const DB_VERSION = 1;
+
+const STORE_NAME = "recipes";
+
+let db = null;
+
+let recipes = [];
+
+let activeCategory = "Tous";
+
+let currentPhoto = "";
+
+const categories = [
+
+  "Tous",
+
+  "Classiques",
+
+  "Signature",
+
+  "Sans alcool",
+
+  "Shots",
+
+  "Autres"
+
+];
+
+document.addEventListener(
+
+  "DOMContentLoaded",
+
+  init
+
+);
+
+async function init(){
+
+  try{
+
+    await openDatabase();
+
+    await loadRecipes();
+
+    renderCategories();
+
+    renderRecipes();
+
+  }
+
+  catch(error){
+
+    console.error(error);
+
+    alert("Impossible d'ouvrir la base locale.");
+
+  }
+
+}
+
+function openDatabase(){
+
+  return new Promise((resolve,reject)=>{
+
+    const request =
+
+      indexedDB.open(
+
+        DB_NAME,
+
+        DB_VERSION
+
+      );
+
+    request.onupgradeneeded = event => {
+
+      const database =
+
+        event.target.result;
+
+      if(
+
+        !database.objectStoreNames.contains(
+
+          STORE_NAME
+
+        )
+
+      ){
+
+        database.createObjectStore(
+
+          STORE_NAME,
+
+          {
+
+            keyPath:"id"
+
+          }
+
+        );
+
+      }
+
+    };
+
+    request.onsuccess = event => {
+
+      db =
+
+        event.target.result;
+
+      resolve();
+
+    };
+
+    request.onerror = event => {
+
+      reject(event);
+
+    };
+
+  });
+
+}
+
+function getAllRecipes(){
+
+  return new Promise((resolve,reject)=>{
+
+    const transaction =
+
+      db.transaction(
+
+        STORE_NAME,
+
+        "readonly"
+
+      );
+
+    const store =
+
+      transaction.objectStore(
+
+        STORE_NAME
+
+      );
+
+    const request =
+
+      store.getAll();
+
+    request.onsuccess = () => {
+
+      resolve(
+
+        request.result || []
+
+      );
+
+    };
+
+    request.onerror = () => {
+
+      reject(
+
+        request.error
+
+      );
+
+    };
+
+  });
+
+}
+
+function putRecipe(recipe){
+
+  return new Promise((resolve,reject)=>{
+
+    const transaction =
+
+      db.transaction(
+
+        STORE_NAME,
+
+        "readwrite"
+
+      );
+
+    const store =
+
+      transaction.objectStore(
+
+        STORE_NAME
+
+      );
+
+    const request =
+
+      store.put(recipe);
+
+    request.onsuccess = () => {
+
+      resolve();
+
+    };
+
+    request.onerror = () => {
+
+      reject(
+
+        request.error
+
+      );
+
+    };
+
+  });
+
+}
+
+function removeRecipeFromDB(id){
+
+  return new Promise((resolve,reject)=>{
+
+    const transaction =
+
+      db.transaction(
+
+        STORE_NAME,
+
+        "readwrite"
+
+      );
+
+    const store =
+
+      transaction.objectStore(
+
+        STORE_NAME
+
+      );
+
+    const request =
+
+      store.delete(id);
+
+    request.onsuccess = () => {
+
+      resolve();
+
+    };
+
+    request.onerror = () => {
+
+      reject(
+
+        request.error
+
+      );
+
+    };
+
+  });
+
+}
+
+function clearDatabase(){
+
+  return new Promise((resolve,reject)=>{
+
+    const transaction =
+
+      db.transaction(
+
+        STORE_NAME,
+
+        "readwrite"
+
+      );
+
+    const store =
+
+      transaction.objectStore(
+
+        STORE_NAME
+
+      );
+
+    const request =
+
+      store.clear();
+
+    request.onsuccess = () => {
+
+      resolve();
+
+    };
+
+    request.onerror = () => {
+
+      reject(
+
+        request.error
+
+      );
+
+    };
+
+  });
+
+}
+
+async function loadRecipes(){
+
+  recipes =
+
+    await getAllRecipes();
+
+  recipes.sort(
+
+    (a,b) =>
+
+      (a.name || "")
+
+        .localeCompare(
+
+          b.name || "",
+
+          "fr",
+
+          {
+
+            sensitivity:"base"
+
+          }
+
+        )
+
+  );
+
+}
+
+function renderCategories(){
+
+  const container =
+
+    document.getElementById(
+
+      "categoryChips"
+
+    );
+
+  container.innerHTML =
+
+    categories
+
+      .map(category => `
+
+        <button
+
+          class="chip ${
+
+            activeCategory === category
+
+              ? "active"
+
+              : ""
+
+          }"
+
+          onclick="selectCategory('${escapeAttribute(category)}')">
+
+          ${escapeHtml(category)}
+
+        </button>
+
+      `)
+
+      .join("");
+
+}
+
+function selectCategory(category){
+
+  activeCategory =
+
+    category;
+
+  renderCategories();
+
+  renderRecipes();
+
+}
+
+function renderRecipes(){
+
+  const search =
+
+    document
+
+      .getElementById(
+
+        "searchInput"
+
+      )
+
+      .value
+
+      .trim()
+
+      .toLowerCase();
+
+  let filtered =
+
+    [...recipes];
+
+  if(
+
+    activeCategory !== "Tous"
+
+  ){
+
+    filtered =
+
+      filtered.filter(
+
+        recipe =>
+
+          recipe.category ===
+
+          activeCategory
+
+      );
+
+  }
+
+  if(search){
+
+    filtered =
+
+      filtered.filter(recipe=>{
+
+        const text = [
+
+          recipe.name,
+
+          recipe.category,
+
+          recipe.glass,
+
+          recipe.garnish,
+
+          ...(recipe.ingredients || [])
+
+            .map(
+
+              ingredient =>
+
+                ingredient.name
+
+            )
+
+        ]
+
+          .join(" ")
+
+          .toLowerCase();
+
+        return text.includes(search);
+
+      });
+
+  }
+
+  const container =
+
+    document.getElementById(
+
+      "recipesList"
+
+    );
+
+  if(
+
+    filtered.length === 0
+
+  ){
+
+    container.innerHTML = `
+
+      <div class="empty">
+
+        <div class="empty-icon">
+
+          🍹
+
+        </div>
+
+        <strong>
+
+          Aucun cocktail
+
+        </strong>
+
+        <div class="small muted">
+
+          Appuie sur + Cocktail pour ajouter ta première recette.
+
+        </div>
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+  container.innerHTML =
+
+    filtered
+
+      .map(recipe=>`
+
+        <article class="recipe-card">
+
+          ${
+
+            recipe.photo
+
+              ? `
+
+                <img
+
+                  class="recipe-image"
+
+                  src="${recipe.photo}"
+
+                  alt="${escapeAttribute(recipe.name)}">
+
+              `
+
+              : `
+
+                <div class="recipe-image-placeholder">
+
+                  🍸
+
+                </div>
+
+              `
+
+          }
+
+          <div class="recipe-body">
+
+            <div class="recipe-name">
+
+              ${escapeHtml(recipe.name)}
+
+            </div>
+
+            <span class="recipe-category">
+
+              ${escapeHtml(recipe.category)}
+
+            </span>
+
+            ${
+
+              recipe.glass
+
+                ? `
+
+                  <div class="recipe-glass">
+
+                    🥃 ${escapeHtml(recipe.glass)}
+
+                  </div>
+
+                `
+
+                : ""
+
+            }
+
+            <div class="recipe-actions">
+
+              <button
+
+                class="btn blue"
+
+                onclick="openRecipeDetail('${recipe.id}')">
+
+                📖 Recette
+
+              </button>
+
+              <button
+
+                class="btn light"
+
+                onclick="editRecipe('${recipe.id}')">
+
+                ✏️ Modifier
+
+              </button>
+
+            </div>
+
+          </div>
+
+        </article>
+
+      `)
+
+      .join("");
+
+}
+
+function openRecipeModal(){
+
+  document.getElementById(
+
+    "recipeModalTitle"
+
+  ).textContent =
+
+    "Nouveau cocktail";
+
+  document.getElementById(
+
+    "recipeId"
+
+  ).value = "";
+
+  document.getElementById(
+
+    "recipeName"
+
+  ).value = "";
+
+  document.getElementById(
+
+    "recipeCategory"
+
+  ).value =
+
+    "Classiques";
+
+  document.getElementById(
+
+    "recipeGlass"
+
+  ).value = "";
+
+  document.getElementById(
+
+    "recipePreparation"
+
+  ).value = "";
+
+  document.getElementById(
+
+    "recipeGarnish"
+
+  ).value = "";
+
+  document.getElementById(
+
+    "recipeNotes"
+
+  ).value = "";
+
+  document.getElementById(
+
+    "recipePhoto"
+
+  ).value = "";
+
+  document.getElementById(
+
+    "deleteRecipeButton"
+
+  ).classList.add(
+
+    "hidden"
+
+  );
+
+  currentPhoto = "";
+
+  updatePhotoPreview();
+
+  document.getElementById(
+
+    "ingredientsEditor"
+
+  ).innerHTML = "";
+
+  addIngredientRow();
+
+  addIngredientRow();
+
+  openModal(
+
+    "recipeModal"
+
+  );
+
+}
+
+function editRecipe(id){
+
+  const recipe =
+
+    recipes.find(
+
+      item =>
+
+        item.id === id
+
+    );
+
+  if(!recipe){
+
+    return;
+
+  }
+
+  document.getElementById(
+
+    "recipeModalTitle"
+
+  ).textContent =
+
+    "Modifier le cocktail";
+
+  document.getElementById(
+
+    "recipeId"
+
+  ).value =
+
+    recipe.id;
+
+  document.getElementById(
+
+    "recipeName"
+
+  ).value =
+
+    recipe.name || "";
+
+  document.getElementById(
+
+    "recipeCategory"
+
+  ).value =
+
+    recipe.category || "Classiques";
+
+  document.getElementById(
+
+    "recipeGlass"
+
+  ).value =
+
+    recipe.glass || "";
+
+  document.getElementById(
+
+    "recipePreparation"
+
+  ).value =
+
+    recipe.preparation || "";
+
+  document.getElementById(
+
+    "recipeGarnish"
+
+  ).value =
+
+    recipe.garnish || "";
+
+  document.getElementById(
+
+    "recipeNotes"
+
+  ).value =
+
+    recipe.notes || "";
+
+  document.getElementById(
+
+    "recipePhoto"
+
+  ).value = "";
+
+  currentPhoto =
+
+    recipe.photo || "";
+
+  updatePhotoPreview();
+
+  const editor =
+
+    document.getElementById(
+
+      "ingredientsEditor"
+
+    );
+
+  editor.innerHTML = "";
+
+  if(
+
+    recipe.ingredients &&
+
+    recipe.ingredients.length
+
+  ){
+
+    recipe.ingredients.forEach(
+
+      ingredient=>{
+
+        addIngredientRow(
+
+          ingredient.name,
+
+          ingredient.quantity
+
+        );
+
+      }
+
+    );
+
+  }
+
+  else{
+
+    addIngredientRow();
+
+  }
+
+  document.getElementById(
+
+    "deleteRecipeButton"
+
+  ).classList.remove(
+
+    "hidden"
+
+  );
+
+  closeModal(
+
+    "detailModal"
+
+  );
+
+  openModal(
+
+    "recipeModal"
+
+  );
+
+}
+
+function addIngredientRow(
+
+  name = "",
+
+  quantity = ""
+
+){
+
+  const editor =
+
+    document.getElementById(
+
+      "ingredientsEditor"
+
+    );
+
+  const row =
+
+    document.createElement(
+
+      "div"
+
+    );
+
+  row.className =
+
+    "ingredient-row";
+
+  row.innerHTML = `
+
+    <input
+
+      class="ingredient-name"
+
+      placeholder="Ingrédient"
+
+      value="${escapeAttribute(name)}">
+
+    <input
+
+      class="ingredient-quantity"
+
+      placeholder="4 cl"
+
+      value="${escapeAttribute(quantity)}">
+
+    <button
+
+      type="button"
+
+      class="remove-ingredient"
+
+      onclick="this.parentElement.remove()">
+
+      ×
+
+    </button>
+
+  `;
+
+  editor.appendChild(row);
+
+}
+
+async function saveRecipe(){
+
+  const id =
+
+    document.getElementById(
+
+      "recipeId"
+
+    ).value;
+
+  const name =
+
+    document.getElementById(
+
+      "recipeName"
+
+    )
+
+      .value
+
+      .trim();
+
+  if(!name){
+
+    toast(
+
+      "Entre le nom du cocktail."
+
+    );
+
+    return;
+
+  }
+
+  const ingredientRows =
+
+    document.querySelectorAll(
+
+      ".ingredient-row"
+
+    );
+
+  const ingredients = [];
+
+  ingredientRows.forEach(row=>{
+
+    const ingredientName =
+
+      row
+
+        .querySelector(
+
+          ".ingredient-name"
+
+        )
+
+        .value
+
+        .trim();
+
+    const quantity =
+
+      row
+
+        .querySelector(
+
+          ".ingredient-quantity"
+
+        )
+
+        .value
+
+        .trim();
+
+    if(ingredientName){
+
+      ingredients.push({
+
+        name:ingredientName,
+
+        quantity:quantity
+
+      });
+
+    }
+
+  });
+
+  const existing =
+
+    recipes.find(
+
+      recipe =>
+
+        recipe.id === id
+
+    );
+
+  let generatedId;
+
+  if(id){
+
+    generatedId = id;
+
+  }
+
+  else if(
+
+    window.crypto &&
+
+    typeof window.crypto.randomUUID === "function"
+
+  ){
+
+    generatedId =
+
+      window.crypto.randomUUID();
+
+  }
+
+  else{
+
+    generatedId =
+
+      Date.now().toString() +
+
+      "-" +
+
+      Math.random()
+
+        .toString(16)
+
+        .slice(2);
+
+  }
+
+  const recipe = {
+
+    id:generatedId,
+
+    name:name,
+
+    category:
+
+      document.getElementById(
+
+        "recipeCategory"
+
+      ).value,
+
+    glass:
+
+      document.getElementById(
+
+        "recipeGlass"
+
+      )
+
+        .value
+
+        .trim(),
+
+    photo:
+
+      currentPhoto,
+
+    ingredients:
+
+      ingredients,
+
+    preparation:
+
+      document.getElementById(
+
+        "recipePreparation"
+
+      )
+
+        .value
+
+        .trim(),
+
+    garnish:
+
+      document.getElementById(
+
+        "recipeGarnish"
+
+      )
+
+        .value
+
+        .trim(),
+
+    notes:
+
+      document.getElementById(
+
+        "recipeNotes"
+
+      )
+
+        .value
+
+        .trim(),
+
+    createdAt:
+
+      existing &&
+
+      existing.createdAt
+
+        ? existing.createdAt
+
+        : new Date().toISOString(),
+
+    updatedAt:
+
+      new Date().toISOString()
+
+  };
+
+  try{
+
+    await putRecipe(recipe);
+
+    await loadRecipes();
+
+    renderRecipes();
+
+    closeModal(
+
+      "recipeModal"
+
+    );
+
+    toast(
+
+      id
+
+        ? "Cocktail modifié ✅"
+
+        : "Cocktail ajouté ✅"
+
+    );
+
+  }
+
+  catch(error){
+
+    console.error(error);
+
+    toast(
+
+      "Impossible d'enregistrer la recette."
+
+    );
+
+  }
+
+}
+
+async function deleteCurrentRecipe(){
+
+  const id =
+
+    document.getElementById(
+
+      "recipeId"
+
+    ).value;
+
+  if(!id){
+
+    return;
+
+  }
+
+  const recipe =
+
+    recipes.find(
+
+      item =>
+
+        item.id === id
+
+    );
+
+  if(
+
+    !confirm(
+
+      `Supprimer "${recipe?.name || "ce cocktail"}" ?`
+
+    )
+
+  ){
+
+    return;
+
+  }
+
+  try{
+
+    await removeRecipeFromDB(id);
+
+    await loadRecipes();
+
+    renderRecipes();
+
+    closeModal(
+
+      "recipeModal"
+
+    );
+
+    toast(
+
+      "Recette supprimée."
+
+    );
+
+  }
+
+  catch(error){
+
+    console.error(error);
+
+    toast(
+
+      "Impossible de supprimer la recette."
+
+    );
+
+  }
+
+}
+
+function previewPhoto(event){
+
+  const file =
+
+    event.target.files?.[0];
+
+  if(!file){
+
+    return;
+
+  }
+
+  if(
+
+    !file.type.startsWith(
+
+      "image/"
+
+    )
+
+  ){
+
+    toast(
+
+      "Choisis une image."
+
+    );
+
+    return;
+
+  }
+
+  const reader =
+
+    new FileReader();
+
+  reader.onload = () => {
+
+    currentPhoto =
+
+      reader.result;
+
+    updatePhotoPreview();
+
+  };
+
+  reader.readAsDataURL(file);
+
+}
+
+function updatePhotoPreview(){
+
+  const preview =
+
+    document.getElementById(
+
+      "photoPreview"
+
+    );
+
+  const removeButton =
+
+    document.getElementById(
+
+      "removePhotoButton"
+
+    );
+
+  if(currentPhoto){
+
+    preview.src =
+
+      currentPhoto;
+
+    preview.classList.remove(
+
+      "hidden"
+
+    );
+
+    removeButton.classList.remove(
+
+      "hidden"
+
+    );
+
+  }
+
+  else{
+
+    preview.src = "";
+
+    preview.classList.add(
+
+      "hidden"
+
+    );
+
+    removeButton.classList.add(
+
+      "hidden"
+
+    );
+
+  }
+
+}
+
+function removePhoto(){
+
+  currentPhoto = "";
+
+  document.getElementById(
+
+    "recipePhoto"
+
+  ).value = "";
+
+  updatePhotoPreview();
+
+}
+
+function openRecipeDetail(id){
+
+  const recipe =
+
+    recipes.find(
+
+      item =>
+
+        item.id === id
+
+    );
+
+  if(!recipe){
+
+    return;
+
+  }
+
+  document.getElementById(
+
+    "detailTitle"
+
+  ).textContent =
+
+    recipe.name;
+
+  const ingredients =
+
+    recipe.ingredients || [];
+
+  document.getElementById(
+
+    "detailContent"
+
+  ).innerHTML = `
+
+    ${
+
+      recipe.photo
+
+        ? `
+
+          <img
+
+            class="photo-preview"
+
+            style="height:280px;margin-top:0;"
+
+            src="${recipe.photo}"
+
+            alt="${escapeAttribute(recipe.name)}">
+
+        `
+
+        : `
+
+          <div
+
+            class="recipe-image-placeholder"
+
+            style="border-radius:16px;">
+
+            🍸
+
+          </div>
+
+        `
+
+    }
+
+    <span class="recipe-category">
+
+      ${escapeHtml(recipe.category)}
+
+    </span>
+
+    ${
+
+      recipe.glass
+
+        ? `
+
+          <div class="section-label">
+
+            Verre
+
+          </div>
+
+          <div>
+
+            🥃 ${escapeHtml(recipe.glass)}
+
+          </div>
+
+        `
+
+        : ""
+
+    }
+
+    <div class="section-label">
+
+      Ingrédients
+
+    </div>
+
+    ${
+
+      ingredients.length
+
+        ? `
+
+          <ul class="ingredients">
+
+            ${ingredients
+
+              .map(
+
+                ingredient=>`
+
+                  <li>
+
+                    <strong>
+
+                      ${escapeHtml(
+
+                        ingredient.quantity || ""
+
+                      )}
+
+                    </strong>
+
+                    ${
+
+                      ingredient.quantity
+
+                        ? " "
+
+                        : ""
+
+                    }
+
+                    ${escapeHtml(
+
+                      ingredient.name
+
+                    )}
+
+                  </li>
+
+                `
+
+              )
+
+              .join("")}
+
+          </ul>
+
+        `
+
+        : `
+
+          <div class="muted">
+
+            Aucun ingrédient encodé.
+
+          </div>
+
+        `
+
+    }
+
+    ${
+
+      recipe.preparation
+
+        ? `
+
+          <div class="section-label">
+
+            Préparation
+
+          </div>
+
+          <div class="preparation">
+
+            ${escapeHtml(recipe.preparation)}
+
+          </div>
+
+        `
+
+        : ""
+
+    }
+
+    ${
+
+      recipe.garnish
+
+        ? `
+
+          <div class="section-label">
+
+            Garniture / décoration
+
+          </div>
+
+          <div>
+
+            🍋 ${escapeHtml(recipe.garnish)}
+
+          </div>
+
+        `
+
+        : ""
+
+    }
+
+    ${
+
+      recipe.notes
+
+        ? `
+
+          <div class="section-label">
+
+            Notes
+
+          </div>
+
+          <div class="preparation">
+
+            ${escapeHtml(recipe.notes)}
+
+          </div>
+
+        `
+
+        : ""
+
+    }
+
+    <button
+
+      class="btn light full"
+
+      style="margin-top:18px;"
+
+      onclick="editRecipe('${recipe.id}')">
+
+      ✏️ Modifier cette recette
+
+    </button>
+
+  `;
+
+  openModal(
+
+    "detailModal"
+
+  );
+
+}
+
+function openBackupModal(){
+
+  document.getElementById(
+
+    "importFile"
+
+  ).value = "";
+
+  openModal(
+
+    "backupModal"
+
+  );
+
+}
+
+function exportBackup(){
+
+  const backup = {
+
+    app:
+
+      "Cocktails Mamy Mouss",
+
+    version:
+
+      1,
+
+    exportedAt:
+
+      new Date().toISOString(),
+
+    recipes:
+
+      recipes
+
+  };
+
+  const blob =
+
+    new Blob(
+
+      [
+
+        JSON.stringify(
+
+          backup,
+
+          null,
+
+          2
+
+        )
+
+      ],
+
+      {
+
+        type:"application/json"
+
+      }
+
+    );
+
+  const url =
+
+    URL.createObjectURL(
+
+      blob
+
+    );
+
+  const link =
+
+    document.createElement(
+
+      "a"
+
+    );
+
+  const date =
+
+    new Date()
+
+      .toISOString()
+
+      .slice(0,10);
+
+  link.href = url;
+
+  link.download =
+
+    `cocktails-mamy-mouss-${date}.json`;
+
+  document.body.appendChild(
+
+    link
+
+  );
+
+  link.click();
+
+  link.remove();
+
+  URL.revokeObjectURL(url);
+
+  toast(
+
+    "Sauvegarde créée ✅"
+
+  );
+
+}
+
+async function importBackup(){
+
+  const input =
+
+    document.getElementById(
+
+      "importFile"
+
+    );
+
+  const file =
+
+    input.files?.[0];
+
+  if(!file){
+
+    toast(
+
+      "Choisis un fichier de sauvegarde."
+
+    );
+
+    return;
+
+  }
+
+  if(
+
+    !confirm(
+
+      "Importer cette sauvegarde ? Les recettes actuelles seront remplacées."
+
+    )
+
+  ){
+
+    return;
+
+  }
+
+  try{
+
+    const text =
+
+      await file.text();
+
+    const data =
+
+      JSON.parse(text);
+
+    if(
+
+      !Array.isArray(
+
+        data.recipes
+
+      )
+
+    ){
+
+      throw new Error(
+
+        "Sauvegarde invalide"
+
+      );
+
+    }
+
+    await clearDatabase();
+
+    for(
+
+      const recipe
+
+      of data.recipes
+
+    ){
+
+      await putRecipe(recipe);
+
+    }
+
+    await loadRecipes();
+
+    activeCategory =
+
+      "Tous";
+
+    renderCategories();
+
+    renderRecipes();
+
+    closeModal(
+
+      "backupModal"
+
+    );
+
+    toast(
+
+      "Sauvegarde restaurée ✅"
+
+    );
+
+  }
+
+  catch(error){
+
+    console.error(error);
+
+    toast(
+
+      "Fichier de sauvegarde invalide."
+
+    );
+
+  }
+
+}
+
+function openModal(id){
+
+  document
+
+    .getElementById(id)
+
+    .classList
+
+    .remove("hidden");
+
+}
+
+function closeModal(id){
+
+  const element =
+
+    document.getElementById(id);
+
+  if(element){
+
+    element
+
+      .classList
+
+      .add("hidden");
+
+  }
+
+}
+
+function escapeHtml(text){
+
+  return String(
+
+    text ?? ""
+
+  )
+
+    .replaceAll(
+
+      "&",
+
+      "&amp;"
+
+    )
+
+    .replaceAll(
+
+      "<",
+
+      "&lt;"
+
+    )
+
+    .replaceAll(
+
+      ">",
+
+      "&gt;"
+
+    )
+
+    .replaceAll(
+
+      '"',
+
+      "&quot;"
+
+    )
+
+    .replaceAll(
+
+      "'",
+
+      "&#039;"
+
+    );
+
+}
+
+function escapeAttribute(text){
+
+  return escapeHtml(text);
+
+}
+
+function toast(message){
+
+  const element =
+
+    document.getElementById(
+
+      "toast"
+
+    );
+
+  element.textContent =
+
+    message;
+
+  element.classList.remove(
+
+    "hidden"
+
+  );
+
+  clearTimeout(
+
+    toast.timer
+
+  );
+
+  toast.timer =
+
+    setTimeout(
+
+      ()=>{
+
+        element.classList.add(
+
+          "hidden"
+
+        );
+
+      },
+
+      2300
+
+    );
+
+}
+
+</script>
+
+</body>
+
+</html>
