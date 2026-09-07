@@ -6,21 +6,70 @@
 
   <meta charset="UTF-8">
 
-  <meta name="viewport"
+  <meta
 
-        content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    name="viewport"
+
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+
+  >
 
   <meta name="theme-color" content="#111827">
 
   <meta name="apple-mobile-web-app-capable" content="yes">
 
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="mobile-web-app-capable" content="yes">
 
-  <meta name="apple-mobile-web-app-title" content="Cocktails">
+  <meta
+
+    name="apple-mobile-web-app-status-bar-style"
+
+    content="black-translucent"
+
+  >
+
+  <meta
+
+    name="apple-mobile-web-app-title"
+
+    content="Cocktails"
+
+  >
 
   <title>Cocktails Mamy Mouss</title>
-<link rel="apple-touch-icon" href="./icon.jpg">
-<link rel="icon" type="image/jpeg" href="./icon.jpg">
+
+  <!-- ICÔNE DE L'APPLICATION -->
+
+  <link
+
+    rel="apple-touch-icon"
+
+    sizes="180x180"
+
+    href="./icon.jpg?v=2"
+
+  >
+
+  <link
+
+    rel="apple-touch-icon-precomposed"
+
+    sizes="180x180"
+
+    href="./icon.jpg?v=2"
+
+  >
+
+  <link
+
+    rel="icon"
+
+    type="image/jpeg"
+
+    href="./icon.jpg?v=2"
+
+  >
+
   <style>
 
     :root{
@@ -47,7 +96,9 @@
 
       --red-bg:#fee2e2;
 
-      --shadow:0 8px 25px rgba(0,0,0,.08);
+      --shadow:
+
+        0 8px 25px rgba(0,0,0,.08);
 
     }
 
@@ -67,13 +118,37 @@
 
       margin:0;
 
-      background:var(--bg);
+      background:
 
-      color:var(--text);
+        var(--bg);
 
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+      color:
 
-      padding-bottom:calc(30px + env(safe-area-inset-bottom));
+        var(--text);
+
+      font-family:
+
+        -apple-system,
+
+        BlinkMacSystemFont,
+
+        "Segoe UI",
+
+        Roboto,
+
+        Arial,
+
+        sans-serif;
+
+      padding-bottom:
+
+        calc(
+
+          30px +
+
+          env(safe-area-inset-bottom)
+
+        );
 
     }
 
@@ -109,19 +184,37 @@
 
       z-index:50;
 
-      background:#111827;
+      background:
+
+        #111827;
 
       color:white;
 
-      padding:calc(15px + env(safe-area-inset-top)) 16px 15px;
+      padding:
 
-      box-shadow:0 5px 18px rgba(0,0,0,.2);
+        calc(
+
+          15px +
+
+          env(safe-area-inset-top)
+
+        )
+
+        16px
+
+        15px;
+
+      box-shadow:
+
+        0 5px 18px rgba(0,0,0,.2);
 
     }
 
     .header-inner{
 
-      max-width:1100px;
+      max-width:
+
+        1100px;
 
       margin:auto;
 
@@ -129,9 +222,35 @@
 
       align-items:center;
 
-      justify-content:space-between;
+      justify-content:
+
+        space-between;
 
       gap:12px;
+
+    }
+
+    .brand{
+
+      display:flex;
+
+      align-items:center;
+
+      gap:10px;
+
+    }
+
+    .brand-logo{
+
+      width:46px;
+
+      height:46px;
+
+      object-fit:cover;
+
+      border-radius:12px;
+
+      background:white;
 
     }
 
@@ -151,7 +270,9 @@
 
     main{
 
-      max-width:1100px;
+      max-width:
+
+        1100px;
 
       margin:auto;
 
@@ -167,7 +288,9 @@
 
       flex-wrap:wrap;
 
-      margin-bottom:12px;
+      margin-bottom:
+
+        12px;
 
     }
 
@@ -175,7 +298,9 @@
 
       flex:1;
 
-      min-width:210px;
+      min-width:
+
+        210px;
 
     }
 
@@ -187,15 +312,25 @@
 
       width:100%;
 
-      border:1px solid #d1d5db;
+      border:
 
-      border-radius:13px;
+        1px solid #d1d5db;
 
-      padding:12px 13px;
+      border-radius:
 
-      background:white;
+        13px;
 
-      color:#111827;
+      padding:
+
+        12px 13px;
+
+      background:
+
+        white;
+
+      color:
+
+        #111827;
 
       outline:none;
 
@@ -207,17 +342,27 @@
 
     textarea:focus{
 
-      border-color:#111827;
+      border-color:
 
-      box-shadow:0 0 0 3px rgba(17,24,39,.08);
+        #111827;
+
+      box-shadow:
+
+        0 0 0 3px
+
+        rgba(17,24,39,.08);
 
     }
 
     textarea{
 
-      min-height:100px;
+      min-height:
 
-      resize:vertical;
+        100px;
+
+      resize:
+
+        vertical;
 
     }
 
@@ -225,49 +370,71 @@
 
       border:none;
 
-      border-radius:13px;
+      border-radius:
 
-      min-height:44px;
+        13px;
 
-      padding:10px 14px;
+      min-height:
 
-      background:#111827;
+        44px;
+
+      padding:
+
+        10px 14px;
+
+      background:
+
+        #111827;
 
       color:white;
 
-      font-weight:800;
+      font-weight:
+
+        800;
 
     }
 
     .btn.green{
 
-      background:var(--green);
+      background:
+
+        var(--green);
 
     }
 
     .btn.red{
 
-      background:var(--red);
+      background:
+
+        var(--red);
 
     }
 
     .btn.blue{
 
-      background:var(--blue);
+      background:
+
+        var(--blue);
 
     }
 
     .btn.orange{
 
-      background:var(--orange);
+      background:
+
+        var(--orange);
 
     }
 
     .btn.light{
 
-      background:#e5e7eb;
+      background:
 
-      color:#111827;
+        #e5e7eb;
+
+      color:
+
+        #111827;
 
     }
 
@@ -279,11 +446,17 @@
 
     .btn.small{
 
-      min-height:36px;
+      min-height:
 
-      padding:7px 10px;
+        36px;
 
-      font-size:12px;
+      padding:
+
+        7px 10px;
+
+      font-size:
+
+        12px;
 
     }
 
@@ -293,41 +466,67 @@
 
       gap:7px;
 
-      overflow-x:auto;
+      overflow-x:
 
-      padding-bottom:7px;
+        auto;
 
-      margin-bottom:14px;
+      padding-bottom:
+
+        7px;
+
+      margin-bottom:
+
+        14px;
 
     }
 
     .chip{
 
-      border:1px solid var(--border);
+      border:
 
-      background:white;
+        1px solid var(--border);
 
-      color:#374151;
+      background:
 
-      border-radius:999px;
+        white;
 
-      padding:8px 12px;
+      color:
 
-      font-size:12px;
+        #374151;
 
-      font-weight:800;
+      border-radius:
 
-      white-space:nowrap;
+        999px;
+
+      padding:
+
+        8px 12px;
+
+      font-size:
+
+        12px;
+
+      font-weight:
+
+        800;
+
+      white-space:
+
+        nowrap;
 
     }
 
     .chip.active{
 
-      background:#111827;
+      background:
+
+        #111827;
 
       color:white;
 
-      border-color:#111827;
+      border-color:
+
+        #111827;
 
     }
 
@@ -335,7 +534,9 @@
 
       display:grid;
 
-      grid-template-columns:1fr;
+      grid-template-columns:
+
+        1fr;
 
       gap:13px;
 
@@ -343,15 +544,25 @@
 
     .recipe-card{
 
-      background:white;
+      background:
 
-      border:1px solid var(--border);
+        white;
 
-      border-radius:20px;
+      border:
 
-      overflow:hidden;
+        1px solid var(--border);
 
-      box-shadow:var(--shadow);
+      border-radius:
+
+        20px;
+
+      overflow:
+
+        hidden;
+
+      box-shadow:
+
+        var(--shadow);
 
     }
 
@@ -359,13 +570,19 @@
 
       width:100%;
 
-      height:210px;
+      height:
 
-      object-fit:cover;
+        210px;
+
+      object-fit:
+
+        cover;
 
       display:block;
 
-      background:#e5e7eb;
+      background:
+
+        #e5e7eb;
 
     }
 
@@ -373,61 +590,107 @@
 
       width:100%;
 
-      height:210px;
+      height:
+
+        210px;
 
       display:flex;
 
-      justify-content:center;
+      justify-content:
 
-      align-items:center;
+        center;
 
-      background:linear-gradient(145deg,#e5e7eb,#f9fafb);
+      align-items:
 
-      font-size:65px;
+        center;
+
+      background:
+
+        linear-gradient(
+
+          145deg,
+
+          #e5e7eb,
+
+          #f9fafb
+
+        );
+
+      font-size:
+
+        65px;
 
     }
 
     .recipe-body{
 
-      padding:15px;
+      padding:
+
+        15px;
 
     }
 
     .recipe-name{
 
-      font-size:20px;
+      font-size:
 
-      font-weight:900;
+        20px;
+
+      font-weight:
+
+        900;
 
     }
 
     .recipe-category{
 
-      display:inline-block;
+      display:
 
-      margin-top:5px;
+        inline-block;
 
-      padding:5px 9px;
+      margin-top:
 
-      border-radius:999px;
+        5px;
 
-      background:#f3f4f6;
+      padding:
 
-      font-size:11px;
+        5px 9px;
 
-      font-weight:800;
+      border-radius:
 
-      color:#4b5563;
+        999px;
+
+      background:
+
+        #f3f4f6;
+
+      font-size:
+
+        11px;
+
+      font-weight:
+
+        800;
+
+      color:
+
+        #4b5563;
 
     }
 
     .recipe-glass{
 
-      color:var(--muted);
+      color:
 
-      font-size:12px;
+        var(--muted);
 
-      margin-top:7px;
+      font-size:
+
+        12px;
+
+      margin-top:
+
+        7px;
 
     }
 
@@ -435,27 +698,43 @@
 
       display:grid;
 
-      grid-template-columns:1fr 1fr;
+      grid-template-columns:
+
+        1fr 1fr;
 
       gap:7px;
 
-      margin-top:13px;
+      margin-top:
+
+        13px;
 
     }
 
     .section-label{
 
-      margin-top:15px;
+      margin-top:
 
-      margin-bottom:5px;
+        15px;
 
-      font-size:12px;
+      margin-bottom:
 
-      font-weight:900;
+        5px;
 
-      text-transform:uppercase;
+      font-size:
 
-      color:#6b7280;
+        12px;
+
+      font-weight:
+
+        900;
+
+      text-transform:
+
+        uppercase;
+
+      color:
+
+        #6b7280;
 
     }
 
@@ -463,59 +742,89 @@
 
       margin:0;
 
-      padding-left:20px;
+      padding-left:
+
+        20px;
 
     }
 
     .ingredients li{
 
-      margin-bottom:5px;
+      margin-bottom:
+
+        5px;
 
     }
 
     .preparation{
 
-      white-space:pre-wrap;
+      white-space:
 
-      line-height:1.45;
+        pre-wrap;
+
+      line-height:
+
+        1.45;
 
     }
 
     .empty{
 
-      grid-column:1/-1;
+      grid-column:
 
-      padding:50px 20px;
+        1/-1;
 
-      text-align:center;
+      padding:
 
-      color:#6b7280;
+        50px 20px;
+
+      text-align:
+
+        center;
+
+      color:
+
+        #6b7280;
 
     }
 
     .empty-icon{
 
-      font-size:55px;
+      font-size:
 
-      margin-bottom:8px;
+        55px;
+
+      margin-bottom:
+
+        8px;
 
     }
 
     .modal{
 
-      position:fixed;
+      position:
+
+        fixed;
 
       inset:0;
 
-      z-index:120;
+      z-index:
+
+        120;
 
       display:flex;
 
-      justify-content:center;
+      justify-content:
 
-      align-items:flex-end;
+        center;
 
-      background:rgba(0,0,0,.55);
+      align-items:
+
+        flex-end;
+
+      background:
+
+        rgba(0,0,0,.55);
 
     }
 
@@ -523,17 +832,39 @@
 
       width:100%;
 
-      max-width:650px;
+      max-width:
 
-      max-height:92vh;
+        650px;
 
-      overflow:auto;
+      max-height:
 
-      background:white;
+        92vh;
 
-      border-radius:24px 24px 0 0;
+      overflow:
 
-      padding:18px 17px calc(22px + env(safe-area-inset-bottom));
+        auto;
+
+      background:
+
+        white;
+
+      border-radius:
+
+        24px 24px 0 0;
+
+      padding:
+
+        18px
+
+        17px
+
+        calc(
+
+          22px +
+
+          env(safe-area-inset-bottom)
+
+        );
 
     }
 
@@ -541,13 +872,19 @@
 
       display:flex;
 
-      justify-content:space-between;
+      justify-content:
 
-      align-items:center;
+        space-between;
+
+      align-items:
+
+        center;
 
       gap:10px;
 
-      margin-bottom:15px;
+      margin-bottom:
+
+        15px;
 
     }
 
@@ -555,29 +892,43 @@
 
       margin:0;
 
-      font-size:20px;
+      font-size:
+
+        20px;
 
     }
 
     .close{
 
-      width:40px;
+      width:
 
-      height:40px;
+        40px;
+
+      height:
+
+        40px;
 
       border:none;
 
-      border-radius:50%;
+      border-radius:
 
-      background:#f3f4f6;
+        50%;
 
-      font-size:22px;
+      background:
+
+        #f3f4f6;
+
+      font-size:
+
+        22px;
 
     }
 
     .field{
 
-      margin-bottom:12px;
+      margin-bottom:
+
+        12px;
 
     }
 
@@ -585,11 +936,17 @@
 
       display:block;
 
-      margin-bottom:6px;
+      margin-bottom:
 
-      font-size:13px;
+        6px;
 
-      font-weight:800;
+      font-size:
+
+        13px;
+
+      font-weight:
+
+        800;
 
     }
 
@@ -597,15 +954,25 @@
 
       width:100%;
 
-      height:220px;
+      height:
 
-      object-fit:cover;
+        220px;
 
-      border-radius:16px;
+      object-fit:
 
-      background:#f3f4f6;
+        cover;
 
-      margin-top:8px;
+      border-radius:
+
+        16px;
+
+      background:
+
+        #f3f4f6;
+
+      margin-top:
+
+        8px;
 
     }
 
@@ -613,123 +980,207 @@
 
       display:grid;
 
-      grid-template-columns:1fr 100px 45px;
+      grid-template-columns:
+
+        1fr 100px 45px;
 
       gap:7px;
 
-      align-items:center;
+      align-items:
 
-      margin-bottom:8px;
+        center;
+
+      margin-bottom:
+
+        8px;
 
     }
 
     .remove-ingredient{
 
-      width:45px;
+      width:
 
-      height:45px;
+        45px;
+
+      height:
+
+        45px;
 
       border:none;
 
-      border-radius:11px;
+      border-radius:
 
-      background:var(--red-bg);
+        11px;
 
-      color:var(--red);
+      background:
 
-      font-weight:900;
+        var(--red-bg);
+
+      color:
+
+        var(--red);
+
+      font-weight:
+
+        900;
 
     }
 
     .backup-box{
 
-      padding:14px;
+      padding:
 
-      border:1px solid var(--border);
+        14px;
 
-      border-radius:16px;
+      border:
 
-      background:#f9fafb;
+        1px solid var(--border);
 
-      margin-top:12px;
+      border-radius:
+
+        16px;
+
+      background:
+
+        #f9fafb;
+
+      margin-top:
+
+        12px;
 
     }
 
     .backup-box h3{
 
-      margin:0 0 7px;
+      margin:
+
+        0 0 7px;
 
     }
 
     .muted{
 
-      color:var(--muted);
+      color:
+
+        var(--muted);
 
     }
 
     .small{
 
-      font-size:12px;
+      font-size:
+
+        12px;
 
     }
 
     .toast{
 
-      position:fixed;
+      position:
 
-      z-index:300;
+        fixed;
 
-      left:50%;
+      z-index:
 
-      bottom:calc(25px + env(safe-area-inset-bottom));
+        300;
 
-      transform:translateX(-50%);
+      left:
 
-      max-width:90%;
+        50%;
 
-      padding:11px 16px;
+      bottom:
 
-      border-radius:999px;
+        calc(
 
-      background:#111827;
+          25px +
 
-      color:white;
+          env(safe-area-inset-bottom)
 
-      text-align:center;
+        );
 
-      box-shadow:0 10px 30px rgba(0,0,0,.3);
+      transform:
+
+        translateX(-50%);
+
+      max-width:
+
+        90%;
+
+      padding:
+
+        11px 16px;
+
+      border-radius:
+
+        999px;
+
+      background:
+
+        #111827;
+
+      color:
+
+        white;
+
+      text-align:
+
+        center;
+
+      box-shadow:
+
+        0 10px 30px
+
+        rgba(0,0,0,.3);
 
     }
 
-    @media(min-width:650px){
+    @media(
+
+      min-width:650px
+
+    ){
 
       .recipes{
 
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:
+
+          repeat(2,1fr);
 
       }
 
       .modal{
 
-        align-items:center;
+        align-items:
 
-        padding:20px;
+          center;
+
+        padding:
+
+          20px;
 
       }
 
       .modal-box{
 
-        border-radius:24px;
+        border-radius:
+
+          24px;
 
       }
 
     }
 
-    @media(min-width:950px){
+    @media(
+
+      min-width:950px
+
+    ){
 
       .recipes{
 
-        grid-template-columns:repeat(3,1fr);
+        grid-template-columns:
+
+          repeat(3,1fr);
 
       }
 
@@ -747,9 +1198,31 @@
 
     <div class="brand">
 
-      <h1>🍸 Cocktails</h1>
+      <img
 
-      <small>Mamy Mouss</small>
+        class="brand-logo"
+
+        src="./icon.jpg?v=2"
+
+        alt="Mamy Mouss"
+
+      >
+
+      <div>
+
+        <h1>
+
+          Cocktails
+
+        </h1>
+
+        <small>
+
+          Mamy Mouss
+
+        </small>
+
+      </div>
 
     </div>
 
@@ -757,7 +1230,9 @@
 
       class="btn green"
 
-      onclick="openRecipeModal()">
+      onclick="openRecipeModal()"
+
+    >
 
       + Cocktail
 
@@ -781,13 +1256,17 @@
 
       placeholder="🔎 Rechercher un cocktail..."
 
-      oninput="renderRecipes()">
+      oninput="renderRecipes()"
+
+    >
 
     <button
 
       class="btn light"
 
-      onclick="openBackupModal()">
+      onclick="openBackupModal()"
+
+    >
 
       ⚙️ Sauvegarde
 
@@ -799,33 +1278,43 @@
 
     id="categoryChips"
 
-    class="chips">
+    class="chips"
 
-  </div>
+  ></div>
 
   <div
 
     id="recipesList"
 
-    class="recipes">
+    class="recipes"
 
-  </div>
+  ></div>
 
 </main>
 
+<!-- =============================== -->
+
 <!-- MODALE RECETTE -->
+
+<!-- =============================== -->
 
 <div
 
   id="recipeModal"
 
-  class="modal hidden">
+  class="modal hidden"
+
+>
 
   <div class="modal-box">
 
     <div class="modal-header">
 
-      <h2 id="recipeModalTitle">
+      <h2
+
+        id="recipeModalTitle"
+
+      >
 
         Nouveau cocktail
 
@@ -835,7 +1324,9 @@
 
         class="close"
 
-        onclick="closeModal('recipeModal')">
+        onclick="closeModal('recipeModal')"
+
+      >
 
         ×
 
@@ -847,35 +1338,91 @@
 
       id="recipeId"
 
-      type="hidden">
+      type="hidden"
+
+    >
 
     <div class="field">
 
-      <label>Nom du cocktail</label>
+      <label>
+
+        Nom du cocktail
+
+      </label>
 
       <input
 
         id="recipeName"
 
-        placeholder="Ex. Mojito">
+        placeholder="Ex. Mojito"
+
+      >
 
     </div>
 
     <div class="field">
 
-      <label>Catégorie</label>
+      <label>
 
-      <select id="recipeCategory">
+        Catégorie
 
-        <option value="Classiques">Classiques</option>
+      </label>
 
-        <option value="Signature">Signature</option>
+      <select
 
-        <option value="Sans alcool">Sans alcool</option>
+        id="recipeCategory"
 
-        <option value="Shots">Shots</option>
+      >
 
-        <option value="Autres">Autres</option>
+        <option
+
+          value="Classiques"
+
+        >
+
+          Classiques
+
+        </option>
+
+        <option
+
+          value="Signature"
+
+        >
+
+          Signature
+
+        </option>
+
+        <option
+
+          value="Sans alcool"
+
+        >
+
+          Sans alcool
+
+        </option>
+
+        <option
+
+          value="Shots"
+
+        >
+
+          Shots
+
+        </option>
+
+        <option
+
+          value="Autres"
+
+        >
+
+          Autres
+
+        </option>
 
       </select>
 
@@ -883,13 +1430,19 @@
 
     <div class="field">
 
-      <label>Type de verre</label>
+      <label>
+
+        Type de verre
+
+      </label>
 
       <input
 
         id="recipeGlass"
 
-        placeholder="Ex. Highball, coupe, tumbler...">
+        placeholder="Ex. Highball, coupe, tumbler..."
+
+      >
 
     </div>
 
@@ -909,7 +1462,9 @@
 
         accept="image/*"
 
-        onchange="previewPhoto(event)">
+        onchange="previewPhoto(event)"
+
+      >
 
       <img
 
@@ -917,7 +1472,9 @@
 
         class="photo-preview hidden"
 
-        alt="Photo du cocktail">
+        alt="Photo du cocktail"
+
+      >
 
       <button
 
@@ -929,7 +1486,9 @@
 
         type="button"
 
-        onclick="removePhoto()">
+        onclick="removePhoto()"
+
+      >
 
         Retirer la photo
 
@@ -939,9 +1498,17 @@
 
     <div class="field">
 
-      <label>Ingrédients</label>
+      <label>
 
-      <div id="ingredientsEditor"></div>
+        Ingrédients
+
+      </label>
+
+      <div
+
+        id="ingredientsEditor"
+
+      ></div>
 
       <button
 
@@ -949,7 +1516,9 @@
 
         type="button"
 
-        onclick="addIngredientRow()">
+        onclick="addIngredientRow()"
+
+      >
 
         + Ajouter un ingrédient
 
@@ -959,31 +1528,47 @@
 
     <div class="field">
 
-      <label>Préparation</label>
+      <label>
+
+        Préparation
+
+      </label>
 
       <textarea
 
         id="recipePreparation"
 
-        placeholder="Ex. Remplir le verre de glace, ajouter les ingrédients, mélanger..."></textarea>
+        placeholder="Ex. Remplir le verre de glace, ajouter les ingrédients, mélanger..."
+
+      ></textarea>
 
     </div>
 
     <div class="field">
 
-      <label>Garniture / décoration</label>
+      <label>
+
+        Garniture / décoration
+
+      </label>
 
       <input
 
         id="recipeGarnish"
 
-        placeholder="Ex. rondelle de citron vert, menthe...">
+        placeholder="Ex. rondelle de citron vert, menthe..."
+
+      >
 
     </div>
 
     <div class="field">
 
-      <label>Notes</label>
+      <label>
+
+        Notes
+
+      </label>
 
       <textarea
 
@@ -991,7 +1576,9 @@
 
         placeholder="Optionnel"
 
-        style="min-height:70px;"></textarea>
+        style="min-height:70px;"
+
+      ></textarea>
 
     </div>
 
@@ -999,7 +1586,9 @@
 
       class="btn green full"
 
-      onclick="saveRecipe()">
+      onclick="saveRecipe()"
+
+    >
 
       💾 Enregistrer
 
@@ -1013,7 +1602,9 @@
 
       style="margin-top:8px;"
 
-      onclick="deleteCurrentRecipe()">
+      onclick="deleteCurrentRecipe()"
+
+    >
 
       🗑️ Supprimer la recette
 
@@ -1023,19 +1614,29 @@
 
 </div>
 
-<!-- MODALE DETAIL -->
+<!-- =============================== -->
+
+<!-- MODALE DÉTAIL -->
+
+<!-- =============================== -->
 
 <div
 
   id="detailModal"
 
-  class="modal hidden">
+  class="modal hidden"
+
+>
 
   <div class="modal-box">
 
     <div class="modal-header">
 
-      <h2 id="detailTitle">
+      <h2
+
+        id="detailTitle"
+
+      >
 
         Cocktail
 
@@ -1045,7 +1646,9 @@
 
         class="close"
 
-        onclick="closeModal('detailModal')">
+        onclick="closeModal('detailModal')"
+
+      >
 
         ×
 
@@ -1053,31 +1656,47 @@
 
     </div>
 
-    <div id="detailContent"></div>
+    <div
+
+      id="detailContent"
+
+    ></div>
 
   </div>
 
 </div>
 
+<!-- =============================== -->
+
 <!-- MODALE SAUVEGARDE -->
+
+<!-- =============================== -->
 
 <div
 
   id="backupModal"
 
-  class="modal hidden">
+  class="modal hidden"
+
+>
 
   <div class="modal-box">
 
     <div class="modal-header">
 
-      <h2>⚙️ Sauvegarde</h2>
+      <h2>
+
+        ⚙️ Sauvegarde
+
+      </h2>
 
       <button
 
         class="close"
 
-        onclick="closeModal('backupModal')">
+        onclick="closeModal('backupModal')"
+
+      >
 
         ×
 
@@ -1087,7 +1706,11 @@
 
     <div class="backup-box">
 
-      <h3>Exporter</h3>
+      <h3>
+
+        Exporter
+
+      </h3>
 
       <div class="small muted">
 
@@ -1101,7 +1724,9 @@
 
         style="margin-top:10px;"
 
-        onclick="exportBackup()">
+        onclick="exportBackup()"
+
+      >
 
         📤 Exporter les recettes
 
@@ -1111,7 +1736,11 @@
 
     <div class="backup-box">
 
-      <h3>Importer</h3>
+      <h3>
+
+        Importer
+
+      </h3>
 
       <div class="small muted">
 
@@ -1127,7 +1756,9 @@
 
         accept=".json,application/json"
 
-        style="margin-top:10px;">
+        style="margin-top:10px;"
+
+      >
 
       <button
 
@@ -1135,7 +1766,9 @@
 
         style="margin-top:8px;"
 
-        onclick="importBackup()">
+        onclick="importBackup()"
+
+      >
 
         📥 Importer la sauvegarde
 
@@ -1145,15 +1778,19 @@
 
     <div class="backup-box">
 
-      <h3>Important</h3>
+      <h3>
+
+        Important
+
+      </h3>
 
       <div class="small muted">
 
         Les recettes sont enregistrées directement sur cette tablette.
 
-        Fais une sauvegarde de temps en temps pour éviter de perdre
+        Fais une sauvegarde de temps en temps pour éviter de les perdre
 
-        les recettes si les données du navigateur sont supprimées.
+        si les données du navigateur sont supprimées.
 
       </div>
 
@@ -1167,57 +1804,565 @@
 
   id="toast"
 
-  class="toast hidden">
+  class="toast hidden"
 
-</div>
+></div>
 
 <script>
 
-const DB_NAME = "mamy_mouss_cocktails";
+  const DB_NAME =
 
-const DB_VERSION = 1;
+    "mamy_mouss_cocktails";
 
-const STORE_NAME = "recipes";
+  const DB_VERSION =
 
-let db = null;
+    1;
 
-let recipes = [];
+  const STORE_NAME =
 
-let activeCategory = "Tous";
+    "recipes";
 
-let currentPhoto = "";
+  let db =
 
-const categories = [
+    null;
 
-  "Tous",
+  let recipes =
 
-  "Classiques",
+    [];
 
-  "Signature",
+  let activeCategory =
 
-  "Sans alcool",
+    "Tous";
 
-  "Shots",
+  let currentPhoto =
 
-  "Autres"
+    "";
 
-];
+  const categories = [
 
-document.addEventListener(
+    "Tous",
 
-  "DOMContentLoaded",
+    "Classiques",
 
-  init
+    "Signature",
 
-);
+    "Sans alcool",
 
-async function init(){
+    "Shots",
 
-  try{
+    "Autres"
 
-    await openDatabase();
+  ];
 
-    await loadRecipes();
+  document.addEventListener(
+
+    "DOMContentLoaded",
+
+    init
+
+  );
+
+  async function init(){
+
+    try{
+
+      await openDatabase();
+
+      await loadRecipes();
+
+      renderCategories();
+
+      renderRecipes();
+
+    }
+
+    catch(error){
+
+      console.error(
+
+        error
+
+      );
+
+      alert(
+
+        "Impossible d'ouvrir la base locale."
+
+      );
+
+    }
+
+  }
+
+  function openDatabase(){
+
+    return new Promise(
+
+      (
+
+        resolve,
+
+        reject
+
+      ) => {
+
+        const request =
+
+          indexedDB.open(
+
+            DB_NAME,
+
+            DB_VERSION
+
+          );
+
+        request.onupgradeneeded =
+
+          event => {
+
+            const database =
+
+              event.target.result;
+
+            if(
+
+              !database
+
+                .objectStoreNames
+
+                .contains(
+
+                  STORE_NAME
+
+                )
+
+            ){
+
+              database
+
+                .createObjectStore(
+
+                  STORE_NAME,
+
+                  {
+
+                    keyPath:
+
+                      "id"
+
+                  }
+
+                );
+
+            }
+
+          };
+
+        request.onsuccess =
+
+          event => {
+
+            db =
+
+              event.target.result;
+
+            resolve();
+
+          };
+
+        request.onerror =
+
+          event => {
+
+            reject(
+
+              event
+
+            );
+
+          };
+
+      }
+
+    );
+
+  }
+
+  function getAllRecipes(){
+
+    return new Promise(
+
+      (
+
+        resolve,
+
+        reject
+
+      ) => {
+
+        const transaction =
+
+          db.transaction(
+
+            STORE_NAME,
+
+            "readonly"
+
+          );
+
+        const store =
+
+          transaction
+
+            .objectStore(
+
+              STORE_NAME
+
+            );
+
+        const request =
+
+          store.getAll();
+
+        request.onsuccess =
+
+          () => {
+
+            resolve(
+
+              request.result ||
+
+              []
+
+            );
+
+          };
+
+        request.onerror =
+
+          () => {
+
+            reject(
+
+              request.error
+
+            );
+
+          };
+
+      }
+
+    );
+
+  }
+
+  function putRecipe(
+
+    recipe
+
+  ){
+
+    return new Promise(
+
+      (
+
+        resolve,
+
+        reject
+
+      ) => {
+
+        const transaction =
+
+          db.transaction(
+
+            STORE_NAME,
+
+            "readwrite"
+
+          );
+
+        const store =
+
+          transaction
+
+            .objectStore(
+
+              STORE_NAME
+
+            );
+
+        const request =
+
+          store.put(
+
+            recipe
+
+          );
+
+        request.onsuccess =
+
+          () => {
+
+            resolve();
+
+          };
+
+        request.onerror =
+
+          () => {
+
+            reject(
+
+              request.error
+
+            );
+
+          };
+
+      }
+
+    );
+
+  }
+
+  function removeRecipeFromDB(
+
+    id
+
+  ){
+
+    return new Promise(
+
+      (
+
+        resolve,
+
+        reject
+
+      ) => {
+
+        const transaction =
+
+          db.transaction(
+
+            STORE_NAME,
+
+            "readwrite"
+
+          );
+
+        const store =
+
+          transaction
+
+            .objectStore(
+
+              STORE_NAME
+
+            );
+
+        const request =
+
+          store.delete(
+
+            id
+
+          );
+
+        request.onsuccess =
+
+          () => {
+
+            resolve();
+
+          };
+
+        request.onerror =
+
+          () => {
+
+            reject(
+
+              request.error
+
+            );
+
+          };
+
+      }
+
+    );
+
+  }
+
+  function clearDatabase(){
+
+    return new Promise(
+
+      (
+
+        resolve,
+
+        reject
+
+      ) => {
+
+        const transaction =
+
+          db.transaction(
+
+            STORE_NAME,
+
+            "readwrite"
+
+          );
+
+        const store =
+
+          transaction
+
+            .objectStore(
+
+              STORE_NAME
+
+            );
+
+        const request =
+
+          store.clear();
+
+        request.onsuccess =
+
+          () => {
+
+            resolve();
+
+          };
+
+        request.onerror =
+
+          () => {
+
+            reject(
+
+              request.error
+
+            );
+
+          };
+
+      }
+
+    );
+
+  }
+
+  async function loadRecipes(){
+
+    recipes =
+
+      await getAllRecipes();
+
+    recipes.sort(
+
+      (
+
+        a,
+
+        b
+
+      ) =>
+
+        (
+
+          a.name ||
+
+          ""
+
+        )
+
+          .localeCompare(
+
+            b.name ||
+
+            "",
+
+            "fr",
+
+            {
+
+              sensitivity:
+
+                "base"
+
+            }
+
+          )
+
+    );
+
+  }
+
+  function renderCategories(){
+
+    const container =
+
+      document
+
+        .getElementById(
+
+          "categoryChips"
+
+        );
+
+    container.innerHTML =
+
+      categories
+
+        .map(
+
+          category => `
+
+            <button
+
+              class="chip ${
+
+                activeCategory ===
+
+                category
+
+                  ? "active"
+
+                  : ""
+
+              }"
+
+              onclick="selectCategory('${escapeAttribute(category)}')"
+
+            >
+
+              ${escapeHtml(category)}
+
+            </button>
+
+          `
+
+        )
+
+        .join("");
+
+  }
+
+  function selectCategory(
+
+    category
+
+  ){
+
+    activeCategory =
+
+      category;
 
     renderCategories();
 
@@ -1225,1985 +2370,2103 @@ async function init(){
 
   }
 
-  catch(error){
+  function renderRecipes(){
 
-    console.error(error);
+    const search =
 
-    alert("Impossible d'ouvrir la base locale.");
+      document
 
-  }
+        .getElementById(
 
-}
-
-function openDatabase(){
-
-  return new Promise((resolve,reject)=>{
-
-    const request =
-
-      indexedDB.open(
-
-        DB_NAME,
-
-        DB_VERSION
-
-      );
-
-    request.onupgradeneeded = event => {
-
-      const database =
-
-        event.target.result;
-
-      if(
-
-        !database.objectStoreNames.contains(
-
-          STORE_NAME
+          "searchInput"
 
         )
 
-      ){
+        .value
 
-        database.createObjectStore(
+        .trim()
 
-          STORE_NAME,
+        .toLowerCase();
 
-          {
+    let filtered =
 
-            keyPath:"id"
+      [
+
+        ...recipes
+
+      ];
+
+    if(
+
+      activeCategory !==
+
+      "Tous"
+
+    ){
+
+      filtered =
+
+        filtered.filter(
+
+          recipe =>
+
+            recipe.category ===
+
+            activeCategory
+
+        );
+
+    }
+
+    if(search){
+
+      filtered =
+
+        filtered.filter(
+
+          recipe => {
+
+            const text = [
+
+              recipe.name,
+
+              recipe.category,
+
+              recipe.glass,
+
+              recipe.garnish,
+
+              ...(
+
+                recipe.ingredients ||
+
+                []
+
+              )
+
+                .map(
+
+                  ingredient =>
+
+                    ingredient.name
+
+                )
+
+            ]
+
+              .join(" ")
+
+              .toLowerCase();
+
+            return text.includes(
+
+              search
+
+            );
 
           }
 
         );
 
-      }
+    }
 
-    };
+    const container =
 
-    request.onsuccess = event => {
+      document
 
-      db =
+        .getElementById(
 
-        event.target.result;
+          "recipesList"
 
-      resolve();
+        );
 
-    };
+    if(
 
-    request.onerror = event => {
+      filtered.length ===
 
-      reject(event);
+      0
 
-    };
+    ){
 
-  });
+      container.innerHTML = `
 
-}
+        <div class="empty">
 
-function getAllRecipes(){
+          <div class="empty-icon">
 
-  return new Promise((resolve,reject)=>{
+            🍹
 
-    const transaction =
+          </div>
 
-      db.transaction(
+          <strong>
 
-        STORE_NAME,
+            Aucun cocktail
 
-        "readonly"
+          </strong>
 
-      );
+          <div class="small muted">
 
-    const store =
+            Appuie sur + Cocktail pour ajouter ta première recette.
 
-      transaction.objectStore(
+          </div>
 
-        STORE_NAME
+        </div>
 
-      );
+      `;
 
-    const request =
+      return;
 
-      store.getAll();
+    }
 
-    request.onsuccess = () => {
+    container.innerHTML =
 
-      resolve(
+      filtered
 
-        request.result || []
+        .map(
 
-      );
+          recipe => `
 
-    };
+            <article class="recipe-card">
 
-    request.onerror = () => {
+              ${
 
-      reject(
+                recipe.photo
 
-        request.error
+                  ? `
 
-      );
+                    <img
 
-    };
+                      class="recipe-image"
 
-  });
+                      src="${recipe.photo}"
 
-}
+                      alt="${escapeAttribute(recipe.name)}"
 
-function putRecipe(recipe){
+                    >
 
-  return new Promise((resolve,reject)=>{
+                  `
 
-    const transaction =
+                  : `
 
-      db.transaction(
+                    <div class="recipe-image-placeholder">
 
-        STORE_NAME,
+                      🍸
 
-        "readwrite"
+                    </div>
 
-      );
+                  `
 
-    const store =
+              }
 
-      transaction.objectStore(
+              <div class="recipe-body">
 
-        STORE_NAME
+                <div class="recipe-name">
 
-      );
+                  ${escapeHtml(recipe.name)}
 
-    const request =
+                </div>
 
-      store.put(recipe);
+                <span class="recipe-category">
 
-    request.onsuccess = () => {
+                  ${escapeHtml(recipe.category)}
 
-      resolve();
+                </span>
 
-    };
+                ${
 
-    request.onerror = () => {
+                  recipe.glass
 
-      reject(
+                    ? `
 
-        request.error
+                      <div class="recipe-glass">
 
-      );
+                        🥃 ${escapeHtml(recipe.glass)}
 
-    };
+                      </div>
 
-  });
+                    `
 
-}
+                    : ""
 
-function removeRecipeFromDB(id){
+                }
 
-  return new Promise((resolve,reject)=>{
+                <div class="recipe-actions">
 
-    const transaction =
+                  <button
 
-      db.transaction(
+                    class="btn blue"
 
-        STORE_NAME,
+                    onclick="openRecipeDetail('${recipe.id}')"
 
-        "readwrite"
+                  >
 
-      );
+                    📖 Recette
 
-    const store =
+                  </button>
 
-      transaction.objectStore(
+                  <button
 
-        STORE_NAME
+                    class="btn light"
 
-      );
+                    onclick="editRecipe('${recipe.id}')"
 
-    const request =
+                  >
 
-      store.delete(id);
+                    ✏️ Modifier
 
-    request.onsuccess = () => {
+                  </button>
 
-      resolve();
+                </div>
 
-    };
+              </div>
 
-    request.onerror = () => {
+            </article>
 
-      reject(
-
-        request.error
-
-      );
-
-    };
-
-  });
-
-}
-
-function clearDatabase(){
-
-  return new Promise((resolve,reject)=>{
-
-    const transaction =
-
-      db.transaction(
-
-        STORE_NAME,
-
-        "readwrite"
-
-      );
-
-    const store =
-
-      transaction.objectStore(
-
-        STORE_NAME
-
-      );
-
-    const request =
-
-      store.clear();
-
-    request.onsuccess = () => {
-
-      resolve();
-
-    };
-
-    request.onerror = () => {
-
-      reject(
-
-        request.error
-
-      );
-
-    };
-
-  });
-
-}
-
-async function loadRecipes(){
-
-  recipes =
-
-    await getAllRecipes();
-
-  recipes.sort(
-
-    (a,b) =>
-
-      (a.name || "")
-
-        .localeCompare(
-
-          b.name || "",
-
-          "fr",
-
-          {
-
-            sensitivity:"base"
-
-          }
+          `
 
         )
 
-  );
+        .join("");
 
-}
+  }
 
-function renderCategories(){
-
-  const container =
-
-    document.getElementById(
-
-      "categoryChips"
-
-    );
-
-  container.innerHTML =
-
-    categories
-
-      .map(category => `
-
-        <button
-
-          class="chip ${
-
-            activeCategory === category
-
-              ? "active"
-
-              : ""
-
-          }"
-
-          onclick="selectCategory('${escapeAttribute(category)}')">
-
-          ${escapeHtml(category)}
-
-        </button>
-
-      `)
-
-      .join("");
-
-}
-
-function selectCategory(category){
-
-  activeCategory =
-
-    category;
-
-  renderCategories();
-
-  renderRecipes();
-
-}
-
-function renderRecipes(){
-
-  const search =
+  function openRecipeModal(){
 
     document
 
       .getElementById(
 
-        "searchInput"
+        "recipeModalTitle"
 
       )
 
-      .value
+      .textContent =
 
-      .trim()
+        "Nouveau cocktail";
 
-      .toLowerCase();
+    document
 
-  let filtered =
+      .getElementById(
 
-    [...recipes];
+        "recipeId"
 
-  if(
+      )
 
-    activeCategory !== "Tous"
+      .value =
 
-  ){
+        "";
 
-    filtered =
+    document
 
-      filtered.filter(
+      .getElementById(
 
-        recipe =>
+        "recipeName"
 
-          recipe.category ===
+      )
 
-          activeCategory
+      .value =
 
-      );
+        "";
 
-  }
+    document
 
-  if(search){
-
-    filtered =
-
-      filtered.filter(recipe=>{
-
-        const text = [
-
-          recipe.name,
-
-          recipe.category,
-
-          recipe.glass,
-
-          recipe.garnish,
-
-          ...(recipe.ingredients || [])
-
-            .map(
-
-              ingredient =>
-
-                ingredient.name
-
-            )
-
-        ]
-
-          .join(" ")
-
-          .toLowerCase();
-
-        return text.includes(search);
-
-      });
-
-  }
-
-  const container =
-
-    document.getElementById(
-
-      "recipesList"
-
-    );
-
-  if(
-
-    filtered.length === 0
-
-  ){
-
-    container.innerHTML = `
-
-      <div class="empty">
-
-        <div class="empty-icon">
-
-          🍹
-
-        </div>
-
-        <strong>
-
-          Aucun cocktail
-
-        </strong>
-
-        <div class="small muted">
-
-          Appuie sur + Cocktail pour ajouter ta première recette.
-
-        </div>
-
-      </div>
-
-    `;
-
-    return;
-
-  }
-
-  container.innerHTML =
-
-    filtered
-
-      .map(recipe=>`
-
-        <article class="recipe-card">
-
-          ${
-
-            recipe.photo
-
-              ? `
-
-                <img
-
-                  class="recipe-image"
-
-                  src="${recipe.photo}"
-
-                  alt="${escapeAttribute(recipe.name)}">
-
-              `
-
-              : `
-
-                <div class="recipe-image-placeholder">
-
-                  🍸
-
-                </div>
-
-              `
-
-          }
-
-          <div class="recipe-body">
-
-            <div class="recipe-name">
-
-              ${escapeHtml(recipe.name)}
-
-            </div>
-
-            <span class="recipe-category">
-
-              ${escapeHtml(recipe.category)}
-
-            </span>
-
-            ${
-
-              recipe.glass
-
-                ? `
-
-                  <div class="recipe-glass">
-
-                    🥃 ${escapeHtml(recipe.glass)}
-
-                  </div>
-
-                `
-
-                : ""
-
-            }
-
-            <div class="recipe-actions">
-
-              <button
-
-                class="btn blue"
-
-                onclick="openRecipeDetail('${recipe.id}')">
-
-                📖 Recette
-
-              </button>
-
-              <button
-
-                class="btn light"
-
-                onclick="editRecipe('${recipe.id}')">
-
-                ✏️ Modifier
-
-              </button>
-
-            </div>
-
-          </div>
-
-        </article>
-
-      `)
-
-      .join("");
-
-}
-
-function openRecipeModal(){
-
-  document.getElementById(
-
-    "recipeModalTitle"
-
-  ).textContent =
-
-    "Nouveau cocktail";
-
-  document.getElementById(
-
-    "recipeId"
-
-  ).value = "";
-
-  document.getElementById(
-
-    "recipeName"
-
-  ).value = "";
-
-  document.getElementById(
-
-    "recipeCategory"
-
-  ).value =
-
-    "Classiques";
-
-  document.getElementById(
-
-    "recipeGlass"
-
-  ).value = "";
-
-  document.getElementById(
-
-    "recipePreparation"
-
-  ).value = "";
-
-  document.getElementById(
-
-    "recipeGarnish"
-
-  ).value = "";
-
-  document.getElementById(
-
-    "recipeNotes"
-
-  ).value = "";
-
-  document.getElementById(
-
-    "recipePhoto"
-
-  ).value = "";
-
-  document.getElementById(
-
-    "deleteRecipeButton"
-
-  ).classList.add(
-
-    "hidden"
-
-  );
-
-  currentPhoto = "";
-
-  updatePhotoPreview();
-
-  document.getElementById(
-
-    "ingredientsEditor"
-
-  ).innerHTML = "";
-
-  addIngredientRow();
-
-  addIngredientRow();
-
-  openModal(
-
-    "recipeModal"
-
-  );
-
-}
-
-function editRecipe(id){
-
-  const recipe =
-
-    recipes.find(
-
-      item =>
-
-        item.id === id
-
-    );
-
-  if(!recipe){
-
-    return;
-
-  }
-
-  document.getElementById(
-
-    "recipeModalTitle"
-
-  ).textContent =
-
-    "Modifier le cocktail";
-
-  document.getElementById(
-
-    "recipeId"
-
-  ).value =
-
-    recipe.id;
-
-  document.getElementById(
-
-    "recipeName"
-
-  ).value =
-
-    recipe.name || "";
-
-  document.getElementById(
-
-    "recipeCategory"
-
-  ).value =
-
-    recipe.category || "Classiques";
-
-  document.getElementById(
-
-    "recipeGlass"
-
-  ).value =
-
-    recipe.glass || "";
-
-  document.getElementById(
-
-    "recipePreparation"
-
-  ).value =
-
-    recipe.preparation || "";
-
-  document.getElementById(
-
-    "recipeGarnish"
-
-  ).value =
-
-    recipe.garnish || "";
-
-  document.getElementById(
-
-    "recipeNotes"
-
-  ).value =
-
-    recipe.notes || "";
-
-  document.getElementById(
-
-    "recipePhoto"
-
-  ).value = "";
-
-  currentPhoto =
-
-    recipe.photo || "";
-
-  updatePhotoPreview();
-
-  const editor =
-
-    document.getElementById(
-
-      "ingredientsEditor"
-
-    );
-
-  editor.innerHTML = "";
-
-  if(
-
-    recipe.ingredients &&
-
-    recipe.ingredients.length
-
-  ){
-
-    recipe.ingredients.forEach(
-
-      ingredient=>{
-
-        addIngredientRow(
-
-          ingredient.name,
-
-          ingredient.quantity
-
-        );
-
-      }
-
-    );
-
-  }
-
-  else{
-
-    addIngredientRow();
-
-  }
-
-  document.getElementById(
-
-    "deleteRecipeButton"
-
-  ).classList.remove(
-
-    "hidden"
-
-  );
-
-  closeModal(
-
-    "detailModal"
-
-  );
-
-  openModal(
-
-    "recipeModal"
-
-  );
-
-}
-
-function addIngredientRow(
-
-  name = "",
-
-  quantity = ""
-
-){
-
-  const editor =
-
-    document.getElementById(
-
-      "ingredientsEditor"
-
-    );
-
-  const row =
-
-    document.createElement(
-
-      "div"
-
-    );
-
-  row.className =
-
-    "ingredient-row";
-
-  row.innerHTML = `
-
-    <input
-
-      class="ingredient-name"
-
-      placeholder="Ingrédient"
-
-      value="${escapeAttribute(name)}">
-
-    <input
-
-      class="ingredient-quantity"
-
-      placeholder="4 cl"
-
-      value="${escapeAttribute(quantity)}">
-
-    <button
-
-      type="button"
-
-      class="remove-ingredient"
-
-      onclick="this.parentElement.remove()">
-
-      ×
-
-    </button>
-
-  `;
-
-  editor.appendChild(row);
-
-}
-
-async function saveRecipe(){
-
-  const id =
-
-    document.getElementById(
-
-      "recipeId"
-
-    ).value;
-
-  const name =
-
-    document.getElementById(
-
-      "recipeName"
-
-    )
-
-      .value
-
-      .trim();
-
-  if(!name){
-
-    toast(
-
-      "Entre le nom du cocktail."
-
-    );
-
-    return;
-
-  }
-
-  const ingredientRows =
-
-    document.querySelectorAll(
-
-      ".ingredient-row"
-
-    );
-
-  const ingredients = [];
-
-  ingredientRows.forEach(row=>{
-
-    const ingredientName =
-
-      row
-
-        .querySelector(
-
-          ".ingredient-name"
-
-        )
-
-        .value
-
-        .trim();
-
-    const quantity =
-
-      row
-
-        .querySelector(
-
-          ".ingredient-quantity"
-
-        )
-
-        .value
-
-        .trim();
-
-    if(ingredientName){
-
-      ingredients.push({
-
-        name:ingredientName,
-
-        quantity:quantity
-
-      });
-
-    }
-
-  });
-
-  const existing =
-
-    recipes.find(
-
-      recipe =>
-
-        recipe.id === id
-
-    );
-
-  let generatedId;
-
-  if(id){
-
-    generatedId = id;
-
-  }
-
-  else if(
-
-    window.crypto &&
-
-    typeof window.crypto.randomUUID === "function"
-
-  ){
-
-    generatedId =
-
-      window.crypto.randomUUID();
-
-  }
-
-  else{
-
-    generatedId =
-
-      Date.now().toString() +
-
-      "-" +
-
-      Math.random()
-
-        .toString(16)
-
-        .slice(2);
-
-  }
-
-  const recipe = {
-
-    id:generatedId,
-
-    name:name,
-
-    category:
-
-      document.getElementById(
+      .getElementById(
 
         "recipeCategory"
 
-      ).value,
+      )
 
-    glass:
+      .value =
 
-      document.getElementById(
+        "Classiques";
+
+    document
+
+      .getElementById(
 
         "recipeGlass"
 
       )
 
-        .value
+      .value =
 
-        .trim(),
+        "";
 
-    photo:
+    document
 
-      currentPhoto,
-
-    ingredients:
-
-      ingredients,
-
-    preparation:
-
-      document.getElementById(
+      .getElementById(
 
         "recipePreparation"
 
       )
 
-        .value
+      .value =
 
-        .trim(),
+        "";
 
-    garnish:
+    document
 
-      document.getElementById(
+      .getElementById(
 
         "recipeGarnish"
 
       )
 
-        .value
+      .value =
 
-        .trim(),
+        "";
 
-    notes:
+    document
 
-      document.getElementById(
+      .getElementById(
 
         "recipeNotes"
 
       )
 
-        .value
+      .value =
 
-        .trim(),
+        "";
 
-    createdAt:
+    document
 
-      existing &&
+      .getElementById(
 
-      existing.createdAt
-
-        ? existing.createdAt
-
-        : new Date().toISOString(),
-
-    updatedAt:
-
-      new Date().toISOString()
-
-  };
-
-  try{
-
-    await putRecipe(recipe);
-
-    await loadRecipes();
-
-    renderRecipes();
-
-    closeModal(
-
-      "recipeModal"
-
-    );
-
-    toast(
-
-      id
-
-        ? "Cocktail modifié ✅"
-
-        : "Cocktail ajouté ✅"
-
-    );
-
-  }
-
-  catch(error){
-
-    console.error(error);
-
-    toast(
-
-      "Impossible d'enregistrer la recette."
-
-    );
-
-  }
-
-}
-
-async function deleteCurrentRecipe(){
-
-  const id =
-
-    document.getElementById(
-
-      "recipeId"
-
-    ).value;
-
-  if(!id){
-
-    return;
-
-  }
-
-  const recipe =
-
-    recipes.find(
-
-      item =>
-
-        item.id === id
-
-    );
-
-  if(
-
-    !confirm(
-
-      `Supprimer "${recipe?.name || "ce cocktail"}" ?`
-
-    )
-
-  ){
-
-    return;
-
-  }
-
-  try{
-
-    await removeRecipeFromDB(id);
-
-    await loadRecipes();
-
-    renderRecipes();
-
-    closeModal(
-
-      "recipeModal"
-
-    );
-
-    toast(
-
-      "Recette supprimée."
-
-    );
-
-  }
-
-  catch(error){
-
-    console.error(error);
-
-    toast(
-
-      "Impossible de supprimer la recette."
-
-    );
-
-  }
-
-}
-
-function previewPhoto(event){
-
-  const file =
-
-    event.target.files?.[0];
-
-  if(!file){
-
-    return;
-
-  }
-
-  if(
-
-    !file.type.startsWith(
-
-      "image/"
-
-    )
-
-  ){
-
-    toast(
-
-      "Choisis une image."
-
-    );
-
-    return;
-
-  }
-
-  const reader =
-
-    new FileReader();
-
-  reader.onload = () => {
-
-    currentPhoto =
-
-      reader.result;
-
-    updatePhotoPreview();
-
-  };
-
-  reader.readAsDataURL(file);
-
-}
-
-function updatePhotoPreview(){
-
-  const preview =
-
-    document.getElementById(
-
-      "photoPreview"
-
-    );
-
-  const removeButton =
-
-    document.getElementById(
-
-      "removePhotoButton"
-
-    );
-
-  if(currentPhoto){
-
-    preview.src =
-
-      currentPhoto;
-
-    preview.classList.remove(
-
-      "hidden"
-
-    );
-
-    removeButton.classList.remove(
-
-      "hidden"
-
-    );
-
-  }
-
-  else{
-
-    preview.src = "";
-
-    preview.classList.add(
-
-      "hidden"
-
-    );
-
-    removeButton.classList.add(
-
-      "hidden"
-
-    );
-
-  }
-
-}
-
-function removePhoto(){
-
-  currentPhoto = "";
-
-  document.getElementById(
-
-    "recipePhoto"
-
-  ).value = "";
-
-  updatePhotoPreview();
-
-}
-
-function openRecipeDetail(id){
-
-  const recipe =
-
-    recipes.find(
-
-      item =>
-
-        item.id === id
-
-    );
-
-  if(!recipe){
-
-    return;
-
-  }
-
-  document.getElementById(
-
-    "detailTitle"
-
-  ).textContent =
-
-    recipe.name;
-
-  const ingredients =
-
-    recipe.ingredients || [];
-
-  document.getElementById(
-
-    "detailContent"
-
-  ).innerHTML = `
-
-    ${
-
-      recipe.photo
-
-        ? `
-
-          <img
-
-            class="photo-preview"
-
-            style="height:280px;margin-top:0;"
-
-            src="${recipe.photo}"
-
-            alt="${escapeAttribute(recipe.name)}">
-
-        `
-
-        : `
-
-          <div
-
-            class="recipe-image-placeholder"
-
-            style="border-radius:16px;">
-
-            🍸
-
-          </div>
-
-        `
-
-    }
-
-    <span class="recipe-category">
-
-      ${escapeHtml(recipe.category)}
-
-    </span>
-
-    ${
-
-      recipe.glass
-
-        ? `
-
-          <div class="section-label">
-
-            Verre
-
-          </div>
-
-          <div>
-
-            🥃 ${escapeHtml(recipe.glass)}
-
-          </div>
-
-        `
-
-        : ""
-
-    }
-
-    <div class="section-label">
-
-      Ingrédients
-
-    </div>
-
-    ${
-
-      ingredients.length
-
-        ? `
-
-          <ul class="ingredients">
-
-            ${ingredients
-
-              .map(
-
-                ingredient=>`
-
-                  <li>
-
-                    <strong>
-
-                      ${escapeHtml(
-
-                        ingredient.quantity || ""
-
-                      )}
-
-                    </strong>
-
-                    ${
-
-                      ingredient.quantity
-
-                        ? " "
-
-                        : ""
-
-                    }
-
-                    ${escapeHtml(
-
-                      ingredient.name
-
-                    )}
-
-                  </li>
-
-                `
-
-              )
-
-              .join("")}
-
-          </ul>
-
-        `
-
-        : `
-
-          <div class="muted">
-
-            Aucun ingrédient encodé.
-
-          </div>
-
-        `
-
-    }
-
-    ${
-
-      recipe.preparation
-
-        ? `
-
-          <div class="section-label">
-
-            Préparation
-
-          </div>
-
-          <div class="preparation">
-
-            ${escapeHtml(recipe.preparation)}
-
-          </div>
-
-        `
-
-        : ""
-
-    }
-
-    ${
-
-      recipe.garnish
-
-        ? `
-
-          <div class="section-label">
-
-            Garniture / décoration
-
-          </div>
-
-          <div>
-
-            🍋 ${escapeHtml(recipe.garnish)}
-
-          </div>
-
-        `
-
-        : ""
-
-    }
-
-    ${
-
-      recipe.notes
-
-        ? `
-
-          <div class="section-label">
-
-            Notes
-
-          </div>
-
-          <div class="preparation">
-
-            ${escapeHtml(recipe.notes)}
-
-          </div>
-
-        `
-
-        : ""
-
-    }
-
-    <button
-
-      class="btn light full"
-
-      style="margin-top:18px;"
-
-      onclick="editRecipe('${recipe.id}')">
-
-      ✏️ Modifier cette recette
-
-    </button>
-
-  `;
-
-  openModal(
-
-    "detailModal"
-
-  );
-
-}
-
-function openBackupModal(){
-
-  document.getElementById(
-
-    "importFile"
-
-  ).value = "";
-
-  openModal(
-
-    "backupModal"
-
-  );
-
-}
-
-function exportBackup(){
-
-  const backup = {
-
-    app:
-
-      "Cocktails Mamy Mouss",
-
-    version:
-
-      1,
-
-    exportedAt:
-
-      new Date().toISOString(),
-
-    recipes:
-
-      recipes
-
-  };
-
-  const blob =
-
-    new Blob(
-
-      [
-
-        JSON.stringify(
-
-          backup,
-
-          null,
-
-          2
-
-        )
-
-      ],
-
-      {
-
-        type:"application/json"
-
-      }
-
-    );
-
-  const url =
-
-    URL.createObjectURL(
-
-      blob
-
-    );
-
-  const link =
-
-    document.createElement(
-
-      "a"
-
-    );
-
-  const date =
-
-    new Date()
-
-      .toISOString()
-
-      .slice(0,10);
-
-  link.href = url;
-
-  link.download =
-
-    `cocktails-mamy-mouss-${date}.json`;
-
-  document.body.appendChild(
-
-    link
-
-  );
-
-  link.click();
-
-  link.remove();
-
-  URL.revokeObjectURL(url);
-
-  toast(
-
-    "Sauvegarde créée ✅"
-
-  );
-
-}
-
-async function importBackup(){
-
-  const input =
-
-    document.getElementById(
-
-      "importFile"
-
-    );
-
-  const file =
-
-    input.files?.[0];
-
-  if(!file){
-
-    toast(
-
-      "Choisis un fichier de sauvegarde."
-
-    );
-
-    return;
-
-  }
-
-  if(
-
-    !confirm(
-
-      "Importer cette sauvegarde ? Les recettes actuelles seront remplacées."
-
-    )
-
-  ){
-
-    return;
-
-  }
-
-  try{
-
-    const text =
-
-      await file.text();
-
-    const data =
-
-      JSON.parse(text);
-
-    if(
-
-      !Array.isArray(
-
-        data.recipes
+        "recipePhoto"
 
       )
 
+      .value =
+
+        "";
+
+    document
+
+      .getElementById(
+
+        "deleteRecipeButton"
+
+      )
+
+      .classList
+
+      .add(
+
+        "hidden"
+
+      );
+
+    currentPhoto =
+
+      "";
+
+    updatePhotoPreview();
+
+    document
+
+      .getElementById(
+
+        "ingredientsEditor"
+
+      )
+
+      .innerHTML =
+
+        "";
+
+    addIngredientRow();
+
+    addIngredientRow();
+
+    openModal(
+
+      "recipeModal"
+
+    );
+
+  }
+
+  function editRecipe(
+
+    id
+
+  ){
+
+    const recipe =
+
+      recipes.find(
+
+        item =>
+
+          item.id ===
+
+          id
+
+      );
+
+    if(
+
+      !recipe
+
     ){
 
-      throw new Error(
+      return;
 
-        "Sauvegarde invalide"
+    }
+
+    document
+
+      .getElementById(
+
+        "recipeModalTitle"
+
+      )
+
+      .textContent =
+
+        "Modifier le cocktail";
+
+    document
+
+      .getElementById(
+
+        "recipeId"
+
+      )
+
+      .value =
+
+        recipe.id;
+
+    document
+
+      .getElementById(
+
+        "recipeName"
+
+      )
+
+      .value =
+
+        recipe.name ||
+
+        "";
+
+    document
+
+      .getElementById(
+
+        "recipeCategory"
+
+      )
+
+      .value =
+
+        recipe.category ||
+
+        "Classiques";
+
+    document
+
+      .getElementById(
+
+        "recipeGlass"
+
+      )
+
+      .value =
+
+        recipe.glass ||
+
+        "";
+
+    document
+
+      .getElementById(
+
+        "recipePreparation"
+
+      )
+
+      .value =
+
+        recipe.preparation ||
+
+        "";
+
+    document
+
+      .getElementById(
+
+        "recipeGarnish"
+
+      )
+
+      .value =
+
+        recipe.garnish ||
+
+        "";
+
+    document
+
+      .getElementById(
+
+        "recipeNotes"
+
+      )
+
+      .value =
+
+        recipe.notes ||
+
+        "";
+
+    document
+
+      .getElementById(
+
+        "recipePhoto"
+
+      )
+
+      .value =
+
+        "";
+
+    currentPhoto =
+
+      recipe.photo ||
+
+      "";
+
+    updatePhotoPreview();
+
+    const editor =
+
+      document
+
+        .getElementById(
+
+          "ingredientsEditor"
+
+        );
+
+    editor.innerHTML =
+
+      "";
+
+    if(
+
+      recipe.ingredients &&
+
+      recipe.ingredients.length
+
+    ){
+
+      recipe.ingredients
+
+        .forEach(
+
+          ingredient => {
+
+            addIngredientRow(
+
+              ingredient.name,
+
+              ingredient.quantity
+
+            );
+
+          }
+
+        );
+
+    }
+
+    else{
+
+      addIngredientRow();
+
+    }
+
+    document
+
+      .getElementById(
+
+        "deleteRecipeButton"
+
+      )
+
+      .classList
+
+      .remove(
+
+        "hidden"
+
+      );
+
+    closeModal(
+
+      "detailModal"
+
+    );
+
+    openModal(
+
+      "recipeModal"
+
+    );
+
+  }
+
+  function addIngredientRow(
+
+    name = "",
+
+    quantity = ""
+
+  ){
+
+    const editor =
+
+      document
+
+        .getElementById(
+
+          "ingredientsEditor"
+
+        );
+
+    const row =
+
+      document
+
+        .createElement(
+
+          "div"
+
+        );
+
+    row.className =
+
+      "ingredient-row";
+
+    row.innerHTML = `
+
+      <input
+
+        class="ingredient-name"
+
+        placeholder="Ingrédient"
+
+        value="${escapeAttribute(name)}"
+
+      >
+
+      <input
+
+        class="ingredient-quantity"
+
+        placeholder="4 cl"
+
+        value="${escapeAttribute(quantity)}"
+
+      >
+
+      <button
+
+        type="button"
+
+        class="remove-ingredient"
+
+        onclick="this.parentElement.remove()"
+
+      >
+
+        ×
+
+      </button>
+
+    `;
+
+    editor.appendChild(
+
+      row
+
+    );
+
+  }
+
+  async function saveRecipe(){
+
+    const id =
+
+      document
+
+        .getElementById(
+
+          "recipeId"
+
+        )
+
+        .value;
+
+    const name =
+
+      document
+
+        .getElementById(
+
+          "recipeName"
+
+        )
+
+        .value
+
+        .trim();
+
+    if(
+
+      !name
+
+    ){
+
+      toast(
+
+        "Entre le nom du cocktail."
+
+      );
+
+      return;
+
+    }
+
+    const ingredientRows =
+
+      document
+
+        .querySelectorAll(
+
+          ".ingredient-row"
+
+        );
+
+    const ingredients =
+
+      [];
+
+    ingredientRows
+
+      .forEach(
+
+        row => {
+
+          const ingredientName =
+
+            row
+
+              .querySelector(
+
+                ".ingredient-name"
+
+              )
+
+              .value
+
+              .trim();
+
+          const quantity =
+
+            row
+
+              .querySelector(
+
+                ".ingredient-quantity"
+
+              )
+
+              .value
+
+              .trim();
+
+          if(
+
+            ingredientName
+
+          ){
+
+            ingredients.push(
+
+              {
+
+                name:
+
+                  ingredientName,
+
+                quantity:
+
+                  quantity
+
+              }
+
+            );
+
+          }
+
+        }
+
+      );
+
+    const existing =
+
+      recipes.find(
+
+        recipe =>
+
+          recipe.id ===
+
+          id
+
+      );
+
+    let generatedId;
+
+    if(id){
+
+      generatedId =
+
+        id;
+
+    }
+
+    else if(
+
+      window.crypto &&
+
+      typeof
+
+        window.crypto.randomUUID ===
+
+        "function"
+
+    ){
+
+      generatedId =
+
+        window.crypto.randomUUID();
+
+    }
+
+    else{
+
+      generatedId =
+
+        Date.now()
+
+          .toString()
+
+        +
+
+        "-"
+
+        +
+
+        Math.random()
+
+          .toString(16)
+
+          .slice(2);
+
+    }
+
+    const recipe = {
+
+      id:
+
+        generatedId,
+
+      name:
+
+        name,
+
+      category:
+
+        document
+
+          .getElementById(
+
+            "recipeCategory"
+
+          )
+
+          .value,
+
+      glass:
+
+        document
+
+          .getElementById(
+
+            "recipeGlass"
+
+          )
+
+          .value
+
+          .trim(),
+
+      photo:
+
+        currentPhoto,
+
+      ingredients:
+
+        ingredients,
+
+      preparation:
+
+        document
+
+          .getElementById(
+
+            "recipePreparation"
+
+          )
+
+          .value
+
+          .trim(),
+
+      garnish:
+
+        document
+
+          .getElementById(
+
+            "recipeGarnish"
+
+          )
+
+          .value
+
+          .trim(),
+
+      notes:
+
+        document
+
+          .getElementById(
+
+            "recipeNotes"
+
+          )
+
+          .value
+
+          .trim(),
+
+      createdAt:
+
+        existing &&
+
+        existing.createdAt
+
+          ? existing.createdAt
+
+          : new Date()
+
+              .toISOString(),
+
+      updatedAt:
+
+        new Date()
+
+          .toISOString()
+
+    };
+
+    try{
+
+      await putRecipe(
+
+        recipe
+
+      );
+
+      await loadRecipes();
+
+      renderRecipes();
+
+      closeModal(
+
+        "recipeModal"
+
+      );
+
+      toast(
+
+        id
+
+          ? "Cocktail modifié ✅"
+
+          : "Cocktail ajouté ✅"
 
       );
 
     }
 
-    await clearDatabase();
+    catch(error){
 
-    for(
+      console.error(
 
-      const recipe
+        error
 
-      of data.recipes
+      );
 
-    ){
+      toast(
 
-      await putRecipe(recipe);
+        "Impossible d'enregistrer la recette."
+
+      );
 
     }
 
-    await loadRecipes();
+  }
 
-    activeCategory =
+  async function deleteCurrentRecipe(){
 
-      "Tous";
+    const id =
 
-    renderCategories();
+      document
 
-    renderRecipes();
+        .getElementById(
 
-    closeModal(
+          "recipeId"
 
-      "backupModal"
+        )
 
-    );
+        .value;
 
-    toast(
+    if(
 
-      "Sauvegarde restaurée ✅"
+      !id
+
+    ){
+
+      return;
+
+    }
+
+    const recipe =
+
+      recipes.find(
+
+        item =>
+
+          item.id ===
+
+          id
+
+      );
+
+    if(
+
+      !confirm(
+
+        `Supprimer "${recipe?.name || "ce cocktail"}" ?`
+
+      )
+
+    ){
+
+      return;
+
+    }
+
+    try{
+
+      await removeRecipeFromDB(
+
+        id
+
+      );
+
+      await loadRecipes();
+
+      renderRecipes();
+
+      closeModal(
+
+        "recipeModal"
+
+      );
+
+      toast(
+
+        "Recette supprimée."
+
+      );
+
+    }
+
+    catch(error){
+
+      console.error(
+
+        error
+
+      );
+
+      toast(
+
+        "Impossible de supprimer la recette."
+
+      );
+
+    }
+
+  }
+
+  function previewPhoto(
+
+    event
+
+  ){
+
+    const file =
+
+      event.target
+
+        .files?.[0];
+
+    if(
+
+      !file
+
+    ){
+
+      return;
+
+    }
+
+    if(
+
+      !file.type
+
+        .startsWith(
+
+          "image/"
+
+        )
+
+    ){
+
+      toast(
+
+        "Choisis une image."
+
+      );
+
+      return;
+
+    }
+
+    const reader =
+
+      new FileReader();
+
+    reader.onload =
+
+      () => {
+
+        currentPhoto =
+
+          reader.result;
+
+        updatePhotoPreview();
+
+      };
+
+    reader.readAsDataURL(
+
+      file
 
     );
 
   }
 
-  catch(error){
+  function updatePhotoPreview(){
 
-    console.error(error);
+    const preview =
 
-    toast(
+      document
 
-      "Fichier de sauvegarde invalide."
+        .getElementById(
 
-    );
+          "photoPreview"
 
-  }
+        );
 
-}
+    const removeButton =
 
-function openModal(id){
+      document
 
-  document
+        .getElementById(
 
-    .getElementById(id)
+          "removePhotoButton"
 
-    .classList
+        );
 
-    .remove("hidden");
+    if(
 
-}
+      currentPhoto
 
-function closeModal(id){
+    ){
 
-  const element =
+      preview.src =
 
-    document.getElementById(id);
+        currentPhoto;
 
-  if(element){
+      preview
 
-    element
+        .classList
 
-      .classList
-
-      .add("hidden");
-
-  }
-
-}
-
-function escapeHtml(text){
-
-  return String(
-
-    text ?? ""
-
-  )
-
-    .replaceAll(
-
-      "&",
-
-      "&amp;"
-
-    )
-
-    .replaceAll(
-
-      "<",
-
-      "&lt;"
-
-    )
-
-    .replaceAll(
-
-      ">",
-
-      "&gt;"
-
-    )
-
-    .replaceAll(
-
-      '"',
-
-      "&quot;"
-
-    )
-
-    .replaceAll(
-
-      "'",
-
-      "&#039;"
-
-    );
-
-}
-
-function escapeAttribute(text){
-
-  return escapeHtml(text);
-
-}
-
-function toast(message){
-
-  const element =
-
-    document.getElementById(
-
-      "toast"
-
-    );
-
-  element.textContent =
-
-    message;
-
-  element.classList.remove(
-
-    "hidden"
-
-  );
-
-  clearTimeout(
-
-    toast.timer
-
-  );
-
-  toast.timer =
-
-    setTimeout(
-
-      ()=>{
-
-        element.classList.add(
+        .remove(
 
           "hidden"
 
         );
 
-      },
+      removeButton
 
-      2300
+        .classList
+
+        .remove(
+
+          "hidden"
+
+        );
+
+    }
+
+    else{
+
+      preview.src =
+
+        "";
+
+      preview
+
+        .classList
+
+        .add(
+
+          "hidden"
+
+        );
+
+      removeButton
+
+        .classList
+
+        .add(
+
+          "hidden"
+
+        );
+
+    }
+
+  }
+
+  function removePhoto(){
+
+    currentPhoto =
+
+      "";
+
+    document
+
+      .getElementById(
+
+        "recipePhoto"
+
+      )
+
+      .value =
+
+        "";
+
+    updatePhotoPreview();
+
+  }
+
+  function openRecipeDetail(
+
+    id
+
+  ){
+
+    const recipe =
+
+      recipes.find(
+
+        item =>
+
+          item.id ===
+
+          id
+
+      );
+
+    if(
+
+      !recipe
+
+    ){
+
+      return;
+
+    }
+
+    document
+
+      .getElementById(
+
+        "detailTitle"
+
+      )
+
+      .textContent =
+
+        recipe.name;
+
+    const ingredients =
+
+      recipe.ingredients ||
+
+      [];
+
+    document
+
+      .getElementById(
+
+        "detailContent"
+
+      )
+
+      .innerHTML = `
+
+        ${
+
+          recipe.photo
+
+            ? `
+
+              <img
+
+                class="photo-preview"
+
+                style="height:280px;margin-top:0;"
+
+                src="${recipe.photo}"
+
+                alt="${escapeAttribute(recipe.name)}"
+
+              >
+
+            `
+
+            : `
+
+              <div
+
+                class="recipe-image-placeholder"
+
+                style="border-radius:16px;"
+
+              >
+
+                🍸
+
+              </div>
+
+            `
+
+        }
+
+        <span class="recipe-category">
+
+          ${escapeHtml(recipe.category)}
+
+        </span>
+
+        ${
+
+          recipe.glass
+
+            ? `
+
+              <div class="section-label">
+
+                Verre
+
+              </div>
+
+              <div>
+
+                🥃 ${escapeHtml(recipe.glass)}
+
+              </div>
+
+            `
+
+            : ""
+
+        }
+
+        <div class="section-label">
+
+          Ingrédients
+
+        </div>
+
+        ${
+
+          ingredients.length
+
+            ? `
+
+              <ul class="ingredients">
+
+                ${
+
+                  ingredients
+
+                    .map(
+
+                      ingredient => `
+
+                        <li>
+
+                          <strong>
+
+                            ${escapeHtml(
+
+                              ingredient.quantity ||
+
+                              ""
+
+                            )}
+
+                          </strong>
+
+                          ${
+
+                            ingredient.quantity
+
+                              ? " "
+
+                              : ""
+
+                          }
+
+                          ${escapeHtml(
+
+                            ingredient.name
+
+                          )}
+
+                        </li>
+
+                      `
+
+                    )
+
+                    .join("")
+
+                }
+
+              </ul>
+
+            `
+
+            : `
+
+              <div class="muted">
+
+                Aucun ingrédient encodé.
+
+              </div>
+
+            `
+
+        }
+
+        ${
+
+          recipe.preparation
+
+            ? `
+
+              <div class="section-label">
+
+                Préparation
+
+              </div>
+
+              <div class="preparation">
+
+                ${escapeHtml(recipe.preparation)}
+
+              </div>
+
+            `
+
+            : ""
+
+        }
+
+        ${
+
+          recipe.garnish
+
+            ? `
+
+              <div class="section-label">
+
+                Garniture / décoration
+
+              </div>
+
+              <div>
+
+                🍋 ${escapeHtml(recipe.garnish)}
+
+              </div>
+
+            `
+
+            : ""
+
+        }
+
+        ${
+
+          recipe.notes
+
+            ? `
+
+              <div class="section-label">
+
+                Notes
+
+              </div>
+
+              <div class="preparation">
+
+                ${escapeHtml(recipe.notes)}
+
+              </div>
+
+            `
+
+            : ""
+
+        }
+
+        <button
+
+          class="btn light full"
+
+          style="margin-top:18px;"
+
+          onclick="editRecipe('${recipe.id}')"
+
+        >
+
+          ✏️ Modifier cette recette
+
+        </button>
+
+      `;
+
+    openModal(
+
+      "detailModal"
 
     );
 
-}
+  }
+
+  function openBackupModal(){
+
+    document
+
+      .getElementById(
+
+        "importFile"
+
+      )
+
+      .value =
+
+        "";
+
+    openModal(
+
+      "backupModal"
+
+    );
+
+  }
+
+  function exportBackup(){
+
+    const backup = {
+
+      app:
+
+        "Cocktails Mamy Mouss",
+
+      version:
+
+        1,
+
+      exportedAt:
+
+        new Date()
+
+          .toISOString(),
+
+      recipes:
+
+        recipes
+
+    };
+
+    const blob =
+
+      new Blob(
+
+        [
+
+          JSON.stringify(
+
+            backup,
+
+            null,
+
+            2
+
+          )
+
+        ],
+
+        {
+
+          type:
+
+            "application/json"
+
+        }
+
+      );
+
+    const url =
+
+      URL.createObjectURL(
+
+        blob
+
+      );
+
+    const link =
+
+      document
+
+        .createElement(
+
+          "a"
+
+        );
+
+    const date =
+
+      new Date()
+
+        .toISOString()
+
+        .slice(
+
+          0,
+
+          10
+
+        );
+
+    link.href =
+
+      url;
+
+    link.download =
+
+      `cocktails-mamy-mouss-${date}.json`;
+
+    document.body
+
+      .appendChild(
+
+        link
+
+      );
+
+    link.click();
+
+    link.remove();
+
+    URL.revokeObjectURL(
+
+      url
+
+    );
+
+    toast(
+
+      "Sauvegarde créée ✅"
+
+    );
+
+  }
+
+  async function importBackup(){
+
+    const input =
+
+      document
+
+        .getElementById(
+
+          "importFile"
+
+        );
+
+    const file =
+
+      input.files?.[0];
+
+    if(
+
+      !file
+
+    ){
+
+      toast(
+
+        "Choisis un fichier de sauvegarde."
+
+      );
+
+      return;
+
+    }
+
+    if(
+
+      !confirm(
+
+        "Importer cette sauvegarde ? Les recettes actuelles seront remplacées."
+
+      )
+
+    ){
+
+      return;
+
+    }
+
+    try{
+
+      const text =
+
+        await file.text();
+
+      const data =
+
+        JSON.parse(
+
+          text
+
+        );
+
+      if(
+
+        !Array.isArray(
+
+          data.recipes
+
+        )
+
+      ){
+
+        throw new Error(
+
+          "Sauvegarde invalide"
+
+        );
+
+      }
+
+      await clearDatabase();
+
+      for(
+
+        const recipe
+
+        of data.recipes
+
+      ){
+
+        await putRecipe(
+
+          recipe
+
+        );
+
+      }
+
+      await loadRecipes();
+
+      activeCategory =
+
+        "Tous";
+
+      renderCategories();
+
+      renderRecipes();
+
+      closeModal(
+
+        "backupModal"
+
+      );
+
+      toast(
+
+        "Sauvegarde restaurée ✅"
+
+      );
+
+    }
+
+    catch(error){
+
+      console.error(
+
+        error
+
+      );
+
+      toast(
+
+        "Fichier de sauvegarde invalide."
+
+      );
+
+    }
+
+  }
+
+  function openModal(
+
+    id
+
+  ){
+
+    document
+
+      .getElementById(
+
+        id
+
+      )
+
+      .classList
+
+      .remove(
+
+        "hidden"
+
+      );
+
+  }
+
+  function closeModal(
+
+    id
+
+  ){
+
+    const element =
+
+      document
+
+        .getElementById(
+
+          id
+
+        );
+
+    if(
+
+      element
+
+    ){
+
+      element
+
+        .classList
+
+        .add(
+
+          "hidden"
+
+        );
+
+    }
+
+  }
+
+  function escapeHtml(
+
+    text
+
+  ){
+
+    return String(
+
+      text ??
+
+      ""
+
+    )
+
+      .replaceAll(
+
+        "&",
+
+        "&amp;"
+
+      )
+
+      .replaceAll(
+
+        "<",
+
+        "&lt;"
+
+      )
+
+      .replaceAll(
+
+        ">",
+
+        "&gt;"
+
+      )
+
+      .replaceAll(
+
+        '"',
+
+        "&quot;"
+
+      )
+
+      .replaceAll(
+
+        "'",
+
+        "&#039;"
+
+      );
+
+  }
+
+  function escapeAttribute(
+
+    text
+
+  ){
+
+    return escapeHtml(
+
+      text
+
+    );
+
+  }
+
+  function toast(
+
+    message
+
+  ){
+
+    const element =
+
+      document
+
+        .getElementById(
+
+          "toast"
+
+        );
+
+    element.textContent =
+
+      message;
+
+    element
+
+      .classList
+
+      .remove(
+
+        "hidden"
+
+      );
+
+    clearTimeout(
+
+      toast.timer
+
+    );
+
+    toast.timer =
+
+      setTimeout(
+
+        () => {
+
+          element
+
+            .classList
+
+            .add(
+
+              "hidden"
+
+            );
+
+        },
+
+        2300
+
+      );
+
+  }
 
 </script>
 
