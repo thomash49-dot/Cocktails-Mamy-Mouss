@@ -62,15 +62,15 @@
 
       -webkit-text-size-adjust: 100%;
 
+      height: 100%;
+
     }
 
     body {
 
       margin: 0;
 
-      min-height: 100vh;
-
-      min-height: 100dvh;
+      min-height: 100%;
 
       font-family:
 
@@ -99,8 +99,6 @@
     body.modal-open {
 
       overflow: hidden;
-
-      touch-action: none;
 
     }
 
@@ -168,15 +166,13 @@
 
       padding:
 
-        calc(15px + env(safe-area-inset-top))
+        calc(14px + env(safe-area-inset-top))
 
         18px
 
-        15px;
+        14px;
 
-      box-shadow:
-
-        0 2px 12px rgba(0, 0, 0, 0.14);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.14);
 
     }
 
@@ -350,9 +346,7 @@
 
       border-radius: 18px;
 
-      box-shadow:
-
-        0 3px 15px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 3px 15px rgba(0,0,0,0.05);
 
     }
 
@@ -386,9 +380,7 @@
 
       border-color: #9ca3af;
 
-      box-shadow:
-
-        0 0 0 3px rgba(17, 24, 39, 0.06);
+      box-shadow: 0 0 0 3px rgba(17,24,39,0.06);
 
     }
 
@@ -426,9 +418,7 @@
 
       border-radius: 18px;
 
-      box-shadow:
-
-        0 4px 18px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 4px 18px rgba(0,0,0,0.06);
 
     }
 
@@ -446,17 +436,7 @@
 
       overflow: hidden;
 
-      background:
-
-        linear-gradient(
-
-          135deg,
-
-          #e5e7eb,
-
-          #f9fafb
-
-        );
+      background: linear-gradient(135deg,#e5e7eb,#f9fafb);
 
       cursor: pointer;
 
@@ -604,7 +584,7 @@
 
     /* =====================================================
 
-       MODALES
+       MODALES COMPATIBLES SAFARI / IPAD / PC
 
     ===================================================== */
 
@@ -614,27 +594,27 @@
 
       position: fixed;
 
-      inset: 0;
+      top: 0;
 
-      z-index: 1000;
+      right: 0;
 
-      background: rgba(0, 0, 0, 0.58);
+      bottom: 0;
+
+      left: 0;
+
+      z-index: 9999;
+
+      background: rgba(0,0,0,0.60);
 
       padding:
 
-        calc(18px + env(safe-area-inset-top))
+        calc(16px + env(safe-area-inset-top))
 
-        18px
+        16px
 
-        calc(18px + env(safe-area-inset-bottom));
+        calc(16px + env(safe-area-inset-bottom));
 
       overflow: hidden;
-
-    }
-
-    .modal-overlay.open {
-
-      display: flex;
 
       align-items: center;
 
@@ -642,23 +622,19 @@
 
     }
 
+    .modal-overlay.open {
+
+      display: flex;
+
+    }
+
     .modal {
 
-      width: min(780px, 100%);
+      width: 100%;
 
-      max-height:
+      max-width: 780px;
 
-        calc(
-
-          100dvh -
-
-          36px -
-
-          env(safe-area-inset-top) -
-
-          env(safe-area-inset-bottom)
-
-        );
+      max-height: calc(100vh - 32px);
 
       display: flex;
 
@@ -666,13 +642,15 @@
 
       overflow: hidden;
 
+      margin: auto;
+
       background: white;
 
       border-radius: 22px;
 
       box-shadow:
 
-        0 20px 60px rgba(0, 0, 0, 0.30);
+        0 20px 60px rgba(0,0,0,0.30);
 
     }
 
@@ -732,8 +710,6 @@
 
       padding: 20px;
 
-      overscroll-behavior: contain;
-
       -webkit-overflow-scrolling: touch;
 
     }
@@ -768,15 +744,15 @@
 
     .modal-actions {
 
+      display: flex;
+
+      gap: 10px;
+
       position: sticky;
 
       bottom: -20px;
 
-      z-index: 10;
-
-      display: flex;
-
-      gap: 10px;
+      z-index: 5;
 
       margin:
 
@@ -794,15 +770,9 @@
 
         calc(14px + env(safe-area-inset-bottom));
 
-      border-top:
+      border-top: 1px solid var(--border);
 
-        1px solid var(--border);
-
-      background: rgba(255, 255, 255, 0.98);
-
-      backdrop-filter: blur(10px);
-
-      -webkit-backdrop-filter: blur(10px);
+      background: rgba(255,255,255,0.98);
 
     }
 
@@ -1012,19 +982,11 @@
 
     /* =====================================================
 
-       TABLETTE
+       TABLETTE / IPAD
 
     ===================================================== */
 
     @media (min-width: 700px) and (max-width: 1100px) {
-
-      header {
-
-        padding-left: 20px;
-
-        padding-right: 20px;
-
-      }
 
       main {
 
@@ -1040,7 +1002,7 @@
 
         grid-template-columns:
 
-          repeat(3, minmax(0, 1fr));
+          repeat(3, minmax(0,1fr));
 
       }
 
@@ -1054,43 +1016,19 @@
 
         padding:
 
-          calc(22px + env(safe-area-inset-top))
+          calc(24px + env(safe-area-inset-top))
 
           28px
 
-          calc(22px + env(safe-area-inset-bottom));
-
-      }
-
-      .modal-overlay.open {
-
-        align-items: center;
-
-        justify-content: center;
+          calc(24px + env(safe-area-inset-bottom));
 
       }
 
       .modal {
 
-        width: min(820px, 94vw);
+        max-width: 820px;
 
-        max-height:
-
-          calc(
-
-            100dvh -
-
-            44px -
-
-            env(safe-area-inset-top) -
-
-            env(safe-area-inset-bottom)
-
-          );
-
-        margin: 0;
-
-        border-radius: 24px;
+        max-height: calc(100vh - 48px);
 
       }
 
@@ -1128,21 +1066,11 @@
 
       }
 
-      input,
-
-      textarea,
-
-      select {
-
-        padding: 14px;
-
-      }
-
     }
 
     /* =====================================================
 
-       MOBILE
+       TÉLÉPHONE
 
     ===================================================== */
 
@@ -1238,7 +1166,7 @@
 
         grid-template-columns:
 
-          repeat(2, minmax(0, 1fr));
+          repeat(2, minmax(0,1fr));
 
         gap: 10px;
 
@@ -1274,41 +1202,19 @@
 
       }
 
-      .modal-overlay.open {
-
-        align-items: center;
-
-        justify-content: center;
-
-      }
-
       .modal {
 
-        width: 100%;
+        max-width: none;
 
-        max-height:
+        max-height: calc(100vh - 16px);
 
-          calc(
-
-            100dvh -
-
-            16px -
-
-            env(safe-area-inset-top) -
-
-            env(safe-area-inset-bottom)
-
-          );
-
-        margin: 0;
-
-        border-radius: 19px;
+        border-radius: 18px;
 
       }
 
       .modal-header {
 
-        padding: 17px 18px;
+        padding: 16px;
 
       }
 
@@ -1368,6 +1274,12 @@
 
     }
 
+    /* =====================================================
+
+       PETITS TÉLÉPHONES
+
+    ===================================================== */
+
     @media (max-width: 390px) {
 
       .header-actions {
@@ -1409,6 +1321,30 @@
       .modal-actions {
 
         flex-direction: column;
+
+      }
+
+    }
+
+    /* =====================================================
+
+       GRAND ÉCRAN PC
+
+    ===================================================== */
+
+    @media (min-width: 1101px) {
+
+      .modal {
+
+        max-width: 850px;
+
+      }
+
+      .cocktail-grid {
+
+        grid-template-columns:
+
+          repeat(auto-fill, minmax(270px,1fr));
 
       }
 
@@ -1940,45 +1876,37 @@
 
 <script>
 
-const STORAGE_KEY =
+/* =========================================================
+
+   STOCKAGE
+
+========================================================= */
+
+var STORAGE_KEY =
 
   "mamy_mouss_cocktails_v3";
 
-const CATEGORY_KEY =
+var CATEGORY_KEY =
 
   "mamy_mouss_categories_v1";
 
-const FONT_KEY =
+var FONT_KEY =
 
   "mamy_mouss_font_size";
 
-let cocktails = [];
+var cocktails = [];
 
-let categories = [];
+var categories = [];
 
-let currentPhoto = "";
+var currentPhoto = "";
 
-function lockBody() {
+/* =========================================================
 
-  document.body.classList.add("modal-open");
+   POLICE
 
-}
+========================================================= */
 
-function unlockBodyIfNeeded() {
-
-  const hasOpenModal =
-
-    document.querySelector(".modal-overlay.open");
-
-  if (!hasOpenModal) {
-
-    document.body.classList.remove("modal-open");
-
-  }
-
-}
-
-const FONT_SIZES = [
+var FONT_SIZES = [
 
   "font-small",
 
@@ -1990,23 +1918,23 @@ const FONT_SIZES = [
 
 ];
 
-let currentFontIndex = 1;
+var currentFontIndex = 1;
 
 function loadFontSize() {
 
-  const saved =
+  var saved =
 
     localStorage.getItem(FONT_KEY);
 
   if (saved !== null) {
 
-    const index =
+    var index =
 
       Number(saved);
 
     if (
 
-      Number.isInteger(index) &&
+      !isNaN(index) &&
 
       index >= 0 &&
 
@@ -2026,7 +1954,23 @@ function loadFontSize() {
 
 function applyFontSize() {
 
-  document.body.classList.remove(...FONT_SIZES);
+  for (
+
+    var i = 0;
+
+    i < FONT_SIZES.length;
+
+    i++
+
+  ) {
+
+    document.body.classList.remove(
+
+      FONT_SIZES[i]
+
+    );
+
+  }
 
   document.body.classList.add(
 
@@ -2074,13 +2018,57 @@ function decreaseFont() {
 
 }
 
+/* =========================================================
+
+   MODALES
+
+========================================================= */
+
+function lockBody() {
+
+  document.body.classList.add("modal-open");
+
+}
+
+function unlockBodyIfNeeded() {
+
+  var opened =
+
+    document.querySelector(
+
+      ".modal-overlay.open"
+
+    );
+
+  if (!opened) {
+
+    document.body.classList.remove(
+
+      "modal-open"
+
+    );
+
+  }
+
+}
+
+/* =========================================================
+
+   COCKTAILS
+
+========================================================= */
+
 function loadCocktails() {
 
   try {
 
-    const saved =
+    var saved =
 
-      localStorage.getItem(STORAGE_KEY);
+      localStorage.getItem(
+
+        STORAGE_KEY
+
+      );
 
     cocktails =
 
@@ -2090,15 +2078,17 @@ function loadCocktails() {
 
         : [];
 
-    if (!Array.isArray(cocktails)) {
+    if (
+
+      !Array.isArray(cocktails)
+
+    ) {
 
       cocktails = [];
 
     }
 
   } catch (error) {
-
-    console.error(error);
 
     cocktails = [];
 
@@ -2122,11 +2112,9 @@ function saveCocktailsToStorage() {
 
   } catch (error) {
 
-    console.error(error);
-
     alert(
 
-      "L'appareil n'a plus assez de place pour enregistrer les données."
+      "Il n'y a plus assez de place pour enregistrer les données."
 
     );
 
@@ -2136,13 +2124,23 @@ function saveCocktailsToStorage() {
 
 }
 
+/* =========================================================
+
+   CATÉGORIES
+
+========================================================= */
+
 function loadCategories() {
 
   try {
 
-    const saved =
+    var saved =
 
-      localStorage.getItem(CATEGORY_KEY);
+      localStorage.getItem(
+
+        CATEGORY_KEY
+
+      );
 
     categories =
 
@@ -2162,7 +2160,11 @@ function loadCategories() {
 
           ];
 
-    if (!Array.isArray(categories)) {
+    if (
+
+      !Array.isArray(categories)
+
+    ) {
 
       categories = [];
 
@@ -2174,11 +2176,23 @@ function loadCategories() {
 
   }
 
-  cocktails.forEach(cocktail => {
+  for (
 
-    const category =
+    var i = 0;
 
-      String(cocktail.category || "").trim();
+    i < cocktails.length;
+
+    i++
+
+  ) {
+
+    var category =
+
+      String(
+
+        cocktails[i].category || ""
+
+      ).trim();
 
     if (
 
@@ -2192,7 +2206,7 @@ function loadCategories() {
 
     }
 
-  });
+  }
 
   sortCategories();
 
@@ -2202,13 +2216,17 @@ function loadCategories() {
 
 function saveCategories() {
 
-  localStorage.setItem(
+  try {
 
-    CATEGORY_KEY,
+    localStorage.setItem(
 
-    JSON.stringify(categories)
+      CATEGORY_KEY,
 
-  );
+      JSON.stringify(categories)
+
+    );
+
+  } catch (error) {}
 
 }
 
@@ -2216,17 +2234,23 @@ function sortCategories() {
 
   categories.sort(
 
-    (a, b) =>
+    function(a, b) {
 
-      a.localeCompare(
+      return a.localeCompare(
 
         b,
 
         "fr",
 
-        { sensitivity: "base" }
+        {
 
-      )
+          sensitivity: "base"
+
+        }
+
+      );
+
+    }
 
   );
 
@@ -2234,53 +2258,115 @@ function sortCategories() {
 
 function categoryExists(name) {
 
-  return categories.some(
+  for (
 
-    category =>
+    var i = 0;
 
-      category.toLowerCase() ===
+    i < categories.length;
+
+    i++
+
+  ) {
+
+    if (
+
+      categories[i]
+
+        .toLowerCase() ===
 
       name.toLowerCase()
 
-  );
+    ) {
+
+      return true;
+
+    }
+
+  }
+
+  return false;
 
 }
 
-function populateCategorySelect(selectedValue = "") {
+function populateCategorySelect(
 
-  const select =
+  selectedValue
 
-    document.getElementById("cocktailCategory");
+) {
+
+  selectedValue =
+
+    selectedValue || "";
+
+  var select =
+
+    document.getElementById(
+
+      "cocktailCategory"
+
+    );
 
   select.innerHTML = "";
 
-  const emptyOption =
+  var emptyOption =
 
-    document.createElement("option");
+    document.createElement(
+
+      "option"
+
+    );
 
   emptyOption.value = "";
 
-  emptyOption.textContent = "Sans catégorie";
+  emptyOption.textContent =
 
-  select.appendChild(emptyOption);
+    "Sans catégorie";
 
-  categories.forEach(category => {
+  select.appendChild(
 
-    const option =
+    emptyOption
 
-      document.createElement("option");
+  );
 
-    option.value = category;
+  for (
 
-    option.textContent = category;
+    var i = 0;
 
-    select.appendChild(option);
+    i < categories.length;
 
-  });
+    i++
+
+  ) {
+
+    var option =
+
+      document.createElement(
+
+        "option"
+
+      );
+
+    option.value =
+
+      categories[i];
+
+    option.textContent =
+
+      categories[i];
+
+    select.appendChild(
+
+      option
+
+    );
+
+  }
 
   if (selectedValue) {
 
-    select.value = selectedValue;
+    select.value =
+
+      selectedValue;
 
   }
 
@@ -2288,15 +2374,41 @@ function populateCategorySelect(selectedValue = "") {
 
 function openCategoryModal() {
 
-  document.getElementById("newCategoryName").value = "";
+  document
+
+    .getElementById(
+
+      "newCategoryName"
+
+    )
+
+    .value = "";
 
   renderCategories();
 
-  document
+  var modal =
 
-    .getElementById("categoryModal")
+    document.getElementById(
 
-    .classList.add("open");
+      "categoryModal"
+
+    );
+
+  modal.classList.add(
+
+    "open"
+
+  );
+
+  modal
+
+    .querySelector(
+
+      ".modal-body"
+
+    )
+
+    .scrollTop = 0;
 
   lockBody();
 
@@ -2306,9 +2418,17 @@ function closeCategoryModal() {
 
   document
 
-    .getElementById("categoryModal")
+    .getElementById(
 
-    .classList.remove("open");
+      "categoryModal"
+
+    )
+
+    .classList.remove(
+
+      "open"
+
+    );
 
   unlockBodyIfNeeded();
 
@@ -2316,25 +2436,41 @@ function closeCategoryModal() {
 
 function addCategory() {
 
-  const input =
+  var input =
 
-    document.getElementById("newCategoryName");
+    document.getElementById(
 
-  const name =
+      "newCategoryName"
+
+    );
+
+  var name =
 
     input.value.trim();
 
   if (!name) {
 
-    alert("Indique le nom de la catégorie.");
+    alert(
+
+      "Indique le nom de la catégorie."
+
+    );
 
     return;
 
   }
 
-  if (categoryExists(name)) {
+  if (
 
-    alert("Cette catégorie existe déjà.");
+    categoryExists(name)
+
+  ) {
+
+    alert(
+
+      "Cette catégorie existe déjà."
+
+    );
 
     return;
 
@@ -2356,9 +2492,13 @@ function addCategory() {
 
 }
 
-function renameCategory(oldName) {
+function renameCategory(
 
-  const newName =
+  oldName
+
+) {
+
+  var newName =
 
     prompt(
 
@@ -2368,19 +2508,27 @@ function renameCategory(oldName) {
 
     );
 
-  if (newName === null) {
+  if (
+
+    newName === null
+
+  ) {
 
     return;
 
   }
 
-  const cleanName =
+  newName =
 
     newName.trim();
 
-  if (!cleanName) {
+  if (!newName) {
 
-    alert("Le nom ne peut pas être vide.");
+    alert(
+
+      "Le nom ne peut pas être vide."
+
+    );
 
     return;
 
@@ -2388,23 +2536,31 @@ function renameCategory(oldName) {
 
   if (
 
-    cleanName.toLowerCase() !==
+    newName.toLowerCase() !==
 
       oldName.toLowerCase() &&
 
-    categoryExists(cleanName)
+    categoryExists(newName)
 
   ) {
 
-    alert("Cette catégorie existe déjà.");
+    alert(
+
+      "Cette catégorie existe déjà."
+
+    );
 
     return;
 
   }
 
-  const index =
+  var index =
 
-    categories.indexOf(oldName);
+    categories.indexOf(
+
+      oldName
+
+    );
 
   if (index < 0) {
 
@@ -2412,17 +2568,35 @@ function renameCategory(oldName) {
 
   }
 
-  categories[index] = cleanName;
+  categories[index] =
 
-  cocktails.forEach(cocktail => {
+    newName;
 
-    if (cocktail.category === oldName) {
+  for (
 
-      cocktail.category = cleanName;
+    var i = 0;
+
+    i < cocktails.length;
+
+    i++
+
+  ) {
+
+    if (
+
+      cocktails[i].category ===
+
+      oldName
+
+    ) {
+
+      cocktails[i].category =
+
+        newName;
 
     }
 
-  });
+  }
 
   sortCategories();
 
@@ -2438,55 +2612,129 @@ function renameCategory(oldName) {
 
 }
 
-function deleteCategory(name) {
+function deleteCategory(
 
-  const usedCount =
+  name
 
-    cocktails.filter(
+) {
 
-      cocktail =>
+  var usedCount = 0;
 
-        cocktail.category === name
+  for (
 
-    ).length;
+    var i = 0;
 
-  let message =
+    i < cocktails.length;
 
-    `Supprimer la catégorie "${name}" ?`;
+    i++
 
-  if (usedCount > 0) {
+  ) {
 
-    message +=
+    if (
 
-      `\n\n${usedCount} fiche(s) passeront en "Sans catégorie".`;
+      cocktails[i].category ===
+
+      name
+
+    ) {
+
+      usedCount++;
+
+    }
 
   }
 
-  if (!confirm(message)) {
+  var message =
+
+    'Supprimer la catégorie "' +
+
+    name +
+
+    '" ?';
+
+  if (
+
+    usedCount > 0
+
+  ) {
+
+    message +=
+
+      "\n\n" +
+
+      usedCount +
+
+      ' fiche(s) passeront en "Sans catégorie".';
+
+  }
+
+  if (
+
+    !confirm(message)
+
+  ) {
 
     return;
 
   }
 
-  categories =
+  var newCategories = [];
 
-    categories.filter(
+  for (
 
-      category =>
+    var j = 0;
 
-        category !== name
+    j < categories.length;
 
-    );
+    j++
 
-  cocktails.forEach(cocktail => {
+  ) {
 
-    if (cocktail.category === name) {
+    if (
 
-      cocktail.category = "";
+      categories[j] !==
+
+      name
+
+    ) {
+
+      newCategories.push(
+
+        categories[j]
+
+      );
 
     }
 
-  });
+  }
+
+  categories =
+
+    newCategories;
+
+  for (
+
+    var k = 0;
+
+    k < cocktails.length;
+
+    k++
+
+  ) {
+
+    if (
+
+      cocktails[k].category ===
+
+      name
+
+    ) {
+
+      cocktails[k].category = "";
+
+    }
+
+  }
 
   saveCategories();
 
@@ -2502,93 +2750,117 @@ function deleteCategory(name) {
 
 function renderCategories() {
 
-  const container =
+  var container =
 
-    document.getElementById("categoryList");
+    document.getElementById(
 
-  if (!categories.length) {
+      "categoryList"
+
+    );
+
+  if (
+
+    !categories.length
+
+  ) {
 
     container.innerHTML =
 
-      `<div class="category-empty">
+      '<div class="category-empty">' +
 
-        Aucune catégorie créée.
+      "Aucune catégorie créée." +
 
-      </div>`;
+      "</div>";
 
     return;
 
   }
 
+  var html = "";
+
+  for (
+
+    var i = 0;
+
+    i < categories.length;
+
+    i++
+
+  ) {
+
+    var category =
+
+      categories[i];
+
+    html +=
+
+      '<div class="category-row">' +
+
+        '<div class="category-name">' +
+
+          escapeHtml(category) +
+
+        "</div>" +
+
+        '<div class="category-actions">' +
+
+          '<button class="btn btn-light" onclick="renameCategory(\'' +
+
+            escapeJsString(category) +
+
+          '\')">' +
+
+            "✏️ Renommer" +
+
+          "</button>" +
+
+          '<button class="btn btn-danger" onclick="deleteCategory(\'' +
+
+            escapeJsString(category) +
+
+          '\')">' +
+
+            "🗑 Supprimer" +
+
+          "</button>" +
+
+        "</div>" +
+
+      "</div>";
+
+  }
+
   container.innerHTML =
 
-    categories.map(category => {
-
-      const safe =
-
-        escapeHtml(category);
-
-      const jsSafe =
-
-        escapeJsString(category);
-
-      return `
-
-        <div class="category-row">
-
-          <div class="category-name">
-
-            ${safe}
-
-          </div>
-
-          <div class="category-actions">
-
-            <button
-
-              class="btn btn-light"
-
-              onclick="renameCategory('${jsSafe}')"
-
-            >
-
-              ✏️ Renommer
-
-            </button>
-
-            <button
-
-              class="btn btn-danger"
-
-              onclick="deleteCategory('${jsSafe}')"
-
-            >
-
-              🗑 Supprimer
-
-            </button>
-
-          </div>
-
-        </div>
-
-      `;
-
-    }).join("");
+    html;
 
 }
 
+/* =========================================================
+
+   LISTE
+
+========================================================= */
+
 function renderCocktails() {
 
-  const container =
+  var container =
 
-    document.getElementById("cocktailList");
+    document.getElementById(
 
-  const search =
+      "cocktailList"
+
+    );
+
+  var search =
 
     document
 
-      .getElementById("search")
+      .getElementById(
+
+        "search"
+
+      )
 
       .value
 
@@ -2596,67 +2868,105 @@ function renderCocktails() {
 
       .toLowerCase();
 
-  const filtered =
+  var filtered = [];
 
-    cocktails.filter(cocktail => {
+  for (
 
-      const text = [
+    var i = 0;
 
-        cocktail.name,
+    i < cocktails.length;
 
-        cocktail.category,
+    i++
 
-        cocktail.ingredients,
+  ) {
 
-        cocktail.preparation,
+    var cocktail =
 
-        cocktail.glass,
+      cocktails[i];
 
-        cocktail.garnish,
+    var text = [
 
-        cocktail.notes
+      cocktail.name,
 
-      ]
+      cocktail.category,
 
-      .join(" ")
+      cocktail.ingredients,
 
-      .toLowerCase();
+      cocktail.preparation,
 
-      return text.includes(search);
+      cocktail.glass,
 
-    });
+      cocktail.garnish,
+
+      cocktail.notes
+
+    ]
+
+    .join(" ")
+
+    .toLowerCase();
+
+    if (
+
+      text.indexOf(search) !== -1
+
+    ) {
+
+      filtered.push(
+
+        cocktail
+
+      );
+
+    }
+
+  }
 
   filtered.sort(
 
-    (a, b) =>
+    function(a, b) {
 
-      String(a.name || "")
+      return String(
 
-        .localeCompare(
+        a.name || ""
 
-          String(b.name || ""),
+      )
 
-          "fr"
+      .localeCompare(
 
-        )
+        String(
+
+          b.name || ""
+
+        ),
+
+        "fr"
+
+      );
+
+    }
 
   );
 
-  if (!filtered.length) {
+  if (
 
-    container.innerHTML = `
+    !filtered.length
 
-      <div class="empty">
+  ) {
 
-        <div style="font-size:42px">
+    container.innerHTML =
 
-          🍹
+      '<div class="empty">' +
 
-        </div>
+        '<div style="font-size:42px">' +
 
-        <br>
+          "🍹" +
 
-        ${
+        "</div>" +
+
+        "<br>" +
+
+        (
 
           cocktails.length
 
@@ -2664,149 +2974,241 @@ function renderCocktails() {
 
             : 'Aucune recette pour le moment.<br><br>Appuie sur <strong>＋ Cocktail</strong> pour commencer.'
 
-        }
+        ) +
 
-      </div>
-
-    `;
+      "</div>";
 
     return;
 
   }
 
+  var html = "";
+
+  for (
+
+    var j = 0;
+
+    j < filtered.length;
+
+    j++
+
+  ) {
+
+    var item =
+
+      filtered[j];
+
+    var safeId =
+
+      escapeJsString(
+
+        item.id
+
+      );
+
+    var imageHtml = "";
+
+    if (
+
+      item.photo
+
+    ) {
+
+      imageHtml =
+
+        '<img class="cocktail-image" src="' +
+
+        item.photo +
+
+        '" alt="">';
+
+    } else {
+
+      imageHtml =
+
+        '<div class="no-image">🍹</div>';
+
+    }
+
+    html +=
+
+      '<div class="cocktail-card">' +
+
+        '<div class="cocktail-image-wrap" onclick="showDetail(\'' +
+
+          safeId +
+
+        '\')">' +
+
+          imageHtml +
+
+        "</div>" +
+
+        '<div class="card-content">' +
+
+          '<h2 class="cocktail-name">' +
+
+            escapeHtml(
+
+              item.name
+
+            ) +
+
+          "</h2>" +
+
+          '<div class="cocktail-category">' +
+
+            (
+
+              item.category
+
+                ? escapeHtml(
+
+                    item.category
+
+                  )
+
+                : "Sans catégorie"
+
+            ) +
+
+          "</div>" +
+
+          '<div class="card-actions">' +
+
+            '<button class="btn btn-dark grow" onclick="showDetail(\'' +
+
+              safeId +
+
+            '\')">' +
+
+              "Voir" +
+
+            "</button>" +
+
+            '<button class="btn btn-light" onclick="editCocktail(\'' +
+
+              safeId +
+
+            '\')">' +
+
+              "✏️ Modifier" +
+
+            "</button>" +
+
+          "</div>" +
+
+        "</div>" +
+
+      "</div>";
+
+  }
+
   container.innerHTML =
 
-    filtered.map(cocktail => {
-
-      const id =
-
-        escapeJsString(cocktail.id);
-
-      const image =
-
-        cocktail.photo
-
-          ? `
-
-            <img
-
-              class="cocktail-image"
-
-              src="${cocktail.photo}"
-
-              alt=""
-
-            >
-
-          `
-
-          : `
-
-            <div class="no-image">
-
-              🍹
-
-            </div>
-
-          `;
-
-      return `
-
-        <div class="cocktail-card">
-
-          <div
-
-            class="cocktail-image-wrap"
-
-            onclick="showDetail('${id}')"
-
-          >
-
-            ${image}
-
-          </div>
-
-          <div class="card-content">
-
-            <h2 class="cocktail-name">
-
-              ${escapeHtml(cocktail.name)}
-
-            </h2>
-
-            <div class="cocktail-category">
-
-              ${
-
-                cocktail.category
-
-                  ? escapeHtml(cocktail.category)
-
-                  : "Sans catégorie"
-
-              }
-
-            </div>
-
-            <div class="card-actions">
-
-              <button
-
-                class="btn btn-dark grow"
-
-                onclick="showDetail('${id}')"
-
-              >
-
-                Voir
-
-              </button>
-
-              <button
-
-                class="btn btn-light"
-
-                onclick="editCocktail('${id}')"
-
-              >
-
-                ✏️ Modifier
-
-              </button>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      `;
-
-    }).join("");
+    html;
 
 }
 
+/* =========================================================
+
+   NOUVEAU
+
+========================================================= */
+
 function openCocktailForm() {
 
-  document.getElementById("formTitle").textContent =
+  document
 
-    "Nouveau cocktail";
+    .getElementById(
 
-  document.getElementById("cocktailId").value = "";
+      "formTitle"
 
-  document.getElementById("cocktailName").value = "";
+    )
 
-  document.getElementById("cocktailIngredients").value = "";
+    .textContent =
 
-  document.getElementById("cocktailPreparation").value = "";
+      "Nouveau cocktail";
 
-  document.getElementById("cocktailGlass").value = "";
+  document
 
-  document.getElementById("cocktailGarnish").value = "";
+    .getElementById(
 
-  document.getElementById("cocktailNotes").value = "";
+      "cocktailId"
 
-  document.getElementById("cocktailPhoto").value = "";
+    )
+
+    .value = "";
+
+  document
+
+    .getElementById(
+
+      "cocktailName"
+
+    )
+
+    .value = "";
+
+  document
+
+    .getElementById(
+
+      "cocktailIngredients"
+
+    )
+
+    .value = "";
+
+  document
+
+    .getElementById(
+
+      "cocktailPreparation"
+
+    )
+
+    .value = "";
+
+  document
+
+    .getElementById(
+
+      "cocktailGlass"
+
+    )
+
+    .value = "";
+
+  document
+
+    .getElementById(
+
+      "cocktailGarnish"
+
+    )
+
+    .value = "";
+
+  document
+
+    .getElementById(
+
+      "cocktailNotes"
+
+    )
+
+    .value = "";
+
+  document
+
+    .getElementById(
+
+      "cocktailPhoto"
+
+    )
+
+    .value = "";
 
   currentPhoto = "";
 
@@ -2814,15 +3216,27 @@ function openCocktailForm() {
 
   updatePhotoPreview();
 
-  const modal =
+  var modal =
 
-    document.getElementById("cocktailModal");
+    document.getElementById(
 
-  modal.classList.add("open");
+      "cocktailModal"
+
+    );
+
+  modal.classList.add(
+
+    "open"
+
+  );
 
   modal
 
-    .querySelector(".modal-body")
+    .querySelector(
+
+      ".modal-body"
+
+    )
 
     .scrollTop = 0;
 
@@ -2834,17 +3248,31 @@ function closeCocktailForm() {
 
   document
 
-    .getElementById("cocktailModal")
+    .getElementById(
 
-    .classList.remove("open");
+      "cocktailModal"
+
+    )
+
+    .classList.remove(
+
+      "open"
+
+    );
 
   unlockBodyIfNeeded();
 
 }
 
+/* =========================================================
+
+   PHOTO
+
+========================================================= */
+
 function handlePhoto(event) {
 
-  const file =
+  var file =
 
     event.target.files[0];
 
@@ -2854,7 +3282,15 @@ function handlePhoto(event) {
 
   }
 
-  if (!file.type.startsWith("image/")) {
+  if (
+
+    file.type.indexOf(
+
+      "image/"
+
+    ) !== 0
+
+  ) {
 
     alert(
 
@@ -2872,29 +3308,19 @@ function handlePhoto(event) {
 
     1100,
 
-    0.78
+    0.78,
 
-  )
+    function(dataUrl) {
 
-  .then(dataUrl => {
+      currentPhoto =
 
-    currentPhoto = dataUrl;
+        dataUrl;
 
-    updatePhotoPreview();
+      updatePhotoPreview();
 
-  })
+    }
 
-  .catch(error => {
-
-    console.error(error);
-
-    alert(
-
-      "Impossible de charger cette photo."
-
-    );
-
-  });
+  );
 
 }
 
@@ -2902,31 +3328,37 @@ function compressImage(
 
   file,
 
-  maxSize = 1100,
+  maxSize,
 
-  quality = 0.78
+  quality,
+
+  callback
 
 ) {
 
-  return new Promise(
+  var reader =
 
-    (resolve, reject) => {
+    new FileReader();
 
-      const reader =
+  reader.onload =
 
-        new FileReader();
+    function(event) {
 
-      reader.onload = event => {
+      var img =
 
-        const img =
+        new Image();
 
-          new Image();
+      img.onload =
 
-        img.onload = () => {
+        function() {
 
-          let width = img.width;
+          var width =
 
-          let height = img.height;
+            img.width;
+
+          var height =
+
+            img.height;
 
           if (
 
@@ -2936,7 +3368,7 @@ function compressImage(
 
           ) {
 
-            const ratio =
+            var ratio =
 
               Math.min(
 
@@ -2948,25 +3380,45 @@ function compressImage(
 
             width =
 
-              Math.round(width * ratio);
+              Math.round(
+
+                width * ratio
+
+              );
 
             height =
 
-              Math.round(height * ratio);
+              Math.round(
+
+                height * ratio
+
+              );
 
           }
 
-          const canvas =
+          var canvas =
 
-            document.createElement("canvas");
+            document.createElement(
 
-          canvas.width = width;
+              "canvas"
 
-          canvas.height = height;
+            );
 
-          const context =
+          canvas.width =
 
-            canvas.getContext("2d");
+            width;
+
+          canvas.height =
+
+            height;
+
+          var context =
+
+            canvas.getContext(
+
+              "2d"
+
+            );
 
           context.drawImage(
 
@@ -2982,7 +3434,7 @@ function compressImage(
 
           );
 
-          resolve(
+          callback(
 
             canvas.toDataURL(
 
@@ -2996,17 +3448,15 @@ function compressImage(
 
         };
 
-        img.onerror = reject;
+      img.src =
 
-        img.src = event.target.result;
+        event.target.result;
 
-      };
+    };
 
-      reader.onerror = reject;
+  reader.readAsDataURL(
 
-      reader.readAsDataURL(file);
-
-    }
+    file
 
   );
 
@@ -3014,21 +3464,39 @@ function compressImage(
 
 function updatePhotoPreview() {
 
-  const preview =
+  var preview =
 
-    document.getElementById("photoPreview");
+    document.getElementById(
 
-  if (currentPhoto) {
+      "photoPreview"
 
-    preview.src = currentPhoto;
+    );
 
-    preview.style.display = "block";
+  if (
+
+    currentPhoto
+
+  ) {
+
+    preview.src =
+
+      currentPhoto;
+
+    preview.style.display =
+
+      "block";
 
   } else {
 
-    preview.removeAttribute("src");
+    preview.removeAttribute(
 
-    preview.style.display = "none";
+      "src"
+
+    );
+
+    preview.style.display =
+
+      "none";
 
   }
 
@@ -3038,23 +3506,49 @@ function removePhoto() {
 
   currentPhoto = "";
 
-  document.getElementById("cocktailPhoto").value = "";
+  document
+
+    .getElementById(
+
+      "cocktailPhoto"
+
+    )
+
+    .value = "";
 
   updatePhotoPreview();
 
 }
 
+/* =========================================================
+
+   ENREGISTRER
+
+========================================================= */
+
 function saveCocktail() {
 
-  const id =
-
-    document.getElementById("cocktailId").value;
-
-  const name =
+  var id =
 
     document
 
-      .getElementById("cocktailName")
+      .getElementById(
+
+        "cocktailId"
+
+      )
+
+      .value;
+
+  var name =
+
+    document
+
+      .getElementById(
+
+        "cocktailName"
+
+      )
 
       .value
 
@@ -3062,23 +3556,47 @@ function saveCocktail() {
 
   if (!name) {
 
-    alert("Indique le nom du cocktail.");
+    alert(
+
+      "Indique le nom du cocktail."
+
+    );
 
     return;
 
   }
 
-  const oldCocktail =
+  var oldCocktail =
 
-    cocktails.find(
+    null;
 
-      item =>
+  for (
 
-        item.id === id
+    var i = 0;
 
-    );
+    i < cocktails.length;
 
-  const cocktail = {
+    i++
+
+  ) {
+
+    if (
+
+      cocktails[i].id === id
+
+    ) {
+
+      oldCocktail =
+
+        cocktails[i];
+
+      break;
+
+    }
+
+  }
+
+  var cocktail = {
 
     id:
 
@@ -3086,23 +3604,41 @@ function saveCocktail() {
 
       (
 
-        Date.now().toString(36) +
+        Date.now()
 
-        Math.random().toString(36).slice(2)
+          .toString(36) +
+
+        Math.random()
+
+          .toString(36)
+
+          .slice(2)
 
       ),
 
-    name,
+    name: name,
 
     category:
 
-      document.getElementById("cocktailCategory").value,
+      document
+
+        .getElementById(
+
+          "cocktailCategory"
+
+        )
+
+        .value,
 
     ingredients:
 
       document
 
-        .getElementById("cocktailIngredients")
+        .getElementById(
+
+          "cocktailIngredients"
+
+        )
 
         .value
 
@@ -3112,7 +3648,11 @@ function saveCocktail() {
 
       document
 
-        .getElementById("cocktailPreparation")
+        .getElementById(
+
+          "cocktailPreparation"
+
+        )
 
         .value
 
@@ -3122,7 +3662,11 @@ function saveCocktail() {
 
       document
 
-        .getElementById("cocktailGlass")
+        .getElementById(
+
+          "cocktailGlass"
+
+        )
 
         .value
 
@@ -3132,7 +3676,11 @@ function saveCocktail() {
 
       document
 
-        .getElementById("cocktailGarnish")
+        .getElementById(
+
+          "cocktailGarnish"
+
+        )
 
         .value
 
@@ -3142,47 +3690,95 @@ function saveCocktail() {
 
       document
 
-        .getElementById("cocktailNotes")
+        .getElementById(
+
+          "cocktailNotes"
+
+        )
 
         .value
 
         .trim(),
 
-    photo: currentPhoto,
+    photo:
+
+      currentPhoto,
 
     createdAt:
 
-      oldCocktail?.createdAt ||
+      oldCocktail
 
-      new Date().toISOString(),
+        ? oldCocktail.createdAt
+
+        : new Date()
+
+            .toISOString(),
 
     updatedAt:
 
-      new Date().toISOString()
+      new Date()
+
+        .toISOString()
 
   };
 
-  const index =
+  var foundIndex =
 
-    cocktails.findIndex(
+    -1;
 
-      item =>
+  for (
 
-        item.id === id
+    var j = 0;
 
-    );
+    j < cocktails.length;
 
-  if (index >= 0) {
+    j++
 
-    cocktails[index] = cocktail;
+  ) {
 
-  } else {
+    if (
 
-    cocktails.push(cocktail);
+      cocktails[j].id === id
+
+    ) {
+
+      foundIndex =
+
+        j;
+
+      break;
+
+    }
 
   }
 
-  if (!saveCocktailsToStorage()) {
+  if (
+
+    foundIndex >= 0
+
+  ) {
+
+    cocktails[
+
+      foundIndex
+
+    ] = cocktail;
+
+  } else {
+
+    cocktails.push(
+
+      cocktail
+
+    );
+
+  }
+
+  if (
+
+    !saveCocktailsToStorage()
+
+  ) {
 
     return;
 
@@ -3194,17 +3790,43 @@ function saveCocktail() {
 
 }
 
+/* =========================================================
+
+   MODIFIER
+
+========================================================= */
+
 function editCocktail(id) {
 
-  const cocktail =
+  var cocktail =
 
-    cocktails.find(
+    null;
 
-      item =>
+  for (
 
-        item.id === id
+    var i = 0;
 
-    );
+    i < cocktails.length;
+
+    i++
+
+  ) {
+
+    if (
+
+      cocktails[i].id === id
+
+    ) {
+
+      cocktail =
+
+        cocktails[i];
+
+      break;
+
+    }
+
+  }
 
   if (!cocktail) {
 
@@ -3212,39 +3834,111 @@ function editCocktail(id) {
 
   }
 
-  document.getElementById("formTitle").textContent =
+  document
 
-    "Modifier le cocktail";
+    .getElementById(
 
-  document.getElementById("cocktailId").value =
+      "formTitle"
 
-    cocktail.id;
+    )
 
-  document.getElementById("cocktailName").value =
+    .textContent =
 
-    cocktail.name || "";
+      "Modifier le cocktail";
 
-  document.getElementById("cocktailIngredients").value =
+  document
 
-    cocktail.ingredients || "";
+    .getElementById(
 
-  document.getElementById("cocktailPreparation").value =
+      "cocktailId"
 
-    cocktail.preparation || "";
+    )
 
-  document.getElementById("cocktailGlass").value =
+    .value =
 
-    cocktail.glass || "";
+      cocktail.id;
 
-  document.getElementById("cocktailGarnish").value =
+  document
 
-    cocktail.garnish || "";
+    .getElementById(
 
-  document.getElementById("cocktailNotes").value =
+      "cocktailName"
 
-    cocktail.notes || "";
+    )
 
-  document.getElementById("cocktailPhoto").value = "";
+    .value =
+
+      cocktail.name || "";
+
+  document
+
+    .getElementById(
+
+      "cocktailIngredients"
+
+    )
+
+    .value =
+
+      cocktail.ingredients || "";
+
+  document
+
+    .getElementById(
+
+      "cocktailPreparation"
+
+    )
+
+    .value =
+
+      cocktail.preparation || "";
+
+  document
+
+    .getElementById(
+
+      "cocktailGlass"
+
+    )
+
+    .value =
+
+      cocktail.glass || "";
+
+  document
+
+    .getElementById(
+
+      "cocktailGarnish"
+
+    )
+
+    .value =
+
+      cocktail.garnish || "";
+
+  document
+
+    .getElementById(
+
+      "cocktailNotes"
+
+    )
+
+    .value =
+
+      cocktail.notes || "";
+
+  document
+
+    .getElementById(
+
+      "cocktailPhoto"
+
+    )
+
+    .value = "";
 
   currentPhoto =
 
@@ -3258,15 +3952,27 @@ function editCocktail(id) {
 
   updatePhotoPreview();
 
-  const modal =
+  var modal =
 
-    document.getElementById("cocktailModal");
+    document.getElementById(
 
-  modal.classList.add("open");
+      "cocktailModal"
+
+    );
+
+  modal.classList.add(
+
+    "open"
+
+  );
 
   modal
 
-    .querySelector(".modal-body")
+    .querySelector(
+
+      ".modal-body"
+
+    )
 
     .scrollTop = 0;
 
@@ -3274,17 +3980,43 @@ function editCocktail(id) {
 
 }
 
+/* =========================================================
+
+   SUPPRIMER
+
+========================================================= */
+
 function deleteCocktail(id) {
 
-  const cocktail =
+  var cocktail =
 
-    cocktails.find(
+    null;
 
-      item =>
+  for (
 
-        item.id === id
+    var i = 0;
 
-    );
+    i < cocktails.length;
+
+    i++
+
+  ) {
+
+    if (
+
+      cocktails[i].id === id
+
+    ) {
+
+      cocktail =
+
+        cocktails[i];
+
+      break;
+
+    }
+
+  }
 
   if (!cocktail) {
 
@@ -3292,29 +4024,55 @@ function deleteCocktail(id) {
 
   }
 
-  const ok =
+  if (
 
-    confirm(
+    !confirm(
 
-      `Supprimer définitivement "${cocktail.name}" ?`
+      'Supprimer définitivement "' +
 
-    );
+      cocktail.name +
 
-  if (!ok) {
+      '" ?'
+
+    )
+
+  ) {
 
     return;
 
   }
 
+  var newList = [];
+
+  for (
+
+    var j = 0;
+
+    j < cocktails.length;
+
+    j++
+
+  ) {
+
+    if (
+
+      cocktails[j].id !== id
+
+    ) {
+
+      newList.push(
+
+        cocktails[j]
+
+      );
+
+    }
+
+  }
+
   cocktails =
 
-    cocktails.filter(
-
-      item =>
-
-        item.id !== id
-
-    );
+    newList;
 
   saveCocktailsToStorage();
 
@@ -3324,17 +4082,43 @@ function deleteCocktail(id) {
 
 }
 
+/* =========================================================
+
+   DÉTAIL
+
+========================================================= */
+
 function showDetail(id) {
 
-  const cocktail =
+  var cocktail =
 
-    cocktails.find(
+    null;
 
-      item =>
+  for (
 
-        item.id === id
+    var i = 0;
 
-    );
+    i < cocktails.length;
+
+    i++
+
+  ) {
+
+    if (
+
+      cocktails[i].id === id
+
+    ) {
+
+      cocktail =
+
+        cocktails[i];
+
+      break;
+
+    }
+
+  }
 
   if (!cocktail) {
 
@@ -3342,229 +4126,263 @@ function showDetail(id) {
 
   }
 
-  document.getElementById("detailTitle").textContent =
+  document
 
-    cocktail.name;
+    .getElementById(
 
-  const photoHtml =
+      "detailTitle"
+
+    )
+
+    .textContent =
+
+      cocktail.name;
+
+  var photoHtml = "";
+
+  if (
 
     cocktail.photo
 
-      ? `
+  ) {
 
-        <img
+    photoHtml =
 
-          src="${cocktail.photo}"
+      '<img src="' +
 
-          class="detail-photo"
+      cocktail.photo +
 
-          alt=""
+      '" class="detail-photo" alt="">';
 
-        >
+  } else {
 
-      `
+    photoHtml =
 
-      : `
+      '<div class="detail-no-photo">🍹</div>';
 
-        <div class="detail-no-photo">
+  }
 
-          🍹
+  var safeId =
 
-        </div>
+    escapeJsString(
 
-      `;
+      cocktail.id
 
-  const safeId =
+    );
 
-    escapeJsString(cocktail.id);
+  var html =
 
-  document.getElementById("detailBody").innerHTML = `
+    photoHtml;
 
-    ${photoHtml}
+  if (
 
-    ${
+    cocktail.category
 
-      cocktail.category
+  ) {
 
-        ? `
+    html +=
 
-          <span class="badge">
+      '<span class="badge">' +
 
-            ${escapeHtml(cocktail.category)}
+      escapeHtml(
 
-          </span>
+        cocktail.category
 
-        `
+      ) +
 
-        : ""
+      "</span>";
 
-    }
+  }
 
-    ${
+  if (
 
-      cocktail.ingredients
+    cocktail.ingredients
 
-        ? `
+  ) {
 
-          <div class="detail-section">
+    html +=
 
-            <h3>🧾 Ingrédients</h3>
+      '<div class="detail-section">' +
 
-            <div class="detail-text">
+      "<h3>🧾 Ingrédients</h3>" +
 
-              ${escapeHtml(cocktail.ingredients)}
+      '<div class="detail-text">' +
 
-            </div>
+      escapeHtml(
 
-          </div>
+        cocktail.ingredients
 
-        `
+      ) +
 
-        : ""
+      "</div>" +
 
-    }
+      "</div>";
 
-    ${
+  }
 
-      cocktail.preparation
+  if (
 
-        ? `
+    cocktail.preparation
 
-          <div class="detail-section">
+  ) {
 
-            <h3>🍹 Préparation</h3>
+    html +=
 
-            <div class="detail-text">
+      '<div class="detail-section">' +
 
-              ${escapeHtml(cocktail.preparation)}
+      "<h3>🍹 Préparation</h3>" +
 
-            </div>
+      '<div class="detail-text">' +
 
-          </div>
+      escapeHtml(
 
-        `
+        cocktail.preparation
 
-        : ""
+      ) +
 
-    }
+      "</div>" +
 
-    ${
+      "</div>";
 
-      cocktail.glass
+  }
 
-        ? `
+  if (
 
-          <div class="detail-section">
+    cocktail.glass
 
-            <h3>🥃 Verrerie</h3>
+  ) {
 
-            <div class="detail-text">
+    html +=
 
-              ${escapeHtml(cocktail.glass)}
+      '<div class="detail-section">' +
 
-            </div>
+      "<h3>🥃 Verrerie</h3>" +
 
-          </div>
+      '<div class="detail-text">' +
 
-        `
+      escapeHtml(
 
-        : ""
+        cocktail.glass
 
-    }
+      ) +
 
-    ${
+      "</div>" +
 
-      cocktail.garnish
+      "</div>";
 
-        ? `
+  }
 
-          <div class="detail-section">
+  if (
 
-            <h3>🍋 Garniture</h3>
+    cocktail.garnish
 
-            <div class="detail-text">
+  ) {
 
-              ${escapeHtml(cocktail.garnish)}
+    html +=
 
-            </div>
+      '<div class="detail-section">' +
 
-          </div>
+      "<h3>🍋 Garniture</h3>" +
 
-        `
+      '<div class="detail-text">' +
 
-        : ""
+      escapeHtml(
 
-    }
+        cocktail.garnish
 
-    ${
+      ) +
 
-      cocktail.notes
+      "</div>" +
 
-        ? `
+      "</div>";
 
-          <div class="detail-section">
+  }
 
-            <h3>📝 Notes</h3>
+  if (
 
-            <div class="detail-text">
+    cocktail.notes
 
-              ${escapeHtml(cocktail.notes)}
+  ) {
 
-            </div>
+    html +=
 
-          </div>
+      '<div class="detail-section">' +
 
-        `
+      "<h3>📝 Notes</h3>" +
 
-        : ""
+      '<div class="detail-text">' +
 
-    }
+      escapeHtml(
 
-    <div class="modal-actions">
+        cocktail.notes
 
-      <button
+      ) +
 
-        class="btn btn-blue grow"
+      "</div>" +
 
-        onclick="
+      "</div>";
 
-          closeDetail();
+  }
 
-          editCocktail('${safeId}');
+  html +=
 
-        "
+    '<div class="modal-actions">' +
 
-      >
+      '<button class="btn btn-blue grow" onclick="closeDetail();editCocktail(\'' +
 
-        ✏️ Modifier
+      safeId +
 
-      </button>
+      '\')">' +
 
-      <button
+        "✏️ Modifier" +
 
-        class="btn btn-danger"
+      "</button>" +
 
-        onclick="deleteCocktail('${safeId}')"
+      '<button class="btn btn-danger" onclick="deleteCocktail(\'' +
 
-      >
+      safeId +
 
-        🗑 Supprimer
+      '\')">' +
 
-      </button>
+        "🗑 Supprimer" +
 
-    </div>
+      "</button>" +
 
-  `;
+    "</div>";
 
-  const modal =
+  document
 
-    document.getElementById("detailModal");
+    .getElementById(
 
-  modal.classList.add("open");
+      "detailBody"
+
+    )
+
+    .innerHTML =
+
+      html;
+
+  var modal =
+
+    document.getElementById(
+
+      "detailModal"
+
+    );
+
+  modal.classList.add(
+
+    "open"
+
+  );
 
   modal
 
-    .querySelector(".modal-body")
+    .querySelector(
+
+      ".modal-body"
+
+    )
 
     .scrollTop = 0;
 
@@ -3576,55 +4394,91 @@ function closeDetail() {
 
   document
 
-    .getElementById("detailModal")
+    .getElementById(
 
-    .classList.remove("open");
+      "detailModal"
+
+    )
+
+    .classList.remove(
+
+      "open"
+
+    );
 
   unlockBodyIfNeeded();
 
 }
 
+/* =========================================================
+
+   PROTECTION
+
+========================================================= */
+
 function escapeHtml(value) {
 
-  return String(value || "")
+  return String(
 
-    .replaceAll("&", "&amp;")
+    value || ""
 
-    .replaceAll("<", "&lt;")
+  )
 
-    .replaceAll(">", "&gt;")
+  .replace(/&/g,"&amp;")
 
-    .replaceAll('"', "&quot;")
+  .replace(/</g,"&lt;")
 
-    .replaceAll("'", "&#039;");
+  .replace(/>/g,"&gt;")
+
+  .replace(/"/g,"&quot;")
+
+  .replace(/'/g,"&#039;");
 
 }
 
 function escapeJsString(value) {
 
-  return String(value || "")
+  return String(
 
-    .replaceAll("\\", "\\\\")
+    value || ""
 
-    .replaceAll("'", "\\'")
+  )
 
-    .replaceAll("\n", "\\n")
+  .replace(/\\/g,"\\\\")
 
-    .replaceAll("\r", "\\r");
+  .replace(/'/g,"\\'")
+
+  .replace(/\n/g,"\\n")
+
+  .replace(/\r/g,"\\r");
 
 }
 
+/* =========================================================
+
+   ÉVÉNEMENTS
+
+========================================================= */
+
 document
 
-  .getElementById("newCategoryName")
+  .getElementById(
+
+    "newCategoryName"
+
+  )
 
   .addEventListener(
 
     "keydown",
 
-    event => {
+    function(event) {
 
-      if (event.key === "Enter") {
+      if (
+
+        event.key === "Enter"
+
+      ) {
 
         event.preventDefault();
 
@@ -3638,19 +4492,23 @@ document
 
 document
 
-  .getElementById("cocktailModal")
+  .getElementById(
+
+    "cocktailModal"
+
+  )
 
   .addEventListener(
 
     "click",
 
-    event => {
+    function(event) {
 
       if (
 
-        event.target.id ===
+        event.target ===
 
-        "cocktailModal"
+        this
 
       ) {
 
@@ -3664,19 +4522,23 @@ document
 
 document
 
-  .getElementById("detailModal")
+  .getElementById(
+
+    "detailModal"
+
+  )
 
   .addEventListener(
 
     "click",
 
-    event => {
+    function(event) {
 
       if (
 
-        event.target.id ===
+        event.target ===
 
-        "detailModal"
+        this
 
       ) {
 
@@ -3690,19 +4552,23 @@ document
 
 document
 
-  .getElementById("categoryModal")
+  .getElementById(
+
+    "categoryModal"
+
+  )
 
   .addEventListener(
 
     "click",
 
-    event => {
+    function(event) {
 
       if (
 
-        event.target.id ===
+        event.target ===
 
-        "categoryModal"
+        this
 
       ) {
 
@@ -3718,9 +4584,15 @@ document.addEventListener(
 
   "keydown",
 
-  event => {
+  function(event) {
 
-    if (event.key !== "Escape") {
+    if (
+
+      event.key !==
+
+      "Escape"
+
+    ) {
 
       return;
 
@@ -3730,11 +4602,19 @@ document.addEventListener(
 
       document
 
-        .getElementById("cocktailModal")
+        .getElementById(
+
+          "cocktailModal"
+
+        )
 
         .classList
 
-        .contains("open")
+        .contains(
+
+          "open"
+
+        )
 
     ) {
 
@@ -3748,11 +4628,19 @@ document.addEventListener(
 
       document
 
-        .getElementById("detailModal")
+        .getElementById(
+
+          "detailModal"
+
+        )
 
         .classList
 
-        .contains("open")
+        .contains(
+
+          "open"
+
+        )
 
     ) {
 
@@ -3766,11 +4654,19 @@ document.addEventListener(
 
       document
 
-        .getElementById("categoryModal")
+        .getElementById(
+
+          "categoryModal"
+
+        )
 
         .classList
 
-        .contains("open")
+        .contains(
+
+          "open"
+
+        )
 
     ) {
 
@@ -3781,6 +4677,12 @@ document.addEventListener(
   }
 
 );
+
+/* =========================================================
+
+   DÉMARRAGE
+
+========================================================= */
 
 loadFontSize();
 
