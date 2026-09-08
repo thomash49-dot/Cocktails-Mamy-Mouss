@@ -22,11 +22,11 @@
 
   <link rel="manifest" href="./manifest.json">
 
-  <!-- ICÔNE -->
+  <!-- ICÔNE PNG -->
 
-  <link rel="apple-touch-icon" href="./icon.jpg">
+  <link rel="apple-touch-icon" href="./icon.PNG">
 
-  <link rel="icon" type="image/jpeg" href="./icon.jpg">
+  <link rel="icon" type="image/png" href="./icon.PNG">
 
   <style>
 
@@ -84,6 +84,8 @@
 
       min-height: 100vh;
 
+      font-size: 16px;
+
     }
 
     button,
@@ -103,6 +105,66 @@
       cursor: pointer;
 
     }
+
+    /* =====================================================
+
+       TAILLES DE TEXTE
+
+    ===================================================== */
+
+    body.font-small {
+
+      font-size: 14px;
+
+    }
+
+    body.font-normal {
+
+      font-size: 16px;
+
+    }
+
+    body.font-large {
+
+      font-size: 19px;
+
+    }
+
+    body.font-xlarge {
+
+      font-size: 22px;
+
+    }
+
+    body.font-large .cocktail-name {
+
+      font-size: 22px;
+
+    }
+
+    body.font-xlarge .cocktail-name {
+
+      font-size: 25px;
+
+    }
+
+    body.font-large .detail-section h3 {
+
+      font-size: 19px;
+
+    }
+
+    body.font-xlarge .detail-section h3 {
+
+      font-size: 22px;
+
+    }
+
+    /* =====================================================
+
+       HEADER
+
+    ===================================================== */
 
     header {
 
@@ -144,6 +206,8 @@
 
       gap: 12px;
 
+      flex-wrap: wrap;
+
     }
 
     .title-area {
@@ -153,6 +217,8 @@
       align-items: center;
 
       gap: 12px;
+
+      min-width: 0;
 
     }
 
@@ -167,6 +233,8 @@
       object-fit: cover;
 
       background: white;
+
+      flex-shrink: 0;
 
     }
 
@@ -188,6 +256,46 @@
 
     }
 
+    .header-actions {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      flex-wrap: wrap;
+
+    }
+
+    .font-controls {
+
+      display: flex;
+
+      gap: 6px;
+
+      align-items: center;
+
+    }
+
+    .font-button {
+
+      border: none;
+
+      border-radius: 10px;
+
+      background: #374151;
+
+      color: white;
+
+      font-weight: 800;
+
+      padding: 9px 11px;
+
+      min-width: 42px;
+
+    }
+
     .add-button {
 
       border: none;
@@ -203,6 +311,12 @@
       padding: 12px 16px;
 
     }
+
+    /* =====================================================
+
+       CONTENU
+
+    ===================================================== */
 
     main {
 
@@ -293,6 +407,12 @@
       resize: vertical;
 
     }
+
+    /* =====================================================
+
+       CARTES COCKTAILS
+
+    ===================================================== */
 
     .cocktail-grid {
 
@@ -396,7 +516,7 @@
 
       color: var(--muted);
 
-      font-size: 13px;
+      font-size: 0.85em;
 
       margin-bottom: 12px;
 
@@ -484,7 +604,11 @@
 
     }
 
-    /* MODALE */
+    /* =====================================================
+
+       MODALE
+
+    ===================================================== */
 
     .modal-overlay {
 
@@ -562,7 +686,7 @@
 
       margin: 0;
 
-      font-size: 20px;
+      font-size: 1.25em;
 
     }
 
@@ -606,7 +730,7 @@
 
       color: var(--muted);
 
-      font-size: 12px;
+      font-size: 0.8em;
 
       margin-top: 6px;
 
@@ -652,7 +776,11 @@
 
     }
 
-    /* FICHE COCKTAIL */
+    /* =====================================================
+
+       FICHE COCKTAIL
+
+    ===================================================== */
 
     .detail-photo {
 
@@ -720,11 +848,17 @@
 
       padding: 7px 11px;
 
-      font-size: 13px;
+      font-size: 0.85em;
 
       font-weight: 700;
 
     }
+
+    /* =====================================================
+
+       MOBILE
+
+    ===================================================== */
 
     @media (max-width: 600px) {
 
@@ -745,6 +879,22 @@
         width: 44px;
 
         height: 44px;
+
+      }
+
+      .header-actions {
+
+        width: 100%;
+
+        justify-content: space-between;
+
+      }
+
+      .font-button {
+
+        padding: 8px 9px;
+
+        min-width: 38px;
 
       }
 
@@ -792,6 +942,18 @@
 
       }
 
+      body.font-large .cocktail-name {
+
+        font-size: 20px;
+
+      }
+
+      body.font-xlarge .cocktail-name {
+
+        font-size: 23px;
+
+      }
+
       .card-actions {
 
         flex-direction: column;
@@ -830,7 +992,7 @@
 
       <img
 
-        src="./icon.jpg"
+        src="./icon.PNG"
 
         alt="Cocktails"
 
@@ -848,17 +1010,53 @@
 
     </div>
 
-    <button
+    <div class="header-actions">
 
-      class="add-button"
+      <div class="font-controls">
 
-      onclick="openCocktailForm()"
+        <button
 
-    >
+          class="font-button"
 
-      ＋ Cocktail
+          onclick="decreaseFont()"
 
-    </button>
+          title="Réduire la taille du texte"
+
+        >
+
+          A−
+
+        </button>
+
+        <button
+
+          class="font-button"
+
+          onclick="increaseFont()"
+
+          title="Augmenter la taille du texte"
+
+        >
+
+          A+
+
+        </button>
+
+      </div>
+
+      <button
+
+        class="add-button"
+
+        onclick="openCocktailForm()"
+
+      >
+
+        ＋ Cocktail
+
+      </button>
+
+    </div>
 
   </div>
 
@@ -974,11 +1172,7 @@
 
         <select id="cocktailCategory">
 
-          <option value="">
-
-            Choisir
-
-          </option>
+          <option value="">Choisir</option>
 
           <option value="Classique">
 
@@ -1300,11 +1494,129 @@ Eau gazeuse"
 
 ========================================================= */
 
-const STORAGE_KEY = "mamy_mouss_cocktails_v3";
+const STORAGE_KEY =
+
+  "mamy_mouss_cocktails_v3";
+
+const FONT_KEY =
+
+  "mamy_mouss_font_size";
 
 let cocktails = [];
 
 let currentPhoto = "";
+
+/* =========================================================
+
+   TAILLE DU TEXTE
+
+========================================================= */
+
+const FONT_SIZES = [
+
+  "font-small",
+
+  "font-normal",
+
+  "font-large",
+
+  "font-xlarge"
+
+];
+
+let currentFontIndex = 1;
+
+function loadFontSize() {
+
+  const saved =
+
+    localStorage.getItem(FONT_KEY);
+
+  if (saved !== null) {
+
+    const index =
+
+      Number(saved);
+
+    if (
+
+      !Number.isNaN(index) &&
+
+      index >= 0 &&
+
+      index < FONT_SIZES.length
+
+    ) {
+
+      currentFontIndex =
+
+        index;
+
+    }
+
+  }
+
+  applyFontSize();
+
+}
+
+function applyFontSize() {
+
+  document.body.classList.remove(
+
+    ...FONT_SIZES
+
+  );
+
+  document.body.classList.add(
+
+    FONT_SIZES[currentFontIndex]
+
+  );
+
+  localStorage.setItem(
+
+    FONT_KEY,
+
+    String(currentFontIndex)
+
+  );
+
+}
+
+function increaseFont() {
+
+  if (
+
+    currentFontIndex <
+
+    FONT_SIZES.length - 1
+
+  ) {
+
+    currentFontIndex++;
+
+    applyFontSize();
+
+  }
+
+}
+
+function decreaseFont() {
+
+  if (
+
+    currentFontIndex > 0
+
+  ) {
+
+    currentFontIndex--;
+
+    applyFontSize();
+
+  }
+
+}
 
 /* =========================================================
 
@@ -1380,7 +1692,11 @@ function renderCocktails() {
 
   const container =
 
-    document.getElementById("cocktailList");
+    document.getElementById(
+
+      "cocktailList"
+
+    );
 
   const search =
 
@@ -1396,41 +1712,47 @@ function renderCocktails() {
 
   const filtered =
 
-    cocktails.filter(cocktail => {
+    cocktails.filter(
 
-      const text = [
+      cocktail => {
 
-        cocktail.name,
+        const text = [
 
-        cocktail.category,
+          cocktail.name,
 
-        cocktail.ingredients,
+          cocktail.category,
 
-        cocktail.glass,
+          cocktail.ingredients,
 
-        cocktail.garnish
+          cocktail.glass,
 
-      ]
+          cocktail.garnish
 
-      .join(" ")
+        ]
 
-      .toLowerCase();
+        .join(" ")
 
-      return text.includes(search);
+        .toLowerCase();
 
-    });
+        return text.includes(search);
 
-  filtered.sort((a, b) =>
+      }
 
-    (a.name || "")
+    );
 
-      .localeCompare(
+  filtered.sort(
 
-        b.name || "",
+    (a, b) =>
 
-        "fr"
+      (a.name || "")
 
-      )
+        .localeCompare(
+
+          b.name || "",
+
+          "fr"
+
+        )
 
   );
 
@@ -1688,7 +2010,11 @@ function handlePhoto(event) {
 
   if (!file) return;
 
-  if (!file.type.startsWith("image/")) {
+  if (
+
+    !file.type.startsWith("image/")
+
+  ) {
 
     alert(
 
@@ -1712,7 +2038,9 @@ function handlePhoto(event) {
 
   .then(dataUrl => {
 
-    currentPhoto = dataUrl;
+    currentPhoto =
+
+      dataUrl;
 
     updatePhotoPreview();
 
@@ -1756,115 +2084,117 @@ function compressImage(
 
         new FileReader();
 
-      reader.onload = event => {
+      reader.onload =
 
-        const img =
+        event => {
 
-          new Image();
+          const img =
 
-        img.onload = () => {
+            new Image();
 
-          let width =
+          img.onload = () => {
 
-            img.width;
+            let width =
 
-          let height =
+              img.width;
 
-            img.height;
+            let height =
 
-          if (
+              img.height;
 
-            width > maxSize ||
+            if (
 
-            height > maxSize
+              width > maxSize ||
 
-          ) {
+              height > maxSize
 
-            const ratio =
+            ) {
 
-              Math.min(
+              const ratio =
 
-                maxSize / width,
+                Math.min(
 
-                maxSize / height
+                  maxSize / width,
+
+                  maxSize / height
+
+                );
+
+              width =
+
+                Math.round(
+
+                  width * ratio
+
+                );
+
+              height =
+
+                Math.round(
+
+                  height * ratio
+
+                );
+
+            }
+
+            const canvas =
+
+              document.createElement(
+
+                "canvas"
 
               );
 
-            width =
+            canvas.width =
 
-              Math.round(
+              width;
 
-                width * ratio
+            canvas.height =
 
-              );
+              height;
 
-            height =
+            const ctx =
 
-              Math.round(
+              canvas.getContext("2d");
 
-                height * ratio
+            ctx.drawImage(
 
-              );
+              img,
 
-          }
+              0,
 
-          const canvas =
+              0,
 
-            document.createElement(
+              width,
 
-              "canvas"
+              height
 
             );
 
-          canvas.width =
+            const dataUrl =
 
-            width;
+              canvas.toDataURL(
 
-          canvas.height =
+                "image/jpeg",
 
-            height;
+                quality
 
-          const ctx =
+              );
 
-            canvas.getContext("2d");
+            resolve(dataUrl);
 
-          ctx.drawImage(
+          };
 
-            img,
+          img.onerror =
 
-            0,
+            reject;
 
-            0,
+          img.src =
 
-            width,
-
-            height
-
-          );
-
-          const dataUrl =
-
-            canvas.toDataURL(
-
-              "image/jpeg",
-
-              quality
-
-            );
-
-          resolve(dataUrl);
+            event.target.result;
 
         };
-
-        img.onerror =
-
-          reject;
-
-        img.src =
-
-          event.target.result;
-
-      };
 
       reader.onerror =
 
@@ -2002,7 +2332,11 @@ function saveCocktail() {
 
       document
 
-        .getElementById("cocktailCategory")
+        .getElementById(
+
+          "cocktailCategory"
+
+        )
 
         .value,
 
@@ -2010,7 +2344,11 @@ function saveCocktail() {
 
       document
 
-        .getElementById("cocktailIngredients")
+        .getElementById(
+
+          "cocktailIngredients"
+
+        )
 
         .value
 
@@ -2020,7 +2358,11 @@ function saveCocktail() {
 
       document
 
-        .getElementById("cocktailPreparation")
+        .getElementById(
+
+          "cocktailPreparation"
+
+        )
 
         .value
 
@@ -2030,7 +2372,11 @@ function saveCocktail() {
 
       document
 
-        .getElementById("cocktailGlass")
+        .getElementById(
+
+          "cocktailGlass"
+
+        )
 
         .value
 
@@ -2040,7 +2386,11 @@ function saveCocktail() {
 
       document
 
-        .getElementById("cocktailGarnish")
+        .getElementById(
+
+          "cocktailGarnish"
+
+        )
 
         .value
 
@@ -2050,7 +2400,11 @@ function saveCocktail() {
 
       document
 
-        .getElementById("cocktailNotes")
+        .getElementById(
+
+          "cocktailNotes"
+
+        )
 
         .value
 
@@ -2665,6 +3019,8 @@ document
    DÉMARRAGE
 
 ========================================================= */
+
+loadFontSize();
 
 loadCocktails();
 
