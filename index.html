@@ -16,11 +16,13 @@
 
   <meta name="theme-color" content="#111827">
 
-  <title>Recettes Boissons</title>
+  <title>Recettes Cocktails</title>
 
-  <!-- PWA + NOUVELLE ICÔNE -->
+  <!-- PWA -->
 
   <link rel="manifest" href="./manifest.json">
+
+  <!-- ICÔNE -->
 
   <link rel="apple-touch-icon" href="./icon.PNG">
 
@@ -30,43 +32,43 @@
 
     :root {
 
-      --bg: #f3f4f6;
+      --bg:#f3f4f6;
 
-      --card: #ffffff;
+      --card:#ffffff;
 
-      --text: #111827;
+      --text:#111827;
 
-      --muted: #6b7280;
+      --muted:#6b7280;
 
-      --border: #e5e7eb;
+      --border:#e5e7eb;
 
-      --accent: #111827;
+      --accent:#111827;
 
-      --danger: #b91c1c;
+      --danger:#b91c1c;
 
-      --danger-bg: #fee2e2;
+      --danger-bg:#fee2e2;
 
-      --shadow: 0 8px 25px rgba(0,0,0,.08);
+      --shadow:0 8px 25px rgba(0,0,0,.08);
 
     }
 
     * {
 
-      box-sizing: border-box;
+      box-sizing:border-box;
 
     }
 
     html {
 
-      -webkit-text-size-adjust: 100%;
+      -webkit-text-size-adjust:100%;
 
     }
 
     body {
 
-      margin: 0;
+      margin:0;
 
-      min-height: 100vh;
+      min-height:100vh;
 
       font-family:
 
@@ -84,9 +86,9 @@
 
         sans-serif;
 
-      background: var(--bg);
+      background:var(--bg);
 
-      color: var(--text);
+      color:var(--text);
 
     }
 
@@ -98,31 +100,35 @@
 
     select {
 
-      font: inherit;
+      font:inherit;
 
     }
 
     button {
 
-      cursor: pointer;
+      cursor:pointer;
 
-      touch-action: manipulation;
+      touch-action:manipulation;
 
     }
 
-    /* HEADER */
+    /* =====================================================
+
+       HEADER
+
+    ===================================================== */
 
     header {
 
-      position: sticky;
+      position:sticky;
 
-      top: 0;
+      top:0;
 
-      z-index: 50;
+      z-index:50;
 
-      background: rgba(17,24,39,.97);
+      background:rgba(17,24,39,.97);
 
-      color: white;
+      color:white;
 
       padding:
 
@@ -132,129 +138,161 @@
 
         14px;
 
-      box-shadow: 0 4px 15px rgba(0,0,0,.15);
+      box-shadow:
+
+        0 4px 15px rgba(0,0,0,.15);
 
     }
 
     .header-inner {
 
-      max-width: 1500px;
+      width:100%;
 
-      margin: auto;
+      max-width:1500px;
 
-      display: flex;
+      margin:auto;
 
-      align-items: center;
+      display:flex;
 
-      justify-content: space-between;
+      align-items:center;
 
-      gap: 20px;
+      justify-content:space-between;
+
+      gap:20px;
 
     }
 
     .brand {
 
-      display: flex;
+      display:flex;
 
-      align-items: center;
+      align-items:center;
 
-      gap: 14px;
+      gap:14px;
 
-      min-width: 0;
+      min-width:0;
 
     }
 
     .brand img {
 
-      width: 52px;
+      width:52px;
 
-      height: 52px;
+      height:52px;
 
-      object-fit: cover;
+      flex-shrink:0;
 
-      border-radius: 14px;
+      object-fit:cover;
 
-      background: white;
+      border-radius:14px;
+
+      background:white;
+
+    }
+
+    .brand-text {
+
+      min-width:0;
 
     }
 
     .brand-text h1 {
 
-      margin: 0;
+      margin:0;
 
-      font-size: 24px;
+      font-size:24px;
+
+      white-space:nowrap;
+
+      overflow:hidden;
+
+      text-overflow:ellipsis;
 
     }
 
     .brand-text p {
 
-      margin: 3px 0 0;
+      margin:3px 0 0;
 
-      color: #d1d5db;
+      color:#d1d5db;
 
-      font-size: 14px;
+      font-size:14px;
 
     }
 
     .header-actions {
 
-      display: flex;
+      display:flex;
 
-      gap: 10px;
+      align-items:center;
+
+      gap:10px;
+
+      flex-shrink:0;
 
     }
 
     .header-btn {
 
-      border: none;
+      border:none;
 
-      min-height: 48px;
+      min-height:48px;
 
-      padding: 0 18px;
+      padding:0 18px;
 
-      border-radius: 12px;
+      border-radius:12px;
 
-      font-weight: 800;
+      font-weight:800;
+
+      font-size:15px;
 
     }
 
     .category-main-btn {
 
-      background: #374151;
+      background:#374151;
 
-      color: white;
+      color:white;
 
-      border: 1px solid #4b5563;
+      border:1px solid #4b5563;
 
     }
 
     .add-main-btn {
 
-      background: white;
+      background:white;
 
-      color: #111827;
+      color:#111827;
 
     }
 
-    /* CONTAINER */
+    /* =====================================================
+
+       CONTAINER
+
+    ===================================================== */
 
     .container {
 
-      width: 100%;
+      width:100%;
 
-      max-width: 1500px;
+      max-width:1500px;
 
-      margin: auto;
+      margin:auto;
 
-      padding: 24px;
+      padding:24px;
 
     }
 
-    /* BARRE */
+    /* =====================================================
+
+       BARRE RECHERCHE
+
+    ===================================================== */
 
     .toolbar {
 
-      display: grid;
+      display:grid;
 
       grid-template-columns:
 
@@ -264,31 +302,31 @@
 
         minmax(180px,230px);
 
-      gap: 14px;
+      gap:14px;
 
-      margin-bottom: 20px;
+      margin-bottom:20px;
 
     }
 
     .search-box {
 
-      position: relative;
+      position:relative;
 
     }
 
     .search-box span {
 
-      position: absolute;
+      position:absolute;
 
-      left: 17px;
+      left:17px;
 
-      top: 50%;
+      top:50%;
 
-      transform: translateY(-50%);
+      transform:translateY(-50%);
 
-      font-size: 20px;
+      font-size:20px;
 
-      pointer-events: none;
+      pointer-events:none;
 
     }
 
@@ -296,33 +334,37 @@
 
     .toolbar select {
 
-      width: 100%;
+      width:100%;
 
-      height: 56px;
+      height:56px;
 
-      border: 1px solid var(--border);
+      border:1px solid var(--border);
 
-      border-radius: 14px;
+      border-radius:14px;
 
-      background: white;
+      background:white;
 
-      color: var(--text);
+      color:var(--text);
 
-      font-size: 17px;
+      font-size:17px;
 
-      outline: none;
+      outline:none;
+
+      box-shadow:
+
+        0 2px 8px rgba(0,0,0,.04);
 
     }
 
     .search-box input {
 
-      padding: 0 18px 0 50px;
+      padding:0 18px 0 50px;
 
     }
 
     .toolbar select {
 
-      padding: 0 14px;
+      padding:0 14px;
 
     }
 
@@ -332,103 +374,133 @@
 
     select:focus {
 
-      border-color: #4b5563 !important;
+      border-color:#4b5563 !important;
 
-      box-shadow: 0 0 0 3px rgba(17,24,39,.08);
+      box-shadow:
+
+        0 0 0 3px rgba(17,24,39,.08);
 
     }
 
-    /* COMPTEUR */
+    /* =====================================================
+
+       COMPTEUR
+
+    ===================================================== */
 
     .stats {
 
-      margin-bottom: 18px;
+      display:flex;
 
-      color: var(--muted);
+      align-items:center;
+
+      justify-content:space-between;
+
+      margin-bottom:18px;
+
+      color:var(--muted);
+
+      font-size:15px;
 
     }
 
     .stats strong {
 
-      color: var(--text);
+      color:var(--text);
 
     }
 
-    /* CARTES */
+    /* =====================================================
+
+       CARTES
+
+    ===================================================== */
 
     .cocktail-grid {
 
-      display: grid;
+      display:grid;
 
       grid-template-columns:
 
-        repeat(auto-fill,minmax(280px,1fr));
+        repeat(
 
-      gap: 20px;
+          auto-fill,
+
+          minmax(280px,1fr)
+
+        );
+
+      gap:20px;
 
     }
 
     .cocktail-card {
 
-      position: relative;
+      position:relative;
 
-      background: white;
+      overflow:hidden;
 
-      border: 1px solid var(--border);
+      background:var(--card);
 
-      border-radius: 18px;
+      border:1px solid var(--border);
 
-      overflow: hidden;
+      border-radius:18px;
 
-      box-shadow: var(--shadow);
+      box-shadow:var(--shadow);
 
-      display: flex;
+      display:flex;
 
-      flex-direction: column;
+      flex-direction:column;
 
-      min-height: 310px;
+      min-height:310px;
 
     }
 
     .order-badge {
 
-      position: absolute;
+      position:absolute;
 
-      top: 12px;
+      top:12px;
 
-      left: 12px;
+      left:12px;
 
-      min-width: 38px;
+      z-index:2;
 
-      height: 38px;
+      min-width:38px;
 
-      padding: 0 10px;
+      height:38px;
 
-      display: flex;
+      padding:0 10px;
 
-      align-items: center;
+      display:flex;
 
-      justify-content: center;
+      align-items:center;
 
-      border-radius: 999px;
+      justify-content:center;
 
-      background: rgba(255,255,255,.95);
+      border-radius:999px;
 
-      font-weight: 900;
+      background:rgba(255,255,255,.95);
 
-      box-shadow: 0 3px 10px rgba(0,0,0,.15);
+      color:#111827;
+
+      font-weight:900;
+
+      box-shadow:
+
+        0 3px 10px rgba(0,0,0,.15);
 
     }
 
     .cocktail-image {
 
-      height: 125px;
+      height:125px;
 
-      display: flex;
+      display:flex;
 
-      align-items: center;
+      align-items:center;
 
-      justify-content: center;
+      justify-content:center;
 
       background:
 
@@ -442,317 +514,415 @@
 
         );
 
-      font-size: 54px;
+      color:white;
+
+      font-size:54px;
 
     }
 
     .cocktail-content {
 
-      padding: 18px;
+      padding:18px;
 
-      display: flex;
+      display:flex;
 
-      flex-direction: column;
+      flex-direction:column;
 
-      flex: 1;
+      flex:1;
 
     }
 
     .cocktail-top {
 
-      display: flex;
+      display:flex;
 
-      justify-content: space-between;
+      justify-content:space-between;
 
-      align-items: flex-start;
+      align-items:flex-start;
 
-      gap: 12px;
+      gap:12px;
 
     }
 
     .cocktail-name {
 
-      margin: 0;
+      margin:0;
 
-      font-size: 21px;
+      font-size:21px;
+
+      line-height:1.15;
 
     }
 
     .category-badge {
 
-      background: #f3f4f6;
+      flex-shrink:0;
 
-      color: #4b5563;
+      display:inline-flex;
 
-      padding: 6px 9px;
+      align-items:center;
 
-      border-radius: 999px;
+      max-width:140px;
 
-      font-size: 12px;
+      overflow:hidden;
 
-      font-weight: 700;
+      white-space:nowrap;
+
+      text-overflow:ellipsis;
+
+      background:#f3f4f6;
+
+      color:#4b5563;
+
+      padding:6px 9px;
+
+      border-radius:999px;
+
+      font-size:12px;
+
+      font-weight:700;
 
     }
 
     .ingredients-preview {
 
-      margin: 14px 0;
+      margin:14px 0;
 
-      color: var(--muted);
+      color:var(--muted);
 
-      line-height: 1.5;
+      line-height:1.5;
 
-      flex: 1;
+      font-size:15px;
+
+      flex:1;
 
     }
 
     .card-buttons {
 
-      display: grid;
+      display:grid;
 
-      grid-template-columns: 1fr auto;
+      grid-template-columns:
 
-      gap: 10px;
+        1fr auto;
+
+      gap:10px;
 
     }
 
     .view-btn {
 
-      height: 48px;
+      height:48px;
 
-      border: none;
+      border:none;
 
-      border-radius: 12px;
+      border-radius:12px;
 
-      background: #111827;
+      background:var(--accent);
 
-      color: white;
+      color:white;
 
-      font-weight: 800;
+      font-weight:800;
+
+      font-size:15px;
 
     }
 
     .edit-btn {
 
-      width: 52px;
+      min-width:52px;
 
-      height: 48px;
+      height:48px;
 
-      border: 1px solid var(--border);
+      border:1px solid var(--border);
 
-      border-radius: 12px;
+      border-radius:12px;
 
-      background: white;
+      background:white;
 
-      font-size: 20px;
+      color:var(--text);
+
+      font-size:20px;
 
     }
 
-    /* EMPTY */
+    /* =====================================================
+
+       AUCUNE RECETTE
+
+    ===================================================== */
 
     .empty {
 
-      grid-column: 1 / -1;
+      grid-column:1 / -1;
 
-      background: white;
+      background:white;
 
-      border: 1px dashed #d1d5db;
+      border:1px dashed #d1d5db;
 
-      border-radius: 18px;
+      border-radius:18px;
 
-      padding: 50px 20px;
+      padding:50px 20px;
 
-      text-align: center;
+      text-align:center;
 
-      color: var(--muted);
+      color:var(--muted);
 
     }
 
-    /* MODAL */
+    .empty-icon {
+
+      font-size:55px;
+
+      margin-bottom:10px;
+
+    }
+
+    /* =====================================================
+
+       MODALS
+
+       CORRECTION TABLETTE
+
+    ===================================================== */
 
     .modal-overlay {
 
-      position: fixed;
+      position:fixed !important;
 
-      inset: 0;
+      top:0;
 
-      z-index: 1000;
+      right:0;
 
-      display: none;
+      bottom:0;
 
-      align-items: center;
+      left:0;
 
-      justify-content: center;
+      width:100vw;
 
-      background: rgba(0,0,0,.6);
+      height:100dvh;
 
-      padding: 20px;
+      z-index:9999;
+
+      background:rgba(0,0,0,.60);
+
+      display:none;
+
+      overflow-y:auto;
+
+      padding:
+
+        max(20px,env(safe-area-inset-top))
+
+        max(20px,env(safe-area-inset-right))
+
+        max(20px,env(safe-area-inset-bottom))
+
+        max(20px,env(safe-area-inset-left));
 
     }
 
     .modal-overlay.show {
 
-      display: flex;
+      display:grid !important;
+
+      place-items:center;
 
     }
 
     .modal {
 
-      width: min(780px,100%);
+      position:relative;
 
-      max-height: 92vh;
+      width:min(780px,calc(100vw - 40px));
 
-      overflow: auto;
+      max-height:
 
-      background: white;
+        calc(100dvh - 40px);
 
-      border-radius: 22px;
+      margin:auto;
+
+      background:white;
+
+      border-radius:22px;
+
+      overflow:auto;
 
       box-shadow:
 
-        0 25px 70px rgba(0,0,0,.3);
+        0 25px 70px rgba(0,0,0,.30);
 
     }
 
     .modal.small {
 
-      width: min(600px,100%);
+      width:min(600px,calc(100vw - 40px));
 
     }
 
     .modal-header {
 
-      position: sticky;
+      position:sticky;
 
-      top: 0;
+      top:0;
 
-      z-index: 5;
+      z-index:5;
 
-      display: flex;
+      background:white;
 
-      align-items: center;
+      border-bottom:
 
-      justify-content: space-between;
+        1px solid var(--border);
 
-      padding: 20px 22px;
+      padding:20px 22px;
 
-      background: white;
+      display:flex;
 
-      border-bottom: 1px solid var(--border);
+      align-items:center;
+
+      justify-content:space-between;
+
+      gap:15px;
 
     }
 
     .modal-header h2 {
 
-      margin: 0;
+      margin:0;
+
+      font-size:24px;
 
     }
 
     .close-btn {
 
-      width: 44px;
+      width:44px;
 
-      height: 44px;
+      height:44px;
 
-      border: none;
+      flex-shrink:0;
 
-      border-radius: 50%;
+      border:none;
 
-      background: #f3f4f6;
+      border-radius:50%;
 
-      font-size: 22px;
+      background:#f3f4f6;
+
+      font-size:22px;
+
+      font-weight:bold;
 
     }
 
     .modal-body {
 
-      padding: 22px;
+      padding:22px;
 
     }
 
-    /* RECETTE */
+    /* =====================================================
+
+       RECETTE
+
+    ===================================================== */
 
     .recipe-section {
 
-      margin-bottom: 24px;
+      margin-bottom:26px;
+
+    }
+
+    .recipe-section:last-child {
+
+      margin-bottom:0;
 
     }
 
     .recipe-section h3 {
 
-      margin: 0 0 10px;
+      margin:0 0 10px;
+
+      font-size:18px;
 
     }
 
     .recipe-text {
 
-      white-space: pre-line;
+      white-space:pre-line;
 
-      padding: 16px;
+      background:#f9fafb;
 
-      background: #f9fafb;
+      border:1px solid var(--border);
 
-      border: 1px solid var(--border);
+      border-radius:14px;
 
-      border-radius: 14px;
+      padding:16px;
 
-      line-height: 1.6;
+      line-height:1.6;
 
-      font-size: 17px;
+      font-size:17px;
 
     }
 
     .recipe-category {
 
-      display: inline-block;
+      display:inline-block;
 
-      margin-bottom: 20px;
+      background:#111827;
 
-      padding: 7px 12px;
+      color:white;
 
-      background: #111827;
+      padding:7px 12px;
 
-      color: white;
+      border-radius:999px;
 
-      border-radius: 999px;
+      font-size:13px;
 
-      font-size: 13px;
+      font-weight:700;
 
-      font-weight: 700;
+      margin-bottom:20px;
 
     }
 
-    /* FORMULAIRE */
+    /* =====================================================
+
+       FORMULAIRE
+
+    ===================================================== */
 
     .form-grid {
 
-      display: grid;
+      display:grid;
 
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns:
 
-      gap: 18px;
+        1fr 1fr;
+
+      gap:18px;
 
     }
 
     .field {
 
-      margin-bottom: 18px;
+      margin-bottom:18px;
 
     }
 
     .field.full {
 
-      grid-column: 1 / -1;
+      grid-column:1 / -1;
 
     }
 
     .field label {
 
-      display: block;
+      display:block;
 
-      margin-bottom: 7px;
+      margin-bottom:7px;
 
-      font-weight: 800;
+      font-weight:800;
+
+      font-size:14px;
 
     }
 
@@ -762,15 +932,21 @@
 
     .field select {
 
-      width: 100%;
+      width:100%;
 
-      padding: 13px 14px;
+      border:1px solid #d1d5db;
 
-      border: 1px solid #d1d5db;
+      border-radius:12px;
 
-      border-radius: 12px;
+      padding:13px 14px;
 
-      outline: none;
+      outline:none;
+
+      background:white;
+
+      color:var(--text);
+
+      font-size:16px;
 
     }
 
@@ -778,175 +954,217 @@
 
     .field select {
 
-      min-height: 50px;
+      min-height:50px;
 
     }
 
     .field textarea {
 
-      min-height: 130px;
+      min-height:130px;
 
-      resize: vertical;
+      resize:vertical;
+
+      line-height:1.5;
 
     }
 
     .form-actions {
 
-      display: flex;
+      display:flex;
 
-      gap: 12px;
+      gap:12px;
 
-      justify-content: flex-end;
+      justify-content:flex-end;
 
-      padding-top: 20px;
+      border-top:
 
-      border-top: 1px solid var(--border);
+        1px solid var(--border);
+
+      padding-top:20px;
+
+      margin-top:5px;
 
     }
 
     .btn {
 
-      min-height: 50px;
+      min-height:50px;
 
-      padding: 0 20px;
+      border:none;
 
-      border: none;
+      border-radius:12px;
 
-      border-radius: 12px;
+      padding:0 20px;
 
-      font-weight: 800;
+      font-weight:800;
+
+      font-size:15px;
 
     }
 
     .btn-primary {
 
-      background: #111827;
+      background:var(--accent);
 
-      color: white;
+      color:white;
 
     }
 
     .btn-secondary {
 
-      background: #e5e7eb;
+      background:#e5e7eb;
+
+      color:var(--text);
 
     }
 
     .btn-danger {
 
-      margin-right: auto;
+      background:var(--danger-bg);
 
-      background: var(--danger-bg);
+      color:var(--danger);
 
-      color: var(--danger);
+      margin-right:auto;
 
     }
 
-    /* CATEGORIES */
+    /* =====================================================
+
+       CATEGORIES
+
+    ===================================================== */
 
     .category-create {
 
-      display: grid;
+      display:grid;
 
-      grid-template-columns: 1fr auto;
+      grid-template-columns:
 
-      gap: 10px;
+        1fr auto;
 
-      margin-bottom: 22px;
+      gap:10px;
+
+      margin-bottom:22px;
 
     }
 
     .category-create input {
 
-      min-height: 52px;
+      width:100%;
 
-      padding: 0 14px;
+      min-height:52px;
 
-      border: 1px solid #d1d5db;
+      padding:0 14px;
 
-      border-radius: 12px;
+      border:1px solid #d1d5db;
+
+      border-radius:12px;
+
+      outline:none;
 
     }
 
     .category-create button {
 
-      padding: 0 18px;
+      min-height:52px;
 
-      border: none;
+      padding:0 18px;
 
-      border-radius: 12px;
+      border:none;
 
-      background: #111827;
+      border-radius:12px;
 
-      color: white;
+      background:#111827;
 
-      font-weight: 800;
+      color:white;
+
+      font-weight:800;
 
     }
 
     .category-list {
 
-      display: flex;
+      display:flex;
 
-      flex-direction: column;
+      flex-direction:column;
 
-      gap: 10px;
+      gap:10px;
 
     }
 
     .category-row {
 
-      min-height: 54px;
+      min-height:54px;
 
-      display: flex;
+      display:flex;
 
-      align-items: center;
+      align-items:center;
 
-      justify-content: space-between;
+      justify-content:space-between;
 
-      gap: 12px;
+      gap:12px;
 
-      padding: 10px 12px;
+      padding:10px 12px;
 
-      background: #f9fafb;
+      background:#f9fafb;
 
-      border: 1px solid var(--border);
+      border:1px solid var(--border);
 
-      border-radius: 12px;
+      border-radius:12px;
+
+    }
+
+    .category-row strong {
+
+      min-width:0;
+
+      overflow:hidden;
+
+      text-overflow:ellipsis;
+
+      white-space:nowrap;
 
     }
 
     .category-delete {
 
-      border: none;
+      flex-shrink:0;
 
-      border-radius: 10px;
+      border:none;
 
-      padding: 9px 12px;
+      border-radius:10px;
 
-      background: var(--danger-bg);
+      background:var(--danger-bg);
 
-      color: var(--danger);
+      color:var(--danger);
 
-      font-weight: 700;
+      padding:9px 12px;
+
+      font-weight:700;
 
     }
 
     .category-used {
 
-      color: var(--muted);
+      flex-shrink:0;
 
-      font-size: 13px;
+      color:var(--muted);
+
+      font-size:13px;
 
     }
 
-    /* TABLETTE */
+    /* =====================================================
+
+       TABLETTE
+
+    ===================================================== */
 
     @media (min-width:700px) {
 
       .container {
 
-        padding: 30px;
+        padding:30px;
 
       }
 
@@ -954,13 +1172,25 @@
 
         grid-template-columns:
 
-          repeat(2,minmax(0,1fr));
+          repeat(
+
+            2,
+
+            minmax(0,1fr)
+
+          );
+
+      }
+
+      .cocktail-card {
+
+        min-height:320px;
 
       }
 
       .cocktail-image {
 
-        height: 145px;
+        height:145px;
 
       }
 
@@ -968,21 +1198,59 @@
 
       .edit-btn {
 
-        height: 54px;
+        height:54px;
+
+      }
+
+      .modal {
+
+        width:min(780px,90vw);
+
+      }
+
+      .modal.small {
+
+        width:min(600px,90vw);
 
       }
 
     }
 
-    /* GRANDE TABLETTE */
+    /* =====================================================
+
+       GRANDE TABLETTE
+
+    ===================================================== */
 
     @media (min-width:1000px) {
 
+      header {
+
+        padding-left:30px;
+
+        padding-right:30px;
+
+      }
+
       .brand img {
 
-        width: 58px;
+        width:58px;
 
-        height: 58px;
+        height:58px;
+
+      }
+
+      .brand-text h1 {
+
+        font-size:27px;
+
+      }
+
+      .header-btn {
+
+        min-height:54px;
+
+        padding:0 22px;
 
       }
 
@@ -990,7 +1258,13 @@
 
         grid-template-columns:
 
-          repeat(3,minmax(0,1fr));
+          repeat(
+
+            3,
+
+            minmax(0,1fr)
+
+          );
 
       }
 
@@ -1002,107 +1276,221 @@
 
         grid-template-columns:
 
-          repeat(4,minmax(0,1fr));
+          repeat(
+
+            4,
+
+            minmax(0,1fr)
+
+          );
 
       }
 
     }
 
-    /* TELEPHONE */
+    /* =====================================================
+
+       TELEPHONE
+
+    ===================================================== */
 
     @media (max-width:699px) {
 
       header {
 
-        padding-left: 12px;
+        padding-left:12px;
 
-        padding-right: 12px;
+        padding-right:12px;
+
+      }
+
+      .header-inner {
+
+        gap:8px;
+
+      }
+
+      .brand {
+
+        gap:9px;
 
       }
 
       .brand img {
 
-        width: 44px;
+        width:44px;
 
-        height: 44px;
+        height:44px;
+
+        border-radius:11px;
 
       }
 
       .brand-text h1 {
 
-        font-size: 18px;
+        font-size:18px;
 
       }
 
       .brand-text p {
 
-        display: none;
+        display:none;
+
+      }
+
+      .header-actions {
+
+        gap:6px;
 
       }
 
       .header-btn {
 
-        width: 46px;
+        width:46px;
 
-        height: 46px;
+        height:46px;
 
-        padding: 0;
+        min-height:46px;
 
-        font-size: 0;
+        padding:0;
+
+        font-size:0;
 
       }
 
       .category-main-btn::after {
 
-        content: "🏷️";
+        content:"🏷️";
 
-        font-size: 21px;
+        font-size:21px;
 
       }
 
       .add-main-btn::after {
 
-        content: "+";
+        content:"+";
 
-        font-size: 28px;
+        font-size:28px;
 
       }
 
       .container {
 
-        padding: 16px;
+        padding:16px;
 
       }
 
       .toolbar {
 
-        grid-template-columns: 1fr;
+        grid-template-columns:1fr;
+
+        gap:10px;
+
+      }
+
+      .search-box input,
+
+      .toolbar select {
+
+        height:52px;
 
       }
 
       .cocktail-grid {
 
-        grid-template-columns: 1fr;
+        grid-template-columns:1fr;
+
+        gap:15px;
+
+      }
+
+      .cocktail-card {
+
+        min-height:auto;
+
+      }
+
+      .cocktail-image {
+
+        height:105px;
 
       }
 
       .form-grid {
 
-        grid-template-columns: 1fr;
+        grid-template-columns:1fr;
 
       }
 
       .field.full {
 
-        grid-column: auto;
+        grid-column:auto;
+
+      }
+
+      .form-actions {
+
+        flex-wrap:wrap;
+
+      }
+
+      .btn {
+
+        flex:1;
+
+      }
+
+      .btn-danger {
+
+        flex-basis:100%;
+
+        order:3;
+
+      }
+
+      /*
+
+        IMPORTANT :
+
+        même sur téléphone la fenêtre reste
+
+        correctement centrée.
+
+      */
+
+      .modal-overlay.show {
+
+        display:grid !important;
+
+        place-items:center;
 
       }
 
       .modal-overlay {
 
-        padding: 8px;
+        padding:12px;
 
-        align-items: flex-end;
+      }
+
+      .modal,
+
+      .modal.small {
+
+        width:calc(100vw - 24px);
+
+        max-height:
+
+          calc(100dvh - 24px);
+
+        margin:auto;
+
+        border-radius:18px;
+
+      }
+
+      .category-create {
+
+        grid-template-columns:1fr;
 
       }
 
@@ -1120,11 +1508,13 @@
 
     <div class="brand">
 
+      <!-- NOUVELLE ICÔNE -->
+
       <img
 
         src="./icon.PNG"
 
-        alt="Logo"
+        alt="Logo Recettes Cocktails"
 
         onerror="this.style.display='none'"
 
@@ -1132,9 +1522,17 @@
 
       <div class="brand-text">
 
-        <h1>🥤 Recettes Boissons</h1>
+        <h1>
 
-        <p>Les recettes du bar</p>
+          🍹 Recettes Cocktails
+
+        </h1>
+
+        <p>
+
+          Les recettes du bar
+
+        </p>
 
       </div>
 
@@ -1178,7 +1576,11 @@
 
     <div class="search-box">
 
-      <span>🔎</span>
+      <span>
+
+        🔎
+
+      </span>
 
       <input
 
@@ -1187,6 +1589,8 @@
         type="search"
 
         placeholder="Rechercher une recette..."
+
+        autocomplete="off"
 
         oninput="renderCocktails()"
 
@@ -1200,7 +1604,9 @@
 
       onchange="renderCocktails()"
 
-    ></select>
+    >
+
+    </select>
 
     <select
 
@@ -1240,13 +1646,17 @@
 
   <div class="stats">
 
-    <strong id="cocktailCount">
+    <div>
 
-      0
+      <strong id="cocktailCount">
 
-    </strong>
+        0
 
-    recette(s)
+      </strong>
+
+      recette(s)
+
+    </div>
 
   </div>
 
@@ -1256,11 +1666,17 @@
 
     class="cocktail-grid"
 
-  ></div>
+  >
+
+  </div>
 
 </main>
 
-<!-- RECETTE -->
+<!-- =====================================================
+
+     MODAL VOIR RECETTE
+
+===================================================== -->
 
 <div
 
@@ -1302,13 +1718,19 @@
 
       class="modal-body"
 
-    ></div>
+    >
+
+    </div>
 
   </div>
 
 </div>
 
-<!-- AJOUT / MODIFICATION -->
+<!-- =====================================================
+
+     MODAL AJOUTER / MODIFIER
+
+===================================================== -->
 
 <div
 
@@ -1366,7 +1788,7 @@
 
           <div class="field">
 
-            <label>
+            <label for="orderNumber">
 
               N° / ordre
 
@@ -1380,6 +1802,10 @@
 
               min="1"
 
+              step="1"
+
+              placeholder="Ex. 1"
+
               required
 
             >
@@ -1388,7 +1814,7 @@
 
           <div class="field">
 
-            <label>
+            <label for="name">
 
               Nom
 
@@ -1408,7 +1834,7 @@
 
           <div class="field">
 
-            <label>
+            <label for="category">
 
               Catégorie
 
@@ -1420,13 +1846,15 @@
 
               required
 
-            ></select>
+            >
+
+            </select>
 
           </div>
 
           <div class="field">
 
-            <label>
+            <label for="glass">
 
               Verre
 
@@ -1444,7 +1872,7 @@
 
           <div class="field full">
 
-            <label>
+            <label for="garnish">
 
               Décoration
 
@@ -1462,7 +1890,7 @@
 
           <div class="field full">
 
-            <label>
+            <label for="ingredients">
 
               Ingrédients
 
@@ -1480,7 +1908,7 @@
 
           <div class="field full">
 
-            <label>
+            <label for="preparation">
 
               Préparation
 
@@ -1498,7 +1926,7 @@
 
           <div class="field full">
 
-            <label>
+            <label for="notes">
 
               Notes
 
@@ -1526,7 +1954,7 @@
 
             onclick="deleteCocktail()"
 
-            style="display:none"
+            style="display:none;"
 
           >
 
@@ -1570,7 +1998,11 @@
 
 </div>
 
-<!-- CATEGORIES -->
+<!-- =====================================================
+
+     CATEGORIES
+
+===================================================== -->
 
 <div
 
@@ -1626,6 +2058,8 @@
 
         <button
 
+          type="button"
+
           onclick="addCategory()"
 
         >
@@ -1642,7 +2076,9 @@
 
         class="category-list"
 
-      ></div>
+      >
+
+      </div>
 
     </div>
 
@@ -1652,13 +2088,23 @@
 
 <script>
 
+/* =====================================================
+
+   STOCKAGE
+
+===================================================== */
+
 const COCKTAIL_STORAGE =
 
-  "recettesBoissonsMamyMoussV3";
+  "recettesCocktailsMamyMoussV2";
+
+const OLD_COCKTAIL_STORAGE =
+
+  "recettesCocktailsMamyMoussV1";
 
 const CATEGORY_STORAGE =
 
-  "recettesBoissonsCategoriesV3";
+  "recettesCocktailsCategoriesV2";
 
 const defaultCategories = [
 
@@ -1668,109 +2114,35 @@ const defaultCategories = [
 
   "Sans alcool",
 
-  "Jus",
-
-  "Soda",
-
-  "Café",
+  "Maison",
 
   "Autre"
 
 ];
 
-const defaultCocktails = [
+/*
 
-  {
+  Aucune recette imposée ici.
 
-    id: "virgin-mojito",
+  Tes recettes déjà enregistrées dans
 
-    orderNumber: 1,
+  le navigateur restent conservées
 
-    name: "Virgin Mojito",
+  grâce aux mêmes clés V2.
 
-    category: "Sans alcool",
+*/
 
-    glass: "Highball",
+const defaultCocktails = [];
 
-    garnish: "Menthe et citron vert",
+/* =====================================================
 
-    ingredients:
+   CHARGEMENT
 
-`Citron vert
-
-Menthe
-
-Sirop de sucre
-
-Eau pétillante
-
-Glace pilée`,
-
-    preparation:
-
-`Ajouter les ingrédients dans le verre et mélanger.`,
-
-    notes: ""
-
-  },
-
-  {
-
-    id: "citronnade",
-
-    orderNumber: 2,
-
-    name: "Citronnade",
-
-    category: "Sans alcool",
-
-    glass: "Highball",
-
-    garnish: "Citron",
-
-    ingredients:
-
-`Jus de citron
-
-Sirop de sucre
-
-Eau
-
-Glaçons`,
-
-    preparation:
-
-`Ajouter les ingrédients dans le verre et mélanger.`,
-
-    notes: ""
-
-  }
-
-];
-
-function generateId() {
-
-  return (
-
-    "recette-" +
-
-    Date.now() +
-
-    "-" +
-
-    Math.random()
-
-      .toString(36)
-
-      .slice(2,8)
-
-  );
-
-}
+===================================================== */
 
 function loadCocktails() {
 
-  const saved =
+  let saved =
 
     localStorage.getItem(
 
@@ -1778,39 +2150,109 @@ function loadCocktails() {
 
     );
 
+  if (!saved) {
+
+    saved =
+
+      localStorage.getItem(
+
+        OLD_COCKTAIL_STORAGE
+
+      );
+
+  }
+
+  let data;
+
   if (saved) {
 
     try {
 
-      const parsed =
+      data =
 
         JSON.parse(saved);
 
-      if (
+    }
 
-        Array.isArray(parsed)
+    catch {
 
-      ) {
-
-        return parsed;
-
-      }
+      data = null;
 
     }
 
-    catch {}
+  }
+
+  if (!Array.isArray(data)) {
+
+    data =
+
+      JSON.parse(
+
+        JSON.stringify(
+
+          defaultCocktails
+
+        )
+
+      );
 
   }
 
-  const copy =
+  data =
 
-    JSON.parse(
+    data.map(
 
-      JSON.stringify(
+      (item,index) => ({
 
-        defaultCocktails
+        ...item,
 
-      )
+        id:
+
+          item.id ||
+
+          generateId(),
+
+        orderNumber:
+
+          Number(
+
+            item.orderNumber
+
+          ) ||
+
+          index + 1,
+
+        name:
+
+          item.name || "",
+
+        category:
+
+          item.category ||
+
+          "Autre",
+
+        glass:
+
+          item.glass || "",
+
+        garnish:
+
+          item.garnish || "",
+
+        ingredients:
+
+          item.ingredients || "",
+
+        preparation:
+
+          item.preparation || "",
+
+        notes:
+
+          item.notes || ""
+
+      })
 
     );
 
@@ -1818,11 +2260,11 @@ function loadCocktails() {
 
     COCKTAIL_STORAGE,
 
-    JSON.stringify(copy)
+    JSON.stringify(data)
 
   );
 
-  return copy;
+  return data;
 
 }
 
@@ -1836,43 +2278,91 @@ function loadCategories() {
 
     );
 
+  let list;
+
   if (saved) {
 
     try {
 
-      const parsed =
+      list =
 
         JSON.parse(saved);
 
+    }
+
+    catch {
+
+      list = null;
+
+    }
+
+  }
+
+  if (!Array.isArray(list)) {
+
+    list =
+
+      [...defaultCategories];
+
+  }
+
+  cocktails.forEach(
+
+    item => {
+
       if (
 
-        Array.isArray(parsed)
+        item.category &&
+
+        !list.includes(
+
+          item.category
+
+        )
 
       ) {
 
-        return parsed;
+        list.push(
+
+          item.category
+
+        );
 
       }
 
     }
 
-    catch {}
+  );
 
-  }
+  list =
 
-  const copy =
+    [...new Set(list)]
 
-    [...defaultCategories];
+      .filter(Boolean)
+
+      .sort(
+
+        (a,b) =>
+
+          a.localeCompare(
+
+            b,
+
+            "fr"
+
+          )
+
+      );
 
   localStorage.setItem(
 
     CATEGORY_STORAGE,
 
-    JSON.stringify(copy)
+    JSON.stringify(list)
 
   );
 
-  return copy;
+  return list;
 
 }
 
@@ -1883,6 +2373,12 @@ let cocktails =
 let categories =
 
   loadCategories();
+
+/* =====================================================
+
+   SAUVEGARDE
+
+===================================================== */
 
 function saveCocktailsStorage() {
 
@@ -1908,6 +2404,12 @@ function saveCategoriesStorage() {
 
 }
 
+/* =====================================================
+
+   CATEGORIES SELECT
+
+===================================================== */
+
 function refreshCategorySelectors() {
 
   const filter =
@@ -1918,7 +2420,7 @@ function refreshCategorySelectors() {
 
     );
 
-  const categorySelect =
+  const recipeSelect =
 
     document.getElementById(
 
@@ -1926,23 +2428,25 @@ function refreshCategorySelectors() {
 
     );
 
-  const oldFilter =
+  const selectedFilter =
 
     filter.value;
 
-  const oldCategory =
+  const selectedRecipe =
 
-    categorySelect.value;
+    recipeSelect.value;
 
-  filter.innerHTML =
+  filter.innerHTML = `
 
-    `<option value="">
+    <option value="">
 
       Toutes les catégories
 
-    </option>`;
+    </option>
 
-  categorySelect.innerHTML =
+  `;
+
+  recipeSelect.innerHTML =
 
     "";
 
@@ -1968,7 +2472,7 @@ function refreshCategorySelectors() {
 
       category => {
 
-        const a =
+        const optionFilter =
 
           document.createElement(
 
@@ -1976,17 +2480,21 @@ function refreshCategorySelectors() {
 
           );
 
-        a.value =
+        optionFilter.value =
 
           category;
 
-        a.textContent =
+        optionFilter.textContent =
 
           category;
 
-        filter.appendChild(a);
+        filter.appendChild(
 
-        const b =
+          optionFilter
+
+        );
+
+        const optionRecipe =
 
           document.createElement(
 
@@ -1994,15 +2502,19 @@ function refreshCategorySelectors() {
 
           );
 
-        b.value =
+        optionRecipe.value =
 
           category;
 
-        b.textContent =
+        optionRecipe.textContent =
 
           category;
 
-        categorySelect.appendChild(b);
+        recipeSelect.appendChild(
+
+          optionRecipe
+
+        );
 
       }
 
@@ -2012,7 +2524,7 @@ function refreshCategorySelectors() {
 
     categories.includes(
 
-      oldFilter
+      selectedFilter
 
     )
 
@@ -2020,7 +2532,7 @@ function refreshCategorySelectors() {
 
     filter.value =
 
-      oldFilter;
+      selectedFilter;
 
   }
 
@@ -2028,21 +2540,35 @@ function refreshCategorySelectors() {
 
     categories.includes(
 
-      oldCategory
+      selectedRecipe
 
     )
 
   ) {
 
-    categorySelect.value =
+    recipeSelect.value =
 
-      oldCategory;
+      selectedRecipe;
 
   }
 
 }
 
+/* =====================================================
+
+   AFFICHAGE
+
+===================================================== */
+
 function renderCocktails() {
+
+  const grid =
+
+    document.getElementById(
+
+      "cocktailGrid"
+
+    );
 
   const search =
 
@@ -2088,21 +2614,25 @@ function renderCocktails() {
 
     cocktails.filter(
 
-      cocktail => {
+      item => {
 
         const text =
 
           [
 
-            cocktail.name,
+            item.name,
 
-            cocktail.category,
+            item.category,
 
-            cocktail.ingredients,
+            item.ingredients,
 
-            cocktail.notes,
+            item.glass,
 
-            cocktail.orderNumber
+            item.garnish,
+
+            item.notes,
+
+            item.orderNumber
 
           ]
 
@@ -2110,17 +2640,23 @@ function renderCocktails() {
 
           .toLowerCase();
 
+        const matchesSearch =
+
+          !search ||
+
+          text.includes(search);
+
+        const matchesCategory =
+
+          !category ||
+
+          item.category === category;
+
         return (
 
-          (!search ||
+          matchesSearch &&
 
-            text.includes(search))
-
-          &&
-
-          (!category ||
-
-            cocktail.category === category)
+          matchesCategory
 
         );
 
@@ -2172,9 +2708,19 @@ function renderCocktails() {
 
         return (
 
-          Number(b.orderNumber) -
+          Number(
 
-          Number(a.orderNumber)
+            b.orderNumber
+
+          )
+
+          -
+
+          Number(
+
+            a.orderNumber
+
+          )
 
         );
 
@@ -2182,9 +2728,19 @@ function renderCocktails() {
 
       return (
 
-        Number(a.orderNumber) -
+        Number(
 
-        Number(b.orderNumber)
+          a.orderNumber
+
+        )
+
+        -
+
+        Number(
+
+          b.orderNumber
+
+        )
 
       );
 
@@ -2200,25 +2756,37 @@ function renderCocktails() {
 
     filtered.length;
 
-  const grid =
+  if (
 
-    document.getElementById(
+    filtered.length === 0
 
-      "cocktailGrid"
+  ) {
 
-    );
+    grid.innerHTML = `
 
-  if (!filtered.length) {
+      <div class="empty">
 
-    grid.innerHTML =
+        <div class="empty-icon">
 
-      `<div class="empty">
+          🍹
 
-        🥤<br><br>
+        </div>
 
-        Aucune recette trouvée.
+        <strong>
 
-      </div>`;
+          Aucune recette trouvée
+
+        </strong>
+
+        <p>
+
+          Ajoute une recette avec le bouton +.
+
+        </p>
+
+      </div>
+
+    `;
 
     return;
 
@@ -2228,119 +2796,191 @@ function renderCocktails() {
 
     filtered.map(
 
-      cocktail => `
+      item => {
 
-      <article class="cocktail-card">
+        const preview =
 
-        <div class="order-badge">
+          item.ingredients
 
-          ${escapeHtml(
+            .split("\n")
 
-            cocktail.orderNumber
+            .filter(Boolean)
 
-          )}
+            .slice(0,3)
 
-        </div>
+            .join(" • ");
 
-        <div class="cocktail-image">
+        return `
 
-          🥤
+          <article class="cocktail-card">
 
-        </div>
-
-        <div class="cocktail-content">
-
-          <div class="cocktail-top">
-
-            <h2 class="cocktail-name">
+            <div class="order-badge">
 
               ${escapeHtml(
 
-                cocktail.name
+                String(
+
+                  item.orderNumber
+
+                )
 
               )}
 
-            </h2>
+            </div>
 
-            <span class="category-badge">
+            <div class="cocktail-image">
 
-              ${escapeHtml(
+              ${getCocktailEmoji(
 
-                cocktail.category
+                item.category
 
               )}
 
-            </span>
+            </div>
 
-          </div>
+            <div class="cocktail-content">
 
-          <div class="ingredients-preview">
+              <div class="cocktail-top">
 
-            ${escapeHtml(
+                <h2 class="cocktail-name">
 
-              cocktail.ingredients
+                  ${escapeHtml(
 
-                .split("\n")
+                    item.name
 
-                .filter(Boolean)
+                  )}
 
-                .slice(0,3)
+                </h2>
 
-                .join(" • ")
+                <span class="category-badge">
 
-            )}
+                  ${escapeHtml(
 
-          </div>
+                    item.category
 
-          <div class="card-buttons">
+                  )}
 
-            <button
+                </span>
 
-              class="view-btn"
+              </div>
 
-              onclick="viewCocktail('${cocktail.id}')"
+              <div class="ingredients-preview">
 
-            >
+                ${escapeHtml(
 
-              Voir la recette
+                  preview
 
-            </button>
+                )}
 
-            <button
+              </div>
 
-              class="edit-btn"
+              <div class="card-buttons">
 
-              onclick="editCocktail('${cocktail.id}')"
+                <button
 
-            >
+                  class="view-btn"
 
-              ✏️
+                  onclick="viewCocktail('${item.id}')"
 
-            </button>
+                >
 
-          </div>
+                  Voir la recette
 
-        </div>
+                </button>
 
-      </article>
+                <button
 
-    `).join("");
+                  class="edit-btn"
+
+                  onclick="editCocktail('${item.id}')"
+
+                  aria-label="Modifier"
+
+                >
+
+                  ✏️
+
+                </button>
+
+              </div>
+
+            </div>
+
+          </article>
+
+        `;
+
+      }
+
+    )
+
+    .join("");
 
 }
 
+/* =====================================================
+
+   EMOJI
+
+===================================================== */
+
+function getCocktailEmoji(category) {
+
+  const c =
+
+    String(category || "")
+
+      .toLowerCase();
+
+  if (
+
+    c.includes("sans alcool")
+
+  ) {
+
+    return "🧃";
+
+  }
+
+  if (
+
+    c.includes("maison") ||
+
+    c.includes("signature")
+
+  ) {
+
+    return "⭐";
+
+  }
+
+  return "🍹";
+
+}
+
+/* =====================================================
+
+   VOIR
+
+===================================================== */
+
 function viewCocktail(id) {
 
-  const cocktail =
+  const item =
 
     cocktails.find(
 
-      item =>
+      cocktail =>
 
-        item.id === id
+        cocktail.id === id
 
     );
 
-  if (!cocktail) return;
+  if (!item) {
+
+    return;
+
+  }
 
   document.getElementById(
 
@@ -2348,7 +2988,7 @@ function viewCocktail(id) {
 
   ).textContent =
 
-    cocktail.name;
+    item.name;
 
   document.getElementById(
 
@@ -2360,7 +3000,11 @@ function viewCocktail(id) {
 
       N° ${escapeHtml(
 
-        cocktail.orderNumber
+        String(
+
+          item.orderNumber
+
+        )
 
       )}
 
@@ -2368,7 +3012,7 @@ function viewCocktail(id) {
 
       ${escapeHtml(
 
-        cocktail.category
+        item.category
 
       )}
 
@@ -2376,7 +3020,7 @@ function viewCocktail(id) {
 
     ${
 
-      cocktail.glass
+      item.glass
 
       ?
 
@@ -2386,7 +3030,7 @@ function viewCocktail(id) {
 
         <h3>
 
-          🥤 Verre
+          🥂 Verre
 
         </h3>
 
@@ -2394,7 +3038,7 @@ function viewCocktail(id) {
 
           ${escapeHtml(
 
-            cocktail.glass
+            item.glass
 
           )}
 
@@ -2414,7 +3058,7 @@ function viewCocktail(id) {
 
       <h3>
 
-        Ingrédients
+        🍋 Ingrédients
 
       </h3>
 
@@ -2422,7 +3066,7 @@ function viewCocktail(id) {
 
         ${escapeHtml(
 
-          cocktail.ingredients
+          item.ingredients
 
         )}
 
@@ -2434,7 +3078,7 @@ function viewCocktail(id) {
 
       <h3>
 
-        Préparation
+        👨‍🍳 Préparation
 
       </h3>
 
@@ -2442,7 +3086,7 @@ function viewCocktail(id) {
 
         ${escapeHtml(
 
-          cocktail.preparation
+          item.preparation
 
         )}
 
@@ -2452,7 +3096,7 @@ function viewCocktail(id) {
 
     ${
 
-      cocktail.garnish
+      item.garnish
 
       ?
 
@@ -2462,7 +3106,7 @@ function viewCocktail(id) {
 
         <h3>
 
-          Décoration
+          🌿 Décoration
 
         </h3>
 
@@ -2470,7 +3114,7 @@ function viewCocktail(id) {
 
           ${escapeHtml(
 
-            cocktail.garnish
+            item.garnish
 
           )}
 
@@ -2488,7 +3132,7 @@ function viewCocktail(id) {
 
     ${
 
-      cocktail.notes
+      item.notes
 
       ?
 
@@ -2498,7 +3142,7 @@ function viewCocktail(id) {
 
         <h3>
 
-          Notes
+          📝 Notes
 
         </h3>
 
@@ -2506,7 +3150,7 @@ function viewCocktail(id) {
 
           ${escapeHtml(
 
-            cocktail.notes
+            item.notes
 
           )}
 
@@ -2531,6 +3175,12 @@ function viewCocktail(id) {
   );
 
 }
+
+/* =====================================================
+
+   AJOUTER
+
+===================================================== */
 
 function openAddModal() {
 
@@ -2600,6 +3250,22 @@ function openAddModal() {
 
   refreshCategorySelectors();
 
+  if (
+
+    categories.length > 0
+
+  ) {
+
+    document.getElementById(
+
+      "category"
+
+    ).value =
+
+      categories[0];
+
+  }
+
   openModal(
 
     "editModal"
@@ -2608,19 +3274,29 @@ function openAddModal() {
 
 }
 
+/* =====================================================
+
+   MODIFIER
+
+===================================================== */
+
 function editCocktail(id) {
 
-  const cocktail =
+  const item =
 
     cocktails.find(
 
-      item =>
+      cocktail =>
 
-        item.id === id
+        cocktail.id === id
 
     );
 
-  if (!cocktail) return;
+  if (!item) {
+
+    return;
+
+  }
 
   refreshCategorySelectors();
 
@@ -2630,7 +3306,7 @@ function editCocktail(id) {
 
   ).value =
 
-    cocktail.id;
+    item.id;
 
   document.getElementById(
 
@@ -2646,7 +3322,7 @@ function editCocktail(id) {
 
   ).value =
 
-    cocktail.orderNumber;
+    item.orderNumber;
 
   document.getElementById(
 
@@ -2654,7 +3330,7 @@ function editCocktail(id) {
 
   ).value =
 
-    cocktail.name;
+    item.name;
 
   document.getElementById(
 
@@ -2662,7 +3338,7 @@ function editCocktail(id) {
 
   ).value =
 
-    cocktail.category;
+    item.category;
 
   document.getElementById(
 
@@ -2670,7 +3346,7 @@ function editCocktail(id) {
 
   ).value =
 
-    cocktail.glass || "";
+    item.glass;
 
   document.getElementById(
 
@@ -2678,7 +3354,7 @@ function editCocktail(id) {
 
   ).value =
 
-    cocktail.garnish || "";
+    item.garnish;
 
   document.getElementById(
 
@@ -2686,7 +3362,7 @@ function editCocktail(id) {
 
   ).value =
 
-    cocktail.ingredients || "";
+    item.ingredients;
 
   document.getElementById(
 
@@ -2694,7 +3370,7 @@ function editCocktail(id) {
 
   ).value =
 
-    cocktail.preparation || "";
+    item.preparation;
 
   document.getElementById(
 
@@ -2702,7 +3378,7 @@ function editCocktail(id) {
 
   ).value =
 
-    cocktail.notes || "";
+    item.notes;
 
   document.getElementById(
 
@@ -2720,11 +3396,17 @@ function editCocktail(id) {
 
 }
 
+/* =====================================================
+
+   ENREGISTRER
+
+===================================================== */
+
 function saveCocktail(event) {
 
   event.preventDefault();
 
-  const id =
+  const editId =
 
     document.getElementById(
 
@@ -2732,11 +3414,11 @@ function saveCocktail(event) {
 
     ).value;
 
-  const cocktail = {
+  const item = {
 
     id:
 
-      id ||
+      editId ||
 
       generateId(),
 
@@ -2760,71 +3442,111 @@ function saveCocktail(event) {
 
     name:
 
-      document.getElementById(
+      document
 
-        "name"
+        .getElementById(
 
-      ).value.trim(),
+          "name"
+
+        )
+
+        .value
+
+        .trim(),
 
     category:
 
-      document.getElementById(
+      document
 
-        "category"
+        .getElementById(
 
-      ).value,
+          "category"
+
+        )
+
+        .value,
 
     glass:
 
-      document.getElementById(
+      document
 
-        "glass"
+        .getElementById(
 
-      ).value.trim(),
+          "glass"
+
+        )
+
+        .value
+
+        .trim(),
 
     garnish:
 
-      document.getElementById(
+      document
 
-        "garnish"
+        .getElementById(
 
-      ).value.trim(),
+          "garnish"
+
+        )
+
+        .value
+
+        .trim(),
 
     ingredients:
 
-      document.getElementById(
+      document
 
-        "ingredients"
+        .getElementById(
 
-      ).value.trim(),
+          "ingredients"
+
+        )
+
+        .value
+
+        .trim(),
 
     preparation:
 
-      document.getElementById(
+      document
 
-        "preparation"
+        .getElementById(
 
-      ).value.trim(),
+          "preparation"
+
+        )
+
+        .value
+
+        .trim(),
 
     notes:
 
-      document.getElementById(
+      document
 
-        "notes"
+        .getElementById(
 
-      ).value.trim()
+          "notes"
+
+        )
+
+        .value
+
+        .trim()
 
   };
 
-  if (id) {
+  if (editId) {
 
     const index =
 
       cocktails.findIndex(
 
-        item =>
+        cocktail =>
 
-          item.id === id
+          cocktail.id === editId
 
       );
 
@@ -2836,7 +3558,7 @@ function saveCocktail(event) {
 
       cocktails[index] =
 
-        cocktail;
+        item;
 
     }
 
@@ -2846,7 +3568,7 @@ function saveCocktail(event) {
 
     cocktails.push(
 
-      cocktail
+      item
 
     );
 
@@ -2863,6 +3585,12 @@ function saveCocktail(event) {
   renderCocktails();
 
 }
+
+/* =====================================================
+
+   SUPPRIMER
+
+===================================================== */
 
 function deleteCocktail() {
 
@@ -2874,17 +3602,37 @@ function deleteCocktail() {
 
     ).value;
 
-  if (!id) return;
+  if (!id) {
 
-  if (
+    return;
 
-    !confirm(
+  }
 
-      "Supprimer cette recette ?"
+  const item =
 
-    )
+    cocktails.find(
 
-  ) {
+      cocktail =>
+
+        cocktail.id === id
+
+    );
+
+  if (!item) {
+
+    return;
+
+  }
+
+  const confirmed =
+
+    confirm(
+
+      `Supprimer "${item.name}" ?`
+
+    );
+
+  if (!confirmed) {
 
     return;
 
@@ -2894,9 +3642,9 @@ function deleteCocktail() {
 
     cocktails.filter(
 
-      item =>
+      cocktail =>
 
-        item.id !== id
+        cocktail.id !== id
 
     );
 
@@ -2911,6 +3659,12 @@ function deleteCocktail() {
   renderCocktails();
 
 }
+
+/* =====================================================
+
+   CATEGORIES
+
+===================================================== */
 
 function openCategoryModal() {
 
@@ -2954,15 +3708,19 @@ function addCategory() {
 
     input.value.trim();
 
-  if (!value) return;
+  if (!value) {
+
+    return;
+
+  }
 
   const exists =
 
     categories.some(
 
-      item =>
+      category =>
 
-        item.toLowerCase() ===
+        category.toLowerCase() ===
 
         value.toLowerCase()
 
@@ -2980,7 +3738,11 @@ function addCategory() {
 
   }
 
-  categories.push(value);
+  categories.push(
+
+    value
+
+  );
 
   categories.sort(
 
@@ -2996,11 +3758,11 @@ function addCategory() {
 
   );
 
+  saveCategoriesStorage();
+
   input.value =
 
     "";
-
-  saveCategoriesStorage();
 
   refreshCategorySelectors();
 
@@ -3020,6 +3782,26 @@ function renderCategoryList() {
 
     );
 
+  if (
+
+    categories.length === 0
+
+  ) {
+
+    list.innerHTML = `
+
+      <div class="empty">
+
+        Aucune catégorie.
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
   list.innerHTML =
 
     categories.map(
@@ -3032,7 +3814,9 @@ function renderCategoryList() {
 
             item =>
 
-              item.category === category
+              item.category ===
+
+              category
 
           ).length;
 
@@ -3052,7 +3836,7 @@ function renderCategoryList() {
 
             ${
 
-              count
+              count > 0
 
               ?
 
@@ -3106,7 +3890,9 @@ function deleteCategory(category) {
 
       item =>
 
-        item.category === category
+        item.category ===
+
+        category
 
     );
 
@@ -3114,7 +3900,7 @@ function deleteCategory(category) {
 
     alert(
 
-      "Cette catégorie est utilisée par une recette."
+      "Cette catégorie est encore utilisée par une recette."
 
     );
 
@@ -3122,15 +3908,15 @@ function deleteCategory(category) {
 
   }
 
-  if (
+  const confirmed =
 
-    !confirm(
+    confirm(
 
-      `Supprimer "${category}" ?`
+      `Supprimer la catégorie "${category}" ?`
 
-    )
+    );
 
-  ) {
+  if (!confirmed) {
 
     return;
 
@@ -3152,19 +3938,27 @@ function deleteCategory(category) {
 
   renderCategoryList();
 
+  renderCocktails();
+
 }
+
+/* =====================================================
+
+   OUVERTURE / FERMETURE MODAL
+
+===================================================== */
 
 function openModal(id) {
 
-  document
+  const modal =
 
-    .getElementById(id)
+    document.getElementById(id);
 
-    .classList.add(
+  modal.classList.add(
 
-      "show"
+    "show"
 
-    );
+  );
 
   document.body.style.overflow =
 
@@ -3174,25 +3968,25 @@ function openModal(id) {
 
 function closeModal(id) {
 
-  document
+  const modal =
 
-    .getElementById(id)
+    document.getElementById(id);
 
-    .classList.remove(
+  modal.classList.remove(
 
-      "show"
+    "show"
 
-    );
+  );
 
-  if (
+  const anyOpen =
 
-    !document.querySelector(
+    document.querySelector(
 
       ".modal-overlay.show"
 
-    )
+    );
 
-  ) {
+  if (!anyOpen) {
 
     document.body.style.overflow =
 
@@ -3219,6 +4013,32 @@ function closeOnOverlay(
     closeModal(id);
 
   }
+
+}
+
+/* =====================================================
+
+   OUTILS
+
+===================================================== */
+
+function generateId() {
+
+  return (
+
+    "cocktail-" +
+
+    Date.now() +
+
+    "-" +
+
+    Math.random()
+
+      .toString(36)
+
+      .slice(2,8)
+
+  );
 
 }
 
@@ -3294,7 +4114,11 @@ function escapeJs(value) {
 
 }
 
-/* DÉMARRAGE */
+/* =====================================================
+
+   DEMARRAGE
+
+===================================================== */
 
 refreshCategorySelectors();
 
