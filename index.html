@@ -54,6 +54,8 @@
 
       --font-scale: 1;
 
+      --app-height: 100vh;
+
     }
 
     * {
@@ -65,6 +67,8 @@
     html {
 
       font-size: calc(16px * var(--font-scale));
+
+      min-height: 100%;
 
     }
 
@@ -99,6 +103,10 @@
     body.modal-open {
 
       overflow: hidden;
+
+      height: 100%;
+
+      touch-action: none;
 
     }
 
@@ -588,11 +596,11 @@
 
     }
 
-    /* ============================
+    /* ==========================================
 
-       MODALES COMPATIBLES PARTOUT
+       MODALES CORRIGÉES IPHONE / IPAD / PC
 
-       ============================ */
+       ========================================== */
 
     .modal {
 
@@ -600,23 +608,29 @@
 
       position: fixed;
 
-      inset: 0;
-
       z-index: 1000;
 
-      background: rgba(17,24,39,.58);
+      inset: 0;
+
+      width: 100%;
+
+      height: 100vh;
+
+      height: var(--app-height);
+
+      background: rgba(17,24,39,.60);
 
       padding:
 
-        max(16px, env(safe-area-inset-top))
+        max(14px, env(safe-area-inset-top))
 
-        12px
+        max(10px, env(safe-area-inset-right))
 
-        max(16px, env(safe-area-inset-bottom));
+        max(14px, env(safe-area-inset-bottom))
 
-      overflow-y: auto;
+        max(10px, env(safe-area-inset-left));
 
-      -webkit-overflow-scrolling: touch;
+      overflow: hidden;
 
     }
 
@@ -624,7 +638,7 @@
 
       display: flex;
 
-      align-items: flex-start;
+      align-items: center;
 
       justify-content: center;
 
@@ -634,21 +648,41 @@
 
       width: min(720px, 100%);
 
+      max-width: 720px;
+
+      max-height: calc(var(--app-height) - 28px);
+
       background: white;
 
       border-radius: 22px;
 
-      margin: auto;
-
-      box-shadow: 0 24px 80px rgba(0,0,0,.3);
+      box-shadow: 0 24px 80px rgba(0,0,0,.30);
 
       overflow: hidden;
+
+      display: flex;
+
+      flex-direction: column;
+
+      margin: 0;
+
+      position: relative;
 
     }
 
     .modal-inner {
 
       padding: 20px;
+
+      overflow-y: auto;
+
+      overflow-x: hidden;
+
+      -webkit-overflow-scrolling: touch;
+
+      overscroll-behavior: contain;
+
+      max-height: calc(var(--app-height) - 28px);
 
     }
 
@@ -663,6 +697,18 @@
       gap: 10px;
 
       margin-bottom: 18px;
+
+      position: sticky;
+
+      top: -20px;
+
+      background: white;
+
+      z-index: 5;
+
+      padding-top: 2px;
+
+      padding-bottom: 8px;
 
     }
 
@@ -746,11 +792,13 @@
 
       margin-top: 18px;
 
+      padding-bottom: 2px;
+
     }
 
     .pin-wrap {
 
-      max-width: 330px;
+      max-width: 380px;
 
       margin: 0 auto;
 
@@ -886,13 +934,23 @@
 
       .modal {
 
-        padding-left: 8px;
+        padding:
 
-        padding-right: 8px;
+          max(8px, env(safe-area-inset-top))
+
+          max(7px, env(safe-area-inset-right))
+
+          max(8px, env(safe-area-inset-bottom))
+
+          max(7px, env(safe-area-inset-left));
 
       }
 
       .modal-card {
+
+        width: 100%;
+
+        max-height: calc(var(--app-height) - 16px);
 
         border-radius: 18px;
 
@@ -901,6 +959,40 @@
       .modal-inner {
 
         padding: 16px;
+
+        max-height: calc(var(--app-height) - 16px);
+
+      }
+
+      .modal-head {
+
+        top: -16px;
+
+      }
+
+    }
+
+    @media (orientation: landscape) and (max-height: 650px) {
+
+      .modal.show {
+
+        align-items: center;
+
+      }
+
+      .modal-card {
+
+        max-height: calc(var(--app-height) - 12px);
+
+      }
+
+      .modal-inner {
+
+        max-height: calc(var(--app-height) - 12px);
+
+        padding-top: 14px;
+
+        padding-bottom: 14px;
 
       }
 
@@ -1110,19 +1202,9 @@
 
 </button>
 
-<!-- =========================
+<!-- PIN -->
 
-     MODALE PIN
-
-     ========================= -->
-
-<div
-
-  id="pinModal"
-
-  class="modal"
-
->
+<div id="pinModal" class="modal">
 
   <div class="modal-card">
 
@@ -1150,9 +1232,9 @@
 
         <p>
 
-          Entre le code à 4 chiffres pour pouvoir
+          Entre le code à 4 chiffres pour pouvoir ajouter,
 
-          ajouter, modifier ou supprimer des recettes.
+          modifier ou supprimer des recettes.
 
         </p>
 
@@ -1165,6 +1247,8 @@
           type="password"
 
           inputmode="numeric"
+
+          pattern="[0-9]*"
 
           maxlength="4"
 
@@ -1202,19 +1286,9 @@
 
 </div>
 
-<!-- =========================
+<!-- CHANGER PIN -->
 
-     MODALE CHANGER PIN
-
-     ========================= -->
-
-<div
-
-  id="pinSettingsModal"
-
-  class="modal"
-
->
+<div id="pinSettingsModal" class="modal">
 
   <div class="modal-card">
 
@@ -1240,11 +1314,7 @@
 
       <div class="field">
 
-        <label>
-
-          Code actuel
-
-        </label>
+        <label>Code actuel</label>
 
         <input
 
@@ -1256,6 +1326,8 @@
 
           inputmode="numeric"
 
+          pattern="[0-9]*"
+
           maxlength="4"
 
         >
@@ -1264,11 +1336,7 @@
 
       <div class="field">
 
-        <label>
-
-          Nouveau code à 4 chiffres
-
-        </label>
+        <label>Nouveau code à 4 chiffres</label>
 
         <input
 
@@ -1280,6 +1348,8 @@
 
           inputmode="numeric"
 
+          pattern="[0-9]*"
+
           maxlength="4"
 
         >
@@ -1288,11 +1358,7 @@
 
       <div class="field">
 
-        <label>
-
-          Confirmer le nouveau code
-
-        </label>
+        <label>Confirmer le nouveau code</label>
 
         <input
 
@@ -1303,6 +1369,8 @@
           type="password"
 
           inputmode="numeric"
+
+          pattern="[0-9]*"
 
           maxlength="4"
 
@@ -1352,19 +1420,9 @@
 
 </div>
 
-<!-- =========================
+<!-- COCKTAIL -->
 
-     MODALE COCKTAIL
-
-     ========================= -->
-
-<div
-
-  id="cocktailModal"
-
-  class="modal"
-
->
+<div id="cocktailModal" class="modal">
 
   <div class="modal-card">
 
@@ -1616,19 +1674,9 @@
 
 </div>
 
-<!-- =========================
+<!-- CATÉGORIES -->
 
-     MODALE CATÉGORIES
-
-     ========================= -->
-
-<div
-
-  id="categoriesModal"
-
-  class="modal"
-
->
+<div id="categoriesModal" class="modal">
 
   <div class="modal-card">
 
@@ -1696,11 +1744,7 @@
 
       <hr class="separator">
 
-      <div
-
-        id="categoryManager"
-
-      ></div>
+      <div id="categoryManager"></div>
 
     </div>
 
@@ -1740,59 +1784,49 @@
 
   ];
 
-  let cocktails =
+  let cocktails = loadJSON(
 
-    loadJSON(
+    STORAGE_RECIPES,
 
-      STORAGE_RECIPES,
+    []
 
-      []
+  );
 
-    );
+  let categories = loadJSON(
 
-  let categories =
+    STORAGE_CATEGORIES,
 
-    loadJSON(
+    defaultCategories
 
-      STORAGE_CATEGORIES,
-
-      defaultCategories
-
-    );
+  );
 
   let fontScale =
 
     Number(
 
-      localStorage.getItem(STORAGE_FONT)
+      localStorage.getItem(
+
+        STORAGE_FONT
+
+      )
 
     ) || 1;
 
   let sortMode =
 
-    localStorage.getItem(STORAGE_SORT)
+    localStorage.getItem(
 
-    || "number";
+      STORAGE_SORT
 
-  let currentCategory =
+    ) || "number";
 
-    "Tous";
+  let currentCategory = "Tous";
 
-  let managementUnlocked =
+  let managementUnlocked = false;
 
-    false;
+  let currentPhoto = "";
 
-  let currentPhoto =
-
-    "";
-
-  function loadJSON(
-
-    key,
-
-    fallback
-
-  ) {
+  function loadJSON(key, fallback) {
 
     try {
 
@@ -1846,7 +1880,11 @@
 
     return (
 
-      localStorage.getItem(STORAGE_PIN)
+      localStorage.getItem(
+
+        STORAGE_PIN
+
+      )
 
       || DEFAULT_PIN
 
@@ -1870,6 +1908,94 @@
 
   }
 
+  /* ==============================
+
+     HAUTEUR RÉELLE ÉCRAN IOS
+
+     ============================== */
+
+  function updateAppHeight() {
+
+    let height = window.innerHeight;
+
+    if (
+
+      window.visualViewport &&
+
+      window.visualViewport.height
+
+    ) {
+
+      height =
+
+        window.visualViewport.height;
+
+    }
+
+    document.documentElement.style.setProperty(
+
+      "--app-height",
+
+      `${height}px`
+
+    );
+
+  }
+
+  updateAppHeight();
+
+  window.addEventListener(
+
+    "resize",
+
+    updateAppHeight
+
+  );
+
+  window.addEventListener(
+
+    "orientationchange",
+
+    () => {
+
+      setTimeout(
+
+        updateAppHeight,
+
+        150
+
+      );
+
+    }
+
+  );
+
+  if (window.visualViewport) {
+
+    window.visualViewport.addEventListener(
+
+      "resize",
+
+      updateAppHeight
+
+    );
+
+    window.visualViewport.addEventListener(
+
+      "scroll",
+
+      updateAppHeight
+
+    );
+
+  }
+
+  /* ==============================
+
+     MODALES
+
+     ============================== */
+
   function openModal(id) {
 
     const modal =
@@ -1878,6 +2004,8 @@
 
     if (!modal) return;
 
+    updateAppHeight();
+
     modal.classList.add("show");
 
     document.body.classList.add(
@@ -1885,6 +2013,20 @@
       "modal-open"
 
     );
+
+    const inner =
+
+      modal.querySelector(
+
+        ".modal-inner"
+
+      );
+
+    if (inner) {
+
+      inner.scrollTop = 0;
+
+    }
 
   }
 
@@ -1942,6 +2084,12 @@
 
   }
 
+  /* ==============================
+
+     MODE GESTION
+
+     ============================== */
+
   function toggleManagement() {
 
     if (managementUnlocked) {
@@ -1974,7 +2122,7 @@
 
       ).focus();
 
-    }, 150);
+    }, 180);
 
   }
 
@@ -1984,13 +2132,21 @@
 
       document
 
-        .getElementById("pinInput")
+        .getElementById(
+
+          "pinInput"
+
+        )
 
         .value
 
         .replace(/\D/g, "");
 
-    if (entered === getPin()) {
+    if (
+
+      entered === getPin()
+
+    ) {
 
       managementUnlocked = true;
 
@@ -2018,7 +2174,11 @@
 
         "🔓 Mode gestion";
 
-      closeModal("pinModal");
+      closeModal(
+
+        "pinModal"
+
+      );
 
       renderCocktails();
 
@@ -2090,6 +2250,12 @@
 
   }
 
+  /* ==============================
+
+     CHANGER LE CODE
+
+     ============================== */
+
   function openPinSettings() {
 
     if (!requireManagement()) {
@@ -2136,7 +2302,11 @@
 
       document
 
-        .getElementById("oldPin")
+        .getElementById(
+
+          "oldPin"
+
+        )
 
         .value
 
@@ -2146,7 +2316,11 @@
 
       document
 
-        .getElementById("newPin")
+        .getElementById(
+
+          "newPin"
+
+        )
 
         .value
 
@@ -2156,7 +2330,11 @@
 
       document
 
-        .getElementById("confirmPin")
+        .getElementById(
+
+          "confirmPin"
+
+        )
 
         .value
 
@@ -2170,7 +2348,11 @@
 
       );
 
-    if (oldPin !== getPin()) {
+    if (
+
+      oldPin !== getPin()
+
+    ) {
 
       message.textContent =
 
@@ -2180,7 +2362,11 @@
 
     }
 
-    if (!/^\d{4}$/.test(newPin)) {
+    if (
+
+      !/^\d{4}$/.test(newPin)
+
+    ) {
 
       message.textContent =
 
@@ -2190,7 +2376,11 @@
 
     }
 
-    if (newPin !== confirmPin) {
+    if (
+
+      newPin !== confirmPin
+
+    ) {
 
       message.textContent =
 
@@ -2224,6 +2414,12 @@
 
   }
 
+  /* ==============================
+
+     TAILLE DU TEXTE
+
+     ============================== */
+
   function applyFont() {
 
     fontScale =
@@ -2232,7 +2428,13 @@
 
         1.5,
 
-        Math.max(.8, fontScale)
+        Math.max(
+
+          .8,
+
+          fontScale
+
+        )
 
       );
 
@@ -2274,6 +2476,12 @@
 
   }
 
+  /* ==============================
+
+     TRI
+
+     ============================== */
+
   function changeSort() {
 
     sortMode =
@@ -2300,7 +2508,11 @@
 
     const sorted = [...list];
 
-    if (sortMode === "number") {
+    if (
+
+      sortMode === "number"
+
+    ) {
 
       sorted.sort((a,b) => {
 
@@ -2316,19 +2528,31 @@
 
           || 999999;
 
-        if (numberA !== numberB) {
+        if (
+
+          numberA !== numberB
+
+        ) {
 
           return numberA - numberB;
 
         }
 
-        return String(a.name).localeCompare(
+        return String(
+
+          a.name
+
+        ).localeCompare(
 
           String(b.name),
 
           "fr",
 
-          { sensitivity:"base" }
+          {
+
+            sensitivity:"base"
+
+          }
 
         );
 
@@ -2336,17 +2560,29 @@
 
     }
 
-    if (sortMode === "name") {
+    if (
+
+      sortMode === "name"
+
+    ) {
 
       sorted.sort((a,b) =>
 
-        String(a.name).localeCompare(
+        String(
+
+          a.name
+
+        ).localeCompare(
 
           String(b.name),
 
           "fr",
 
-          { sensitivity:"base" }
+          {
+
+            sensitivity:"base"
+
+          }
 
         )
 
@@ -2354,7 +2590,11 @@
 
     }
 
-    if (sortMode === "category") {
+    if (
+
+      sortMode === "category"
+
+    ) {
 
       sorted.sort((a,b) => {
 
@@ -2374,11 +2614,19 @@
 
             "fr",
 
-            { sensitivity:"base" }
+            {
+
+              sensitivity:"base"
+
+            }
 
           );
 
-        if (cat !== 0) {
+        if (
+
+          cat !== 0
+
+        ) {
 
           return cat;
 
@@ -2396,19 +2644,31 @@
 
           || 999999;
 
-        if (numberA !== numberB) {
+        if (
+
+          numberA !== numberB
+
+        ) {
 
           return numberA - numberB;
 
         }
 
-        return String(a.name).localeCompare(
+        return String(
+
+          a.name
+
+        ).localeCompare(
 
           String(b.name),
 
           "fr",
 
-          { sensitivity:"base" }
+          {
+
+            sensitivity:"base"
+
+          }
 
         );
 
@@ -2419,6 +2679,12 @@
     return sorted;
 
   }
+
+  /* ==============================
+
+     CATÉGORIES
+
+     ============================== */
 
   function renderCategoryFilters() {
 
@@ -2696,7 +2962,11 @@
 
         "fr",
 
-        { sensitivity:"base" }
+        {
+
+          sensitivity:"base"
+
+        }
 
       )
 
@@ -2896,6 +3166,12 @@
 
   }
 
+  /* ==============================
+
+     PHOTO
+
+     ============================== */
+
   async function handlePhoto(
 
     event
@@ -3088,6 +3364,12 @@
 
   }
 
+  /* ==============================
+
+     FORMULAIRE COCKTAIL
+
+     ============================== */
+
   function resetCocktailForm() {
 
     document.getElementById(
@@ -3166,7 +3448,11 @@
 
     fillCategorySelect();
 
-    if (categories.length) {
+    if (
+
+      categories.length
+
+    ) {
 
       document.getElementById(
 
@@ -3486,7 +3772,11 @@
 
         );
 
-      if (index !== -1) {
+      if (
+
+        index !== -1
+
+      ) {
 
         cocktails[index] =
 
@@ -3575,6 +3865,12 @@
     renderCocktails();
 
   }
+
+  /* ==============================
+
+     AFFICHAGE
+
+     ============================== */
 
   function renderCocktails() {
 
@@ -3954,6 +4250,12 @@
 
   }
 
+  /* ==============================
+
+     RACCOURCIS
+
+     ============================== */
+
   document
 
     .getElementById(
@@ -4002,9 +4304,7 @@
 
             if (
 
-              event.target
-
-              === modal
+              event.target === modal
 
             ) {
 
@@ -4023,6 +4323,52 @@
       }
 
     );
+
+  document.addEventListener(
+
+    "keydown",
+
+    event => {
+
+      if (
+
+        event.key === "Escape"
+
+      ) {
+
+        const openModalElement =
+
+          document.querySelector(
+
+            ".modal.show"
+
+          );
+
+        if (
+
+          openModalElement
+
+        ) {
+
+          closeModal(
+
+            openModalElement.id
+
+          );
+
+        }
+
+      }
+
+    }
+
+  );
+
+  /* ==============================
+
+     DÉMARRAGE
+
+     ============================== */
 
   document.getElementById(
 
@@ -4050,15 +4396,11 @@
 
     (
 
-      location.protocol
-
-      === "https:"
+      location.protocol === "https:"
 
       ||
 
-      location.hostname
-
-      === "localhost"
+      location.hostname === "localhost"
 
     )
 
