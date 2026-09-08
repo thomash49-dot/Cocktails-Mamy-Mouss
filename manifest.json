@@ -1,10 +1,8 @@
 {
 
-  "name": "Recettes Cocktails - Mamy Mouss",
+  "name": "Recettes Cocktails",
 
   "short_name": "Cocktails",
-
-  "description": "Application des recettes du bar",
 
   "start_url": "./",
 
@@ -20,25 +18,21 @@
 
     {
 
-      "src": "./icon.PNG",
+      "src": "./icon.jpg",
 
       "sizes": "192x192",
 
-      "type": "image/png",
-
-      "purpose": "any"
+      "type": "image/jpeg"
 
     },
 
     {
 
-      "src": "./icon.PNG",
+      "src": "./icon.jpg",
 
       "sizes": "512x512",
 
-      "type": "image/png",
-
-      "purpose": "any"
+      "type": "image/jpeg"
 
     }
 
