@@ -22,7 +22,7 @@
 
   <link rel="manifest" href="./manifest.json">
 
-  <!-- ICÔNE PNG -->
+  <!-- ICÔNE -->
 
   <link rel="apple-touch-icon" href="./icon.PNG">
 
@@ -42,9 +42,13 @@
 
       --border: #e5e7eb;
 
-      --accent: #111827;
+      --dark: #111827;
+
+      --dark2: #374151;
 
       --danger: #b91c1c;
+
+      --danger-bg: #fee2e2;
 
       --ok: #15803d;
 
@@ -58,9 +62,17 @@
 
     }
 
+    html {
+
+      -webkit-text-size-adjust: 100%;
+
+    }
+
     body {
 
       margin: 0;
+
+      min-height: 100vh;
 
       font-family:
 
@@ -82,8 +94,6 @@
 
       color: var(--text);
 
-      min-height: 100vh;
-
       font-size: 16px;
 
     }
@@ -104,11 +114,13 @@
 
       cursor: pointer;
 
+      -webkit-tap-highlight-color: transparent;
+
     }
 
     /* =====================================================
 
-       TAILLES DE TEXTE
+       TAILLE DU TEXTE
 
     ===================================================== */
 
@@ -136,30 +148,6 @@
 
     }
 
-    body.font-large .cocktail-name {
-
-      font-size: 22px;
-
-    }
-
-    body.font-xlarge .cocktail-name {
-
-      font-size: 25px;
-
-    }
-
-    body.font-large .detail-section h3 {
-
-      font-size: 19px;
-
-    }
-
-    body.font-xlarge .detail-section h3 {
-
-      font-size: 22px;
-
-    }
-
     /* =====================================================
 
        HEADER
@@ -168,27 +156,27 @@
 
     header {
 
-      background: #111827;
+      background: var(--dark);
 
       color: white;
 
       padding:
 
-        calc(18px + env(safe-area-inset-top))
+        calc(16px + env(safe-area-inset-top))
 
         18px
 
-        18px;
+        16px;
 
       position: sticky;
 
       top: 0;
 
-      z-index: 20;
+      z-index: 30;
 
       box-shadow:
 
-        0 2px 10px rgba(0, 0, 0, 0.12);
+        0 2px 12px rgba(0, 0, 0, 0.14);
 
     }
 
@@ -204,9 +192,7 @@
 
       justify-content: space-between;
 
-      gap: 12px;
-
-      flex-wrap: wrap;
+      gap: 14px;
 
     }
 
@@ -224,17 +210,23 @@
 
     .app-icon {
 
-      width: 50px;
+      width: 52px;
 
-      height: 50px;
+      height: 52px;
 
-      border-radius: 12px;
+      flex-shrink: 0;
+
+      border-radius: 14px;
 
       object-fit: cover;
 
       background: white;
 
-      flex-shrink: 0;
+    }
+
+    .title-text {
+
+      min-width: 0;
 
     }
 
@@ -242,17 +234,21 @@
 
       margin: 0;
 
-      font-size: 22px;
+      font-size: 1.35em;
+
+      line-height: 1.2;
+
+      white-space: nowrap;
 
     }
 
     header p {
 
-      margin: 3px 0 0;
+      margin: 4px 0 0;
 
       color: #d1d5db;
 
-      font-size: 13px;
+      font-size: 0.9em;
 
     }
 
@@ -261,6 +257,8 @@
       display: flex;
 
       align-items: center;
+
+      justify-content: flex-end;
 
       gap: 8px;
 
@@ -274,41 +272,45 @@
 
       gap: 6px;
 
-      align-items: center;
-
     }
 
-    .font-button {
+    .header-btn {
 
       border: none;
 
-      border-radius: 10px;
-
-      background: #374151;
-
-      color: white;
-
-      font-weight: 800;
-
-      padding: 9px 11px;
-
-      min-width: 42px;
-
-    }
-
-    .add-button {
-
-      border: none;
+      min-height: 44px;
 
       border-radius: 12px;
 
+      padding: 10px 13px;
+
+      font-weight: 800;
+
+    }
+
+    .font-btn {
+
+      min-width: 46px;
+
+      background: var(--dark2);
+
+      color: white;
+
+    }
+
+    .category-btn {
+
+      background: var(--dark2);
+
+      color: white;
+
+    }
+
+    .add-btn {
+
       background: white;
 
-      color: #111827;
-
-      font-weight: 700;
-
-      padding: 12px 16px;
+      color: var(--dark);
 
     }
 
@@ -319,6 +321,8 @@
     ===================================================== */
 
     main {
+
+      width: 100%;
 
       max-width: 1100px;
 
@@ -336,31 +340,17 @@
 
     .search-card {
 
-      background: white;
-
       padding: 14px;
 
-      border-radius: 16px;
-
       margin-bottom: 18px;
+
+      background: white;
+
+      border-radius: 18px;
 
       box-shadow:
 
         0 3px 15px rgba(0, 0, 0, 0.05);
-
-    }
-
-    .search-row {
-
-      display: flex;
-
-      gap: 10px;
-
-    }
-
-    .search-row input {
-
-      flex: 1;
 
     }
 
@@ -374,7 +364,7 @@
 
       border: 1px solid var(--border);
 
-      border-radius: 10px;
+      border-radius: 12px;
 
       padding: 12px;
 
@@ -402,7 +392,7 @@
 
     textarea {
 
-      min-height: 100px;
+      min-height: 110px;
 
       resize: vertical;
 
@@ -410,7 +400,7 @@
 
     /* =====================================================
 
-       CARTES COCKTAILS
+       GRILLE
 
     ===================================================== */
 
@@ -420,7 +410,7 @@
 
       grid-template-columns:
 
-        repeat(auto-fill, minmax(250px, 1fr));
+        repeat(auto-fill, minmax(240px, 1fr));
 
       gap: 16px;
 
@@ -428,27 +418,15 @@
 
     .cocktail-card {
 
+      overflow: hidden;
+
       background: white;
 
       border-radius: 18px;
 
-      overflow: hidden;
-
       box-shadow:
 
         0 4px 18px rgba(0, 0, 0, 0.06);
-
-      transition:
-
-        transform 0.15s ease,
-
-        box-shadow 0.15s ease;
-
-    }
-
-    .cocktail-card:active {
-
-      transform: scale(0.99);
 
     }
 
@@ -457,6 +435,14 @@
       width: 100%;
 
       height: 210px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      overflow: hidden;
 
       background:
 
@@ -469,14 +455,6 @@
           #f9fafb
 
         );
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      overflow: hidden;
 
     }
 
@@ -506,7 +484,7 @@
 
       margin: 0 0 5px;
 
-      font-size: 19px;
+      font-size: 1.2em;
 
       font-weight: 800;
 
@@ -514,11 +492,11 @@
 
     .cocktail-category {
 
+      margin-bottom: 12px;
+
       color: var(--muted);
 
       font-size: 0.85em;
-
-      margin-bottom: 12px;
 
     }
 
@@ -532,11 +510,19 @@
 
     }
 
+    /* =====================================================
+
+       BOUTONS
+
+    ===================================================== */
+
     .btn {
 
       border: none;
 
-      border-radius: 10px;
+      min-height: 44px;
+
+      border-radius: 11px;
 
       padding: 11px 13px;
 
@@ -546,7 +532,7 @@
 
     .btn-dark {
 
-      background: #111827;
+      background: var(--dark);
 
       color: white;
 
@@ -556,13 +542,13 @@
 
       background: #f3f4f6;
 
-      color: #111827;
+      color: var(--dark);
 
     }
 
     .btn-danger {
 
-      background: #fee2e2;
+      background: var(--danger-bg);
 
       color: var(--danger);
 
@@ -592,21 +578,25 @@
 
     .empty {
 
-      background: white;
+      grid-column: 1 / -1;
 
-      border-radius: 16px;
-
-      padding: 40px 20px;
+      padding: 45px 20px;
 
       text-align: center;
 
       color: var(--muted);
 
+      background: white;
+
+      border-radius: 18px;
+
+      line-height: 1.5;
+
     }
 
     /* =====================================================
 
-       MODALE
+       MODALES
 
     ===================================================== */
 
@@ -620,13 +610,13 @@
 
       z-index: 100;
 
-      background:
-
-        rgba(0, 0, 0, 0.55);
-
       padding: 20px;
 
       overflow-y: auto;
+
+      background:
+
+        rgba(0, 0, 0, 0.58);
 
     }
 
@@ -644,7 +634,7 @@
 
       width: 100%;
 
-      max-width: 650px;
+      max-width: 680px;
 
       margin:
 
@@ -654,31 +644,33 @@
 
         calc(30px + env(safe-area-inset-bottom));
 
+      overflow: hidden;
+
       background: white;
 
-      border-radius: 20px;
-
-      overflow: hidden;
+      border-radius: 22px;
 
       box-shadow:
 
-        0 20px 60px rgba(0, 0, 0, 0.25);
+        0 20px 60px rgba(0, 0, 0, 0.28);
 
     }
 
     .modal-header {
 
-      background: #111827;
-
-      color: white;
-
       padding: 18px;
 
       display: flex;
 
+      align-items: center;
+
       justify-content: space-between;
 
-      align-items: center;
+      gap: 12px;
+
+      background: var(--dark);
+
+      color: white;
 
     }
 
@@ -694,11 +686,13 @@
 
       border: none;
 
+      padding: 3px 8px;
+
       background: transparent;
 
       color: white;
 
-      font-size: 28px;
+      font-size: 32px;
 
       line-height: 1;
 
@@ -712,7 +706,7 @@
 
     .field {
 
-      margin-bottom: 16px;
+      margin-bottom: 17px;
 
     }
 
@@ -720,37 +714,55 @@
 
       display: block;
 
-      font-weight: 700;
-
       margin-bottom: 7px;
+
+      font-weight: 800;
 
     }
 
     .help {
 
+      margin-top: 7px;
+
       color: var(--muted);
 
       font-size: 0.8em;
 
-      margin-top: 6px;
+      line-height: 1.35;
 
     }
 
+    .modal-actions {
+
+      display: flex;
+
+      gap: 10px;
+
+      margin-top: 22px;
+
+    }
+
+    /* =====================================================
+
+       PHOTO
+
+    ===================================================== */
+
     .photo-preview {
+
+      display: none;
 
       width: 100%;
 
-      max-height: 350px;
+      max-height: 360px;
 
-      border-radius: 14px;
+      margin-top: 12px;
+
+      border-radius: 15px;
 
       object-fit: contain;
 
       background: #f3f4f6;
-
-      display: none;
-
-      margin-top: 12px;
 
     }
 
@@ -766,19 +778,9 @@
 
     }
 
-    .modal-actions {
-
-      display: flex;
-
-      gap: 10px;
-
-      margin-top: 20px;
-
-    }
-
     /* =====================================================
 
-       FICHE COCKTAIL
+       DÉTAIL
 
     ===================================================== */
 
@@ -786,13 +788,13 @@
 
       width: 100%;
 
-      max-height: 420px;
+      max-height: 430px;
+
+      margin-bottom: 18px;
 
       object-fit: cover;
 
-      border-radius: 15px;
-
-      margin-bottom: 18px;
+      border-radius: 16px;
 
     }
 
@@ -800,9 +802,7 @@
 
       height: 220px;
 
-      border-radius: 15px;
-
-      background: #f3f4f6;
+      margin-bottom: 18px;
 
       display: flex;
 
@@ -810,9 +810,11 @@
 
       justify-content: center;
 
-      font-size: 60px;
+      border-radius: 16px;
 
-      margin-bottom: 18px;
+      background: #f3f4f6;
+
+      font-size: 60px;
 
     }
 
@@ -826,7 +828,7 @@
 
       margin: 0 0 8px;
 
-      font-size: 16px;
+      font-size: 1em;
 
     }
 
@@ -842,11 +844,11 @@
 
       display: inline-block;
 
-      background: #f3f4f6;
+      padding: 7px 11px;
 
       border-radius: 999px;
 
-      padding: 7px 11px;
+      background: #f3f4f6;
 
       font-size: 0.85em;
 
@@ -856,29 +858,169 @@
 
     /* =====================================================
 
+       CATÉGORIES
+
+    ===================================================== */
+
+    .category-create {
+
+      display: flex;
+
+      gap: 8px;
+
+      margin-bottom: 20px;
+
+    }
+
+    .category-create input {
+
+      flex: 1;
+
+    }
+
+    .category-list {
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 9px;
+
+    }
+
+    .category-row {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 10px;
+
+      padding: 12px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 13px;
+
+      background: #f9fafb;
+
+    }
+
+    .category-name {
+
+      min-width: 0;
+
+      font-weight: 700;
+
+      overflow-wrap: anywhere;
+
+    }
+
+    .category-actions {
+
+      display: flex;
+
+      gap: 7px;
+
+      flex-shrink: 0;
+
+    }
+
+    .category-actions .btn {
+
+      min-height: 38px;
+
+      padding: 8px 10px;
+
+    }
+
+    .category-empty {
+
+      padding: 25px 10px;
+
+      text-align: center;
+
+      color: var(--muted);
+
+    }
+
+    /* =====================================================
+
+       TABLETTE
+
+    ===================================================== */
+
+    @media (min-width: 700px) and (max-width: 1024px) {
+
+      .header-inner {
+
+        max-width: 950px;
+
+      }
+
+      main {
+
+        max-width: 950px;
+
+      }
+
+      .cocktail-grid {
+
+        grid-template-columns:
+
+          repeat(3, minmax(0, 1fr));
+
+      }
+
+      .cocktail-image-wrap {
+
+        height: 190px;
+
+      }
+
+    }
+
+    /* =====================================================
+
        MOBILE
 
     ===================================================== */
 
-    @media (max-width: 600px) {
+    @media (max-width: 699px) {
 
-      header h1 {
+      header {
 
-        font-size: 18px;
+        padding-left: 14px;
+
+        padding-right: 14px;
 
       }
 
       .header-inner {
 
-        align-items: center;
+        display: block;
+
+      }
+
+      .title-area {
+
+        margin-bottom: 13px;
 
       }
 
       .app-icon {
 
-        width: 44px;
+        width: 48px;
 
-        height: 44px;
+        height: 48px;
+
+      }
+
+      header h1 {
+
+        font-size: 1.2em;
 
       }
 
@@ -886,23 +1028,43 @@
 
         width: 100%;
 
-        justify-content: space-between;
+        display: grid;
+
+        grid-template-columns:
+
+          auto
+
+          1fr
+
+          1fr;
+
+        gap: 7px;
 
       }
 
-      .font-button {
+      .font-controls {
 
-        padding: 8px 9px;
-
-        min-width: 38px;
+        display: flex;
 
       }
 
-      .add-button {
+      .font-btn {
 
-        padding: 10px 12px;
+        min-width: 43px;
 
-        font-size: 14px;
+      }
+
+      .category-btn,
+
+      .add-btn {
+
+        width: 100%;
+
+      }
+
+      .header-btn {
+
+        padding: 10px 8px;
 
       }
 
@@ -936,33 +1098,89 @@
 
       }
 
-      .cocktail-name {
-
-        font-size: 16px;
-
-      }
-
-      body.font-large .cocktail-name {
-
-        font-size: 20px;
-
-      }
-
-      body.font-xlarge .cocktail-name {
-
-        font-size: 23px;
-
-      }
-
       .card-actions {
 
         flex-direction: column;
 
       }
 
+      .modal-overlay {
+
+        padding: 8px;
+
+      }
+
+      .modal {
+
+        border-radius: 19px;
+
+      }
+
+      .modal-body {
+
+        padding: 16px;
+
+      }
+
+      .category-create {
+
+        flex-direction: column;
+
+      }
+
+      .category-row {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+      }
+
+      .category-actions {
+
+        width: 100%;
+
+      }
+
+      .category-actions .btn {
+
+        flex: 1;
+
+      }
+
     }
 
-    @media (max-width: 380px) {
+    /* =====================================================
+
+       PETITS TÉLÉPHONES
+
+    ===================================================== */
+
+    @media (max-width: 390px) {
+
+      .header-actions {
+
+        grid-template-columns:
+
+          1fr
+
+          1fr;
+
+      }
+
+      .font-controls {
+
+        grid-column: 1 / -1;
+
+        width: 100%;
+
+      }
+
+      .font-btn {
+
+        flex: 1;
+
+      }
 
       .cocktail-grid {
 
@@ -972,7 +1190,13 @@
 
       .cocktail-image-wrap {
 
-        height: 210px;
+        height: 215px;
+
+      }
+
+      .modal-actions {
+
+        flex-direction: column;
 
       }
 
@@ -1000,7 +1224,7 @@
 
       >
 
-      <div>
+      <div class="title-text">
 
         <h1>Recettes Cocktails</h1>
 
@@ -1016,11 +1240,11 @@
 
         <button
 
-          class="font-button"
+          class="header-btn font-btn"
 
           onclick="decreaseFont()"
 
-          title="Réduire la taille du texte"
+          title="Réduire le texte"
 
         >
 
@@ -1030,11 +1254,11 @@
 
         <button
 
-          class="font-button"
+          class="header-btn font-btn"
 
           onclick="increaseFont()"
 
-          title="Augmenter la taille du texte"
+          title="Agrandir le texte"
 
         >
 
@@ -1046,7 +1270,19 @@
 
       <button
 
-        class="add-button"
+        class="header-btn category-btn"
+
+        onclick="openCategoryModal()"
+
+      >
+
+        🗂 Catégories
+
+      </button>
+
+      <button
+
+        class="header-btn add-btn"
 
         onclick="openCocktailForm()"
 
@@ -1066,21 +1302,17 @@
 
   <div class="search-card">
 
-    <div class="search-row">
+    <input
 
-      <input
+      id="search"
 
-        id="search"
+      type="search"
 
-        type="search"
+      placeholder="🔎 Rechercher un cocktail..."
 
-        placeholder="🔎 Rechercher un cocktail..."
+      oninput="renderCocktails()"
 
-        oninput="renderCocktails()"
-
-      >
-
-    </div>
+    >
 
   </div>
 
@@ -1094,11 +1326,11 @@
 
 </main>
 
-<!-- ======================================================
+<!-- =====================================================
 
-     MODALE AJOUT / MODIFICATION
+     MODALE COCKTAIL
 
-====================================================== -->
+===================================================== -->
 
 <div
 
@@ -1156,7 +1388,7 @@
 
           type="text"
 
-          placeholder="Ex : Mojito"
+          placeholder="Nom du cocktail"
 
         >
 
@@ -1170,75 +1402,17 @@
 
         </label>
 
-        <select id="cocktailCategory">
+        <select id="cocktailCategory"></select>
 
-          <option value="">Choisir</option>
+        <div class="help">
 
-          <option value="Classique">
+          Les catégories peuvent être créées avec le bouton
 
-            Classique
+          « Catégories » en haut de l'application.
 
-          </option>
-
-          <option value="Signature">
-
-            Signature
-
-          </option>
-
-          <option value="Sans alcool">
-
-            Sans alcool
-
-          </option>
-
-          <option value="Gin">
-
-            Gin
-
-          </option>
-
-          <option value="Rhum">
-
-            Rhum
-
-          </option>
-
-          <option value="Vodka">
-
-            Vodka
-
-          </option>
-
-          <option value="Tequila">
-
-            Tequila
-
-          </option>
-
-          <option value="Whisky">
-
-            Whisky
-
-          </option>
-
-          <option value="Spritz">
-
-            Spritz
-
-          </option>
-
-          <option value="Autre">
-
-            Autre
-
-          </option>
-
-        </select>
+        </div>
 
       </div>
-
-      <!-- PHOTO -->
 
       <div class="field">
 
@@ -1262,9 +1436,7 @@
 
         <div class="help">
 
-          Tu peux prendre une photo directement
-
-          ou choisir une image dans la tablette.
+          Choisis une photo dans l'appareil.
 
         </div>
 
@@ -1274,7 +1446,7 @@
 
           class="photo-preview"
 
-          alt="Aperçu"
+          alt="Aperçu de la photo"
 
         >
 
@@ -1310,17 +1482,7 @@
 
           id="cocktailIngredients"
 
-          placeholder="Ex :
-
-5 cl de rhum blanc
-
-2 cl de jus de citron vert
-
-2 cuillères de sucre
-
-Menthe
-
-Eau gazeuse"
+          placeholder="Liste des ingrédients..."
 
         ></textarea>
 
@@ -1338,7 +1500,7 @@ Eau gazeuse"
 
           id="cocktailPreparation"
 
-          placeholder="Décris les étapes de préparation..."
+          placeholder="Informations de préparation..."
 
         ></textarea>
 
@@ -1358,7 +1520,7 @@ Eau gazeuse"
 
           type="text"
 
-          placeholder="Ex : Highball"
+          placeholder="Type de verre"
 
         >
 
@@ -1378,7 +1540,7 @@ Eau gazeuse"
 
           type="text"
 
-          placeholder="Ex : Menthe + citron vert"
+          placeholder="Décoration"
 
         >
 
@@ -1436,11 +1598,11 @@ Eau gazeuse"
 
 </div>
 
-<!-- ======================================================
+<!-- =====================================================
 
-     MODALE FICHE COCKTAIL
+     MODALE DÉTAIL
 
-====================================================== -->
+===================================================== -->
 
 <div
 
@@ -1486,11 +1648,91 @@ Eau gazeuse"
 
 </div>
 
+<!-- =====================================================
+
+     MODALE CATÉGORIES
+
+===================================================== -->
+
+<div
+
+  id="categoryModal"
+
+  class="modal-overlay"
+
+>
+
+  <div class="modal">
+
+    <div class="modal-header">
+
+      <h2>
+
+        🗂 Catégories
+
+      </h2>
+
+      <button
+
+        class="close-button"
+
+        onclick="closeCategoryModal()"
+
+      >
+
+        ×
+
+      </button>
+
+    </div>
+
+    <div class="modal-body">
+
+      <div class="category-create">
+
+        <input
+
+          id="newCategoryName"
+
+          type="text"
+
+          placeholder="Nouvelle catégorie..."
+
+        >
+
+        <button
+
+          class="btn btn-green"
+
+          onclick="addCategory()"
+
+        >
+
+          ＋ Ajouter
+
+        </button>
+
+      </div>
+
+      <div
+
+        id="categoryList"
+
+        class="category-list"
+
+      ></div>
+
+    </div>
+
+  </div>
+
+</div>
+
 <script>
 
 /* =========================================================
 
-   STOCKAGE
+   CLÉS DE STOCKAGE
 
 ========================================================= */
 
@@ -1498,17 +1740,29 @@ const STORAGE_KEY =
 
   "mamy_mouss_cocktails_v3";
 
+const CATEGORY_KEY =
+
+  "mamy_mouss_categories_v1";
+
 const FONT_KEY =
 
   "mamy_mouss_font_size";
 
+/* =========================================================
+
+   DONNÉES
+
+========================================================= */
+
 let cocktails = [];
+
+let categories = [];
 
 let currentPhoto = "";
 
 /* =========================================================
 
-   TAILLE DU TEXTE
+   POLICE
 
 ========================================================= */
 
@@ -1540,7 +1794,7 @@ function loadFontSize() {
 
     if (
 
-      !Number.isNaN(index) &&
+      Number.isInteger(index) &&
 
       index >= 0 &&
 
@@ -1548,9 +1802,7 @@ function loadFontSize() {
 
     ) {
 
-      currentFontIndex =
-
-        index;
+      currentFontIndex = index;
 
     }
 
@@ -1620,7 +1872,7 @@ function decreaseFont() {
 
 /* =========================================================
 
-   CHARGEMENT
+   CHARGEMENT COCKTAILS
 
 ========================================================= */
 
@@ -1640,6 +1892,12 @@ function loadCocktails() {
 
         : [];
 
+    if (!Array.isArray(cocktails)) {
+
+      cocktails = [];
+
+    }
+
   } catch (error) {
 
     console.error(error);
@@ -1652,11 +1910,11 @@ function loadCocktails() {
 
 /* =========================================================
 
-   SAUVEGARDE
+   SAUVEGARDE COCKTAILS
 
 ========================================================= */
 
-function saveToStorage() {
+function saveCocktailsToStorage() {
 
   try {
 
@@ -1668,15 +1926,19 @@ function saveToStorage() {
 
     );
 
+    return true;
+
   } catch (error) {
 
     console.error(error);
 
     alert(
 
-      "La tablette n'a plus assez de place pour enregistrer cette photo. Essaie avec une photo plus petite."
+      "L'appareil n'a plus assez de place pour enregistrer les données. Essaie avec une photo plus petite."
 
     );
+
+    return false;
 
   }
 
@@ -1684,7 +1946,599 @@ function saveToStorage() {
 
 /* =========================================================
 
-   AFFICHAGE LISTE
+   CATÉGORIES
+
+========================================================= */
+
+function loadCategories() {
+
+  try {
+
+    const saved =
+
+      localStorage.getItem(CATEGORY_KEY);
+
+    categories =
+
+      saved
+
+        ? JSON.parse(saved)
+
+        : [
+
+            "Classique",
+
+            "Signature",
+
+            "Sans alcool",
+
+            "Autre"
+
+          ];
+
+    if (!Array.isArray(categories)) {
+
+      categories = [];
+
+    }
+
+  } catch (error) {
+
+    categories = [];
+
+  }
+
+  /*
+
+    Ajoute automatiquement les anciennes catégories
+
+    déjà utilisées dans les fiches existantes.
+
+  */
+
+  cocktails.forEach(cocktail => {
+
+    const category =
+
+      String(
+
+        cocktail.category || ""
+
+      ).trim();
+
+    if (
+
+      category &&
+
+      !categoryExists(category)
+
+    ) {
+
+      categories.push(category);
+
+    }
+
+  });
+
+  sortCategories();
+
+  saveCategories();
+
+}
+
+function saveCategories() {
+
+  localStorage.setItem(
+
+    CATEGORY_KEY,
+
+    JSON.stringify(categories)
+
+  );
+
+}
+
+function sortCategories() {
+
+  categories.sort(
+
+    (a, b) =>
+
+      a.localeCompare(
+
+        b,
+
+        "fr",
+
+        {
+
+          sensitivity: "base"
+
+        }
+
+      )
+
+  );
+
+}
+
+function categoryExists(name) {
+
+  return categories.some(
+
+    category =>
+
+      category.toLowerCase() ===
+
+      name.toLowerCase()
+
+  );
+
+}
+
+function populateCategorySelect(
+
+  selectedValue = ""
+
+) {
+
+  const select =
+
+    document.getElementById(
+
+      "cocktailCategory"
+
+    );
+
+  select.innerHTML =
+
+    `<option value="">Sans catégorie</option>`;
+
+  categories.forEach(category => {
+
+    const option =
+
+      document.createElement(
+
+        "option"
+
+      );
+
+    option.value =
+
+      category;
+
+    option.textContent =
+
+      category;
+
+    select.appendChild(option);
+
+  });
+
+  if (selectedValue) {
+
+    if (
+
+      !categoryExists(
+
+        selectedValue
+
+      )
+
+    ) {
+
+      categories.push(
+
+        selectedValue
+
+      );
+
+      sortCategories();
+
+      saveCategories();
+
+      populateCategorySelect(
+
+        selectedValue
+
+      );
+
+      return;
+
+    }
+
+    select.value =
+
+      selectedValue;
+
+  }
+
+}
+
+function openCategoryModal() {
+
+  document
+
+    .getElementById(
+
+      "newCategoryName"
+
+    )
+
+    .value = "";
+
+  renderCategories();
+
+  document
+
+    .getElementById(
+
+      "categoryModal"
+
+    )
+
+    .classList
+
+    .add("open");
+
+}
+
+function closeCategoryModal() {
+
+  document
+
+    .getElementById(
+
+      "categoryModal"
+
+    )
+
+    .classList
+
+    .remove("open");
+
+}
+
+function addCategory() {
+
+  const input =
+
+    document.getElementById(
+
+      "newCategoryName"
+
+    );
+
+  const name =
+
+    input.value.trim();
+
+  if (!name) {
+
+    alert(
+
+      "Indique le nom de la catégorie."
+
+    );
+
+    return;
+
+  }
+
+  if (categoryExists(name)) {
+
+    alert(
+
+      "Cette catégorie existe déjà."
+
+    );
+
+    return;
+
+  }
+
+  categories.push(name);
+
+  sortCategories();
+
+  saveCategories();
+
+  populateCategorySelect();
+
+  renderCategories();
+
+  input.value = "";
+
+  input.focus();
+
+}
+
+function renameCategory(
+
+  oldName
+
+) {
+
+  const newName =
+
+    prompt(
+
+      "Nouveau nom de la catégorie :",
+
+      oldName
+
+    );
+
+  if (newName === null) {
+
+    return;
+
+  }
+
+  const cleanName =
+
+    newName.trim();
+
+  if (!cleanName) {
+
+    alert(
+
+      "Le nom ne peut pas être vide."
+
+    );
+
+    return;
+
+  }
+
+  if (
+
+    cleanName.toLowerCase() !==
+
+      oldName.toLowerCase() &&
+
+    categoryExists(cleanName)
+
+  ) {
+
+    alert(
+
+      "Une catégorie avec ce nom existe déjà."
+
+    );
+
+    return;
+
+  }
+
+  const index =
+
+    categories.indexOf(
+
+      oldName
+
+    );
+
+  if (index < 0) {
+
+    return;
+
+  }
+
+  categories[index] =
+
+    cleanName;
+
+  cocktails.forEach(
+
+    cocktail => {
+
+      if (
+
+        cocktail.category ===
+
+        oldName
+
+      ) {
+
+        cocktail.category =
+
+          cleanName;
+
+      }
+
+    }
+
+  );
+
+  sortCategories();
+
+  saveCategories();
+
+  saveCocktailsToStorage();
+
+  populateCategorySelect();
+
+  renderCategories();
+
+  renderCocktails();
+
+}
+
+function deleteCategory(
+
+  name
+
+) {
+
+  const usedCount =
+
+    cocktails.filter(
+
+      cocktail =>
+
+        cocktail.category ===
+
+        name
+
+    ).length;
+
+  let message =
+
+    `Supprimer la catégorie "${name}" ?`;
+
+  if (usedCount > 0) {
+
+    message +=
+
+      `\n\n${usedCount} fiche(s) utilisent cette catégorie. Elles resteront enregistrées mais passeront en "Sans catégorie".`;
+
+  }
+
+  const ok =
+
+    confirm(message);
+
+  if (!ok) {
+
+    return;
+
+  }
+
+  categories =
+
+    categories.filter(
+
+      category =>
+
+        category !== name
+
+    );
+
+  cocktails.forEach(
+
+    cocktail => {
+
+      if (
+
+        cocktail.category ===
+
+        name
+
+      ) {
+
+        cocktail.category = "";
+
+      }
+
+    }
+
+  );
+
+  saveCategories();
+
+  saveCocktailsToStorage();
+
+  populateCategorySelect();
+
+  renderCategories();
+
+  renderCocktails();
+
+}
+
+function renderCategories() {
+
+  const container =
+
+    document.getElementById(
+
+      "categoryList"
+
+    );
+
+  if (!categories.length) {
+
+    container.innerHTML = `
+
+      <div class="category-empty">
+
+        Aucune catégorie créée.
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+  container.innerHTML =
+
+    categories
+
+      .map(category => {
+
+        const safe =
+
+          escapeHtml(category);
+
+        const jsSafe =
+
+          escapeJsString(category);
+
+        return `
+
+          <div class="category-row">
+
+            <div class="category-name">
+
+              ${safe}
+
+            </div>
+
+            <div class="category-actions">
+
+              <button
+
+                class="btn btn-light"
+
+                onclick="renameCategory('${jsSafe}')"
+
+              >
+
+                ✏️ Renommer
+
+              </button>
+
+              <button
+
+                class="btn btn-danger"
+
+                onclick="deleteCategory('${jsSafe}')"
+
+              >
+
+                🗑
+
+              </button>
+
+            </div>
+
+          </div>
+
+        `;
+
+      })
+
+      .join("");
+
+}
+
+/* =========================================================
+
+   AFFICHAGE DES COCKTAILS
 
 ========================================================= */
 
@@ -1724,9 +2578,13 @@ function renderCocktails() {
 
           cocktail.ingredients,
 
+          cocktail.preparation,
+
           cocktail.glass,
 
-          cocktail.garnish
+          cocktail.garnish,
+
+          cocktail.notes
 
         ]
 
@@ -1744,11 +2602,11 @@ function renderCocktails() {
 
     (a, b) =>
 
-      (a.name || "")
+      String(a.name || "")
 
         .localeCompare(
 
-          b.name || "",
+          String(b.name || ""),
 
           "fr"
 
@@ -1762,13 +2620,15 @@ function renderCocktails() {
 
       <div class="empty">
 
-        🍹<br><br>
+        🍹
+
+        <br><br>
 
         ${
 
           cocktails.length
 
-            ? "Aucun cocktail trouvé."
+            ? "Aucune fiche trouvée."
 
             : "Aucune recette pour le moment.<br><br>Appuie sur <strong>＋ Cocktail</strong> pour commencer."
 
@@ -1787,6 +2647,14 @@ function renderCocktails() {
     filtered
 
       .map(cocktail => {
+
+        const id =
+
+          escapeJsString(
+
+            cocktail.id
+
+          );
 
         const image =
 
@@ -1824,7 +2692,7 @@ function renderCocktails() {
 
               class="cocktail-image-wrap"
 
-              onclick="showDetail('${cocktail.id}')"
+              onclick="showDetail('${id}')"
 
             >
 
@@ -1836,7 +2704,11 @@ function renderCocktails() {
 
               <h2 class="cocktail-name">
 
-                ${escapeHtml(cocktail.name)}
+                ${escapeHtml(
+
+                  cocktail.name
+
+                )}
 
               </h2>
 
@@ -1846,9 +2718,13 @@ function renderCocktails() {
 
                   cocktail.category
 
-                    ? escapeHtml(cocktail.category)
+                    ? escapeHtml(
 
-                    : "Cocktail"
+                        cocktail.category
+
+                      )
+
+                    : "Sans catégorie"
 
                 }
 
@@ -1860,7 +2736,7 @@ function renderCocktails() {
 
                   class="btn btn-dark grow"
 
-                  onclick="showDetail('${cocktail.id}')"
+                  onclick="showDetail('${id}')"
 
                 >
 
@@ -1872,11 +2748,11 @@ function renderCocktails() {
 
                   class="btn btn-light"
 
-                  onclick="editCocktail('${cocktail.id}')"
+                  onclick="editCocktail('${id}')"
 
                 >
 
-                  ✏️
+                  ✏️ Modifier
 
                 </button>
 
@@ -1896,7 +2772,7 @@ function renderCocktails() {
 
 /* =========================================================
 
-   OUVRIR FORMULAIRE
+   FORMULAIRE NOUVEAU COCKTAIL
 
 ========================================================= */
 
@@ -1924,53 +2800,77 @@ function openCocktailForm() {
 
   document
 
-    .getElementById("cocktailCategory")
+    .getElementById(
+
+      "cocktailIngredients"
+
+    )
 
     .value = "";
 
   document
 
-    .getElementById("cocktailIngredients")
+    .getElementById(
+
+      "cocktailPreparation"
+
+    )
 
     .value = "";
 
   document
 
-    .getElementById("cocktailPreparation")
+    .getElementById(
+
+      "cocktailGlass"
+
+    )
 
     .value = "";
 
   document
 
-    .getElementById("cocktailGlass")
+    .getElementById(
+
+      "cocktailGarnish"
+
+    )
 
     .value = "";
 
   document
 
-    .getElementById("cocktailGarnish")
+    .getElementById(
+
+      "cocktailNotes"
+
+    )
 
     .value = "";
 
   document
 
-    .getElementById("cocktailNotes")
+    .getElementById(
 
-    .value = "";
+      "cocktailPhoto"
 
-  document
-
-    .getElementById("cocktailPhoto")
+    )
 
     .value = "";
 
   currentPhoto = "";
 
+  populateCategorySelect();
+
   updatePhotoPreview();
 
   document
 
-    .getElementById("cocktailModal")
+    .getElementById(
+
+      "cocktailModal"
+
+    )
 
     .classList
 
@@ -1978,17 +2878,15 @@ function openCocktailForm() {
 
 }
 
-/* =========================================================
-
-   FERMER FORMULAIRE
-
-========================================================= */
-
 function closeCocktailForm() {
 
   document
 
-    .getElementById("cocktailModal")
+    .getElementById(
+
+      "cocktailModal"
+
+    )
 
     .classList
 
@@ -2008,11 +2906,19 @@ function handlePhoto(event) {
 
     event.target.files[0];
 
-  if (!file) return;
+  if (!file) {
+
+    return;
+
+  }
 
   if (
 
-    !file.type.startsWith("image/")
+    !file.type.startsWith(
+
+      "image/"
+
+    )
 
   ) {
 
@@ -2059,12 +2965,6 @@ function handlePhoto(event) {
   });
 
 }
-
-/* =========================================================
-
-   COMPRESSION PHOTO
-
-========================================================= */
 
 function compressImage(
 
@@ -2154,11 +3054,15 @@ function compressImage(
 
               height;
 
-            const ctx =
+            const context =
 
-              canvas.getContext("2d");
+              canvas.getContext(
 
-            ctx.drawImage(
+                "2d"
+
+              );
+
+            context.drawImage(
 
               img,
 
@@ -2172,7 +3076,7 @@ function compressImage(
 
             );
 
-            const dataUrl =
+            resolve(
 
               canvas.toDataURL(
 
@@ -2180,9 +3084,9 @@ function compressImage(
 
                 quality
 
-              );
+              )
 
-            resolve(dataUrl);
+            );
 
           };
 
@@ -2200,19 +3104,17 @@ function compressImage(
 
         reject;
 
-      reader.readAsDataURL(file);
+      reader.readAsDataURL(
+
+        file
+
+      );
 
     }
 
   );
 
 }
-
-/* =========================================================
-
-   APERÇU PHOTO
-
-========================================================= */
 
 function updatePhotoPreview() {
 
@@ -2250,19 +3152,17 @@ function updatePhotoPreview() {
 
 }
 
-/* =========================================================
-
-   SUPPRIMER PHOTO
-
-========================================================= */
-
 function removePhoto() {
 
   currentPhoto = "";
 
   document
 
-    .getElementById("cocktailPhoto")
+    .getElementById(
+
+      "cocktailPhoto"
+
+    )
 
     .value = "";
 
@@ -2272,7 +3172,7 @@ function removePhoto() {
 
 /* =========================================================
 
-   ENREGISTRER COCKTAIL
+   ENREGISTRER
 
 ========================================================= */
 
@@ -2282,7 +3182,11 @@ function saveCocktail() {
 
     document
 
-      .getElementById("cocktailId")
+      .getElementById(
+
+        "cocktailId"
+
+      )
 
       .value;
 
@@ -2290,7 +3194,11 @@ function saveCocktail() {
 
     document
 
-      .getElementById("cocktailName")
+      .getElementById(
+
+        "cocktailName"
+
+      )
 
       .value
 
@@ -2316,7 +3224,9 @@ function saveCocktail() {
 
       (
 
-        Date.now().toString(36) +
+        Date.now()
+
+          .toString(36) +
 
         Math.random()
 
@@ -2448,7 +3358,15 @@ function saveCocktail() {
 
   }
 
-  saveToStorage();
+  const success =
+
+    saveCocktailsToStorage();
+
+  if (!success) {
+
+    return;
+
+  }
 
   closeCocktailForm();
 
@@ -2474,11 +3392,19 @@ function editCocktail(id) {
 
     );
 
-  if (!cocktail) return;
+  if (!cocktail) {
+
+    return;
+
+  }
 
   document
 
-    .getElementById("formTitle")
+    .getElementById(
+
+      "formTitle"
+
+    )
 
     .textContent =
 
@@ -2486,7 +3412,11 @@ function editCocktail(id) {
 
   document
 
-    .getElementById("cocktailId")
+    .getElementById(
+
+      "cocktailId"
+
+    )
 
     .value =
 
@@ -2494,7 +3424,11 @@ function editCocktail(id) {
 
   document
 
-    .getElementById("cocktailName")
+    .getElementById(
+
+      "cocktailName"
+
+    )
 
     .value =
 
@@ -2502,15 +3436,11 @@ function editCocktail(id) {
 
   document
 
-    .getElementById("cocktailCategory")
+    .getElementById(
 
-    .value =
+      "cocktailIngredients"
 
-      cocktail.category || "";
-
-  document
-
-    .getElementById("cocktailIngredients")
+    )
 
     .value =
 
@@ -2518,7 +3448,11 @@ function editCocktail(id) {
 
   document
 
-    .getElementById("cocktailPreparation")
+    .getElementById(
+
+      "cocktailPreparation"
+
+    )
 
     .value =
 
@@ -2526,7 +3460,11 @@ function editCocktail(id) {
 
   document
 
-    .getElementById("cocktailGlass")
+    .getElementById(
+
+      "cocktailGlass"
+
+    )
 
     .value =
 
@@ -2534,7 +3472,11 @@ function editCocktail(id) {
 
   document
 
-    .getElementById("cocktailGarnish")
+    .getElementById(
+
+      "cocktailGarnish"
+
+    )
 
     .value =
 
@@ -2542,7 +3484,11 @@ function editCocktail(id) {
 
   document
 
-    .getElementById("cocktailNotes")
+    .getElementById(
+
+      "cocktailNotes"
+
+    )
 
     .value =
 
@@ -2550,7 +3496,11 @@ function editCocktail(id) {
 
   document
 
-    .getElementById("cocktailPhoto")
+    .getElementById(
+
+      "cocktailPhoto"
+
+    )
 
     .value = "";
 
@@ -2558,11 +3508,21 @@ function editCocktail(id) {
 
     cocktail.photo || "";
 
+  populateCategorySelect(
+
+    cocktail.category || ""
+
+  );
+
   updatePhotoPreview();
 
   document
 
-    .getElementById("cocktailModal")
+    .getElementById(
+
+      "cocktailModal"
+
+    )
 
     .classList
 
@@ -2572,7 +3532,7 @@ function editCocktail(id) {
 
 /* =========================================================
 
-   SUPPRIMER COCKTAIL
+   SUPPRIMER
 
 ========================================================= */
 
@@ -2588,7 +3548,11 @@ function deleteCocktail(id) {
 
     );
 
-  if (!cocktail) return;
+  if (!cocktail) {
+
+    return;
+
+  }
 
   const ok =
 
@@ -2598,7 +3562,11 @@ function deleteCocktail(id) {
 
     );
 
-  if (!ok) return;
+  if (!ok) {
+
+    return;
+
+  }
 
   cocktails =
 
@@ -2610,7 +3578,7 @@ function deleteCocktail(id) {
 
     );
 
-  saveToStorage();
+  saveCocktailsToStorage();
 
   closeDetail();
 
@@ -2620,7 +3588,7 @@ function deleteCocktail(id) {
 
 /* =========================================================
 
-   FICHE DÉTAIL
+   DÉTAIL
 
 ========================================================= */
 
@@ -2636,11 +3604,19 @@ function showDetail(id) {
 
     );
 
-  if (!cocktail) return;
+  if (!cocktail) {
+
+    return;
+
+  }
 
   document
 
-    .getElementById("detailTitle")
+    .getElementById(
+
+      "detailTitle"
+
+    )
 
     .textContent =
 
@@ -2674,9 +3650,21 @@ function showDetail(id) {
 
       `;
 
+  const safeId =
+
+    escapeJsString(
+
+      cocktail.id
+
+    );
+
   document
 
-    .getElementById("detailBody")
+    .getElementById(
+
+      "detailBody"
+
+    )
 
     .innerHTML = `
 
@@ -2690,7 +3678,11 @@ function showDetail(id) {
 
             <span class="badge">
 
-              ${escapeHtml(cocktail.category)}
+              ${escapeHtml(
+
+                cocktail.category
+
+              )}
 
             </span>
 
@@ -2716,7 +3708,11 @@ function showDetail(id) {
 
               <div class="detail-text">
 
-                ${escapeHtml(cocktail.ingredients)}
+                ${escapeHtml(
+
+                  cocktail.ingredients
+
+                )}
 
               </div>
 
@@ -2744,7 +3740,11 @@ function showDetail(id) {
 
               <div class="detail-text">
 
-                ${escapeHtml(cocktail.preparation)}
+                ${escapeHtml(
+
+                  cocktail.preparation
+
+                )}
 
               </div>
 
@@ -2772,7 +3772,11 @@ function showDetail(id) {
 
               <div class="detail-text">
 
-                ${escapeHtml(cocktail.glass)}
+                ${escapeHtml(
+
+                  cocktail.glass
+
+                )}
 
               </div>
 
@@ -2800,7 +3804,11 @@ function showDetail(id) {
 
               <div class="detail-text">
 
-                ${escapeHtml(cocktail.garnish)}
+                ${escapeHtml(
+
+                  cocktail.garnish
+
+                )}
 
               </div>
 
@@ -2828,7 +3836,11 @@ function showDetail(id) {
 
               <div class="detail-text">
 
-                ${escapeHtml(cocktail.notes)}
+                ${escapeHtml(
+
+                  cocktail.notes
+
+                )}
 
               </div>
 
@@ -2850,7 +3862,7 @@ function showDetail(id) {
 
             closeDetail();
 
-            editCocktail('${cocktail.id}');
+            editCocktail('${safeId}');
 
           "
 
@@ -2864,11 +3876,11 @@ function showDetail(id) {
 
           class="btn btn-danger"
 
-          onclick="deleteCocktail('${cocktail.id}')"
+          onclick="deleteCocktail('${safeId}')"
 
         >
 
-          🗑
+          🗑 Supprimer
 
         </button>
 
@@ -2878,7 +3890,11 @@ function showDetail(id) {
 
   document
 
-    .getElementById("detailModal")
+    .getElementById(
+
+      "detailModal"
+
+    )
 
     .classList
 
@@ -2886,17 +3902,15 @@ function showDetail(id) {
 
 }
 
-/* =========================================================
-
-   FERMER DÉTAIL
-
-========================================================= */
-
 function closeDetail() {
 
   document
 
-    .getElementById("detailModal")
+    .getElementById(
+
+      "detailModal"
+
+    )
 
     .classList
 
@@ -2912,7 +3926,11 @@ function closeDetail() {
 
 function escapeHtml(value) {
 
-  return String(value || "")
+  return String(
+
+    value || ""
+
+  )
 
     .replaceAll(
 
@@ -2956,15 +3974,97 @@ function escapeHtml(value) {
 
 }
 
+function escapeJsString(value) {
+
+  return String(
+
+    value || ""
+
+  )
+
+    .replaceAll(
+
+      "\\",
+
+      "\\\\"
+
+    )
+
+    .replaceAll(
+
+      "'",
+
+      "\\'"
+
+    )
+
+    .replaceAll(
+
+      "\n",
+
+      "\\n"
+
+    )
+
+    .replaceAll(
+
+      "\r",
+
+      "\\r"
+
+    );
+
+}
+
 /* =========================================================
 
-   FERMETURE MODALE EN CLIQUANT AUTOUR
+   ENTRÉE CATÉGORIE AVEC TOUCHE ENTER
 
 ========================================================= */
 
 document
 
-  .getElementById("cocktailModal")
+  .getElementById(
+
+    "newCategoryName"
+
+  )
+
+  .addEventListener(
+
+    "keydown",
+
+    event => {
+
+      if (
+
+        event.key === "Enter"
+
+      ) {
+
+        event.preventDefault();
+
+        addCategory();
+
+      }
+
+    }
+
+  );
+
+/* =========================================================
+
+   FERMETURE MODALES EN CLIQUANT AUTOUR
+
+========================================================= */
+
+document
+
+  .getElementById(
+
+    "cocktailModal"
+
+  )
 
   .addEventListener(
 
@@ -2990,7 +4090,11 @@ document
 
 document
 
-  .getElementById("detailModal")
+  .getElementById(
+
+    "detailModal"
+
+  )
 
   .addEventListener(
 
@@ -3014,6 +4118,36 @@ document
 
   );
 
+document
+
+  .getElementById(
+
+    "categoryModal"
+
+  )
+
+  .addEventListener(
+
+    "click",
+
+    event => {
+
+      if (
+
+        event.target.id ===
+
+        "categoryModal"
+
+      ) {
+
+        closeCategoryModal();
+
+      }
+
+    }
+
+  );
+
 /* =========================================================
 
    DÉMARRAGE
@@ -3023,6 +4157,10 @@ document
 loadFontSize();
 
 loadCocktails();
+
+loadCategories();
+
+populateCategorySelect();
 
 renderCocktails();
 
