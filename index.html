@@ -50,8 +50,6 @@
 
       --ok-bg: #dcfce7;
 
-      --warning: #b45309;
-
       --radius: 18px;
 
       --font-scale: 1;
@@ -95,6 +93,12 @@
         Arial,
 
         sans-serif;
+
+    }
+
+    body.modal-open {
+
+      overflow: hidden;
 
     }
 
@@ -196,23 +200,15 @@
 
       background: rgba(255,255,255,.1);
 
-    }
+      border: 1px solid rgba(255,255,255,.15);
 
-    .status.locked::before {
-
-      content: "🔒";
+      color: white;
 
     }
 
     .status.unlocked {
 
       background: rgba(22,163,74,.25);
-
-    }
-
-    .status.unlocked::before {
-
-      content: "🔓";
 
     }
 
@@ -252,23 +248,17 @@
 
     }
 
-    .search:focus,
+    .textarea {
 
-    .select:focus,
+      resize: vertical;
 
-    .input:focus,
-
-    .textarea:focus {
-
-      border-color: #9ca3af;
-
-      box-shadow: 0 0 0 3px rgba(17,24,39,.08);
+      min-height: 100px;
 
     }
 
     .btn {
 
-      border: 0;
+      border: 1px solid var(--border);
 
       border-radius: 14px;
 
@@ -279,8 +269,6 @@
       background: white;
 
       color: var(--text);
-
-      border: 1px solid var(--border);
 
     }
 
@@ -301,16 +289,6 @@
       color: var(--danger);
 
       border-color: #fecaca;
-
-    }
-
-    .btn-ok {
-
-      background: var(--ok-bg);
-
-      color: var(--ok);
-
-      border-color: #bbf7d0;
 
     }
 
@@ -418,7 +396,7 @@
 
       display: grid;
 
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0,1fr));
 
       gap: 15px;
 
@@ -594,45 +572,87 @@
 
       box-shadow: 0 10px 30px rgba(0,0,0,.25);
 
-      z-index: 20;
+      z-index: 40;
 
     }
 
-    dialog {
+    .management-only {
 
-      width: min(720px, calc(100% - 24px));
-
-      max-height: 90vh;
-
-      border: 0;
-
-      padding: 0;
-
-      border-radius: 20px;
-
-      box-shadow: 0 24px 80px rgba(0,0,0,.3);
+      display: none !important;
 
     }
 
-    dialog::backdrop {
+    body.management .management-only {
 
-      background: rgba(17,24,39,.55);
-
-      backdrop-filter: blur(3px);
+      display: inline-flex !important;
 
     }
 
-    .dialog-box {
+    /* ============================
 
-      padding: 20px;
+       MODALES COMPATIBLES PARTOUT
+
+       ============================ */
+
+    .modal {
+
+      display: none;
+
+      position: fixed;
+
+      inset: 0;
+
+      z-index: 1000;
+
+      background: rgba(17,24,39,.58);
+
+      padding:
+
+        max(16px, env(safe-area-inset-top))
+
+        12px
+
+        max(16px, env(safe-area-inset-bottom));
 
       overflow-y: auto;
 
-      max-height: 90vh;
+      -webkit-overflow-scrolling: touch;
 
     }
 
-    .dialog-head {
+    .modal.show {
+
+      display: flex;
+
+      align-items: flex-start;
+
+      justify-content: center;
+
+    }
+
+    .modal-card {
+
+      width: min(720px, 100%);
+
+      background: white;
+
+      border-radius: 22px;
+
+      margin: auto;
+
+      box-shadow: 0 24px 80px rgba(0,0,0,.3);
+
+      overflow: hidden;
+
+    }
+
+    .modal-inner {
+
+      padding: 20px;
+
+    }
+
+    .modal-head {
 
       display: flex;
 
@@ -646,7 +666,7 @@
 
     }
 
-    .dialog-head h2 {
+    .modal-head h2 {
 
       margin: 0;
 
@@ -667,6 +687,8 @@
       background: white;
 
       font-size: 1.2rem;
+
+      flex: 0 0 auto;
 
     }
 
@@ -696,14 +718,6 @@
 
     }
 
-    .textarea {
-
-      resize: vertical;
-
-      min-height: 100px;
-
-    }
-
     .image-preview {
 
       width: 100%;
@@ -720,7 +734,7 @@
 
     }
 
-    .dialog-actions {
+    .modal-actions {
 
       display: flex;
 
@@ -731,34 +745,6 @@
       gap: 9px;
 
       margin-top: 18px;
-
-    }
-
-    .category-row {
-
-      display: flex;
-
-      align-items: center;
-
-      gap: 8px;
-
-      margin-bottom: 8px;
-
-    }
-
-    .category-row .input {
-
-      flex: 1;
-
-    }
-
-    .separator {
-
-      border: 0;
-
-      border-top: 1px solid var(--border);
-
-      margin: 18px 0;
 
     }
 
@@ -800,33 +786,31 @@
 
     }
 
-    .management-only {
+    .category-row {
 
-      display: none;
+      display: flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      margin-bottom: 8px;
 
     }
 
-    body.management .management-only {
+    .category-row .input {
 
-      display: inline-flex;
+      flex: 1;
 
     }
 
-    .info-box {
+    .separator {
 
-      background: #f9fafb;
+      border: 0;
 
-      border: 1px solid var(--border);
+      border-top: 1px solid var(--border);
 
-      border-radius: 14px;
-
-      padding: 13px;
-
-      color: var(--muted);
-
-      font-size: .9rem;
-
-      line-height: 1.5;
+      margin: 18px 0;
 
     }
 
@@ -900,6 +884,26 @@
 
       }
 
+      .modal {
+
+        padding-left: 8px;
+
+        padding-right: 8px;
+
+      }
+
+      .modal-card {
+
+        border-radius: 18px;
+
+      }
+
+      .modal-inner {
+
+        padding: 16px;
+
+      }
+
     }
 
   </style>
@@ -926,7 +930,7 @@
 
         id="managementStatus"
 
-        class="status locked"
+        class="status"
 
         type="button"
 
@@ -934,7 +938,7 @@
 
       >
 
-        Mode consultation
+        🔒 Mode consultation
 
       </button>
 
@@ -962,8 +966,6 @@
 
       class="btn management-only"
 
-      type="button"
-
       onclick="openCategories()"
 
     >
@@ -975,8 +977,6 @@
     <button
 
       class="btn btn-dark management-only"
-
-      type="button"
 
       onclick="openCocktailForm()"
 
@@ -994,7 +994,13 @@
 
       <strong>Trier par</strong>
 
-      <select id="sortSelect" onchange="changeSort()">
+      <select
+
+        id="sortSelect"
+
+        onchange="changeSort()"
+
+      >
 
         <option value="number">🔢 Numéro</option>
 
@@ -1010,19 +1016,47 @@
 
       <strong>Taille</strong>
 
-      <button class="btn" onclick="changeFont(-0.05)">A−</button>
+      <button
 
-      <span id="fontDisplay" class="font-display">100%</span>
+        class="btn"
 
-      <button class="btn" onclick="changeFont(0.05)">A+</button>
+        onclick="changeFont(-0.05)"
+
+      >
+
+        A−
+
+      </button>
+
+      <span
+
+        id="fontDisplay"
+
+        class="font-display"
+
+      >
+
+        100%
+
+      </span>
+
+      <button
+
+        class="btn"
+
+        onclick="changeFont(0.05)"
+
+      >
+
+        A+
+
+      </button>
 
     </div>
 
     <button
 
       class="btn management-only"
-
-      type="button"
 
       onclick="openPinSettings()"
 
@@ -1036,8 +1070,6 @@
 
       class="btn management-only"
 
-      type="button"
-
       onclick="lockManagement()"
 
     >
@@ -1048,23 +1080,29 @@
 
   </section>
 
-  <div id="categoryFilters" class="categories"></div>
+  <div
 
-  <main id="cocktailGrid" class="grid"></main>
+    id="categoryFilters"
+
+    class="categories"
+
+  ></div>
+
+  <main
+
+    id="cocktailGrid"
+
+    class="grid"
+
+  ></main>
 
 </div>
 
 <button
 
-  id="fab"
-
   class="fab management-only"
 
-  type="button"
-
   onclick="openCocktailForm()"
-
-  aria-label="Ajouter un cocktail"
 
 >
 
@@ -1072,429 +1110,87 @@
 
 </button>
 
-<!-- PIN -->
+<!-- =========================
 
-<dialog id="pinDialog">
+     MODALE PIN
 
-  <div class="dialog-box">
+     ========================= -->
 
-    <div class="dialog-head">
+<div
 
-      <h2>🔐 Code de gestion</h2>
+  id="pinModal"
 
-      <button class="close" onclick="closeDialog('pinDialog')">✕</button>
+  class="modal"
 
-    </div>
+>
 
-    <div class="pin-wrap">
+  <div class="modal-card">
 
-      <p>
+    <div class="modal-inner">
 
-        Entre le code à 4 chiffres pour pouvoir ajouter,
+      <div class="modal-head">
 
-        modifier ou supprimer des recettes.
+        <h2>🔐 Code de gestion</h2>
 
-      </p>
+        <button
 
-      <input
+          class="close"
 
-        id="pinInput"
+          onclick="closeModal('pinModal')"
 
-        class="pin-input"
+        >
 
-        type="password"
+          ✕
 
-        inputmode="numeric"
+        </button>
 
-        pattern="[0-9]*"
+      </div>
 
-        maxlength="4"
+      <div class="pin-wrap">
 
-        autocomplete="off"
+        <p>
 
-      >
+          Entre le code à 4 chiffres pour pouvoir
 
-      <div id="pinMessage" class="pin-message"></div>
+          ajouter, modifier ou supprimer des recettes.
 
-      <button
-
-        class="btn btn-dark"
-
-        style="width:100%;margin-top:12px;"
-
-        onclick="checkPin()"
-
-      >
-
-        Déverrouiller
-
-      </button>
-
-    </div>
-
-  </div>
-
-</dialog>
-
-<!-- CHANGER PIN -->
-
-<dialog id="pinSettingsDialog">
-
-  <div class="dialog-box">
-
-    <div class="dialog-head">
-
-      <h2>🔐 Changer le code</h2>
-
-      <button class="close" onclick="closeDialog('pinSettingsDialog')">✕</button>
-
-    </div>
-
-    <div class="field">
-
-      <label>Code actuel</label>
-
-      <input
-
-        id="oldPin"
-
-        class="input"
-
-        type="password"
-
-        inputmode="numeric"
-
-        maxlength="4"
-
-      >
-
-    </div>
-
-    <div class="field">
-
-      <label>Nouveau code à 4 chiffres</label>
-
-      <input
-
-        id="newPin"
-
-        class="input"
-
-        type="password"
-
-        inputmode="numeric"
-
-        maxlength="4"
-
-      >
-
-    </div>
-
-    <div class="field">
-
-      <label>Confirmer le nouveau code</label>
-
-      <input
-
-        id="confirmPin"
-
-        class="input"
-
-        type="password"
-
-        inputmode="numeric"
-
-        maxlength="4"
-
-      >
-
-    </div>
-
-    <div id="pinSettingsMessage" class="pin-message"></div>
-
-    <div class="dialog-actions">
-
-      <button class="btn" onclick="closeDialog('pinSettingsDialog')">
-
-        Annuler
-
-      </button>
-
-      <button class="btn btn-dark" onclick="saveNewPin()">
-
-        Enregistrer
-
-      </button>
-
-    </div>
-
-  </div>
-
-</dialog>
-
-<!-- RECETTE -->
-
-<dialog id="cocktailDialog">
-
-  <div class="dialog-box">
-
-    <div class="dialog-head">
-
-      <h2 id="cocktailDialogTitle">Ajouter un cocktail</h2>
-
-      <button
-
-        class="close"
-
-        onclick="closeDialog('cocktailDialog')"
-
-      >
-
-        ✕
-
-      </button>
-
-    </div>
-
-    <input id="cocktailId" type="hidden">
-
-    <div class="form-grid">
-
-      <div class="field">
-
-        <label for="cocktailNumber">Numéro</label>
+        </p>
 
         <input
 
-          id="cocktailNumber"
+          id="pinInput"
 
-          class="input"
+          class="pin-input"
 
-          type="number"
-
-          min="1"
+          type="password"
 
           inputmode="numeric"
 
-          placeholder="Ex. 12"
+          maxlength="4"
+
+          autocomplete="off"
 
         >
 
-      </div>
+        <div
 
-      <div class="field">
+          id="pinMessage"
 
-        <label for="cocktailCategory">Catégorie</label>
+          class="pin-message"
 
-        <select id="cocktailCategory" class="select"></select>
-
-      </div>
-
-    </div>
-
-    <div class="field">
-
-      <label for="cocktailName">Nom du cocktail *</label>
-
-      <input
-
-        id="cocktailName"
-
-        class="input"
-
-        type="text"
-
-        placeholder="Ex. Mojito"
-
-      >
-
-    </div>
-
-    <div class="field">
-
-      <label for="cocktailIngredients">Ingrédients</label>
-
-      <textarea
-
-        id="cocktailIngredients"
-
-        class="textarea"
-
-        placeholder="Indique ici les ingrédients..."
-
-      ></textarea>
-
-    </div>
-
-    <div class="field">
-
-      <label for="cocktailPreparation">Préparation</label>
-
-      <textarea
-
-        id="cocktailPreparation"
-
-        class="textarea"
-
-        placeholder="Indique ici la préparation..."
-
-      ></textarea>
-
-    </div>
-
-    <div class="field">
-
-      <label for="cocktailGlass">Verrerie / décoration</label>
-
-      <textarea
-
-        id="cocktailGlass"
-
-        class="textarea"
-
-        placeholder="Verre, décoration, finition..."
-
-      ></textarea>
-
-    </div>
-
-    <div class="field">
-
-      <label for="cocktailPhoto">Photo</label>
-
-      <input
-
-        id="cocktailPhoto"
-
-        class="input"
-
-        type="file"
-
-        accept="image/*"
-
-        onchange="handlePhoto(event)"
-
-      >
-
-      <img
-
-        id="photoPreview"
-
-        class="image-preview"
-
-        style="display:none;"
-
-        alt="Aperçu"
-
-      >
-
-    </div>
-
-    <div class="dialog-actions">
-
-      <button
-
-        id="deleteCocktailButton"
-
-        class="btn btn-danger"
-
-        type="button"
-
-        onclick="deleteCurrentCocktail()"
-
-        style="display:none;"
-
-      >
-
-        🗑️ Supprimer
-
-      </button>
-
-      <button
-
-        class="btn"
-
-        type="button"
-
-        onclick="closeDialog('cocktailDialog')"
-
-      >
-
-        Annuler
-
-      </button>
-
-      <button
-
-        class="btn btn-dark"
-
-        type="button"
-
-        onclick="saveCocktail()"
-
-      >
-
-        💾 Enregistrer
-
-      </button>
-
-    </div>
-
-  </div>
-
-</dialog>
-
-<!-- CATÉGORIES -->
-
-<dialog id="categoriesDialog">
-
-  <div class="dialog-box">
-
-    <div class="dialog-head">
-
-      <h2>📂 Gérer les catégories</h2>
-
-      <button
-
-        class="close"
-
-        onclick="closeDialog('categoriesDialog')"
-
-      >
-
-        ✕
-
-      </button>
-
-    </div>
-
-    <div class="field">
-
-      <label for="newCategory">Nouvelle catégorie</label>
-
-      <div style="display:flex;gap:8px;">
-
-        <input
-
-          id="newCategory"
-
-          class="input"
-
-          type="text"
-
-          placeholder="Ex. Cocktails chauds"
-
-        >
+        ></div>
 
         <button
 
           class="btn btn-dark"
 
-          onclick="addCategory()"
+          style="width:100%;margin-top:12px;"
+
+          onclick="checkPin()"
 
         >
 
-          Ajouter
+          Déverrouiller
 
         </button>
 
@@ -1502,21 +1198,517 @@
 
     </div>
 
-    <hr class="separator">
+  </div>
 
-    <div id="categoryManager"></div>
+</div>
+
+<!-- =========================
+
+     MODALE CHANGER PIN
+
+     ========================= -->
+
+<div
+
+  id="pinSettingsModal"
+
+  class="modal"
+
+>
+
+  <div class="modal-card">
+
+    <div class="modal-inner">
+
+      <div class="modal-head">
+
+        <h2>🔐 Changer le code</h2>
+
+        <button
+
+          class="close"
+
+          onclick="closeModal('pinSettingsModal')"
+
+        >
+
+          ✕
+
+        </button>
+
+      </div>
+
+      <div class="field">
+
+        <label>
+
+          Code actuel
+
+        </label>
+
+        <input
+
+          id="oldPin"
+
+          class="input"
+
+          type="password"
+
+          inputmode="numeric"
+
+          maxlength="4"
+
+        >
+
+      </div>
+
+      <div class="field">
+
+        <label>
+
+          Nouveau code à 4 chiffres
+
+        </label>
+
+        <input
+
+          id="newPin"
+
+          class="input"
+
+          type="password"
+
+          inputmode="numeric"
+
+          maxlength="4"
+
+        >
+
+      </div>
+
+      <div class="field">
+
+        <label>
+
+          Confirmer le nouveau code
+
+        </label>
+
+        <input
+
+          id="confirmPin"
+
+          class="input"
+
+          type="password"
+
+          inputmode="numeric"
+
+          maxlength="4"
+
+        >
+
+      </div>
+
+      <div
+
+        id="pinSettingsMessage"
+
+        class="pin-message"
+
+      ></div>
+
+      <div class="modal-actions">
+
+        <button
+
+          class="btn"
+
+          onclick="closeModal('pinSettingsModal')"
+
+        >
+
+          Annuler
+
+        </button>
+
+        <button
+
+          class="btn btn-dark"
+
+          onclick="saveNewPin()"
+
+        >
+
+          Enregistrer
+
+        </button>
+
+      </div>
+
+    </div>
 
   </div>
 
-</dialog>
+</div>
+
+<!-- =========================
+
+     MODALE COCKTAIL
+
+     ========================= -->
+
+<div
+
+  id="cocktailModal"
+
+  class="modal"
+
+>
+
+  <div class="modal-card">
+
+    <div class="modal-inner">
+
+      <div class="modal-head">
+
+        <h2 id="cocktailModalTitle">
+
+          Ajouter un cocktail
+
+        </h2>
+
+        <button
+
+          class="close"
+
+          onclick="closeModal('cocktailModal')"
+
+        >
+
+          ✕
+
+        </button>
+
+      </div>
+
+      <input
+
+        id="cocktailId"
+
+        type="hidden"
+
+      >
+
+      <div class="form-grid">
+
+        <div class="field">
+
+          <label for="cocktailNumber">
+
+            Numéro
+
+          </label>
+
+          <input
+
+            id="cocktailNumber"
+
+            class="input"
+
+            type="number"
+
+            min="1"
+
+            inputmode="numeric"
+
+            placeholder="Ex. 12"
+
+          >
+
+        </div>
+
+        <div class="field">
+
+          <label for="cocktailCategory">
+
+            Catégorie
+
+          </label>
+
+          <select
+
+            id="cocktailCategory"
+
+            class="select"
+
+          ></select>
+
+        </div>
+
+      </div>
+
+      <div class="field">
+
+        <label for="cocktailName">
+
+          Nom du cocktail *
+
+        </label>
+
+        <input
+
+          id="cocktailName"
+
+          class="input"
+
+          type="text"
+
+          placeholder="Ex. Mojito"
+
+        >
+
+      </div>
+
+      <div class="field">
+
+        <label for="cocktailIngredients">
+
+          Ingrédients
+
+        </label>
+
+        <textarea
+
+          id="cocktailIngredients"
+
+          class="textarea"
+
+          placeholder="Indique ici les ingrédients..."
+
+        ></textarea>
+
+      </div>
+
+      <div class="field">
+
+        <label for="cocktailPreparation">
+
+          Préparation
+
+        </label>
+
+        <textarea
+
+          id="cocktailPreparation"
+
+          class="textarea"
+
+          placeholder="Indique ici la préparation..."
+
+        ></textarea>
+
+      </div>
+
+      <div class="field">
+
+        <label for="cocktailGlass">
+
+          Verrerie / décoration
+
+        </label>
+
+        <textarea
+
+          id="cocktailGlass"
+
+          class="textarea"
+
+          placeholder="Verre, décoration, finition..."
+
+        ></textarea>
+
+      </div>
+
+      <div class="field">
+
+        <label for="cocktailPhoto">
+
+          Photo
+
+        </label>
+
+        <input
+
+          id="cocktailPhoto"
+
+          class="input"
+
+          type="file"
+
+          accept="image/*"
+
+          onchange="handlePhoto(event)"
+
+        >
+
+        <img
+
+          id="photoPreview"
+
+          class="image-preview"
+
+          style="display:none;"
+
+          alt="Aperçu"
+
+        >
+
+      </div>
+
+      <div class="modal-actions">
+
+        <button
+
+          id="deleteCocktailButton"
+
+          class="btn btn-danger"
+
+          style="display:none;"
+
+          onclick="deleteCurrentCocktail()"
+
+        >
+
+          🗑️ Supprimer
+
+        </button>
+
+        <button
+
+          class="btn"
+
+          onclick="closeModal('cocktailModal')"
+
+        >
+
+          Annuler
+
+        </button>
+
+        <button
+
+          class="btn btn-dark"
+
+          onclick="saveCocktail()"
+
+        >
+
+          💾 Enregistrer
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- =========================
+
+     MODALE CATÉGORIES
+
+     ========================= -->
+
+<div
+
+  id="categoriesModal"
+
+  class="modal"
+
+>
+
+  <div class="modal-card">
+
+    <div class="modal-inner">
+
+      <div class="modal-head">
+
+        <h2>
+
+          📂 Gérer les catégories
+
+        </h2>
+
+        <button
+
+          class="close"
+
+          onclick="closeModal('categoriesModal')"
+
+        >
+
+          ✕
+
+        </button>
+
+      </div>
+
+      <div class="field">
+
+        <label for="newCategory">
+
+          Nouvelle catégorie
+
+        </label>
+
+        <div style="display:flex;gap:8px;">
+
+          <input
+
+            id="newCategory"
+
+            class="input"
+
+            type="text"
+
+            placeholder="Ex. Cocktails chauds"
+
+          >
+
+          <button
+
+            class="btn btn-dark"
+
+            onclick="addCategory()"
+
+          >
+
+            Ajouter
+
+          </button>
+
+        </div>
+
+      </div>
+
+      <hr class="separator">
+
+      <div
+
+        id="categoryManager"
+
+      ></div>
+
+    </div>
+
+  </div>
+
+</div>
 
 <script>
-
-  // ======================================================
-
-  // STOCKAGE
-
-  // ======================================================
 
   const STORAGE_RECIPES = "cocktail_recipes_v5";
 
@@ -1548,41 +1740,83 @@
 
   ];
 
-  let cocktails = loadJSON(STORAGE_RECIPES, []);
+  let cocktails =
 
-  let categories = loadJSON(STORAGE_CATEGORIES, defaultCategories);
+    loadJSON(
 
-  let fontScale = Number(localStorage.getItem(STORAGE_FONT)) || 1;
+      STORAGE_RECIPES,
 
-  let sortMode = localStorage.getItem(STORAGE_SORT) || "number";
+      []
 
-  let currentCategory = "Tous";
+    );
 
-  let managementUnlocked = false;
+  let categories =
 
-  let currentPhoto = "";
+    loadJSON(
 
-  // ======================================================
+      STORAGE_CATEGORIES,
 
-  // OUTILS
+      defaultCategories
 
-  // ======================================================
+    );
 
-  function loadJSON(key, fallback) {
+  let fontScale =
+
+    Number(
+
+      localStorage.getItem(STORAGE_FONT)
+
+    ) || 1;
+
+  let sortMode =
+
+    localStorage.getItem(STORAGE_SORT)
+
+    || "number";
+
+  let currentCategory =
+
+    "Tous";
+
+  let managementUnlocked =
+
+    false;
+
+  let currentPhoto =
+
+    "";
+
+  function loadJSON(
+
+    key,
+
+    fallback
+
+  ) {
 
     try {
 
-      const saved = localStorage.getItem(key);
+      const saved =
+
+        localStorage.getItem(key);
 
       return saved
 
         ? JSON.parse(saved)
 
-        : JSON.parse(JSON.stringify(fallback));
+        : JSON.parse(
 
-    } catch (error) {
+            JSON.stringify(fallback)
 
-      return JSON.parse(JSON.stringify(fallback));
+          );
+
+    } catch {
+
+      return JSON.parse(
+
+        JSON.stringify(fallback)
+
+      );
 
     }
 
@@ -1610,7 +1844,13 @@
 
   function getPin() {
 
-    return localStorage.getItem(STORAGE_PIN) || DEFAULT_PIN;
+    return (
+
+      localStorage.getItem(STORAGE_PIN)
+
+      || DEFAULT_PIN
+
+    );
 
   }
 
@@ -1630,23 +1870,77 @@
 
   }
 
-  function closeDialog(id) {
+  function openModal(id) {
 
-    const dialog = document.getElementById(id);
+    const modal =
 
-    if (dialog && dialog.open) {
+      document.getElementById(id);
 
-      dialog.close();
+    if (!modal) return;
+
+    modal.classList.add("show");
+
+    document.body.classList.add(
+
+      "modal-open"
+
+    );
+
+  }
+
+  function closeModal(id) {
+
+    const modal =
+
+      document.getElementById(id);
+
+    if (!modal) return;
+
+    modal.classList.remove("show");
+
+    const anyOpen =
+
+      document.querySelector(
+
+        ".modal.show"
+
+      );
+
+    if (!anyOpen) {
+
+      document.body.classList.remove(
+
+        "modal-open"
+
+      );
 
     }
 
   }
 
-  // ======================================================
+  function closeAllModals() {
 
-  // MODE GESTION
+    document
 
-  // ======================================================
+      .querySelectorAll(".modal")
+
+      .forEach(modal => {
+
+        modal.classList.remove(
+
+          "show"
+
+        );
+
+      });
+
+    document.body.classList.remove(
+
+      "modal-open"
+
+    );
+
+  }
 
   function toggleManagement() {
 
@@ -1658,15 +1952,27 @@
 
     }
 
-    document.getElementById("pinInput").value = "";
+    document.getElementById(
 
-    document.getElementById("pinMessage").textContent = "";
+      "pinInput"
 
-    document.getElementById("pinDialog").showModal();
+    ).value = "";
+
+    document.getElementById(
+
+      "pinMessage"
+
+    ).textContent = "";
+
+    openModal("pinModal");
 
     setTimeout(() => {
 
-      document.getElementById("pinInput").focus();
+      document.getElementById(
+
+        "pinInput"
+
+      ).focus();
 
     }, 150);
 
@@ -1674,41 +1980,63 @@
 
   function checkPin() {
 
-    const entered = document
+    const entered =
 
-      .getElementById("pinInput")
+      document
 
-      .value
+        .getElementById("pinInput")
 
-      .replace(/\D/g, "");
+        .value
+
+        .replace(/\D/g, "");
 
     if (entered === getPin()) {
 
       managementUnlocked = true;
 
-      document.body.classList.add("management");
+      document.body.classList.add(
 
-      const status = document.getElementById("managementStatus");
+        "management"
 
-      status.classList.remove("locked");
+      );
 
-      status.classList.add("unlocked");
+      const status =
 
-      status.textContent = "Mode gestion";
+        document.getElementById(
 
-      closeDialog("pinDialog");
+          "managementStatus"
+
+        );
+
+      status.classList.add(
+
+        "unlocked"
+
+      );
+
+      status.textContent =
+
+        "🔓 Mode gestion";
+
+      closeModal("pinModal");
 
       renderCocktails();
 
     } else {
 
-      document.getElementById("pinMessage").textContent =
+      document.getElementById(
+
+        "pinMessage"
+
+      ).textContent =
 
         "❌ Code incorrect.";
 
-      document.getElementById("pinInput").value = "";
+      document.getElementById(
 
-      document.getElementById("pinInput").focus();
+        "pinInput"
+
+      ).value = "";
 
     }
 
@@ -1718,21 +2046,31 @@
 
     managementUnlocked = false;
 
-    document.body.classList.remove("management");
+    document.body.classList.remove(
 
-    const status = document.getElementById("managementStatus");
+      "management"
 
-    status.classList.remove("unlocked");
+    );
 
-    status.classList.add("locked");
+    const status =
 
-    status.textContent = "Mode consultation";
+      document.getElementById(
 
-    closeDialog("cocktailDialog");
+        "managementStatus"
 
-    closeDialog("categoriesDialog");
+      );
 
-    closeDialog("pinSettingsDialog");
+    status.classList.remove(
+
+      "unlocked"
+
+    );
+
+    status.textContent =
+
+      "🔒 Mode consultation";
+
+    closeAllModals();
 
     renderCocktails();
 
@@ -1752,61 +2090,91 @@
 
   }
 
-  // ======================================================
-
-  // CHANGER LE PIN
-
-  // ======================================================
-
   function openPinSettings() {
 
-    if (!requireManagement()) return;
+    if (!requireManagement()) {
 
-    document.getElementById("oldPin").value = "";
+      return;
 
-    document.getElementById("newPin").value = "";
+    }
 
-    document.getElementById("confirmPin").value = "";
+    document.getElementById(
 
-    document.getElementById("pinSettingsMessage").textContent = "";
+      "oldPin"
 
-    document.getElementById("pinSettingsDialog").showModal();
+    ).value = "";
+
+    document.getElementById(
+
+      "newPin"
+
+    ).value = "";
+
+    document.getElementById(
+
+      "confirmPin"
+
+    ).value = "";
+
+    document.getElementById(
+
+      "pinSettingsMessage"
+
+    ).textContent = "";
+
+    openModal(
+
+      "pinSettingsModal"
+
+    );
 
   }
 
   function saveNewPin() {
 
-    const oldPin = document
+    const oldPin =
 
-      .getElementById("oldPin")
+      document
 
-      .value
+        .getElementById("oldPin")
 
-      .replace(/\D/g, "");
+        .value
 
-    const newPin = document
+        .replace(/\D/g, "");
 
-      .getElementById("newPin")
+    const newPin =
 
-      .value
+      document
 
-      .replace(/\D/g, "");
+        .getElementById("newPin")
 
-    const confirmPin = document
+        .value
 
-      .getElementById("confirmPin")
+        .replace(/\D/g, "");
 
-      .value
+    const confirmPin =
 
-      .replace(/\D/g, "");
+      document
+
+        .getElementById("confirmPin")
+
+        .value
+
+        .replace(/\D/g, "");
 
     const message =
 
-      document.getElementById("pinSettingsMessage");
+      document.getElementById(
+
+        "pinSettingsMessage"
+
+      );
 
     if (oldPin !== getPin()) {
 
-      message.textContent = "❌ L'ancien code est incorrect.";
+      message.textContent =
+
+        "❌ L'ancien code est incorrect.";
 
       return;
 
@@ -1826,39 +2194,47 @@
 
       message.textContent =
 
-        "❌ Les deux nouveaux codes ne correspondent pas.";
+        "❌ Les deux codes ne correspondent pas.";
 
       return;
 
     }
 
-    localStorage.setItem(STORAGE_PIN, newPin);
+    localStorage.setItem(
 
-    message.textContent = "✅ Nouveau code enregistré.";
+      STORAGE_PIN,
+
+      newPin
+
+    );
+
+    message.textContent =
+
+      "✅ Nouveau code enregistré.";
 
     setTimeout(() => {
 
-      closeDialog("pinSettingsDialog");
+      closeModal(
+
+        "pinSettingsModal"
+
+      );
 
     }, 700);
 
   }
 
-  // ======================================================
-
-  // POLICE
-
-  // ======================================================
-
   function applyFont() {
 
-    fontScale = Math.min(
+    fontScale =
 
-      1.5,
+      Math.min(
 
-      Math.max(.8, fontScale)
+        1.5,
 
-    );
+        Math.max(.8, fontScale)
+
+      );
 
     document.documentElement.style.setProperty(
 
@@ -1868,9 +2244,17 @@
 
     );
 
-    document.getElementById("fontDisplay").textContent =
+    document.getElementById(
 
-      Math.round(fontScale * 100) + "%";
+      "fontDisplay"
+
+    ).textContent =
+
+      Math.round(
+
+        fontScale * 100
+
+      ) + "%";
 
     localStorage.setItem(
 
@@ -1890,17 +2274,15 @@
 
   }
 
-  // ======================================================
-
-  // TRI
-
-  // ======================================================
-
   function changeSort() {
 
     sortMode =
 
-      document.getElementById("sortSelect").value;
+      document.getElementById(
+
+        "sortSelect"
+
+      ).value;
 
     localStorage.setItem(
 
@@ -1920,15 +2302,19 @@
 
     if (sortMode === "number") {
 
-      sorted.sort((a, b) => {
+      sorted.sort((a,b) => {
 
         const numberA =
 
-          Number(a.number) || 999999;
+          Number(a.number)
+
+          || 999999;
 
         const numberB =
 
-          Number(b.number) || 999999;
+          Number(b.number)
+
+          || 999999;
 
         if (numberA !== numberB) {
 
@@ -1942,7 +2328,7 @@
 
           "fr",
 
-          { sensitivity: "base" }
+          { sensitivity:"base" }
 
         );
 
@@ -1952,7 +2338,7 @@
 
     if (sortMode === "name") {
 
-      sorted.sort((a, b) =>
+      sorted.sort((a,b) =>
 
         String(a.name).localeCompare(
 
@@ -1960,7 +2346,7 @@
 
           "fr",
 
-          { sensitivity: "base" }
+          { sensitivity:"base" }
 
         )
 
@@ -1970,33 +2356,45 @@
 
     if (sortMode === "category") {
 
-      sorted.sort((a, b) => {
+      sorted.sort((a,b) => {
 
-        const categoryCompare =
+        const cat =
 
-          String(a.category || "").localeCompare(
+          String(
 
-            String(b.category || ""),
+            a.category || ""
+
+          ).localeCompare(
+
+            String(
+
+              b.category || ""
+
+            ),
 
             "fr",
 
-            { sensitivity: "base" }
+            { sensitivity:"base" }
 
           );
 
-        if (categoryCompare !== 0) {
+        if (cat !== 0) {
 
-          return categoryCompare;
+          return cat;
 
         }
 
         const numberA =
 
-          Number(a.number) || 999999;
+          Number(a.number)
+
+          || 999999;
 
         const numberB =
 
-          Number(b.number) || 999999;
+          Number(b.number)
+
+          || 999999;
 
         if (numberA !== numberB) {
 
@@ -2010,7 +2408,7 @@
 
           "fr",
 
-          { sensitivity: "base" }
+          { sensitivity:"base" }
 
         );
 
@@ -2022,37 +2420,39 @@
 
   }
 
-  // ======================================================
-
-  // CATÉGORIES
-
-  // ======================================================
-
   function renderCategoryFilters() {
 
     const container =
 
-      document.getElementById("categoryFilters");
+      document.getElementById(
+
+        "categoryFilters"
+
+      );
 
     container.innerHTML = "";
 
-    const allCategories = [
+    [
 
       "Tous",
 
       ...categories
 
-    ];
-
-    allCategories.forEach(category => {
+    ].forEach(category => {
 
       const button =
 
-        document.createElement("button");
+        document.createElement(
+
+          "button"
+
+        );
 
       button.className =
 
-        "chip" +
+        "chip"
+
+        +
 
         (
 
@@ -2064,11 +2464,15 @@
 
         );
 
-      button.textContent = category;
+      button.textContent =
+
+        category;
 
       button.onclick = () => {
 
-        currentCategory = category;
+        currentCategory =
+
+          category;
 
         renderCategoryFilters();
 
@@ -2076,7 +2480,11 @@
 
       };
 
-      container.appendChild(button);
+      container.appendChild(
+
+        button
+
+      );
 
     });
 
@@ -2086,29 +2494,61 @@
 
     const select =
 
-      document.getElementById("cocktailCategory");
+      document.getElementById(
 
-    const previous = select.value;
+        "cocktailCategory"
+
+      );
+
+    const previous =
+
+      select.value;
 
     select.innerHTML = "";
 
-    categories.forEach(category => {
+    categories.forEach(
 
-      const option =
+      category => {
 
-        document.createElement("option");
+        const option =
 
-      option.value = category;
+          document.createElement(
 
-      option.textContent = category;
+            "option"
 
-      select.appendChild(option);
+          );
 
-    });
+        option.value =
 
-    if (categories.includes(previous)) {
+          category;
 
-      select.value = previous;
+        option.textContent =
+
+          category;
+
+        select.appendChild(
+
+          option
+
+        );
+
+      }
+
+    );
+
+    if (
+
+      categories.includes(
+
+        previous
+
+      )
+
+    ) {
+
+      select.value =
+
+        previous;
 
     }
 
@@ -2116,11 +2556,19 @@
 
   function openCategories() {
 
-    if (!requireManagement()) return;
+    if (!requireManagement()) {
+
+      return;
+
+    }
 
     renderCategoryManager();
 
-    document.getElementById("categoriesDialog").showModal();
+    openModal(
+
+      "categoriesModal"
+
+    );
 
   }
 
@@ -2128,73 +2576,111 @@
 
     const manager =
 
-      document.getElementById("categoryManager");
+      document.getElementById(
+
+        "categoryManager"
+
+      );
 
     manager.innerHTML = "";
 
-    categories.forEach((category, index) => {
+    categories.forEach(
 
-      const row =
+      (category,index) => {
 
-        document.createElement("div");
+        const row =
 
-      row.className = "category-row";
+          document.createElement(
 
-      row.innerHTML = `
+            "div"
 
-        <input
+          );
 
-          class="input"
+        row.className =
 
-          value="${escapeHTML(category)}"
+          "category-row";
 
-          onchange="renameCategory(${index}, this.value)"
+        row.innerHTML = `
 
-        >
+          <input
 
-        <button
+            class="input"
 
-          class="btn btn-danger"
+            value="${escapeHTML(category)}"
 
-          onclick="deleteCategory(${index})"
+            onchange="renameCategory(${index}, this.value)"
 
-        >
+          >
 
-          🗑️
+          <button
 
-        </button>
+            class="btn btn-danger"
 
-      `;
+            onclick="deleteCategory(${index})"
 
-      manager.appendChild(row);
+          >
 
-    });
+            🗑️
+
+          </button>
+
+        `;
+
+        manager.appendChild(
+
+          row
+
+        );
+
+      }
+
+    );
 
   }
 
   function addCategory() {
 
-    if (!requireManagement()) return;
+    if (!requireManagement()) {
+
+      return;
+
+    }
 
     const input =
 
-      document.getElementById("newCategory");
+      document.getElementById(
 
-    const name = input.value.trim();
+        "newCategory"
+
+      );
+
+    const name =
+
+      input.value.trim();
 
     if (!name) return;
 
-    const exists = categories.some(category =>
+    const exists =
 
-      category.toLowerCase() ===
+      categories.some(
 
-      name.toLowerCase()
+        category =>
 
-    );
+          category.toLowerCase()
+
+          ===
+
+          name.toLowerCase()
+
+      );
 
     if (exists) {
 
-      alert("Cette catégorie existe déjà.");
+      alert(
+
+        "Cette catégorie existe déjà."
+
+      );
 
       return;
 
@@ -2210,7 +2696,7 @@
 
         "fr",
 
-        { sensitivity: "base" }
+        { sensitivity:"base" }
 
       )
 
@@ -2228,11 +2714,23 @@
 
   }
 
-  function renameCategory(index, newName) {
+  function renameCategory(
 
-    if (!requireManagement()) return;
+    index,
 
-    newName = newName.trim();
+    newName
+
+  ) {
+
+    if (!requireManagement()) {
+
+      return;
+
+    }
+
+    newName =
+
+      newName.trim();
 
     if (!newName) {
 
@@ -2242,19 +2740,35 @@
 
     }
 
-    const oldName = categories[index];
+    const oldName =
 
-    cocktails.forEach(cocktail => {
+      categories[index];
 
-      if (cocktail.category === oldName) {
+    cocktails.forEach(
 
-        cocktail.category = newName;
+      cocktail => {
+
+        if (
+
+          cocktail.category
+
+          === oldName
+
+        ) {
+
+          cocktail.category =
+
+            newName;
+
+        }
 
       }
 
-    });
+    );
 
-    categories[index] = newName;
+    categories[index] =
+
+      newName;
 
     saveAll();
 
@@ -2268,55 +2782,105 @@
 
   function deleteCategory(index) {
 
-    if (!requireManagement()) return;
+    if (!requireManagement()) {
 
-    const category = categories[index];
-
-    const used = cocktails.some(
-
-      cocktail =>
-
-        cocktail.category === category
-
-    );
-
-    if (used) {
-
-      const confirmation = confirm(
-
-        `"${category}" est utilisée par une ou plusieurs recettes.\n\nLes recettes seront déplacées vers "Autre". Continuer ?`
-
-      );
-
-      if (!confirmation) return;
-
-      if (!categories.includes("Autre")) {
-
-        categories.push("Autre");
-
-      }
-
-      cocktails.forEach(cocktail => {
-
-        if (cocktail.category === category) {
-
-          cocktail.category = "Autre";
-
-        }
-
-      });
+      return;
 
     }
 
-    categories.splice(index, 1);
+    const category =
+
+      categories[index];
+
+    const used =
+
+      cocktails.some(
+
+        cocktail =>
+
+          cocktail.category
+
+          === category
+
+      );
+
+    if (used) {
+
+      const confirmation =
+
+        confirm(
+
+          `"${category}" est utilisée par une ou plusieurs recettes.\n\nLes recettes seront déplacées vers "Autre". Continuer ?`
+
+        );
+
+      if (!confirmation) {
+
+        return;
+
+      }
+
+      if (
+
+        !categories.includes(
+
+          "Autre"
+
+        )
+
+      ) {
+
+        categories.push(
+
+          "Autre"
+
+        );
+
+      }
+
+      cocktails.forEach(
+
+        cocktail => {
+
+          if (
+
+            cocktail.category
+
+            === category
+
+          ) {
+
+            cocktail.category =
+
+              "Autre";
+
+          }
+
+        }
+
+      );
+
+    }
+
+    categories.splice(
+
+      index,
+
+      1
+
+    );
 
     if (
 
-      currentCategory === category
+      currentCategory
+
+      === category
 
     ) {
 
-      currentCategory = "Tous";
+      currentCategory =
+
+        "Tous";
 
     }
 
@@ -2332,13 +2896,11 @@
 
   }
 
-  // ======================================================
+  async function handlePhoto(
 
-  // PHOTO
+    event
 
-  // ======================================================
-
-  async function handlePhoto(event) {
+  ) {
 
     const file =
 
@@ -2348,159 +2910,259 @@
 
     currentPhoto =
 
-      await resizeImage(file, 1200, .78);
+      await resizeImage(
+
+        file,
+
+        1200,
+
+        .78
+
+      );
 
     const preview =
 
-      document.getElementById("photoPreview");
+      document.getElementById(
 
-    preview.src = currentPhoto;
+        "photoPreview"
 
-    preview.style.display = "block";
+      );
+
+    preview.src =
+
+      currentPhoto;
+
+    preview.style.display =
+
+      "block";
 
   }
 
-  function resizeImage(file, maxSize, quality) {
+  function resizeImage(
 
-    return new Promise((resolve, reject) => {
+    file,
 
-      const reader = new FileReader();
+    maxSize,
 
-      reader.onload = () => {
+    quality
 
-        const img = new Image();
+  ) {
 
-        img.onload = () => {
+    return new Promise(
 
-          let width = img.width;
+      (resolve,reject) => {
 
-          let height = img.height;
+        const reader =
 
-          if (
+          new FileReader();
 
-            width > maxSize ||
+        reader.onload = () => {
 
-            height > maxSize
+          const img =
 
-          ) {
+            new Image();
 
-            const ratio =
+          img.onload = () => {
 
-              Math.min(
+            let width =
 
-                maxSize / width,
+              img.width;
 
-                maxSize / height
+            let height =
+
+              img.height;
+
+            if (
+
+              width > maxSize
+
+              ||
+
+              height > maxSize
+
+            ) {
+
+              const ratio =
+
+                Math.min(
+
+                  maxSize / width,
+
+                  maxSize / height
+
+                );
+
+              width =
+
+                Math.round(
+
+                  width * ratio
+
+                );
+
+              height =
+
+                Math.round(
+
+                  height * ratio
+
+                );
+
+            }
+
+            const canvas =
+
+              document.createElement(
+
+                "canvas"
 
               );
 
-            width =
+            canvas.width =
 
-              Math.round(width * ratio);
+              width;
 
-            height =
+            canvas.height =
 
-              Math.round(height * ratio);
+              height;
 
-          }
+            const ctx =
 
-          const canvas =
+              canvas.getContext(
 
-            document.createElement("canvas");
+                "2d"
 
-          canvas.width = width;
+              );
 
-          canvas.height = height;
+            ctx.drawImage(
 
-          const ctx =
+              img,
 
-            canvas.getContext("2d");
+              0,
 
-          ctx.drawImage(
+              0,
 
-            img,
+              width,
 
-            0,
+              height
 
-            0,
+            );
 
-            width,
+            resolve(
 
-            height
+              canvas.toDataURL(
 
-          );
+                "image/jpeg",
 
-          resolve(
+                quality
 
-            canvas.toDataURL(
+              )
 
-              "image/jpeg",
+            );
 
-              quality
+          };
 
-            )
+          img.onerror =
 
-          );
+            reject;
+
+          img.src =
+
+            reader.result;
 
         };
 
-        img.onerror = reject;
+        reader.onerror =
 
-        img.src = reader.result;
+          reject;
 
-      };
+        reader.readAsDataURL(
 
-      reader.onerror = reject;
+          file
 
-      reader.readAsDataURL(file);
+        );
 
-    });
+      }
+
+    );
 
   }
 
-  // ======================================================
-
-  // FORMULAIRE COCKTAIL
-
-  // ======================================================
-
   function resetCocktailForm() {
 
-    document.getElementById("cocktailId").value = "";
+    document.getElementById(
 
-    document.getElementById("cocktailNumber").value = "";
+      "cocktailId"
 
-    document.getElementById("cocktailName").value = "";
+    ).value = "";
 
-    document.getElementById("cocktailIngredients").value = "";
+    document.getElementById(
 
-    document.getElementById("cocktailPreparation").value = "";
+      "cocktailNumber"
 
-    document.getElementById("cocktailGlass").value = "";
+    ).value = "";
 
-    document.getElementById("cocktailPhoto").value = "";
+    document.getElementById(
+
+      "cocktailName"
+
+    ).value = "";
+
+    document.getElementById(
+
+      "cocktailIngredients"
+
+    ).value = "";
+
+    document.getElementById(
+
+      "cocktailPreparation"
+
+    ).value = "";
+
+    document.getElementById(
+
+      "cocktailGlass"
+
+    ).value = "";
+
+    document.getElementById(
+
+      "cocktailPhoto"
+
+    ).value = "";
 
     currentPhoto = "";
 
     const preview =
 
-      document.getElementById("photoPreview");
+      document.getElementById(
+
+        "photoPreview"
+
+      );
 
     preview.src = "";
 
-    preview.style.display = "none";
+    preview.style.display =
+
+      "none";
 
     document.getElementById(
 
       "deleteCocktailButton"
 
-    ).style.display = "none";
+    ).style.display =
+
+      "none";
 
     document.getElementById(
 
-      "cocktailDialogTitle"
+      "cocktailModalTitle"
 
-    ).textContent = "Ajouter un cocktail";
+    ).textContent =
+
+      "Ajouter un cocktail";
 
     fillCategorySelect();
 
@@ -2510,15 +3172,25 @@
 
         "cocktailCategory"
 
-      ).value = categories[0];
+      ).value =
+
+        categories[0];
 
     }
 
   }
 
-  function openCocktailForm(id = null) {
+  function openCocktailForm(
 
-    if (!requireManagement()) return;
+    id = null
+
+  ) {
+
+    if (!requireManagement()) {
+
+      return;
+
+    }
 
     resetCocktailForm();
 
@@ -2526,17 +3198,21 @@
 
       const cocktail =
 
-        cocktails.find(c =>
+        cocktails.find(
 
-          c.id === id
+          c => c.id === id
 
         );
 
-      if (!cocktail) return;
+      if (!cocktail) {
+
+        return;
+
+      }
 
       document.getElementById(
 
-        "cocktailDialogTitle"
+        "cocktailModalTitle"
 
       ).textContent =
 
@@ -2612,9 +3288,13 @@
 
           );
 
-        preview.src = currentPhoto;
+        preview.src =
 
-        preview.style.display = "block";
+          currentPhoto;
+
+        preview.style.display =
+
+          "block";
 
       }
 
@@ -2622,91 +3302,91 @@
 
         "deleteCocktailButton"
 
-      ).style.display = "inline-flex";
+      ).style.display =
+
+        "inline-flex";
 
     }
 
-    document
+    openModal(
 
-      .getElementById("cocktailDialog")
+      "cocktailModal"
 
-      .showModal();
+    );
 
   }
 
   function saveCocktail() {
 
-    if (!requireManagement()) return;
+    if (!requireManagement()) {
+
+      return;
+
+    }
 
     const id =
 
-      document
+      document.getElementById(
 
-        .getElementById("cocktailId")
+        "cocktailId"
 
-        .value;
+      ).value;
 
     const number =
 
-      document
+      document.getElementById(
 
-        .getElementById("cocktailNumber")
+        "cocktailNumber"
 
-        .value
-
-        .trim();
+      ).value.trim();
 
     const name =
 
-      document
+      document.getElementById(
 
-        .getElementById("cocktailName")
+        "cocktailName"
 
-        .value
-
-        .trim();
+      ).value.trim();
 
     const category =
 
-      document
+      document.getElementById(
 
-        .getElementById("cocktailCategory")
+        "cocktailCategory"
 
-        .value;
+      ).value;
 
     const ingredients =
 
-      document
+      document.getElementById(
 
-        .getElementById("cocktailIngredients")
+        "cocktailIngredients"
 
-        .value
-
-        .trim();
+      ).value.trim();
 
     const preparation =
 
-      document
+      document.getElementById(
 
-        .getElementById("cocktailPreparation")
+        "cocktailPreparation"
 
-        .value
-
-        .trim();
+      ).value.trim();
 
     const glass =
 
-      document
+      document.getElementById(
 
-        .getElementById("cocktailGlass")
+        "cocktailGlass"
 
-        .value
-
-        .trim();
+      ).value.trim();
 
     if (!name) {
 
-      alert("Indique le nom du cocktail.");
+      alert(
+
+        "Indique le nom du cocktail."
+
+      );
 
       return;
 
@@ -2716,15 +3396,23 @@
 
       const duplicate =
 
-        cocktails.find(cocktail =>
+        cocktails.find(
 
-          String(cocktail.number) ===
+          cocktail =>
+
+            String(
+
+              cocktail.number
+
+            )
+
+            ===
 
             String(number)
 
-          &&
+            &&
 
-          cocktail.id !== id
+            cocktail.id !== id
 
         );
 
@@ -2738,7 +3426,11 @@
 
           );
 
-        if (!confirmation) return;
+        if (!confirmation) {
+
+          return;
+
+        }
 
       }
 
@@ -2748,7 +3440,9 @@
 
       id:
 
-        id ||
+        id
+
+        ||
 
         (
 
@@ -2772,7 +3466,9 @@
 
       glass,
 
-      photo: currentPhoto,
+      photo:
+
+        currentPhoto,
 
       updatedAt:
 
@@ -2784,27 +3480,37 @@
 
       const index =
 
-        cocktails.findIndex(c =>
+        cocktails.findIndex(
 
-          c.id === id
+          c => c.id === id
 
         );
 
       if (index !== -1) {
 
-        cocktails[index] = recipe;
+        cocktails[index] =
+
+          recipe;
 
       }
 
     } else {
 
-      cocktails.push(recipe);
+      cocktails.push(
+
+        recipe
+
+      );
 
     }
 
     saveAll();
 
-    closeDialog("cocktailDialog");
+    closeModal(
+
+      "cocktailModal"
+
+    );
 
     renderCocktails();
 
@@ -2812,23 +3518,27 @@
 
   function deleteCurrentCocktail() {
 
-    if (!requireManagement()) return;
+    if (!requireManagement()) {
+
+      return;
+
+    }
 
     const id =
 
-      document
+      document.getElementById(
 
-        .getElementById("cocktailId")
+        "cocktailId"
 
-        .value;
+      ).value;
 
     if (!id) return;
 
     const cocktail =
 
-      cocktails.find(c =>
+      cocktails.find(
 
-        c.id === id
+        c => c.id === id
 
       );
 
@@ -2840,93 +3550,125 @@
 
       );
 
-    if (!confirmation) return;
+    if (!confirmation) {
+
+      return;
+
+    }
 
     cocktails =
 
-      cocktails.filter(c =>
+      cocktails.filter(
 
-        c.id !== id
+        c => c.id !== id
 
       );
 
     saveAll();
 
-    closeDialog("cocktailDialog");
+    closeModal(
+
+      "cocktailModal"
+
+    );
 
     renderCocktails();
 
   }
 
-  // ======================================================
-
-  // AFFICHAGE
-
-  // ======================================================
-
   function renderCocktails() {
 
     const grid =
 
-      document.getElementById("cocktailGrid");
+      document.getElementById(
+
+        "cocktailGrid"
+
+      );
 
     const search =
 
-      document
+      document.getElementById(
 
-        .getElementById("searchInput")
+        "searchInput"
 
-        .value
+      )
 
-        .trim()
+      .value
 
-        .toLowerCase();
+      .trim()
+
+      .toLowerCase();
 
     let filtered =
 
-      cocktails.filter(cocktail => {
+      cocktails.filter(
 
-        const categoryOK =
+        cocktail => {
 
-          currentCategory === "Tous"
+          const categoryOK =
 
-          ||
+            currentCategory === "Tous"
 
-          cocktail.category === currentCategory;
+            ||
 
-        const searchText = [
+            cocktail.category
 
-          cocktail.number,
+            === currentCategory;
 
-          cocktail.name,
+          const searchText = [
 
-          cocktail.category,
+            cocktail.number,
 
-          cocktail.ingredients,
+            cocktail.name,
 
-          cocktail.preparation,
+            cocktail.category,
 
-          cocktail.glass
+            cocktail.ingredients,
 
-        ]
+            cocktail.preparation,
+
+            cocktail.glass
+
+          ]
 
           .join(" ")
 
           .toLowerCase();
 
-        const searchOK =
+          const searchOK =
 
-          !search ||
+            !search
 
-          searchText.includes(search);
+            ||
 
-        return categoryOK && searchOK;
+            searchText.includes(
 
-      });
+              search
+
+            );
+
+          return (
+
+            categoryOK
+
+            &&
+
+            searchOK
+
+          );
+
+        }
+
+      );
 
     filtered =
 
-      sortCocktails(filtered);
+      sortCocktails(
+
+        filtered
+
+      );
 
     grid.innerHTML = "";
 
@@ -2936,9 +3678,17 @@
 
         <div class="empty">
 
-          <div style="font-size:3rem;margin-bottom:10px;">🍸</div>
+          <div style="font-size:3rem;margin-bottom:10px;">
 
-          <strong>Aucun cocktail trouvé</strong>
+            🍸
+
+          </div>
+
+          <strong>
+
+            Aucun cocktail trouvé
+
+          </strong>
 
           <p>
 
@@ -2946,9 +3696,9 @@
 
               managementUnlocked
 
-                ? "Appuie sur « + Cocktail » pour ajouter ta première recette."
+                ? "Appuie sur « + Cocktail » pour ajouter une recette."
 
-                : "Passe en mode gestion pour ajouter des recettes."
+                : "Les recettes disponibles apparaîtront ici."
 
             }
 
@@ -2962,95 +3712,151 @@
 
     }
 
-    filtered.forEach(cocktail => {
+    filtered.forEach(
 
-      const card =
+      cocktail => {
 
-        document.createElement("article");
+        const card =
 
-      card.className = "card";
+          document.createElement(
 
-      const imageHTML =
+            "article"
 
-        cocktail.photo
+          );
 
-          ? `
+        card.className =
 
-            <img
+          "card";
 
-              class="card-image"
+        const imageHTML =
 
-              src="${cocktail.photo}"
+          cocktail.photo
 
-              alt="${escapeHTML(cocktail.name)}"
+            ? `
 
-            >
+              <img
 
-          `
+                class="card-image"
 
-          : `
+                src="${cocktail.photo}"
 
-            <div class="card-no-image">
+                alt="${escapeHTML(cocktail.name)}"
 
-              🍹
+              >
 
-            </div>
+            `
 
-          `;
+            : `
 
-      const managementButtons =
+              <div class="card-no-image">
 
-        managementUnlocked
-
-          ? `
-
-            <button
-
-              class="btn"
-
-              onclick="openCocktailForm('${cocktail.id}')"
-
-            >
-
-              ✏️ Modifier
-
-            </button>
-
-          `
-
-          : "";
-
-      card.innerHTML = `
-
-        ${imageHTML}
-
-        <div class="card-body">
-
-          <div class="card-top">
-
-            <div>
-
-              <h3>${escapeHTML(cocktail.name)}</h3>
-
-              <div class="category-label">
-
-                ${escapeHTML(cocktail.category || "Sans catégorie")}
+                🍹
 
               </div>
+
+            `;
+
+        const managementButtons =
+
+          managementUnlocked
+
+            ? `
+
+              <div class="card-actions">
+
+                <button
+
+                  class="btn"
+
+                  onclick="openCocktailForm('${cocktail.id}')"
+
+                >
+
+                  ✏️ Modifier
+
+                </button>
+
+              </div>
+
+            `
+
+            : "";
+
+        card.innerHTML = `
+
+          ${imageHTML}
+
+          <div class="card-body">
+
+            <div class="card-top">
+
+              <div>
+
+                <h3>
+
+                  ${escapeHTML(cocktail.name)}
+
+                </h3>
+
+                <div class="category-label">
+
+                  ${escapeHTML(
+
+                    cocktail.category
+
+                    ||
+
+                    "Sans catégorie"
+
+                  )}
+
+                </div>
+
+              </div>
+
+              ${
+
+                cocktail.number
+
+                  ? `
+
+                    <span class="number">
+
+                      #${escapeHTML(cocktail.number)}
+
+                    </span>
+
+                  `
+
+                  : ""
+
+              }
 
             </div>
 
             ${
 
-              cocktail.number
+              cocktail.ingredients
 
                 ? `
 
-                  <span class="number">
+                  <div class="card-content">
 
-                    #${escapeHTML(cocktail.number)}
+                    <strong>
 
-                  </span>
+                      Ingrédients
+
+                    </strong>
+
+                    <br>
+
+                    ${escapeHTML(
+
+                      cocktail.ingredients
+
+                    )}
+
+                  </div>
 
                 `
 
@@ -3058,117 +3864,103 @@
 
             }
 
+            ${
+
+              cocktail.preparation
+
+                ? `
+
+                  <div
+
+                    class="card-content"
+
+                    style="margin-top:10px;"
+
+                  >
+
+                    <strong>
+
+                      Préparation
+
+                    </strong>
+
+                    <br>
+
+                    ${escapeHTML(
+
+                      cocktail.preparation
+
+                    )}
+
+                  </div>
+
+                `
+
+                : ""
+
+            }
+
+            ${
+
+              cocktail.glass
+
+                ? `
+
+                  <div
+
+                    class="card-content"
+
+                    style="margin-top:10px;"
+
+                  >
+
+                    <strong>
+
+                      Verrerie / décoration
+
+                    </strong>
+
+                    <br>
+
+                    ${escapeHTML(
+
+                      cocktail.glass
+
+                    )}
+
+                  </div>
+
+                `
+
+                : ""
+
+            }
+
+            ${managementButtons}
+
           </div>
 
-          ${
+        `;
 
-            cocktail.ingredients
+        grid.appendChild(
 
-              ? `
+          card
 
-                <div class="card-content">
+        );
 
-                  <strong>Ingrédients</strong><br>
+      }
 
-                  ${escapeHTML(cocktail.ingredients)}
-
-                </div>
-
-              `
-
-              : ""
-
-          }
-
-          ${
-
-            cocktail.preparation
-
-              ? `
-
-                <div
-
-                  class="card-content"
-
-                  style="margin-top:10px;"
-
-                >
-
-                  <strong>Préparation</strong><br>
-
-                  ${escapeHTML(cocktail.preparation)}
-
-                </div>
-
-              `
-
-              : ""
-
-          }
-
-          ${
-
-            cocktail.glass
-
-              ? `
-
-                <div
-
-                  class="card-content"
-
-                  style="margin-top:10px;"
-
-                >
-
-                  <strong>Verrerie / décoration</strong><br>
-
-                  ${escapeHTML(cocktail.glass)}
-
-                </div>
-
-              `
-
-              : ""
-
-          }
-
-          ${
-
-            managementButtons
-
-              ? `
-
-                <div class="card-actions">
-
-                  ${managementButtons}
-
-                </div>
-
-              `
-
-              : ""
-
-          }
-
-        </div>
-
-      `;
-
-      grid.appendChild(card);
-
-    });
+    );
 
   }
 
-  // ======================================================
-
-  // RACCOURCI CLAVIER PIN
-
-  // ======================================================
-
   document
 
-    .getElementById("pinInput")
+    .getElementById(
+
+      "pinInput"
+
+    )
 
     .addEventListener(
 
@@ -3176,7 +3968,11 @@
 
       event => {
 
-        if (event.key === "Enter") {
+        if (
+
+          event.key === "Enter"
+
+        ) {
 
           checkPin();
 
@@ -3186,17 +3982,55 @@
 
     );
 
-  // ======================================================
-
-  // INITIALISATION
-
-  // ======================================================
-
   document
 
-    .getElementById("sortSelect")
+    .querySelectorAll(
 
-    .value = sortMode;
+      ".modal"
+
+    )
+
+    .forEach(
+
+      modal => {
+
+        modal.addEventListener(
+
+          "click",
+
+          event => {
+
+            if (
+
+              event.target
+
+              === modal
+
+            ) {
+
+              closeModal(
+
+                modal.id
+
+              );
+
+            }
+
+          }
+
+        );
+
+      }
+
+    );
+
+  document.getElementById(
+
+    "sortSelect"
+
+  ).value =
+
+    sortMode;
 
   applyFont();
 
@@ -3206,25 +4040,25 @@
 
   renderCocktails();
 
-  // ======================================================
-
-  // PWA
-
-  // ======================================================
-
   if (
 
-    "serviceWorker" in navigator
+    "serviceWorker"
+
+    in navigator
 
     &&
 
     (
 
-      location.protocol === "https:"
+      location.protocol
+
+      === "https:"
 
       ||
 
-      location.hostname === "localhost"
+      location.hostname
+
+      === "localhost"
 
     )
 
@@ -3234,7 +4068,11 @@
 
       .serviceWorker
 
-      .register("./service-worker.js")
+      .register(
+
+        "./service-worker.js"
+
+      )
 
       .catch(() => {});
 
