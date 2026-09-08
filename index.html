@@ -54,8 +54,6 @@
 
       --font-scale: 1;
 
-      --app-height: 100vh;
-
     }
 
     * {
@@ -69,6 +67,8 @@
       font-size: calc(16px * var(--font-scale));
 
       min-height: 100%;
+
+      background: var(--bg);
 
     }
 
@@ -104,10 +104,6 @@
 
       overflow: hidden;
 
-      height: 100%;
-
-      touch-action: none;
-
     }
 
     button,
@@ -134,11 +130,15 @@
 
       width: min(1400px, 100%);
 
+      min-height: 100vh;
+
       margin: 0 auto;
 
       padding: 16px;
 
       padding-bottom: 100px;
+
+      background: var(--bg);
 
     }
 
@@ -560,9 +560,9 @@
 
       position: fixed;
 
-      right: max(18px, env(safe-area-inset-right));
+      right: 18px;
 
-      bottom: max(18px, env(safe-area-inset-bottom));
+      bottom: 18px;
 
       width: 62px;
 
@@ -596,11 +596,13 @@
 
     }
 
-    /* ==========================================
+    /* =========================
 
-       MODALES CORRIGÉES IPHONE / IPAD / PC
+       MODALES
 
-       ========================================== */
+       Compatible vieux iPad
+
+       ========================= */
 
     .modal {
 
@@ -608,29 +610,27 @@
 
       position: fixed;
 
-      z-index: 1000;
+      top: 0;
 
-      inset: 0;
+      left: 0;
+
+      right: 0;
+
+      bottom: 0;
 
       width: 100%;
 
-      height: 100vh;
+      height: 100%;
 
-      height: var(--app-height);
+      z-index: 1000;
 
-      background: rgba(17,24,39,.60);
+      background: rgba(17,24,39,.62);
 
-      padding:
+      overflow: auto;
 
-        max(14px, env(safe-area-inset-top))
+      -webkit-overflow-scrolling: touch;
 
-        max(10px, env(safe-area-inset-right))
-
-        max(14px, env(safe-area-inset-bottom))
-
-        max(10px, env(safe-area-inset-left));
-
-      overflow: hidden;
+      padding: 20px 12px;
 
     }
 
@@ -648,9 +648,9 @@
 
       width: min(720px, 100%);
 
-      max-width: 720px;
+      max-height: calc(100vh - 40px);
 
-      max-height: calc(var(--app-height) - 28px);
+      margin: auto;
 
       background: white;
 
@@ -660,29 +660,17 @@
 
       overflow: hidden;
 
-      display: flex;
-
-      flex-direction: column;
-
-      margin: 0;
-
-      position: relative;
-
     }
 
     .modal-inner {
 
-      padding: 20px;
+      max-height: calc(100vh - 40px);
 
       overflow-y: auto;
 
-      overflow-x: hidden;
-
       -webkit-overflow-scrolling: touch;
 
-      overscroll-behavior: contain;
-
-      max-height: calc(var(--app-height) - 28px);
+      padding: 20px;
 
     }
 
@@ -698,17 +686,7 @@
 
       margin-bottom: 18px;
 
-      position: sticky;
-
-      top: -20px;
-
       background: white;
-
-      z-index: 5;
-
-      padding-top: 2px;
-
-      padding-bottom: 8px;
 
     }
 
@@ -791,8 +769,6 @@
       gap: 9px;
 
       margin-top: 18px;
-
-      padding-bottom: 2px;
 
     }
 
@@ -934,15 +910,7 @@
 
       .modal {
 
-        padding:
-
-          max(8px, env(safe-area-inset-top))
-
-          max(7px, env(safe-area-inset-right))
-
-          max(8px, env(safe-area-inset-bottom))
-
-          max(7px, env(safe-area-inset-left));
+        padding: 10px 8px;
 
       }
 
@@ -950,7 +918,7 @@
 
         width: 100%;
 
-        max-height: calc(var(--app-height) - 16px);
+        max-height: calc(100vh - 20px);
 
         border-radius: 18px;
 
@@ -958,41 +926,33 @@
 
       .modal-inner {
 
+        max-height: calc(100vh - 20px);
+
         padding: 16px;
-
-        max-height: calc(var(--app-height) - 16px);
-
-      }
-
-      .modal-head {
-
-        top: -16px;
 
       }
 
     }
 
-    @media (orientation: landscape) and (max-height: 650px) {
+    /* Ancien Safari iPad */
 
-      .modal.show {
+    @supports (-webkit-touch-callout: none) {
 
-        align-items: center;
+      .modal {
+
+        height: 100%;
 
       }
 
       .modal-card {
 
-        max-height: calc(var(--app-height) - 12px);
+        max-height: 90vh;
 
       }
 
       .modal-inner {
 
-        max-height: calc(var(--app-height) - 12px);
-
-        padding-top: 14px;
-
-        padding-bottom: 14px;
+        max-height: 90vh;
 
       }
 
@@ -1202,7 +1162,11 @@
 
 </button>
 
-<!-- PIN -->
+<!-- =========================
+
+     CODE GESTION
+
+     ========================= -->
 
 <div id="pinModal" class="modal">
 
@@ -1286,7 +1250,11 @@
 
 </div>
 
-<!-- CHANGER PIN -->
+<!-- =========================
+
+     CHANGER CODE
+
+     ========================= -->
 
 <div id="pinSettingsModal" class="modal">
 
@@ -1420,7 +1388,11 @@
 
 </div>
 
-<!-- COCKTAIL -->
+<!-- =========================
+
+     COCKTAIL
+
+     ========================= -->
 
 <div id="cocktailModal" class="modal">
 
@@ -1674,7 +1646,11 @@
 
 </div>
 
-<!-- CATÉGORIES -->
+<!-- =========================
+
+     CATÉGORIES
+
+     ========================= -->
 
 <div id="categoriesModal" class="modal">
 
@@ -1754,17 +1730,29 @@
 
 <script>
 
-  const STORAGE_RECIPES = "cocktail_recipes_v5";
+  const STORAGE_RECIPES =
 
-  const STORAGE_CATEGORIES = "cocktail_categories_v5";
+    "cocktail_recipes_v5";
 
-  const STORAGE_FONT = "cocktail_font_scale_v5";
+  const STORAGE_CATEGORIES =
 
-  const STORAGE_SORT = "cocktail_sort_v5";
+    "cocktail_categories_v5";
 
-  const STORAGE_PIN = "cocktail_manager_pin_v1";
+  const STORAGE_FONT =
 
-  const DEFAULT_PIN = "1234";
+    "cocktail_font_scale_v5";
+
+  const STORAGE_SORT =
+
+    "cocktail_sort_v5";
+
+  const STORAGE_PIN =
+
+    "cocktail_manager_pin_v1";
+
+  const DEFAULT_PIN =
+
+    "1234";
 
   const defaultCategories = [
 
@@ -1784,21 +1772,25 @@
 
   ];
 
-  let cocktails = loadJSON(
+  let cocktails =
 
-    STORAGE_RECIPES,
+    loadJSON(
 
-    []
+      STORAGE_RECIPES,
 
-  );
+      []
 
-  let categories = loadJSON(
+    );
 
-    STORAGE_CATEGORIES,
+  let categories =
 
-    defaultCategories
+    loadJSON(
 
-  );
+      STORAGE_CATEGORIES,
+
+      defaultCategories
+
+    );
 
   let fontScale =
 
@@ -1820,13 +1812,25 @@
 
     ) || "number";
 
-  let currentCategory = "Tous";
+  let currentCategory =
 
-  let managementUnlocked = false;
+    "Tous";
 
-  let currentPhoto = "";
+  let managementUnlocked =
 
-  function loadJSON(key, fallback) {
+    false;
+
+  let currentPhoto =
+
+    "";
+
+  function loadJSON(
+
+    key,
+
+    fallback
+
+  ) {
 
     try {
 
@@ -1908,93 +1912,11 @@
 
   }
 
-  /* ==============================
-
-     HAUTEUR RÉELLE ÉCRAN IOS
-
-     ============================== */
-
-  function updateAppHeight() {
-
-    let height = window.innerHeight;
-
-    if (
-
-      window.visualViewport &&
-
-      window.visualViewport.height
-
-    ) {
-
-      height =
-
-        window.visualViewport.height;
-
-    }
-
-    document.documentElement.style.setProperty(
-
-      "--app-height",
-
-      `${height}px`
-
-    );
-
-  }
-
-  updateAppHeight();
-
-  window.addEventListener(
-
-    "resize",
-
-    updateAppHeight
-
-  );
-
-  window.addEventListener(
-
-    "orientationchange",
-
-    () => {
-
-      setTimeout(
-
-        updateAppHeight,
-
-        150
-
-      );
-
-    }
-
-  );
-
-  if (window.visualViewport) {
-
-    window.visualViewport.addEventListener(
-
-      "resize",
-
-      updateAppHeight
-
-    );
-
-    window.visualViewport.addEventListener(
-
-      "scroll",
-
-      updateAppHeight
-
-    );
-
-  }
-
-  /* ==============================
+  /* =========================
 
      MODALES
 
-     ============================== */
+     ========================= */
 
   function openModal(id) {
 
@@ -2003,8 +1925,6 @@
       document.getElementById(id);
 
     if (!modal) return;
-
-    updateAppHeight();
 
     modal.classList.add("show");
 
@@ -2038,7 +1958,11 @@
 
     if (!modal) return;
 
-    modal.classList.remove("show");
+    modal.classList.remove(
+
+      "show"
+
+    );
 
     const anyOpen =
 
@@ -2064,7 +1988,11 @@
 
     document
 
-      .querySelectorAll(".modal")
+      .querySelectorAll(
+
+        ".modal"
+
+      )
 
       .forEach(modal => {
 
@@ -2084,11 +2012,11 @@
 
   }
 
-  /* ==============================
+  /* =========================
 
      MODE GESTION
 
-     ============================== */
+     ========================= */
 
   function toggleManagement() {
 
@@ -2112,17 +2040,23 @@
 
     ).textContent = "";
 
-    openModal("pinModal");
+    openModal(
 
-    setTimeout(() => {
+      "pinModal"
 
-      document.getElementById(
+    );
 
-        "pinInput"
+    /*
 
-      ).focus();
+      IMPORTANT :
 
-    }, 180);
+      Pas de focus automatique ici.
+
+      C'est ce qui faisait bouger la
+
+      fenêtre sur l'ancien iPad.
+
+    */
 
   }
 
@@ -2148,7 +2082,9 @@
 
     ) {
 
-      managementUnlocked = true;
+      managementUnlocked =
+
+        true;
 
       document.body.classList.add(
 
@@ -2204,7 +2140,9 @@
 
   function lockManagement() {
 
-    managementUnlocked = false;
+    managementUnlocked =
+
+      false;
 
     document.body.classList.remove(
 
@@ -2250,11 +2188,11 @@
 
   }
 
-  /* ==============================
+  /* =========================
 
-     CHANGER LE CODE
+     CHANGER CODE
 
-     ============================== */
+     ========================= */
 
   function openPinSettings() {
 
@@ -2414,11 +2352,11 @@
 
   }
 
-  /* ==============================
+  /* =========================
 
-     TAILLE DU TEXTE
+     TAILLE
 
-     ============================== */
+     ========================= */
 
   function applyFont() {
 
@@ -2438,13 +2376,17 @@
 
       );
 
-    document.documentElement.style.setProperty(
+    document.documentElement
 
-      "--font-scale",
+      .style
 
-      fontScale
+      .setProperty(
 
-    );
+        "--font-scale",
+
+        fontScale
+
+      );
 
     document.getElementById(
 
@@ -2476,11 +2418,11 @@
 
   }
 
-  /* ==============================
+  /* =========================
 
      TRI
 
-     ============================== */
+     ========================= */
 
   function changeSort() {
 
@@ -2506,7 +2448,9 @@
 
   function sortCocktails(list) {
 
-    const sorted = [...list];
+    const sorted =
+
+      [...list];
 
     if (
 
@@ -2680,11 +2624,11 @@
 
   }
 
-  /* ==============================
+  /* =========================
 
      CATÉGORIES
 
-     ============================== */
+     ========================= */
 
   function renderCategoryFilters() {
 
@@ -2696,7 +2640,9 @@
 
       );
 
-    container.innerHTML = "";
+    container.innerHTML =
+
+      "";
 
     [
 
@@ -2734,17 +2680,19 @@
 
         category;
 
-      button.onclick = () => {
+      button.onclick =
 
-        currentCategory =
+        () => {
 
-          category;
+          currentCategory =
 
-        renderCategoryFilters();
+            category;
 
-        renderCocktails();
+          renderCategoryFilters();
 
-      };
+          renderCocktails();
+
+        };
 
       container.appendChild(
 
@@ -2770,7 +2718,9 @@
 
       select.value;
 
-    select.innerHTML = "";
+    select.innerHTML =
+
+      "";
 
     categories.forEach(
 
@@ -2848,7 +2798,9 @@
 
       );
 
-    manager.innerHTML = "";
+    manager.innerHTML =
+
+      "";
 
     categories.forEach(
 
@@ -2952,27 +2904,35 @@
 
     }
 
-    categories.push(name);
+    categories.push(
 
-    categories.sort((a,b) =>
-
-      a.localeCompare(
-
-        b,
-
-        "fr",
-
-        {
-
-          sensitivity:"base"
-
-        }
-
-      )
+      name
 
     );
 
-    input.value = "";
+    categories.sort(
+
+      (a,b) =>
+
+        a.localeCompare(
+
+          b,
+
+          "fr",
+
+          {
+
+            sensitivity:"base"
+
+          }
+
+        )
+
+    );
+
+    input.value =
+
+      "";
 
     saveAll();
 
@@ -3166,11 +3126,11 @@
 
   }
 
-  /* ==============================
+  /* =========================
 
-     PHOTO
+     PHOTOS
 
-     ============================== */
+     ========================= */
 
   async function handlePhoto(
 
@@ -3232,121 +3192,125 @@
 
           new FileReader();
 
-        reader.onload = () => {
+        reader.onload =
 
-          const img =
+          () => {
 
-            new Image();
+            const img =
 
-          img.onload = () => {
+              new Image();
 
-            let width =
+            img.onload =
 
-              img.width;
+              () => {
 
-            let height =
+                let width =
 
-              img.height;
+                  img.width;
 
-            if (
+                let height =
 
-              width > maxSize
+                  img.height;
 
-              ||
+                if (
 
-              height > maxSize
+                  width > maxSize
 
-            ) {
+                  ||
 
-              const ratio =
+                  height > maxSize
 
-                Math.min(
+                ) {
 
-                  maxSize / width,
+                  const ratio =
 
-                  maxSize / height
+                    Math.min(
+
+                      maxSize / width,
+
+                      maxSize / height
+
+                    );
+
+                  width =
+
+                    Math.round(
+
+                      width * ratio
+
+                    );
+
+                  height =
+
+                    Math.round(
+
+                      height * ratio
+
+                    );
+
+                }
+
+                const canvas =
+
+                  document.createElement(
+
+                    "canvas"
+
+                  );
+
+                canvas.width =
+
+                  width;
+
+                canvas.height =
+
+                  height;
+
+                const ctx =
+
+                  canvas.getContext(
+
+                    "2d"
+
+                  );
+
+                ctx.drawImage(
+
+                  img,
+
+                  0,
+
+                  0,
+
+                  width,
+
+                  height
 
                 );
 
-              width =
+                resolve(
 
-                Math.round(
+                  canvas.toDataURL(
 
-                  width * ratio
+                    "image/jpeg",
 
-                );
+                    quality
 
-              height =
-
-                Math.round(
-
-                  height * ratio
+                  )
 
                 );
 
-            }
+              };
 
-            const canvas =
+            img.onerror =
 
-              document.createElement(
+              reject;
 
-                "canvas"
+            img.src =
 
-              );
-
-            canvas.width =
-
-              width;
-
-            canvas.height =
-
-              height;
-
-            const ctx =
-
-              canvas.getContext(
-
-                "2d"
-
-              );
-
-            ctx.drawImage(
-
-              img,
-
-              0,
-
-              0,
-
-              width,
-
-              height
-
-            );
-
-            resolve(
-
-              canvas.toDataURL(
-
-                "image/jpeg",
-
-                quality
-
-              )
-
-            );
+              reader.result;
 
           };
-
-          img.onerror =
-
-            reject;
-
-          img.src =
-
-            reader.result;
-
-        };
 
         reader.onerror =
 
@@ -3364,11 +3328,11 @@
 
   }
 
-  /* ==============================
+  /* =========================
 
      FORMULAIRE COCKTAIL
 
-     ============================== */
+     ========================= */
 
   function resetCocktailForm() {
 
@@ -3414,7 +3378,9 @@
 
     ).value = "";
 
-    currentPhoto = "";
+    currentPhoto =
+
+      "";
 
     const preview =
 
@@ -3424,7 +3390,9 @@
 
       );
 
-    preview.src = "";
+    preview.src =
+
+      "";
 
     preview.style.display =
 
@@ -3752,9 +3720,7 @@
 
       glass,
 
-      photo:
-
-        currentPhoto,
+      photo: currentPhoto,
 
       updatedAt:
 
@@ -3866,11 +3832,11 @@
 
   }
 
-  /* ==============================
+  /* =========================
 
      AFFICHAGE
 
-     ============================== */
+     ========================= */
 
   function renderCocktails() {
 
@@ -3966,7 +3932,9 @@
 
       );
 
-    grid.innerHTML = "";
+    grid.innerHTML =
+
+      "";
 
     if (!filtered.length) {
 
@@ -4138,11 +4106,7 @@
 
                   <div class="card-content">
 
-                    <strong>
-
-                      Ingrédients
-
-                    </strong>
+                    <strong>Ingrédients</strong>
 
                     <br>
 
@@ -4174,11 +4138,7 @@
 
                   >
 
-                    <strong>
-
-                      Préparation
-
-                    </strong>
+                    <strong>Préparation</strong>
 
                     <br>
 
@@ -4250,11 +4210,11 @@
 
   }
 
-  /* ==============================
+  /* =========================
 
-     RACCOURCIS
+     ÉVÉNEMENTS
 
-     ============================== */
+     ========================= */
 
   document
 
@@ -4304,7 +4264,9 @@
 
             if (
 
-              event.target === modal
+              event.target
+
+              === modal
 
             ) {
 
@@ -4336,7 +4298,7 @@
 
       ) {
 
-        const openModalElement =
+        const opened =
 
           document.querySelector(
 
@@ -4344,15 +4306,11 @@
 
           );
 
-        if (
-
-          openModalElement
-
-        ) {
+        if (opened) {
 
           closeModal(
 
-            openModalElement.id
+            opened.id
 
           );
 
@@ -4364,11 +4322,11 @@
 
   );
 
-  /* ==============================
+  /* =========================
 
      DÉMARRAGE
 
-     ============================== */
+     ========================= */
 
   document.getElementById(
 
