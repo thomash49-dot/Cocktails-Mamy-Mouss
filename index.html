@@ -24,51 +24,43 @@
 
   <!-- ICÔNE -->
 
-  <link rel="apple-touch-icon" href="./icon.PNG">
+  <link rel="apple-touch-icon" href="./icon.jpg">
 
-  <link rel="icon" type="image/png" href="./icon.PNG">
+  <link rel="icon" type="image/jpeg" href="./icon.jpg">
 
   <style>
 
     :root {
 
-      --bg:#f3f4f6;
+      --bg: #f3f4f6;
 
-      --card:#ffffff;
+      --card: #ffffff;
 
-      --text:#111827;
+      --text: #111827;
 
-      --muted:#6b7280;
+      --muted: #6b7280;
 
-      --border:#e5e7eb;
+      --border: #e5e7eb;
 
-      --accent:#111827;
+      --accent: #111827;
 
-      --danger:#b91c1c;
+      --danger: #b91c1c;
 
-      --danger-bg:#fee2e2;
+      --ok: #15803d;
 
-      --shadow:0 8px 25px rgba(0,0,0,.08);
+      --blue: #2563eb;
 
     }
 
     * {
 
-      box-sizing:border-box;
-
-    }
-
-    html {
-
-      -webkit-text-size-adjust:100%;
+      box-sizing: border-box;
 
     }
 
     body {
 
-      margin:0;
-
-      min-height:100vh;
+      margin: 0;
 
       font-family:
 
@@ -86,9 +78,11 @@
 
         sans-serif;
 
-      background:var(--bg);
+      background: var(--bg);
 
-      color:var(--text);
+      color: var(--text);
+
+      min-height: 100vh;
 
     }
 
@@ -100,271 +94,181 @@
 
     select {
 
-      font:inherit;
+      font: inherit;
 
     }
 
     button {
 
-      cursor:pointer;
-
-      touch-action:manipulation;
+      cursor: pointer;
 
     }
 
-    /* =====================================================
-
-       HEADER
-
-    ===================================================== */
-
     header {
 
-      position:sticky;
+      background: #111827;
 
-      top:0;
-
-      z-index:50;
-
-      background:rgba(17,24,39,.97);
-
-      color:white;
+      color: white;
 
       padding:
 
-        calc(14px + env(safe-area-inset-top))
+        calc(18px + env(safe-area-inset-top))
 
-        20px
+        18px
 
-        14px;
+        18px;
+
+      position: sticky;
+
+      top: 0;
+
+      z-index: 20;
 
       box-shadow:
 
-        0 4px 15px rgba(0,0,0,.15);
+        0 2px 10px rgba(0, 0, 0, 0.12);
 
     }
 
     .header-inner {
 
-      width:100%;
+      max-width: 1100px;
 
-      max-width:1500px;
+      margin: auto;
 
-      margin:auto;
+      display: flex;
 
-      display:flex;
+      align-items: center;
 
-      align-items:center;
+      justify-content: space-between;
 
-      justify-content:space-between;
-
-      gap:20px;
+      gap: 12px;
 
     }
 
-    .brand {
+    .title-area {
 
-      display:flex;
+      display: flex;
 
-      align-items:center;
+      align-items: center;
 
-      gap:14px;
-
-      min-width:0;
+      gap: 12px;
 
     }
 
-    .brand img {
+    .app-icon {
 
-      width:52px;
+      width: 50px;
 
-      height:52px;
+      height: 50px;
 
-      flex-shrink:0;
+      border-radius: 12px;
 
-      object-fit:cover;
+      object-fit: cover;
 
-      border-radius:14px;
-
-      background:white;
+      background: white;
 
     }
 
-    .brand-text {
+    header h1 {
 
-      min-width:0;
+      margin: 0;
 
-    }
-
-    .brand-text h1 {
-
-      margin:0;
-
-      font-size:24px;
-
-      white-space:nowrap;
-
-      overflow:hidden;
-
-      text-overflow:ellipsis;
+      font-size: 22px;
 
     }
 
-    .brand-text p {
+    header p {
 
-      margin:3px 0 0;
+      margin: 3px 0 0;
 
-      color:#d1d5db;
+      color: #d1d5db;
 
-      font-size:14px;
-
-    }
-
-    .header-actions {
-
-      display:flex;
-
-      align-items:center;
-
-      gap:10px;
-
-      flex-shrink:0;
+      font-size: 13px;
 
     }
 
-    .header-btn {
+    .add-button {
 
-      border:none;
+      border: none;
 
-      min-height:48px;
+      border-radius: 12px;
 
-      padding:0 18px;
+      background: white;
 
-      border-radius:12px;
+      color: #111827;
 
-      font-weight:800;
+      font-weight: 700;
 
-      font-size:15px;
-
-    }
-
-    .category-main-btn {
-
-      background:#374151;
-
-      color:white;
-
-      border:1px solid #4b5563;
+      padding: 12px 16px;
 
     }
 
-    .add-main-btn {
+    main {
 
-      background:white;
+      max-width: 1100px;
 
-      color:#111827;
+      margin: auto;
 
-    }
+      padding:
 
-    /* =====================================================
+        18px
 
-       CONTAINER
+        18px
 
-    ===================================================== */
-
-    .container {
-
-      width:100%;
-
-      max-width:1500px;
-
-      margin:auto;
-
-      padding:24px;
+        calc(30px + env(safe-area-inset-bottom));
 
     }
 
-    /* =====================================================
+    .search-card {
 
-       BARRE RECHERCHE
+      background: white;
 
-    ===================================================== */
+      padding: 14px;
 
-    .toolbar {
+      border-radius: 16px;
 
-      display:grid;
-
-      grid-template-columns:
-
-        minmax(250px,1fr)
-
-        minmax(180px,230px)
-
-        minmax(180px,230px);
-
-      gap:14px;
-
-      margin-bottom:20px;
-
-    }
-
-    .search-box {
-
-      position:relative;
-
-    }
-
-    .search-box span {
-
-      position:absolute;
-
-      left:17px;
-
-      top:50%;
-
-      transform:translateY(-50%);
-
-      font-size:20px;
-
-      pointer-events:none;
-
-    }
-
-    .search-box input,
-
-    .toolbar select {
-
-      width:100%;
-
-      height:56px;
-
-      border:1px solid var(--border);
-
-      border-radius:14px;
-
-      background:white;
-
-      color:var(--text);
-
-      font-size:17px;
-
-      outline:none;
+      margin-bottom: 18px;
 
       box-shadow:
 
-        0 2px 8px rgba(0,0,0,.04);
+        0 3px 15px rgba(0, 0, 0, 0.05);
 
     }
 
-    .search-box input {
+    .search-row {
 
-      padding:0 18px 0 50px;
+      display: flex;
+
+      gap: 10px;
 
     }
 
-    .toolbar select {
+    .search-row input {
 
-      padding:0 14px;
+      flex: 1;
+
+    }
+
+    input,
+
+    textarea,
+
+    select {
+
+      width: 100%;
+
+      border: 1px solid var(--border);
+
+      border-radius: 10px;
+
+      padding: 12px;
+
+      background: white;
+
+      color: var(--text);
+
+      outline: none;
 
     }
 
@@ -374,133 +278,65 @@
 
     select:focus {
 
-      border-color:#4b5563 !important;
+      border-color: #9ca3af;
 
       box-shadow:
 
-        0 0 0 3px rgba(17,24,39,.08);
+        0 0 0 3px rgba(17, 24, 39, 0.06);
 
     }
 
-    /* =====================================================
+    textarea {
 
-       COMPTEUR
+      min-height: 100px;
 
-    ===================================================== */
-
-    .stats {
-
-      display:flex;
-
-      align-items:center;
-
-      justify-content:space-between;
-
-      margin-bottom:18px;
-
-      color:var(--muted);
-
-      font-size:15px;
+      resize: vertical;
 
     }
-
-    .stats strong {
-
-      color:var(--text);
-
-    }
-
-    /* =====================================================
-
-       CARTES
-
-    ===================================================== */
 
     .cocktail-grid {
 
-      display:grid;
+      display: grid;
 
       grid-template-columns:
 
-        repeat(
+        repeat(auto-fill, minmax(250px, 1fr));
 
-          auto-fill,
-
-          minmax(280px,1fr)
-
-        );
-
-      gap:20px;
+      gap: 16px;
 
     }
 
     .cocktail-card {
 
-      position:relative;
+      background: white;
 
-      overflow:hidden;
+      border-radius: 18px;
 
-      background:var(--card);
-
-      border:1px solid var(--border);
-
-      border-radius:18px;
-
-      box-shadow:var(--shadow);
-
-      display:flex;
-
-      flex-direction:column;
-
-      min-height:310px;
-
-    }
-
-    .order-badge {
-
-      position:absolute;
-
-      top:12px;
-
-      left:12px;
-
-      z-index:2;
-
-      min-width:38px;
-
-      height:38px;
-
-      padding:0 10px;
-
-      display:flex;
-
-      align-items:center;
-
-      justify-content:center;
-
-      border-radius:999px;
-
-      background:rgba(255,255,255,.95);
-
-      color:#111827;
-
-      font-weight:900;
+      overflow: hidden;
 
       box-shadow:
 
-        0 3px 10px rgba(0,0,0,.15);
+        0 4px 18px rgba(0, 0, 0, 0.06);
+
+      transition:
+
+        transform 0.15s ease,
+
+        box-shadow 0.15s ease;
 
     }
 
-    .cocktail-image {
+    .cocktail-card:active {
 
-      height:125px;
+      transform: scale(0.99);
 
-      display:flex;
+    }
 
-      align-items:center;
+    .cocktail-image-wrap {
 
-      justify-content:center;
+      width: 100%;
+
+      height: 210px;
 
       background:
 
@@ -508,989 +344,473 @@
 
           135deg,
 
-          #111827,
+          #e5e7eb,
 
-          #374151
+          #f9fafb
 
         );
 
-      color:white;
+      display: flex;
 
-      font-size:54px;
+      align-items: center;
 
-    }
+      justify-content: center;
 
-    .cocktail-content {
-
-      padding:18px;
-
-      display:flex;
-
-      flex-direction:column;
-
-      flex:1;
+      overflow: hidden;
 
     }
 
-    .cocktail-top {
+    .cocktail-image {
 
-      display:flex;
+      width: 100%;
 
-      justify-content:space-between;
+      height: 100%;
 
-      align-items:flex-start;
+      object-fit: cover;
 
-      gap:12px;
+    }
+
+    .no-image {
+
+      font-size: 52px;
+
+    }
+
+    .card-content {
+
+      padding: 16px;
 
     }
 
     .cocktail-name {
 
-      margin:0;
+      margin: 0 0 5px;
 
-      font-size:21px;
+      font-size: 19px;
 
-      line-height:1.15;
-
-    }
-
-    .category-badge {
-
-      flex-shrink:0;
-
-      display:inline-flex;
-
-      align-items:center;
-
-      max-width:140px;
-
-      overflow:hidden;
-
-      white-space:nowrap;
-
-      text-overflow:ellipsis;
-
-      background:#f3f4f6;
-
-      color:#4b5563;
-
-      padding:6px 9px;
-
-      border-radius:999px;
-
-      font-size:12px;
-
-      font-weight:700;
+      font-weight: 800;
 
     }
 
-    .ingredients-preview {
+    .cocktail-category {
 
-      margin:14px 0;
+      color: var(--muted);
 
-      color:var(--muted);
+      font-size: 13px;
 
-      line-height:1.5;
-
-      font-size:15px;
-
-      flex:1;
+      margin-bottom: 12px;
 
     }
 
-    .card-buttons {
+    .card-actions {
 
-      display:grid;
+      display: flex;
 
-      grid-template-columns:
+      gap: 8px;
 
-        1fr auto;
-
-      gap:10px;
-
-    }
-
-    .view-btn {
-
-      height:48px;
-
-      border:none;
-
-      border-radius:12px;
-
-      background:var(--accent);
-
-      color:white;
-
-      font-weight:800;
-
-      font-size:15px;
-
-    }
-
-    .edit-btn {
-
-      min-width:52px;
-
-      height:48px;
-
-      border:1px solid var(--border);
-
-      border-radius:12px;
-
-      background:white;
-
-      color:var(--text);
-
-      font-size:20px;
-
-    }
-
-    /* =====================================================
-
-       AUCUNE RECETTE
-
-    ===================================================== */
-
-    .empty {
-
-      grid-column:1 / -1;
-
-      background:white;
-
-      border:1px dashed #d1d5db;
-
-      border-radius:18px;
-
-      padding:50px 20px;
-
-      text-align:center;
-
-      color:var(--muted);
-
-    }
-
-    .empty-icon {
-
-      font-size:55px;
-
-      margin-bottom:10px;
-
-    }
-
-    /* =====================================================
-
-       MODALS
-
-       CORRECTION TABLETTE
-
-    ===================================================== */
-
-    .modal-overlay {
-
-      position:fixed !important;
-
-      top:0;
-
-      right:0;
-
-      bottom:0;
-
-      left:0;
-
-      width:100vw;
-
-      height:100dvh;
-
-      z-index:9999;
-
-      background:rgba(0,0,0,.60);
-
-      display:none;
-
-      overflow-y:auto;
-
-      padding:
-
-        max(20px,env(safe-area-inset-top))
-
-        max(20px,env(safe-area-inset-right))
-
-        max(20px,env(safe-area-inset-bottom))
-
-        max(20px,env(safe-area-inset-left));
-
-    }
-
-    .modal-overlay.show {
-
-      display:grid !important;
-
-      place-items:center;
-
-    }
-
-    .modal {
-
-      position:relative;
-
-      width:min(780px,calc(100vw - 40px));
-
-      max-height:
-
-        calc(100dvh - 40px);
-
-      margin:auto;
-
-      background:white;
-
-      border-radius:22px;
-
-      overflow:auto;
-
-      box-shadow:
-
-        0 25px 70px rgba(0,0,0,.30);
-
-    }
-
-    .modal.small {
-
-      width:min(600px,calc(100vw - 40px));
-
-    }
-
-    .modal-header {
-
-      position:sticky;
-
-      top:0;
-
-      z-index:5;
-
-      background:white;
-
-      border-bottom:
-
-        1px solid var(--border);
-
-      padding:20px 22px;
-
-      display:flex;
-
-      align-items:center;
-
-      justify-content:space-between;
-
-      gap:15px;
-
-    }
-
-    .modal-header h2 {
-
-      margin:0;
-
-      font-size:24px;
-
-    }
-
-    .close-btn {
-
-      width:44px;
-
-      height:44px;
-
-      flex-shrink:0;
-
-      border:none;
-
-      border-radius:50%;
-
-      background:#f3f4f6;
-
-      font-size:22px;
-
-      font-weight:bold;
-
-    }
-
-    .modal-body {
-
-      padding:22px;
-
-    }
-
-    /* =====================================================
-
-       RECETTE
-
-    ===================================================== */
-
-    .recipe-section {
-
-      margin-bottom:26px;
-
-    }
-
-    .recipe-section:last-child {
-
-      margin-bottom:0;
-
-    }
-
-    .recipe-section h3 {
-
-      margin:0 0 10px;
-
-      font-size:18px;
-
-    }
-
-    .recipe-text {
-
-      white-space:pre-line;
-
-      background:#f9fafb;
-
-      border:1px solid var(--border);
-
-      border-radius:14px;
-
-      padding:16px;
-
-      line-height:1.6;
-
-      font-size:17px;
-
-    }
-
-    .recipe-category {
-
-      display:inline-block;
-
-      background:#111827;
-
-      color:white;
-
-      padding:7px 12px;
-
-      border-radius:999px;
-
-      font-size:13px;
-
-      font-weight:700;
-
-      margin-bottom:20px;
-
-    }
-
-    /* =====================================================
-
-       FORMULAIRE
-
-    ===================================================== */
-
-    .form-grid {
-
-      display:grid;
-
-      grid-template-columns:
-
-        1fr 1fr;
-
-      gap:18px;
-
-    }
-
-    .field {
-
-      margin-bottom:18px;
-
-    }
-
-    .field.full {
-
-      grid-column:1 / -1;
-
-    }
-
-    .field label {
-
-      display:block;
-
-      margin-bottom:7px;
-
-      font-weight:800;
-
-      font-size:14px;
-
-    }
-
-    .field input,
-
-    .field textarea,
-
-    .field select {
-
-      width:100%;
-
-      border:1px solid #d1d5db;
-
-      border-radius:12px;
-
-      padding:13px 14px;
-
-      outline:none;
-
-      background:white;
-
-      color:var(--text);
-
-      font-size:16px;
-
-    }
-
-    .field input,
-
-    .field select {
-
-      min-height:50px;
-
-    }
-
-    .field textarea {
-
-      min-height:130px;
-
-      resize:vertical;
-
-      line-height:1.5;
-
-    }
-
-    .form-actions {
-
-      display:flex;
-
-      gap:12px;
-
-      justify-content:flex-end;
-
-      border-top:
-
-        1px solid var(--border);
-
-      padding-top:20px;
-
-      margin-top:5px;
+      margin-top: 14px;
 
     }
 
     .btn {
 
-      min-height:50px;
+      border: none;
 
-      border:none;
+      border-radius: 10px;
 
-      border-radius:12px;
+      padding: 11px 13px;
 
-      padding:0 20px;
-
-      font-weight:800;
-
-      font-size:15px;
+      font-weight: 700;
 
     }
 
-    .btn-primary {
+    .btn-dark {
 
-      background:var(--accent);
+      background: #111827;
 
-      color:white;
+      color: white;
 
     }
 
-    .btn-secondary {
+    .btn-light {
 
-      background:#e5e7eb;
+      background: #f3f4f6;
 
-      color:var(--text);
+      color: #111827;
 
     }
 
     .btn-danger {
 
-      background:var(--danger-bg);
+      background: #fee2e2;
 
-      color:var(--danger);
-
-      margin-right:auto;
+      color: var(--danger);
 
     }
 
-    /* =====================================================
+    .btn-blue {
 
-       CATEGORIES
+      background: var(--blue);
 
-    ===================================================== */
-
-    .category-create {
-
-      display:grid;
-
-      grid-template-columns:
-
-        1fr auto;
-
-      gap:10px;
-
-      margin-bottom:22px;
+      color: white;
 
     }
 
-    .category-create input {
+    .btn-green {
 
-      width:100%;
+      background: var(--ok);
 
-      min-height:52px;
-
-      padding:0 14px;
-
-      border:1px solid #d1d5db;
-
-      border-radius:12px;
-
-      outline:none;
+      color: white;
 
     }
 
-    .category-create button {
+    .grow {
 
-      min-height:52px;
-
-      padding:0 18px;
-
-      border:none;
-
-      border-radius:12px;
-
-      background:#111827;
-
-      color:white;
-
-      font-weight:800;
+      flex: 1;
 
     }
 
-    .category-list {
+    .empty {
 
-      display:flex;
+      background: white;
 
-      flex-direction:column;
+      border-radius: 16px;
 
-      gap:10px;
+      padding: 40px 20px;
 
-    }
+      text-align: center;
 
-    .category-row {
-
-      min-height:54px;
-
-      display:flex;
-
-      align-items:center;
-
-      justify-content:space-between;
-
-      gap:12px;
-
-      padding:10px 12px;
-
-      background:#f9fafb;
-
-      border:1px solid var(--border);
-
-      border-radius:12px;
+      color: var(--muted);
 
     }
 
-    .category-row strong {
+    /* MODALE */
 
-      min-width:0;
+    .modal-overlay {
 
-      overflow:hidden;
+      display: none;
 
-      text-overflow:ellipsis;
+      position: fixed;
 
-      white-space:nowrap;
+      inset: 0;
 
-    }
+      z-index: 100;
 
-    .category-delete {
+      background:
 
-      flex-shrink:0;
+        rgba(0, 0, 0, 0.55);
 
-      border:none;
+      padding: 20px;
 
-      border-radius:10px;
-
-      background:var(--danger-bg);
-
-      color:var(--danger);
-
-      padding:9px 12px;
-
-      font-weight:700;
+      overflow-y: auto;
 
     }
 
-    .category-used {
+    .modal-overlay.open {
 
-      flex-shrink:0;
+      display: flex;
 
-      color:var(--muted);
+      align-items: flex-start;
 
-      font-size:13px;
-
-    }
-
-    /* =====================================================
-
-       TABLETTE
-
-    ===================================================== */
-
-    @media (min-width:700px) {
-
-      .container {
-
-        padding:30px;
-
-      }
-
-      .cocktail-grid {
-
-        grid-template-columns:
-
-          repeat(
-
-            2,
-
-            minmax(0,1fr)
-
-          );
-
-      }
-
-      .cocktail-card {
-
-        min-height:320px;
-
-      }
-
-      .cocktail-image {
-
-        height:145px;
-
-      }
-
-      .view-btn,
-
-      .edit-btn {
-
-        height:54px;
-
-      }
-
-      .modal {
-
-        width:min(780px,90vw);
-
-      }
-
-      .modal.small {
-
-        width:min(600px,90vw);
-
-      }
+      justify-content: center;
 
     }
 
-    /* =====================================================
+    .modal {
 
-       GRANDE TABLETTE
+      width: 100%;
 
-    ===================================================== */
+      max-width: 650px;
 
-    @media (min-width:1000px) {
+      margin:
 
-      header {
+        calc(15px + env(safe-area-inset-top))
 
-        padding-left:30px;
+        auto
 
-        padding-right:30px;
+        calc(30px + env(safe-area-inset-bottom));
 
-      }
+      background: white;
 
-      .brand img {
+      border-radius: 20px;
 
-        width:58px;
+      overflow: hidden;
 
-        height:58px;
+      box-shadow:
 
-      }
-
-      .brand-text h1 {
-
-        font-size:27px;
-
-      }
-
-      .header-btn {
-
-        min-height:54px;
-
-        padding:0 22px;
-
-      }
-
-      .cocktail-grid {
-
-        grid-template-columns:
-
-          repeat(
-
-            3,
-
-            minmax(0,1fr)
-
-          );
-
-      }
+        0 20px 60px rgba(0, 0, 0, 0.25);
 
     }
 
-    @media (min-width:1400px) {
+    .modal-header {
 
-      .cocktail-grid {
+      background: #111827;
 
-        grid-template-columns:
+      color: white;
 
-          repeat(
+      padding: 18px;
 
-            4,
+      display: flex;
 
-            minmax(0,1fr)
+      justify-content: space-between;
 
-          );
-
-      }
+      align-items: center;
 
     }
 
-    /* =====================================================
+    .modal-header h2 {
 
-       TELEPHONE
+      margin: 0;
 
-    ===================================================== */
+      font-size: 20px;
 
-    @media (max-width:699px) {
+    }
 
-      header {
+    .close-button {
 
-        padding-left:12px;
+      border: none;
 
-        padding-right:12px;
+      background: transparent;
+
+      color: white;
+
+      font-size: 28px;
+
+      line-height: 1;
+
+    }
+
+    .modal-body {
+
+      padding: 18px;
+
+    }
+
+    .field {
+
+      margin-bottom: 16px;
+
+    }
+
+    .field label {
+
+      display: block;
+
+      font-weight: 700;
+
+      margin-bottom: 7px;
+
+    }
+
+    .help {
+
+      color: var(--muted);
+
+      font-size: 12px;
+
+      margin-top: 6px;
+
+    }
+
+    .photo-preview {
+
+      width: 100%;
+
+      max-height: 350px;
+
+      border-radius: 14px;
+
+      object-fit: contain;
+
+      background: #f3f4f6;
+
+      display: none;
+
+      margin-top: 12px;
+
+    }
+
+    .photo-buttons {
+
+      display: flex;
+
+      gap: 10px;
+
+      margin-top: 10px;
+
+      flex-wrap: wrap;
+
+    }
+
+    .modal-actions {
+
+      display: flex;
+
+      gap: 10px;
+
+      margin-top: 20px;
+
+    }
+
+    /* FICHE COCKTAIL */
+
+    .detail-photo {
+
+      width: 100%;
+
+      max-height: 420px;
+
+      object-fit: cover;
+
+      border-radius: 15px;
+
+      margin-bottom: 18px;
+
+    }
+
+    .detail-no-photo {
+
+      height: 220px;
+
+      border-radius: 15px;
+
+      background: #f3f4f6;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      font-size: 60px;
+
+      margin-bottom: 18px;
+
+    }
+
+    .detail-section {
+
+      margin-top: 20px;
+
+    }
+
+    .detail-section h3 {
+
+      margin: 0 0 8px;
+
+      font-size: 16px;
+
+    }
+
+    .detail-text {
+
+      white-space: pre-wrap;
+
+      line-height: 1.55;
+
+    }
+
+    .badge {
+
+      display: inline-block;
+
+      background: #f3f4f6;
+
+      border-radius: 999px;
+
+      padding: 7px 11px;
+
+      font-size: 13px;
+
+      font-weight: 700;
+
+    }
+
+    @media (max-width: 600px) {
+
+      header h1 {
+
+        font-size: 18px;
 
       }
 
       .header-inner {
 
-        gap:8px;
+        align-items: center;
 
       }
 
-      .brand {
+      .app-icon {
 
-        gap:9px;
+        width: 44px;
 
-      }
-
-      .brand img {
-
-        width:44px;
-
-        height:44px;
-
-        border-radius:11px;
+        height: 44px;
 
       }
 
-      .brand-text h1 {
+      .add-button {
 
-        font-size:18px;
+        padding: 10px 12px;
 
-      }
-
-      .brand-text p {
-
-        display:none;
+        font-size: 14px;
 
       }
 
-      .header-actions {
+      main {
 
-        gap:6px;
+        padding-left: 12px;
 
-      }
-
-      .header-btn {
-
-        width:46px;
-
-        height:46px;
-
-        min-height:46px;
-
-        padding:0;
-
-        font-size:0;
-
-      }
-
-      .category-main-btn::after {
-
-        content:"🏷️";
-
-        font-size:21px;
-
-      }
-
-      .add-main-btn::after {
-
-        content:"+";
-
-        font-size:28px;
-
-      }
-
-      .container {
-
-        padding:16px;
-
-      }
-
-      .toolbar {
-
-        grid-template-columns:1fr;
-
-        gap:10px;
-
-      }
-
-      .search-box input,
-
-      .toolbar select {
-
-        height:52px;
+        padding-right: 12px;
 
       }
 
       .cocktail-grid {
 
-        grid-template-columns:1fr;
+        grid-template-columns:
 
-        gap:15px;
+          repeat(2, minmax(0, 1fr));
 
-      }
-
-      .cocktail-card {
-
-        min-height:auto;
+        gap: 10px;
 
       }
 
-      .cocktail-image {
+      .cocktail-image-wrap {
 
-        height:105px;
-
-      }
-
-      .form-grid {
-
-        grid-template-columns:1fr;
+        height: 150px;
 
       }
 
-      .field.full {
+      .card-content {
 
-        grid-column:auto;
-
-      }
-
-      .form-actions {
-
-        flex-wrap:wrap;
+        padding: 12px;
 
       }
 
-      .btn {
+      .cocktail-name {
 
-        flex:1;
-
-      }
-
-      .btn-danger {
-
-        flex-basis:100%;
-
-        order:3;
+        font-size: 16px;
 
       }
 
-      /*
+      .card-actions {
 
-        IMPORTANT :
-
-        même sur téléphone la fenêtre reste
-
-        correctement centrée.
-
-      */
-
-      .modal-overlay.show {
-
-        display:grid !important;
-
-        place-items:center;
+        flex-direction: column;
 
       }
 
-      .modal-overlay {
+    }
 
-        padding:12px;
+    @media (max-width: 380px) {
 
-      }
+      .cocktail-grid {
 
-      .modal,
-
-      .modal.small {
-
-        width:calc(100vw - 24px);
-
-        max-height:
-
-          calc(100dvh - 24px);
-
-        margin:auto;
-
-        border-radius:18px;
+        grid-template-columns: 1fr;
 
       }
 
-      .category-create {
+      .cocktail-image-wrap {
 
-        grid-template-columns:1fr;
+        height: 210px;
 
       }
 
@@ -1506,91 +826,57 @@
 
   <div class="header-inner">
 
-    <div class="brand">
-
-      <!-- NOUVELLE ICÔNE -->
+    <div class="title-area">
 
       <img
 
-        src="./icon.PNG"
+        src="./icon.jpg"
 
-        alt="Logo Recettes Cocktails"
+        alt="Cocktails"
 
-        onerror="this.style.display='none'"
+        class="app-icon"
 
       >
 
-      <div class="brand-text">
+      <div>
 
-        <h1>
+        <h1>Recettes Cocktails</h1>
 
-          🍹 Recettes Cocktails
-
-        </h1>
-
-        <p>
-
-          Les recettes du bar
-
-        </p>
+        <p>Mamy Mouss</p>
 
       </div>
 
     </div>
 
-    <div class="header-actions">
+    <button
 
-      <button
+      class="add-button"
 
-        class="header-btn category-main-btn"
+      onclick="openCocktailForm()"
 
-        onclick="openCategoryModal()"
+    >
 
-      >
+      ＋ Cocktail
 
-        🏷️ Catégories
-
-      </button>
-
-      <button
-
-        class="header-btn add-main-btn"
-
-        onclick="openAddModal()"
-
-      >
-
-        + Ajouter
-
-      </button>
-
-    </div>
+    </button>
 
   </div>
 
 </header>
 
-<main class="container">
+<main>
 
-  <div class="toolbar">
+  <div class="search-card">
 
-    <div class="search-box">
-
-      <span>
-
-        🔎
-
-      </span>
+    <div class="search-row">
 
       <input
 
-        id="searchInput"
+        id="search"
 
         type="search"
 
-        placeholder="Rechercher une recette..."
-
-        autocomplete="off"
+        placeholder="🔎 Rechercher un cocktail..."
 
         oninput="renderCocktails()"
 
@@ -1598,93 +884,29 @@
 
     </div>
 
-    <select
-
-      id="categoryFilter"
-
-      onchange="renderCocktails()"
-
-    >
-
-    </select>
-
-    <select
-
-      id="sortSelect"
-
-      onchange="renderCocktails()"
-
-    >
-
-      <option value="numberAsc">
-
-        Numéro : 1 → 99
-
-      </option>
-
-      <option value="numberDesc">
-
-        Numéro : 99 → 1
-
-      </option>
-
-      <option value="alphaAsc">
-
-        Alphabétique : A → Z
-
-      </option>
-
-      <option value="alphaDesc">
-
-        Alphabétique : Z → A
-
-      </option>
-
-    </select>
-
-  </div>
-
-  <div class="stats">
-
-    <div>
-
-      <strong id="cocktailCount">
-
-        0
-
-      </strong>
-
-      recette(s)
-
-    </div>
-
   </div>
 
   <div
 
-    id="cocktailGrid"
+    id="cocktailList"
 
     class="cocktail-grid"
 
-  >
-
-  </div>
+  ></div>
 
 </main>
 
-<!-- =====================================================
+<!-- ======================================================
 
-     MODAL VOIR RECETTE
+     MODALE AJOUT / MODIFICATION
 
-===================================================== -->
+====================================================== -->
 
 <div
 
-  id="recipeModal"
+  id="cocktailModal"
 
   class="modal-overlay"
-
-  onclick="closeOnOverlay(event,'recipeModal')"
 
 >
 
@@ -1692,17 +914,363 @@
 
     <div class="modal-header">
 
-      <h2 id="recipeTitle">
+      <h2 id="formTitle">
 
-        Recette
+        Nouveau cocktail
 
       </h2>
 
       <button
 
-        class="close-btn"
+        class="close-button"
 
-        onclick="closeModal('recipeModal')"
+        onclick="closeCocktailForm()"
+
+      >
+
+        ×
+
+      </button>
+
+    </div>
+
+    <div class="modal-body">
+
+      <input
+
+        type="hidden"
+
+        id="cocktailId"
+
+      >
+
+      <div class="field">
+
+        <label>
+
+          Nom du cocktail *
+
+        </label>
+
+        <input
+
+          id="cocktailName"
+
+          type="text"
+
+          placeholder="Ex : Mojito"
+
+        >
+
+      </div>
+
+      <div class="field">
+
+        <label>
+
+          Catégorie
+
+        </label>
+
+        <select id="cocktailCategory">
+
+          <option value="">
+
+            Choisir
+
+          </option>
+
+          <option value="Classique">
+
+            Classique
+
+          </option>
+
+          <option value="Signature">
+
+            Signature
+
+          </option>
+
+          <option value="Sans alcool">
+
+            Sans alcool
+
+          </option>
+
+          <option value="Gin">
+
+            Gin
+
+          </option>
+
+          <option value="Rhum">
+
+            Rhum
+
+          </option>
+
+          <option value="Vodka">
+
+            Vodka
+
+          </option>
+
+          <option value="Tequila">
+
+            Tequila
+
+          </option>
+
+          <option value="Whisky">
+
+            Whisky
+
+          </option>
+
+          <option value="Spritz">
+
+            Spritz
+
+          </option>
+
+          <option value="Autre">
+
+            Autre
+
+          </option>
+
+        </select>
+
+      </div>
+
+      <!-- PHOTO -->
+
+      <div class="field">
+
+        <label>
+
+          📸 Photo du cocktail
+
+        </label>
+
+        <input
+
+          id="cocktailPhoto"
+
+          type="file"
+
+          accept="image/*"
+
+          onchange="handlePhoto(event)"
+
+        >
+
+        <div class="help">
+
+          Tu peux prendre une photo directement
+
+          ou choisir une image dans la tablette.
+
+        </div>
+
+        <img
+
+          id="photoPreview"
+
+          class="photo-preview"
+
+          alt="Aperçu"
+
+        >
+
+        <div class="photo-buttons">
+
+          <button
+
+            type="button"
+
+            class="btn btn-danger"
+
+            onclick="removePhoto()"
+
+          >
+
+            🗑 Supprimer la photo
+
+          </button>
+
+        </div>
+
+      </div>
+
+      <div class="field">
+
+        <label>
+
+          Ingrédients
+
+        </label>
+
+        <textarea
+
+          id="cocktailIngredients"
+
+          placeholder="Ex :
+
+5 cl de rhum blanc
+
+2 cl de jus de citron vert
+
+2 cuillères de sucre
+
+Menthe
+
+Eau gazeuse"
+
+        ></textarea>
+
+      </div>
+
+      <div class="field">
+
+        <label>
+
+          Préparation
+
+        </label>
+
+        <textarea
+
+          id="cocktailPreparation"
+
+          placeholder="Décris les étapes de préparation..."
+
+        ></textarea>
+
+      </div>
+
+      <div class="field">
+
+        <label>
+
+          Verrerie
+
+        </label>
+
+        <input
+
+          id="cocktailGlass"
+
+          type="text"
+
+          placeholder="Ex : Highball"
+
+        >
+
+      </div>
+
+      <div class="field">
+
+        <label>
+
+          Garniture / décoration
+
+        </label>
+
+        <input
+
+          id="cocktailGarnish"
+
+          type="text"
+
+          placeholder="Ex : Menthe + citron vert"
+
+        >
+
+      </div>
+
+      <div class="field">
+
+        <label>
+
+          Notes
+
+        </label>
+
+        <textarea
+
+          id="cocktailNotes"
+
+          placeholder="Informations supplémentaires..."
+
+        ></textarea>
+
+      </div>
+
+      <div class="modal-actions">
+
+        <button
+
+          class="btn btn-light grow"
+
+          onclick="closeCocktailForm()"
+
+        >
+
+          Annuler
+
+        </button>
+
+        <button
+
+          class="btn btn-green grow"
+
+          onclick="saveCocktail()"
+
+        >
+
+          💾 Enregistrer
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- ======================================================
+
+     MODALE FICHE COCKTAIL
+
+====================================================== -->
+
+<div
+
+  id="detailModal"
+
+  class="modal-overlay"
+
+>
+
+  <div class="modal">
+
+    <div class="modal-header">
+
+      <h2 id="detailTitle">
+
+        Cocktail
+
+      </h2>
+
+      <button
+
+        class="close-button"
+
+        onclick="closeDetail()"
 
       >
 
@@ -1714,373 +1282,11 @@
 
     <div
 
-      id="recipeBody"
+      id="detailBody"
 
       class="modal-body"
 
-    >
-
-    </div>
-
-  </div>
-
-</div>
-
-<!-- =====================================================
-
-     MODAL AJOUTER / MODIFIER
-
-===================================================== -->
-
-<div
-
-  id="editModal"
-
-  class="modal-overlay"
-
-  onclick="closeOnOverlay(event,'editModal')"
-
->
-
-  <div class="modal">
-
-    <div class="modal-header">
-
-      <h2 id="editTitle">
-
-        Ajouter une recette
-
-      </h2>
-
-      <button
-
-        class="close-btn"
-
-        onclick="closeModal('editModal')"
-
-      >
-
-        ×
-
-      </button>
-
-    </div>
-
-    <div class="modal-body">
-
-      <form
-
-        id="cocktailForm"
-
-        onsubmit="saveCocktail(event)"
-
-      >
-
-        <input
-
-          type="hidden"
-
-          id="editId"
-
-        >
-
-        <div class="form-grid">
-
-          <div class="field">
-
-            <label for="orderNumber">
-
-              N° / ordre
-
-            </label>
-
-            <input
-
-              id="orderNumber"
-
-              type="number"
-
-              min="1"
-
-              step="1"
-
-              placeholder="Ex. 1"
-
-              required
-
-            >
-
-          </div>
-
-          <div class="field">
-
-            <label for="name">
-
-              Nom
-
-            </label>
-
-            <input
-
-              id="name"
-
-              type="text"
-
-              required
-
-            >
-
-          </div>
-
-          <div class="field">
-
-            <label for="category">
-
-              Catégorie
-
-            </label>
-
-            <select
-
-              id="category"
-
-              required
-
-            >
-
-            </select>
-
-          </div>
-
-          <div class="field">
-
-            <label for="glass">
-
-              Verre
-
-            </label>
-
-            <input
-
-              id="glass"
-
-              type="text"
-
-            >
-
-          </div>
-
-          <div class="field full">
-
-            <label for="garnish">
-
-              Décoration
-
-            </label>
-
-            <input
-
-              id="garnish"
-
-              type="text"
-
-            >
-
-          </div>
-
-          <div class="field full">
-
-            <label for="ingredients">
-
-              Ingrédients
-
-            </label>
-
-            <textarea
-
-              id="ingredients"
-
-              required
-
-            ></textarea>
-
-          </div>
-
-          <div class="field full">
-
-            <label for="preparation">
-
-              Préparation
-
-            </label>
-
-            <textarea
-
-              id="preparation"
-
-              required
-
-            ></textarea>
-
-          </div>
-
-          <div class="field full">
-
-            <label for="notes">
-
-              Notes
-
-            </label>
-
-            <textarea
-
-              id="notes"
-
-            ></textarea>
-
-          </div>
-
-        </div>
-
-        <div class="form-actions">
-
-          <button
-
-            id="deleteBtn"
-
-            type="button"
-
-            class="btn btn-danger"
-
-            onclick="deleteCocktail()"
-
-            style="display:none;"
-
-          >
-
-            🗑 Supprimer
-
-          </button>
-
-          <button
-
-            type="button"
-
-            class="btn btn-secondary"
-
-            onclick="closeModal('editModal')"
-
-          >
-
-            Annuler
-
-          </button>
-
-          <button
-
-            type="submit"
-
-            class="btn btn-primary"
-
-          >
-
-            💾 Enregistrer
-
-          </button>
-
-        </div>
-
-      </form>
-
-    </div>
-
-  </div>
-
-</div>
-
-<!-- =====================================================
-
-     CATEGORIES
-
-===================================================== -->
-
-<div
-
-  id="categoryModal"
-
-  class="modal-overlay"
-
-  onclick="closeOnOverlay(event,'categoryModal')"
-
->
-
-  <div class="modal small">
-
-    <div class="modal-header">
-
-      <h2>
-
-        🏷️ Mes catégories
-
-      </h2>
-
-      <button
-
-        class="close-btn"
-
-        onclick="closeModal('categoryModal')"
-
-      >
-
-        ×
-
-      </button>
-
-    </div>
-
-    <div class="modal-body">
-
-      <div class="category-create">
-
-        <input
-
-          id="newCategoryInput"
-
-          type="text"
-
-          placeholder="Nouvelle catégorie..."
-
-          maxlength="40"
-
-          onkeydown="categoryEnter(event)"
-
-        >
-
-        <button
-
-          type="button"
-
-          onclick="addCategory()"
-
-        >
-
-          + Ajouter
-
-        </button>
-
-      </div>
-
-      <div
-
-        id="categoryList"
-
-        class="category-list"
-
-      >
-
-      </div>
-
-    </div>
+    ></div>
 
   </div>
 
@@ -2088,497 +1294,99 @@
 
 <script>
 
-/* =====================================================
+/* =========================================================
 
    STOCKAGE
 
-===================================================== */
+========================================================= */
 
-const COCKTAIL_STORAGE =
+const STORAGE_KEY = "mamy_mouss_cocktails_v3";
 
-  "recettesCocktailsMamyMoussV2";
+let cocktails = [];
 
-const OLD_COCKTAIL_STORAGE =
+let currentPhoto = "";
 
-  "recettesCocktailsMamyMoussV1";
-
-const CATEGORY_STORAGE =
-
-  "recettesCocktailsCategoriesV2";
-
-const defaultCategories = [
-
-  "Classique",
-
-  "Signature",
-
-  "Sans alcool",
-
-  "Maison",
-
-  "Autre"
-
-];
-
-/*
-
-  Aucune recette imposée ici.
-
-  Tes recettes déjà enregistrées dans
-
-  le navigateur restent conservées
-
-  grâce aux mêmes clés V2.
-
-*/
-
-const defaultCocktails = [];
-
-/* =====================================================
+/* =========================================================
 
    CHARGEMENT
 
-===================================================== */
+========================================================= */
 
 function loadCocktails() {
 
-  let saved =
+  try {
 
-    localStorage.getItem(
+    const saved =
 
-      COCKTAIL_STORAGE
+      localStorage.getItem(STORAGE_KEY);
 
-    );
+    cocktails =
 
-  if (!saved) {
+      saved
 
-    saved =
+        ? JSON.parse(saved)
 
-      localStorage.getItem(
+        : [];
 
-        OLD_COCKTAIL_STORAGE
+  } catch (error) {
 
-      );
+    console.error(error);
 
-  }
-
-  let data;
-
-  if (saved) {
-
-    try {
-
-      data =
-
-        JSON.parse(saved);
-
-    }
-
-    catch {
-
-      data = null;
-
-    }
+    cocktails = [];
 
   }
-
-  if (!Array.isArray(data)) {
-
-    data =
-
-      JSON.parse(
-
-        JSON.stringify(
-
-          defaultCocktails
-
-        )
-
-      );
-
-  }
-
-  data =
-
-    data.map(
-
-      (item,index) => ({
-
-        ...item,
-
-        id:
-
-          item.id ||
-
-          generateId(),
-
-        orderNumber:
-
-          Number(
-
-            item.orderNumber
-
-          ) ||
-
-          index + 1,
-
-        name:
-
-          item.name || "",
-
-        category:
-
-          item.category ||
-
-          "Autre",
-
-        glass:
-
-          item.glass || "",
-
-        garnish:
-
-          item.garnish || "",
-
-        ingredients:
-
-          item.ingredients || "",
-
-        preparation:
-
-          item.preparation || "",
-
-        notes:
-
-          item.notes || ""
-
-      })
-
-    );
-
-  localStorage.setItem(
-
-    COCKTAIL_STORAGE,
-
-    JSON.stringify(data)
-
-  );
-
-  return data;
 
 }
 
-function loadCategories() {
-
-  const saved =
-
-    localStorage.getItem(
-
-      CATEGORY_STORAGE
-
-    );
-
-  let list;
-
-  if (saved) {
-
-    try {
-
-      list =
-
-        JSON.parse(saved);
-
-    }
-
-    catch {
-
-      list = null;
-
-    }
-
-  }
-
-  if (!Array.isArray(list)) {
-
-    list =
-
-      [...defaultCategories];
-
-  }
-
-  cocktails.forEach(
-
-    item => {
-
-      if (
-
-        item.category &&
-
-        !list.includes(
-
-          item.category
-
-        )
-
-      ) {
-
-        list.push(
-
-          item.category
-
-        );
-
-      }
-
-    }
-
-  );
-
-  list =
-
-    [...new Set(list)]
-
-      .filter(Boolean)
-
-      .sort(
-
-        (a,b) =>
-
-          a.localeCompare(
-
-            b,
-
-            "fr"
-
-          )
-
-      );
-
-  localStorage.setItem(
-
-    CATEGORY_STORAGE,
-
-    JSON.stringify(list)
-
-  );
-
-  return list;
-
-}
-
-let cocktails =
-
-  loadCocktails();
-
-let categories =
-
-  loadCategories();
-
-/* =====================================================
+/* =========================================================
 
    SAUVEGARDE
 
-===================================================== */
+========================================================= */
 
-function saveCocktailsStorage() {
+function saveToStorage() {
 
-  localStorage.setItem(
+  try {
 
-    COCKTAIL_STORAGE,
+    localStorage.setItem(
 
-    JSON.stringify(cocktails)
+      STORAGE_KEY,
 
-  );
-
-}
-
-function saveCategoriesStorage() {
-
-  localStorage.setItem(
-
-    CATEGORY_STORAGE,
-
-    JSON.stringify(categories)
-
-  );
-
-}
-
-/* =====================================================
-
-   CATEGORIES SELECT
-
-===================================================== */
-
-function refreshCategorySelectors() {
-
-  const filter =
-
-    document.getElementById(
-
-      "categoryFilter"
+      JSON.stringify(cocktails)
 
     );
 
-  const recipeSelect =
+  } catch (error) {
 
-    document.getElementById(
+    console.error(error);
 
-      "category"
+    alert(
 
-    );
-
-  const selectedFilter =
-
-    filter.value;
-
-  const selectedRecipe =
-
-    recipeSelect.value;
-
-  filter.innerHTML = `
-
-    <option value="">
-
-      Toutes les catégories
-
-    </option>
-
-  `;
-
-  recipeSelect.innerHTML =
-
-    "";
-
-  categories
-
-    .slice()
-
-    .sort(
-
-      (a,b) =>
-
-        a.localeCompare(
-
-          b,
-
-          "fr"
-
-        )
-
-    )
-
-    .forEach(
-
-      category => {
-
-        const optionFilter =
-
-          document.createElement(
-
-            "option"
-
-          );
-
-        optionFilter.value =
-
-          category;
-
-        optionFilter.textContent =
-
-          category;
-
-        filter.appendChild(
-
-          optionFilter
-
-        );
-
-        const optionRecipe =
-
-          document.createElement(
-
-            "option"
-
-          );
-
-        optionRecipe.value =
-
-          category;
-
-        optionRecipe.textContent =
-
-          category;
-
-        recipeSelect.appendChild(
-
-          optionRecipe
-
-        );
-
-      }
+      "La tablette n'a plus assez de place pour enregistrer cette photo. Essaie avec une photo plus petite."
 
     );
-
-  if (
-
-    categories.includes(
-
-      selectedFilter
-
-    )
-
-  ) {
-
-    filter.value =
-
-      selectedFilter;
-
-  }
-
-  if (
-
-    categories.includes(
-
-      selectedRecipe
-
-    )
-
-  ) {
-
-    recipeSelect.value =
-
-      selectedRecipe;
 
   }
 
 }
 
-/* =====================================================
+/* =========================================================
 
-   AFFICHAGE
+   AFFICHAGE LISTE
 
-===================================================== */
+========================================================= */
 
 function renderCocktails() {
 
-  const grid =
+  const container =
 
-    document.getElementById(
-
-      "cocktailGrid"
-
-    );
+    document.getElementById("cocktailList");
 
   const search =
 
     document
 
-      .getElementById(
-
-        "searchInput"
-
-      )
+      .getElementById("search")
 
       .value
 
@@ -2586,203 +1394,63 @@ function renderCocktails() {
 
       .toLowerCase();
 
-  const category =
+  const filtered =
 
-    document
+    cocktails.filter(cocktail => {
 
-      .getElementById(
+      const text = [
 
-        "categoryFilter"
+        cocktail.name,
+
+        cocktail.category,
+
+        cocktail.ingredients,
+
+        cocktail.glass,
+
+        cocktail.garnish
+
+      ]
+
+      .join(" ")
+
+      .toLowerCase();
+
+      return text.includes(search);
+
+    });
+
+  filtered.sort((a, b) =>
+
+    (a.name || "")
+
+      .localeCompare(
+
+        b.name || "",
+
+        "fr"
 
       )
-
-      .value;
-
-  const sort =
-
-    document
-
-      .getElementById(
-
-        "sortSelect"
-
-      )
-
-      .value;
-
-  let filtered =
-
-    cocktails.filter(
-
-      item => {
-
-        const text =
-
-          [
-
-            item.name,
-
-            item.category,
-
-            item.ingredients,
-
-            item.glass,
-
-            item.garnish,
-
-            item.notes,
-
-            item.orderNumber
-
-          ]
-
-          .join(" ")
-
-          .toLowerCase();
-
-        const matchesSearch =
-
-          !search ||
-
-          text.includes(search);
-
-        const matchesCategory =
-
-          !category ||
-
-          item.category === category;
-
-        return (
-
-          matchesSearch &&
-
-          matchesCategory
-
-        );
-
-      }
-
-    );
-
-  filtered.sort(
-
-    (a,b) => {
-
-      if (
-
-        sort === "alphaAsc"
-
-      ) {
-
-        return a.name.localeCompare(
-
-          b.name,
-
-          "fr"
-
-        );
-
-      }
-
-      if (
-
-        sort === "alphaDesc"
-
-      ) {
-
-        return b.name.localeCompare(
-
-          a.name,
-
-          "fr"
-
-        );
-
-      }
-
-      if (
-
-        sort === "numberDesc"
-
-      ) {
-
-        return (
-
-          Number(
-
-            b.orderNumber
-
-          )
-
-          -
-
-          Number(
-
-            a.orderNumber
-
-          )
-
-        );
-
-      }
-
-      return (
-
-        Number(
-
-          a.orderNumber
-
-        )
-
-        -
-
-        Number(
-
-          b.orderNumber
-
-        )
-
-      );
-
-    }
 
   );
 
-  document.getElementById(
+  if (!filtered.length) {
 
-    "cocktailCount"
-
-  ).textContent =
-
-    filtered.length;
-
-  if (
-
-    filtered.length === 0
-
-  ) {
-
-    grid.innerHTML = `
+    container.innerHTML = `
 
       <div class="empty">
 
-        <div class="empty-icon">
+        🍹<br><br>
 
-          🍹
+        ${
 
-        </div>
+          cocktails.length
 
-        <strong>
+            ? "Aucun cocktail trouvé."
 
-          Aucune recette trouvée
+            : "Aucune recette pour le moment.<br><br>Appuie sur <strong>＋ Cocktail</strong> pour commencer."
 
-        </strong>
-
-        <p>
-
-          Ajoute une recette avec le bouton +.
-
-        </p>
+        }
 
       </div>
 
@@ -2792,109 +1460,97 @@ function renderCocktails() {
 
   }
 
-  grid.innerHTML =
+  container.innerHTML =
 
-    filtered.map(
+    filtered
 
-      item => {
+      .map(cocktail => {
 
-        const preview =
+        const image =
 
-          item.ingredients
+          cocktail.photo
 
-            .split("\n")
+            ? `
 
-            .filter(Boolean)
+              <img
 
-            .slice(0,3)
+                class="cocktail-image"
 
-            .join(" • ");
+                src="${cocktail.photo}"
+
+                alt=""
+
+              >
+
+            `
+
+            : `
+
+              <div class="no-image">
+
+                🍹
+
+              </div>
+
+            `;
 
         return `
 
-          <article class="cocktail-card">
+          <div class="cocktail-card">
 
-            <div class="order-badge">
+            <div
 
-              ${escapeHtml(
+              class="cocktail-image-wrap"
 
-                String(
+              onclick="showDetail('${cocktail.id}')"
 
-                  item.orderNumber
+            >
 
-                )
-
-              )}
+              ${image}
 
             </div>
 
-            <div class="cocktail-image">
+            <div class="card-content">
 
-              ${getCocktailEmoji(
+              <h2 class="cocktail-name">
 
-                item.category
+                ${escapeHtml(cocktail.name)}
 
-              )}
+              </h2>
 
-            </div>
+              <div class="cocktail-category">
 
-            <div class="cocktail-content">
+                ${
 
-              <div class="cocktail-top">
+                  cocktail.category
 
-                <h2 class="cocktail-name">
+                    ? escapeHtml(cocktail.category)
 
-                  ${escapeHtml(
+                    : "Cocktail"
 
-                    item.name
-
-                  )}
-
-                </h2>
-
-                <span class="category-badge">
-
-                  ${escapeHtml(
-
-                    item.category
-
-                  )}
-
-                </span>
+                }
 
               </div>
 
-              <div class="ingredients-preview">
-
-                ${escapeHtml(
-
-                  preview
-
-                )}
-
-              </div>
-
-              <div class="card-buttons">
+              <div class="card-actions">
 
                 <button
 
-                  class="view-btn"
+                  class="btn btn-dark grow"
 
-                  onclick="viewCocktail('${item.id}')"
+                  onclick="showDetail('${cocktail.id}')"
 
                 >
 
-                  Voir la recette
+                  Voir
 
                 </button>
 
                 <button
 
-                  class="edit-btn"
+                  class="btn btn-light"
 
-                  onclick="editCocktail('${item.id}')"
-
-                  aria-label="Modifier"
+                  onclick="editCocktail('${cocktail.id}')"
 
                 >
 
@@ -2906,603 +1562,455 @@ function renderCocktails() {
 
             </div>
 
-          </article>
+          </div>
 
         `;
 
-      }
+      })
 
-    )
-
-    .join("");
+      .join("");
 
 }
 
-/* =====================================================
+/* =========================================================
 
-   EMOJI
+   OUVRIR FORMULAIRE
 
-===================================================== */
+========================================================= */
 
-function getCocktailEmoji(category) {
-
-  const c =
-
-    String(category || "")
-
-      .toLowerCase();
-
-  if (
-
-    c.includes("sans alcool")
-
-  ) {
-
-    return "🧃";
-
-  }
-
-  if (
-
-    c.includes("maison") ||
-
-    c.includes("signature")
-
-  ) {
-
-    return "⭐";
-
-  }
-
-  return "🍹";
-
-}
-
-/* =====================================================
-
-   VOIR
-
-===================================================== */
-
-function viewCocktail(id) {
-
-  const item =
-
-    cocktails.find(
-
-      cocktail =>
-
-        cocktail.id === id
-
-    );
-
-  if (!item) {
-
-    return;
-
-  }
-
-  document.getElementById(
-
-    "recipeTitle"
-
-  ).textContent =
-
-    item.name;
-
-  document.getElementById(
-
-    "recipeBody"
-
-  ).innerHTML = `
-
-    <span class="recipe-category">
-
-      N° ${escapeHtml(
-
-        String(
-
-          item.orderNumber
-
-        )
-
-      )}
-
-      ·
-
-      ${escapeHtml(
-
-        item.category
-
-      )}
-
-    </span>
-
-    ${
-
-      item.glass
-
-      ?
-
-      `
-
-      <div class="recipe-section">
-
-        <h3>
-
-          🥂 Verre
-
-        </h3>
-
-        <div class="recipe-text">
-
-          ${escapeHtml(
-
-            item.glass
-
-          )}
-
-        </div>
-
-      </div>
-
-      `
-
-      :
-
-      ""
-
-    }
-
-    <div class="recipe-section">
-
-      <h3>
-
-        🍋 Ingrédients
-
-      </h3>
-
-      <div class="recipe-text">
-
-        ${escapeHtml(
-
-          item.ingredients
-
-        )}
-
-      </div>
-
-    </div>
-
-    <div class="recipe-section">
-
-      <h3>
-
-        👨‍🍳 Préparation
-
-      </h3>
-
-      <div class="recipe-text">
-
-        ${escapeHtml(
-
-          item.preparation
-
-        )}
-
-      </div>
-
-    </div>
-
-    ${
-
-      item.garnish
-
-      ?
-
-      `
-
-      <div class="recipe-section">
-
-        <h3>
-
-          🌿 Décoration
-
-        </h3>
-
-        <div class="recipe-text">
-
-          ${escapeHtml(
-
-            item.garnish
-
-          )}
-
-        </div>
-
-      </div>
-
-      `
-
-      :
-
-      ""
-
-    }
-
-    ${
-
-      item.notes
-
-      ?
-
-      `
-
-      <div class="recipe-section">
-
-        <h3>
-
-          📝 Notes
-
-        </h3>
-
-        <div class="recipe-text">
-
-          ${escapeHtml(
-
-            item.notes
-
-          )}
-
-        </div>
-
-      </div>
-
-      `
-
-      :
-
-      ""
-
-    }
-
-  `;
-
-  openModal(
-
-    "recipeModal"
-
-  );
-
-}
-
-/* =====================================================
-
-   AJOUTER
-
-===================================================== */
-
-function openAddModal() {
+function openCocktailForm() {
 
   document
 
-    .getElementById(
+    .getElementById("formTitle")
 
-      "cocktailForm"
+    .textContent =
 
-    )
+      "Nouveau cocktail";
 
-    .reset();
+  document
 
-  document.getElementById(
+    .getElementById("cocktailId")
 
-    "editId"
+    .value = "";
 
-  ).value =
+  document
 
-    "";
+    .getElementById("cocktailName")
 
-  document.getElementById(
+    .value = "";
 
-    "editTitle"
+  document
 
-  ).textContent =
+    .getElementById("cocktailCategory")
 
-    "Ajouter une recette";
+    .value = "";
 
-  document.getElementById(
+  document
 
-    "deleteBtn"
+    .getElementById("cocktailIngredients")
 
-  ).style.display =
+    .value = "";
 
-    "none";
+  document
 
-  const maxNumber =
+    .getElementById("cocktailPreparation")
 
-    cocktails.reduce(
+    .value = "";
 
-      (max,item) =>
+  document
 
-        Math.max(
+    .getElementById("cocktailGlass")
 
-          max,
+    .value = "";
 
-          Number(
+  document
 
-            item.orderNumber
+    .getElementById("cocktailGarnish")
 
-          ) || 0
+    .value = "";
 
-        ),
+  document
 
-      0
+    .getElementById("cocktailNotes")
 
-    );
+    .value = "";
 
-  document.getElementById(
+  document
 
-    "orderNumber"
+    .getElementById("cocktailPhoto")
 
-  ).value =
+    .value = "";
 
-    maxNumber + 1;
+  currentPhoto = "";
 
-  refreshCategorySelectors();
+  updatePhotoPreview();
 
-  if (
+  document
 
-    categories.length > 0
+    .getElementById("cocktailModal")
 
-  ) {
+    .classList
 
-    document.getElementById(
-
-      "category"
-
-    ).value =
-
-      categories[0];
-
-  }
-
-  openModal(
-
-    "editModal"
-
-  );
+    .add("open");
 
 }
 
-/* =====================================================
+/* =========================================================
 
-   MODIFIER
+   FERMER FORMULAIRE
 
-===================================================== */
+========================================================= */
 
-function editCocktail(id) {
+function closeCocktailForm() {
 
-  const item =
+  document
 
-    cocktails.find(
+    .getElementById("cocktailModal")
 
-      cocktail =>
+    .classList
 
-        cocktail.id === id
+    .remove("open");
+
+}
+
+/* =========================================================
+
+   PHOTO
+
+========================================================= */
+
+function handlePhoto(event) {
+
+  const file =
+
+    event.target.files[0];
+
+  if (!file) return;
+
+  if (!file.type.startsWith("image/")) {
+
+    alert(
+
+      "Le fichier choisi n'est pas une image."
 
     );
-
-  if (!item) {
 
     return;
 
   }
 
-  refreshCategorySelectors();
+  compressImage(
 
-  document.getElementById(
+    file,
 
-    "editId"
+    1200,
 
-  ).value =
+    0.82
 
-    item.id;
+  )
 
-  document.getElementById(
+  .then(dataUrl => {
 
-    "editTitle"
+    currentPhoto = dataUrl;
 
-  ).textContent =
+    updatePhotoPreview();
 
-    "Modifier la recette";
+  })
 
-  document.getElementById(
+  .catch(error => {
 
-    "orderNumber"
+    console.error(error);
 
-  ).value =
+    alert(
 
-    item.orderNumber;
+      "Impossible de charger cette photo."
 
-  document.getElementById(
+    );
 
-    "name"
+  });
 
-  ).value =
+}
 
-    item.name;
+/* =========================================================
 
-  document.getElementById(
+   COMPRESSION PHOTO
 
-    "category"
+========================================================= */
 
-  ).value =
+function compressImage(
 
-    item.category;
+  file,
 
-  document.getElementById(
+  maxSize = 1200,
 
-    "glass"
+  quality = 0.82
 
-  ).value =
+) {
 
-    item.glass;
+  return new Promise(
 
-  document.getElementById(
+    (resolve, reject) => {
 
-    "garnish"
+      const reader =
 
-  ).value =
+        new FileReader();
 
-    item.garnish;
+      reader.onload = event => {
 
-  document.getElementById(
+        const img =
 
-    "ingredients"
+          new Image();
 
-  ).value =
+        img.onload = () => {
 
-    item.ingredients;
+          let width =
 
-  document.getElementById(
+            img.width;
 
-    "preparation"
+          let height =
 
-  ).value =
+            img.height;
 
-    item.preparation;
+          if (
 
-  document.getElementById(
+            width > maxSize ||
 
-    "notes"
+            height > maxSize
 
-  ).value =
+          ) {
 
-    item.notes;
+            const ratio =
 
-  document.getElementById(
+              Math.min(
 
-    "deleteBtn"
+                maxSize / width,
 
-  ).style.display =
+                maxSize / height
 
-    "block";
+              );
 
-  openModal(
+            width =
 
-    "editModal"
+              Math.round(
+
+                width * ratio
+
+              );
+
+            height =
+
+              Math.round(
+
+                height * ratio
+
+              );
+
+          }
+
+          const canvas =
+
+            document.createElement(
+
+              "canvas"
+
+            );
+
+          canvas.width =
+
+            width;
+
+          canvas.height =
+
+            height;
+
+          const ctx =
+
+            canvas.getContext("2d");
+
+          ctx.drawImage(
+
+            img,
+
+            0,
+
+            0,
+
+            width,
+
+            height
+
+          );
+
+          const dataUrl =
+
+            canvas.toDataURL(
+
+              "image/jpeg",
+
+              quality
+
+            );
+
+          resolve(dataUrl);
+
+        };
+
+        img.onerror =
+
+          reject;
+
+        img.src =
+
+          event.target.result;
+
+      };
+
+      reader.onerror =
+
+        reject;
+
+      reader.readAsDataURL(file);
+
+    }
 
   );
 
 }
 
-/* =====================================================
+/* =========================================================
 
-   ENREGISTRER
+   APERÇU PHOTO
 
-===================================================== */
+========================================================= */
 
-function saveCocktail(event) {
+function updatePhotoPreview() {
 
-  event.preventDefault();
-
-  const editId =
+  const preview =
 
     document.getElementById(
 
-      "editId"
+      "photoPreview"
 
-    ).value;
+    );
 
-  const item = {
+  if (currentPhoto) {
+
+    preview.src =
+
+      currentPhoto;
+
+    preview.style.display =
+
+      "block";
+
+  } else {
+
+    preview.removeAttribute(
+
+      "src"
+
+    );
+
+    preview.style.display =
+
+      "none";
+
+  }
+
+}
+
+/* =========================================================
+
+   SUPPRIMER PHOTO
+
+========================================================= */
+
+function removePhoto() {
+
+  currentPhoto = "";
+
+  document
+
+    .getElementById("cocktailPhoto")
+
+    .value = "";
+
+  updatePhotoPreview();
+
+}
+
+/* =========================================================
+
+   ENREGISTRER COCKTAIL
+
+========================================================= */
+
+function saveCocktail() {
+
+  const id =
+
+    document
+
+      .getElementById("cocktailId")
+
+      .value;
+
+  const name =
+
+    document
+
+      .getElementById("cocktailName")
+
+      .value
+
+      .trim();
+
+  if (!name) {
+
+    alert(
+
+      "Indique le nom du cocktail."
+
+    );
+
+    return;
+
+  }
+
+  const cocktail = {
 
     id:
 
-      editId ||
+      id ||
 
-      generateId(),
+      (
 
-    orderNumber:
+        Date.now().toString(36) +
 
-      Math.max(
+        Math.random()
 
-        1,
+          .toString(36)
 
-        Number(
-
-          document.getElementById(
-
-            "orderNumber"
-
-          ).value
-
-        ) || 1
+          .slice(2)
 
       ),
 
-    name:
-
-      document
-
-        .getElementById(
-
-          "name"
-
-        )
-
-        .value
-
-        .trim(),
+    name,
 
     category:
 
       document
 
-        .getElementById(
-
-          "category"
-
-        )
+        .getElementById("cocktailCategory")
 
         .value,
-
-    glass:
-
-      document
-
-        .getElementById(
-
-          "glass"
-
-        )
-
-        .value
-
-        .trim(),
-
-    garnish:
-
-      document
-
-        .getElementById(
-
-          "garnish"
-
-        )
-
-        .value
-
-        .trim(),
 
     ingredients:
 
       document
 
-        .getElementById(
-
-          "ingredients"
-
-        )
+        .getElementById("cocktailIngredients")
 
         .value
 
@@ -3512,11 +2020,27 @@ function saveCocktail(event) {
 
       document
 
-        .getElementById(
+        .getElementById("cocktailPreparation")
 
-          "preparation"
+        .value
 
-        )
+        .trim(),
+
+    glass:
+
+      document
+
+        .getElementById("cocktailGlass")
+
+        .value
+
+        .trim(),
+
+    garnish:
+
+      document
+
+        .getElementById("cocktailGarnish")
 
         .value
 
@@ -3526,581 +2050,545 @@ function saveCocktail(event) {
 
       document
 
-        .getElementById(
-
-          "notes"
-
-        )
+        .getElementById("cocktailNotes")
 
         .value
 
-        .trim()
+        .trim(),
+
+    photo:
+
+      currentPhoto,
+
+    updatedAt:
+
+      new Date()
+
+        .toISOString()
 
   };
 
-  if (editId) {
+  const index =
 
-    const index =
+    cocktails.findIndex(
 
-      cocktails.findIndex(
+      item =>
 
-        cocktail =>
+        item.id === id
 
-          cocktail.id === editId
+    );
 
-      );
+  if (index >= 0) {
 
-    if (
+    cocktails[index] =
 
-      index !== -1
+      cocktail;
 
-    ) {
-
-      cocktails[index] =
-
-        item;
-
-    }
-
-  }
-
-  else {
+  } else {
 
     cocktails.push(
 
-      item
+      cocktail
 
     );
 
   }
 
-  saveCocktailsStorage();
+  saveToStorage();
 
-  closeModal(
-
-    "editModal"
-
-  );
+  closeCocktailForm();
 
   renderCocktails();
 
 }
 
-/* =====================================================
+/* =========================================================
 
-   SUPPRIMER
+   MODIFIER
 
-===================================================== */
+========================================================= */
 
-function deleteCocktail() {
+function editCocktail(id) {
 
-  const id =
-
-    document.getElementById(
-
-      "editId"
-
-    ).value;
-
-  if (!id) {
-
-    return;
-
-  }
-
-  const item =
+  const cocktail =
 
     cocktails.find(
 
-      cocktail =>
+      item =>
 
-        cocktail.id === id
+        item.id === id
 
     );
 
-  if (!item) {
+  if (!cocktail) return;
 
-    return;
+  document
 
-  }
+    .getElementById("formTitle")
 
-  const confirmed =
+    .textContent =
+
+      "Modifier le cocktail";
+
+  document
+
+    .getElementById("cocktailId")
+
+    .value =
+
+      cocktail.id;
+
+  document
+
+    .getElementById("cocktailName")
+
+    .value =
+
+      cocktail.name || "";
+
+  document
+
+    .getElementById("cocktailCategory")
+
+    .value =
+
+      cocktail.category || "";
+
+  document
+
+    .getElementById("cocktailIngredients")
+
+    .value =
+
+      cocktail.ingredients || "";
+
+  document
+
+    .getElementById("cocktailPreparation")
+
+    .value =
+
+      cocktail.preparation || "";
+
+  document
+
+    .getElementById("cocktailGlass")
+
+    .value =
+
+      cocktail.glass || "";
+
+  document
+
+    .getElementById("cocktailGarnish")
+
+    .value =
+
+      cocktail.garnish || "";
+
+  document
+
+    .getElementById("cocktailNotes")
+
+    .value =
+
+      cocktail.notes || "";
+
+  document
+
+    .getElementById("cocktailPhoto")
+
+    .value = "";
+
+  currentPhoto =
+
+    cocktail.photo || "";
+
+  updatePhotoPreview();
+
+  document
+
+    .getElementById("cocktailModal")
+
+    .classList
+
+    .add("open");
+
+}
+
+/* =========================================================
+
+   SUPPRIMER COCKTAIL
+
+========================================================= */
+
+function deleteCocktail(id) {
+
+  const cocktail =
+
+    cocktails.find(
+
+      item =>
+
+        item.id === id
+
+    );
+
+  if (!cocktail) return;
+
+  const ok =
 
     confirm(
 
-      `Supprimer "${item.name}" ?`
+      `Supprimer définitivement "${cocktail.name}" ?`
 
     );
 
-  if (!confirmed) {
-
-    return;
-
-  }
+  if (!ok) return;
 
   cocktails =
 
     cocktails.filter(
 
-      cocktail =>
+      item =>
 
-        cocktail.id !== id
+        item.id !== id
 
     );
 
-  saveCocktailsStorage();
+  saveToStorage();
 
-  closeModal(
-
-    "editModal"
-
-  );
+  closeDetail();
 
   renderCocktails();
 
 }
 
-/* =====================================================
+/* =========================================================
 
-   CATEGORIES
+   FICHE DÉTAIL
 
-===================================================== */
+========================================================= */
 
-function openCategoryModal() {
+function showDetail(id) {
 
-  renderCategoryList();
+  const cocktail =
 
-  openModal(
+    cocktails.find(
 
-    "categoryModal"
+      item =>
 
-  );
-
-}
-
-function categoryEnter(event) {
-
-  if (
-
-    event.key === "Enter"
-
-  ) {
-
-    event.preventDefault();
-
-    addCategory();
-
-  }
-
-}
-
-function addCategory() {
-
-  const input =
-
-    document.getElementById(
-
-      "newCategoryInput"
+        item.id === id
 
     );
 
-  const value =
+  if (!cocktail) return;
 
-    input.value.trim();
+  document
 
-  if (!value) {
+    .getElementById("detailTitle")
 
-    return;
+    .textContent =
 
-  }
+      cocktail.name;
 
-  const exists =
+  const photoHtml =
 
-    categories.some(
+    cocktail.photo
 
-      category =>
+      ? `
 
-        category.toLowerCase() ===
+        <img
 
-        value.toLowerCase()
+          src="${cocktail.photo}"
 
-    );
+          class="detail-photo"
 
-  if (exists) {
+          alt=""
 
-    alert(
+        >
 
-      "Cette catégorie existe déjà."
+      `
 
-    );
+      : `
 
-    return;
+        <div class="detail-no-photo">
 
-  }
+          🍹
 
-  categories.push(
+        </div>
 
-    value
+      `;
 
-  );
+  document
 
-  categories.sort(
+    .getElementById("detailBody")
 
-    (a,b) =>
+    .innerHTML = `
 
-      a.localeCompare(
+      ${photoHtml}
 
-        b,
+      ${
 
-        "fr"
+        cocktail.category
 
-      )
+          ? `
 
-  );
+            <span class="badge">
 
-  saveCategoriesStorage();
+              ${escapeHtml(cocktail.category)}
 
-  input.value =
+            </span>
 
-    "";
+          `
 
-  refreshCategorySelectors();
+          : ""
 
-  renderCategoryList();
+      }
 
-  renderCocktails();
+      ${
 
-}
+        cocktail.ingredients
 
-function renderCategoryList() {
+          ? `
 
-  const list =
+            <div class="detail-section">
 
-    document.getElementById(
+              <h3>
 
-      "categoryList"
+                🧾 Ingrédients
 
-    );
+              </h3>
 
-  if (
+              <div class="detail-text">
 
-    categories.length === 0
+                ${escapeHtml(cocktail.ingredients)}
 
-  ) {
+              </div>
 
-    list.innerHTML = `
+            </div>
 
-      <div class="empty">
+          `
 
-        Aucune catégorie.
+          : ""
+
+      }
+
+      ${
+
+        cocktail.preparation
+
+          ? `
+
+            <div class="detail-section">
+
+              <h3>
+
+                🍹 Préparation
+
+              </h3>
+
+              <div class="detail-text">
+
+                ${escapeHtml(cocktail.preparation)}
+
+              </div>
+
+            </div>
+
+          `
+
+          : ""
+
+      }
+
+      ${
+
+        cocktail.glass
+
+          ? `
+
+            <div class="detail-section">
+
+              <h3>
+
+                🥃 Verrerie
+
+              </h3>
+
+              <div class="detail-text">
+
+                ${escapeHtml(cocktail.glass)}
+
+              </div>
+
+            </div>
+
+          `
+
+          : ""
+
+      }
+
+      ${
+
+        cocktail.garnish
+
+          ? `
+
+            <div class="detail-section">
+
+              <h3>
+
+                🍋 Garniture
+
+              </h3>
+
+              <div class="detail-text">
+
+                ${escapeHtml(cocktail.garnish)}
+
+              </div>
+
+            </div>
+
+          `
+
+          : ""
+
+      }
+
+      ${
+
+        cocktail.notes
+
+          ? `
+
+            <div class="detail-section">
+
+              <h3>
+
+                📝 Notes
+
+              </h3>
+
+              <div class="detail-text">
+
+                ${escapeHtml(cocktail.notes)}
+
+              </div>
+
+            </div>
+
+          `
+
+          : ""
+
+      }
+
+      <div class="modal-actions">
+
+        <button
+
+          class="btn btn-blue grow"
+
+          onclick="
+
+            closeDetail();
+
+            editCocktail('${cocktail.id}');
+
+          "
+
+        >
+
+          ✏️ Modifier
+
+        </button>
+
+        <button
+
+          class="btn btn-danger"
+
+          onclick="deleteCocktail('${cocktail.id}')"
+
+        >
+
+          🗑
+
+        </button>
 
       </div>
 
     `;
 
-    return;
+  document
 
-  }
+    .getElementById("detailModal")
 
-  list.innerHTML =
+    .classList
 
-    categories.map(
-
-      category => {
-
-        const count =
-
-          cocktails.filter(
-
-            item =>
-
-              item.category ===
-
-              category
-
-          ).length;
-
-        return `
-
-          <div class="category-row">
-
-            <strong>
-
-              ${escapeHtml(
-
-                category
-
-              )}
-
-            </strong>
-
-            ${
-
-              count > 0
-
-              ?
-
-              `
-
-              <span class="category-used">
-
-                ${count} recette(s)
-
-              </span>
-
-              `
-
-              :
-
-              `
-
-              <button
-
-                class="category-delete"
-
-                onclick="deleteCategory('${escapeJs(category)}')"
-
-              >
-
-                Supprimer
-
-              </button>
-
-              `
-
-            }
-
-          </div>
-
-        `;
-
-      }
-
-    )
-
-    .join("");
+    .add("open");
 
 }
 
-function deleteCategory(category) {
+/* =========================================================
 
-  const used =
+   FERMER DÉTAIL
 
-    cocktails.some(
+========================================================= */
 
-      item =>
+function closeDetail() {
 
-        item.category ===
+  document
 
-        category
+    .getElementById("detailModal")
 
-    );
+    .classList
 
-  if (used) {
-
-    alert(
-
-      "Cette catégorie est encore utilisée par une recette."
-
-    );
-
-    return;
-
-  }
-
-  const confirmed =
-
-    confirm(
-
-      `Supprimer la catégorie "${category}" ?`
-
-    );
-
-  if (!confirmed) {
-
-    return;
-
-  }
-
-  categories =
-
-    categories.filter(
-
-      item =>
-
-        item !== category
-
-    );
-
-  saveCategoriesStorage();
-
-  refreshCategorySelectors();
-
-  renderCategoryList();
-
-  renderCocktails();
+    .remove("open");
 
 }
 
-/* =====================================================
+/* =========================================================
 
-   OUVERTURE / FERMETURE MODAL
+   PROTECTION HTML
 
-===================================================== */
-
-function openModal(id) {
-
-  const modal =
-
-    document.getElementById(id);
-
-  modal.classList.add(
-
-    "show"
-
-  );
-
-  document.body.style.overflow =
-
-    "hidden";
-
-}
-
-function closeModal(id) {
-
-  const modal =
-
-    document.getElementById(id);
-
-  modal.classList.remove(
-
-    "show"
-
-  );
-
-  const anyOpen =
-
-    document.querySelector(
-
-      ".modal-overlay.show"
-
-    );
-
-  if (!anyOpen) {
-
-    document.body.style.overflow =
-
-      "";
-
-  }
-
-}
-
-function closeOnOverlay(
-
-  event,
-
-  id
-
-) {
-
-  if (
-
-    event.target.id === id
-
-  ) {
-
-    closeModal(id);
-
-  }
-
-}
-
-/* =====================================================
-
-   OUTILS
-
-===================================================== */
-
-function generateId() {
-
-  return (
-
-    "cocktail-" +
-
-    Date.now() +
-
-    "-" +
-
-    Math.random()
-
-      .toString(36)
-
-      .slice(2,8)
-
-  );
-
-}
+========================================================= */
 
 function escapeHtml(value) {
 
-  return String(
-
-    value ?? ""
-
-  )
-
-  .replaceAll(
-
-    "&",
-
-    "&amp;"
-
-  )
-
-  .replaceAll(
-
-    "<",
-
-    "&lt;"
-
-  )
-
-  .replaceAll(
-
-    ">",
-
-    "&gt;"
-
-  )
-
-  .replaceAll(
-
-    '"',
-
-    "&quot;"
-
-  )
-
-  .replaceAll(
-
-    "'",
-
-    "&#039;"
-
-  );
-
-}
-
-function escapeJs(value) {
-
-  return String(value)
+  return String(value || "")
 
     .replaceAll(
 
-      "\\",
+      "&",
 
-      "\\\\"
+      "&amp;"
+
+    )
+
+    .replaceAll(
+
+      "<",
+
+      "&lt;"
+
+    )
+
+    .replaceAll(
+
+      ">",
+
+      "&gt;"
+
+    )
+
+    .replaceAll(
+
+      '"',
+
+      "&quot;"
 
     )
 
@@ -4108,19 +2596,77 @@ function escapeJs(value) {
 
       "'",
 
-      "\\'"
+      "&#039;"
 
     );
 
 }
 
-/* =====================================================
+/* =========================================================
 
-   DEMARRAGE
+   FERMETURE MODALE EN CLIQUANT AUTOUR
 
-===================================================== */
+========================================================= */
 
-refreshCategorySelectors();
+document
+
+  .getElementById("cocktailModal")
+
+  .addEventListener(
+
+    "click",
+
+    event => {
+
+      if (
+
+        event.target.id ===
+
+        "cocktailModal"
+
+      ) {
+
+        closeCocktailForm();
+
+      }
+
+    }
+
+  );
+
+document
+
+  .getElementById("detailModal")
+
+  .addEventListener(
+
+    "click",
+
+    event => {
+
+      if (
+
+        event.target.id ===
+
+        "detailModal"
+
+      ) {
+
+        closeDetail();
+
+      }
+
+    }
+
+  );
+
+/* =========================================================
+
+   DÉMARRAGE
+
+========================================================= */
+
+loadCocktails();
 
 renderCocktails();
 
